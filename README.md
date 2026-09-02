@@ -48,7 +48,10 @@ lake build
 
 - `PerfectFunctionalRepresentations.lean`: project root import;
 - `PerfectFunctionalRepresentations/`: Lean source modules;
+- `docs/perfect-functional-representations-living-summary.md`: canonical
+  project context and paper-coverage status;
 - `docs/project-scope.md`: formalization and dependency boundaries;
+- `docs/project-log.md`: meaningful chronological decisions and milestones;
 - `AGENTS.md`: stable assistant operating rules.
 
 Local paper copies, textbooks, and working references are intentionally ignored
