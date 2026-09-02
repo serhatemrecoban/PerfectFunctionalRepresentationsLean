@@ -3,8 +3,10 @@
 ## Primary target
 
 The project formalizes the six-page ISIT version of *On Perfect Functional
-Representations* in Lean 4. The exact bibliographic record and paper files will
-be added or linked after the project lead supplies and verifies them.
+Representations* in Lean 4. Local manuscript copies used for planning remain
+outside the repository or in ignored reference directories and must not be
+committed. A verified bibliographic record and an appropriate public link may
+be added after the project lead confirms them.
 
 The extended version is a proof supplement: it may explain arguments omitted
 from the conference paper, but additional definitions, theorems, algorithms,

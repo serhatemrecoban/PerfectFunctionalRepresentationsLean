@@ -6,8 +6,8 @@ Representations*, developed as a downstream case study of
 
 ## Status
 
-This repository is in its private bootstrap phase. It does not yet claim a
-completed formalization of any theorem from the paper.
+This repository is in its private formalization-planning phase. It does not yet
+claim a completed formalization of any theorem from the paper.
 
 ## Scope
 

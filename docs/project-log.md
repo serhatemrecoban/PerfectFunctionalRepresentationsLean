@@ -33,3 +33,23 @@ reviews, and milestones. Current cross-thread status belongs in
 - Prepared an ignored structured inherited-context report and initialization
   prompt for the future PFR General Assistant. No paper theorem or Lean source
   was added or changed in this step.
+
+## 3. General Assistant initialization consistency audit - 2026-09-02
+
+- Reconciled the complete project documentation and inherited-context report
+  against both project commits, the clean local tree, GitHub repository state,
+  the six-page ISIT manuscript, only the relevant extended proof pages, and the
+  pinned LeanInfoTheory and mathlib sources.
+- Corrected stale phase and manuscript-location wording, made coverage and
+  provenance status labels explicit, recorded the exact two directions of the
+  Theorem 1 reachability statement, and clarified that the root import and
+  smoke-test module are the two current Lean sources.
+- Verified every LeanInfoTheory declaration named in the living summary under
+  its exact namespace. A targeted pinned-mathlib audit found no ready finite-PMF
+  coupling/total-variation API or theorem-level LP strong-duality layer.
+- Re-ran the 2,605-job default build, the focused channel/Markov build, compiled
+  declaration checks, and the strict placeholder scan successfully.
+- Identified support, zero-column, operation-indexing, coverage-granularity, and
+  LP-contract questions for the forthcoming formalization map. No theorem,
+  dependency, approved plan, or remote state was changed; the resulting
+  checkpoint is documentation-only.

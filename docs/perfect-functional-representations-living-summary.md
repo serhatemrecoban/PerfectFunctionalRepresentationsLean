@@ -22,9 +22,10 @@ six-page ISIT manuscript *On Perfect Functional Representations* by Serhat Emre
 Coban, Yanina Y. Shkel, and Emre Telatar. It is a downstream case study of
 LeanInfoTheory, not an extension of LeanInfoTheory's core library scope.
 
-**[Current] State.** The repository contains only a dependency smoke test. No
-paper definition, lemma, theorem, corollary, algorithm, or complexity claim is
-currently formalized. The initial source baseline is commit `57e132c`.
+**[Current] State.** The repository contains a lightweight root import and one
+dependency smoke-test example. No paper definition, lemma, theorem, corollary,
+algorithm, or complexity claim is currently formalized. The initial source
+baseline is commit `57e132c`.
 
 **[Current] Dependency.** `lakefile.toml` pins LeanInfoTheory `v0.1.0`; the
 manifest resolves it to
@@ -122,14 +123,20 @@ All rows are currently **planned**, not implemented.
 | PPS, PPM, VPS, VPM | Four operations on singular channel matrices | ISIT III-A | Planned |
 | Lemma 4 | Normalize an operation cascade to PPS, then VPS, then PPM | ISIT III-A; extended appendix | Planned |
 | Lemmas 5-6 | Preservation of representability/non-representability | ISIT III-B; extended appendix | Planned |
-| Theorem 1 | Constructive reachability characterization from/to the all-ones channel | ISIT III-B and appendix; extended proof | Planned |
+| Theorem 1 | Reach `1_k` from `M` via PPM/PPS/VPM; equivalently construct `M` from `1_k` via PPS/VPS/PPM | ISIT III-B and appendix; extended proof | Planned |
 | Pattern compression and incidence matrix `H` | Reduce a singular matrix to distinct patterns and partition weights | ISIT IV-A | Planned |
 | Theorem 2 | Primal LP optimum equals one iff perfectly representable | ISIT IV-A; extended appendix | Planned |
 | Corollary 1 | Dual LP characterization | ISIT IV-B | Planned |
-| Complexity remark | Size of LP and unresolved efficient-solvability question | ISIT IV-C | Documentation target only |
+| Complexity remark | Size of LP and unresolved efficient-solvability question | ISIT IV-C | Planned - documentation only |
 
 The formalization map must split any row whose representation or proof risk is
 too large for one implementation step.
+
+**[Uncertain] Coverage granularity.** The map must decide whether ISIT Remarks
+1-2 and Examples 2-7 become formal declarations, validation fixtures, or
+documentation-only coverage. It must also classify the introductory bound in
+Equation (4), whose logarithm convention is unit-sensitive. This does not bring
+the extended-only information-measure discussion into scope.
 
 ## 4. Source-of-Truth Hierarchy
 
@@ -148,12 +155,14 @@ zero-probability cases, or substitute a different theorem.
 ## 5. Available LeanInfoTheory v0.1.0 Foundations
 
 The following public declarations were verified in the pinned release and are
-likely foundations, not an exhaustive import prescription:
+likely foundations, not an exhaustive import prescription. The channel names
+are in namespace `PMF`; every other name in this list is in namespace
+`LeanInfoTheory.Shannon`:
 
 - channels: `PMF.deterministicChannel`, `PMF.channelComp`,
   `PMF.channelJoint`, and `PMF.channelExtension`;
 - information quantities: `entropyOf`, `condEntropyOf`, `mutualInfoOf`, and
-  `condMutualInfoOf` in namespace `LeanInfoTheory.Shannon`;
+  `condMutualInfoOf`;
 - semantics: `IsIndependent`, `IsIndependentOf`, `IsMarkovChain`, and
   `IsMarkovChainOf`;
 - deterministic and Markov facts:
@@ -167,6 +176,13 @@ likely foundations, not an exhaustive import prescription:
 functional-representation, perfect-representability, singular-channel,
 conditional-probability-matrix operation, finite-PMF total-variation, or LP
 API. These are not accidental bootstrap omissions in this repository.
+
+**[Current] Missing pinned-mathlib surfaces.** A targeted `v4.33.1` source
+audit found no ready finite-PMF coupling/total-variation API and no theorem-level
+linear-program structure or off-the-shelf LP strong-duality theorem.
+Signed/vector-measure total variation, geometric separation machinery, and
+tactic-internal simplex code do not by themselves settle the paper's required
+interfaces.
 
 Focused imports are preferred. The PFR root must not import heavy matrix or
 optimization machinery merely because a late paper theorem uses it.
@@ -194,6 +210,11 @@ matches the paper but operations change the output dimension. The plan must
 choose a type-safe heterogeneous representation or an invariant packaging; do
 not bury dimension changes under casts.
 
+**[Superseded] Earlier ownership framing.** An early readiness discussion
+treated PFR-specific notions as possible LeanInfoTheory prerequisites. The
+approved downstream ownership boundary replaces that framing; it is not an
+active upstream proposal.
+
 **[Decision] Upstream boundary.** Do not move paper-specific APIs into
 LeanInfoTheory for convenience. A missing general theorem may be proposed
 upstream only after a concrete downstream need and separate compatibility
@@ -204,22 +225,31 @@ upgrade.
 
 - The paper treats the support of `X` as the whole finite input alphabet;
   channel-level perfect representability is intended to be prior-independent.
-  Formal definitions must expose, not conceal, any full-support hypothesis.
+  Formal definitions must expose, not conceal, any full-support hypothesis. In
+  particular, the final equivalence in binary Lemma 3 fails for a degenerate
+  prior on a merely two-element ambient type.
 - Canonical vectors are finite dependent products in mathematical prose but
   ordinary function types in Lean; coordinate laws and extensionality need a
   clean API.
-- Split and merge operations change output types and reorder columns.
+- Split and merge operations change output types and reorder columns. The
+  manuscript also gives PPM/VPM the domain `S_{k,m+1}` while quantifying merge
+  indices only through `m`; the formal statement must resolve and record this
+  indexing inconsistency.
+- The paper takes the output alphabet to be the support of `Y`, whereas an
+  ambient matrix type may admit all-zero columns for which Definition 4 has no
+  value or pattern. The matrix boundary must state its nonzero-column contract.
 - PMF masses are `ENNReal`, while the paper's LP is real-valued. The conversion
   boundary and finiteness/nonnegativity obligations require deliberate design.
-- LeanInfoTheory has no dedicated finite total-variation API. Lemma 3 may need
-  a local definition and maximal-coupling development or a suitable mathlib
-  reuse found during planning.
+- Neither LeanInfoTheory nor pinned mathlib has a ready finite-PMF
+  total-variation/coupling API. Lemma 3 may need a local definition and
+  maximal-coupling development or an explicit bridge to general measure theory.
 - Conditional and Markov statements must handle null fibers consistently.
 - Theorem 1 mixes semantic existence with combinatorial matrix reachability;
   explicit equivalence and relabeling lemmas will likely dominate the proof.
-- Theorem 2 and Corollary 1 may require finite-dimensional optimization or LP
-  duality infrastructure whose exact mathlib support must be audited before a
-  statement is approved.
+- Theorem 2 and Corollary 1 require an explicit optimization contract. Because
+  pinned mathlib has no ready LP strong-duality layer, the plan must compare a
+  specialized separation/Farkas-style proof with a separately scoped local
+  duality development before either statement is approved.
 
 ## 8. Active and Deferred Work
 
@@ -244,10 +274,17 @@ upgrade.
 
 ## 9. Validation and Trust State
 
-At bootstrap, `lake build` completed successfully with 2,605 jobs against the
-pinned dependency. The strict project-source placeholder scan returned no
-matches. The only Lean source is a smoke test importing
-`LeanInfoTheory.Shannon.Entropy` and applying `entropy_nonneg`.
+At bootstrap and again during the 2026-09-02 initialization audit, `lake build`
+completed successfully with 2,605 jobs against the pinned dependency. The
+strict project-source placeholder scan returned no matches. The project Lean
+sources are a lightweight `PerfectFunctionalRepresentations.lean` root and
+`PerfectFunctionalRepresentations/Basic.lean`; the latter's only substantive
+content is a smoke-test example importing `LeanInfoTheory.Shannon.Entropy` and
+applying `entropy_nonneg`.
+
+The same audit built the focused channel and Markov modules and compiled
+`#check`s for all 17 declarations named in Section 5 under their exact
+namespaces.
 
 Future Lean steps must run focused owner/downstream builds. Milestones require
 the default build, placeholder scan, diff and import audit, documentation
@@ -256,12 +293,18 @@ explicitly before any release claim.
 
 ## 10. Reference and Provenance Boundary
 
-Local copies of both manuscripts were reviewed for this context seed but are
-ignored and must not be committed. The exact bibliographic record, publication
+Reviewed copies of both manuscripts live outside the repository. Any local
+working copies placed inside the project must remain under ignored reference
+directories and must not be committed.
+
+**[Uncertain] Release metadata.** The exact bibliographic record, publication
 status, rights holder, source-file header, and citation metadata remain subject
 to project-lead verification before public release.
 
-No external information-theory formalization repository was consulted or
-reused. Existing implementation code outside this repository is not a source
-unless the project lead explicitly authorizes consultation and attribution is
+**[History] Provenance attestation.** The inherited-context report records that
+no external information-theory formalization repository was consulted or
+reused before this audit; this audit likewise consulted none. Non-consultation
+is an attestation rather than a fact independently provable from Git history.
+Existing implementation code outside this repository is not a source unless
+the project lead explicitly authorizes consultation and attribution is
 recorded.
