@@ -1,0 +1,23 @@
+name = "PerfectFunctionalRepresentations"
+version = "0.1.0"
+description = "Lean formalization of On Perfect Functional Representations"
+keywords = ["math", "information-theory", "formal-verification"]
+license = "Apache-2.0"
+licenseFiles = ["LICENSE"]
+defaultTargets = ["PerfectFunctionalRepresentations"]
+fixedToolchain = true
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "LeanInfoTheory"
+git = "https://github.com/serhatemrecoban/LeanInfoTheory"
+rev = "v0.1.0"
+
+[[lean_lib]]
+name = "PerfectFunctionalRepresentations"

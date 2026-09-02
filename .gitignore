@@ -1,0 +1,11 @@
+/.lake/
+/tmp/
+/papers/
+/references/
+/info theory e-books/
+/.vscode/
+/.idea/
+__pycache__/
+*.pyc
+Thumbs.db
+.DS_Store
