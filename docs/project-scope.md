@@ -8,9 +8,34 @@ outside the repository or in ignored reference directories and must not be
 committed. A verified bibliographic record and an appropriate public link may
 be added after the project lead confirms them.
 
-The extended version is a proof supplement: it may explain arguments omitted
-from the conference paper, but additional definitions, theorems, algorithms,
-and claims from that version are outside scope unless explicitly approved.
+The six-page manuscript fixes the default inclusion boundary. The current
+extended draft is an evolving proof and clarification reference: it may give
+fuller arguments or make compressed ISIT passages more precise, but its
+additional definitions, theorems, algorithms, applications, and claims remain
+outside scope unless explicitly approved. Material reliance on the extended
+draft must identify the consulted version and be revisited when that draft
+changes.
+
+## Interpretation boundary
+
+The manuscripts are written for mathematically informed human readers. They
+may omit routine hypotheses, compress indexing or representation details, or
+describe effective quantities where a literal formal encoding has a larger
+ambient representation.
+
+Formalization must distinguish:
+
+1. the literal printed prose or displayed formulation;
+2. the mathematically intended reading in context, including clarification
+   supplied by the current extended draft; and
+3. the technically precise Lean statement and representation.
+
+Lean should express a correct version of the intended mathematical claim, not
+a knowingly false or ill-typed literal reading. Any material implicit
+assumption, repaired index, representation change, or mismatch must be
+recorded, with an explicit equivalence bridge when practical. If competing
+interpretations change truth, assumptions, conclusion, theorem strength, or
+scope, the project lead must choose between them.
 
 ## Paper boundary
 
@@ -24,16 +49,33 @@ The six-page target consists of:
 - the primal and dual linear-program characterizations; and
 - the examples and supporting lemmas needed by those results.
 
-The extended manuscript may be used for omitted proofs of these ISIT results.
-Its separate computational-complexity discussion, hypergraph-coloring claims,
-unproved auxiliary claim, broader information-measure discussion, and other
-extended-only material are not current formalization targets.
+The extended draft's separate algorithms, computational-complexity and
+NP-hardness results, hypergraph/coloring constructions, broader
+information-measure discussion, and other extended-only material are not
+current formalization targets.
 
 ## Library boundary
 
-This repository is a downstream case study of LeanInfoTheory. It uses the
-immutable `v0.1.0` release and inherits its finite-PMF, entropy, information
-measure, KL, channel, Markov, data-processing, and sufficiency conventions.
+Mathlib and LeanInfoTheory are the project's two primary libraries. Mathlib
+supplies the foundational mathematics and `PMF` infrastructure. The immutable
+LeanInfoTheory `v0.1.0` release supplies the finite-discrete
+information-theory layer, including its entropy, information-measure, KL,
+channel, Markov, data-processing, and sufficiency conventions.
+
+Search and reuse their pinned sources, documented APIs, and relevant examples
+before introducing a project-local definition, theorem, or helper. A failed
+name guess or external search is not evidence that a declaration is absent;
+candidate reuse must be verified in Lean. Existing library content must not be
+recreated merely for paper-facing naming convenience.
+
+LeanInfoTheory examples and non-stable internals may guide discovery but are
+not the maintained dependency surface. Production PFR modules should reuse the
+release's supported public imports and declarations.
+
+Rocq developments and other external information-theory formalizations are not
+routine dependency or implementation sources for this downstream case study.
+Consultation or reuse requires an explicit project-lead request and recorded
+provenance or attribution where applicable.
 
 Paper-specific notions, representations, constructions, and main results are
 owned here. A missing result belongs upstream only when it is useful beyond the
@@ -45,13 +87,17 @@ continue to compile against `v0.1.0`.
 
 - The Lake dependency uses the immutable `v0.1.0` tag.
 - `lake-manifest.json` records the resolved commit and is committed.
+- The current resolved baseline uses Lean and mathlib `v4.33.1`.
 - Upgrades occur in dedicated commits after release-note review and a complete
   project build.
 - The project does not track LeanInfoTheory `master` in maintained state.
 
 ## Current phase
 
-The repository has a validated dependency scaffold and is preparing its first
-formalization map. No paper theorem is represented as formalized until its
-statement, assumptions, source location, Lean ownership, and validation
-evidence are recorded. No theorem-development chunk is currently approved.
+The repository has a validated dependency scaffold. Revision 2 of its first
+formalization map was accepted by the project lead as the current adaptable,
+non-authorizing global reference after a second adversarial pass. Detailed
+planning for `PFR-C01` is next. No paper theorem is represented as formalized
+until its statement, assumptions, source location, Lean ownership, and
+validation evidence are recorded. No theorem-development chunk is currently
+approved.

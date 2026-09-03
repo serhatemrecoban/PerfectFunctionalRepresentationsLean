@@ -4,8 +4,8 @@ import LeanInfoTheory.Shannon.Entropy
 # Project bootstrap
 
 This module verifies that the project compiles against the pinned
-LeanInfoTheory release. Paper-specific definitions will be added only after the
-formalization plan is approved.
+LeanInfoTheory release. Paper-specific definitions will be added only under a
+project-lead-approved theorem-development chunk plan.
 -/
 
 namespace PerfectFunctionalRepresentations
