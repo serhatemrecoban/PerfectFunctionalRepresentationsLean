@@ -238,3 +238,83 @@ No numbered Future Work Notes have been opened yet.
   That task must resolve `DG-01`, verify the exact focused pinned APIs and
   manuscript contract, present stable proposed implementation steps, and stop
   for project-lead approval before editing theorem source.
+
+### 9. PFR-C01 detailed-plan Draft revision 2 under review - 2026-09-04
+
+- Prepared the non-authorizing PFR-C01 detailed-plan Draft revision 2 against
+  planning baseline `d9f63e713eab6f778132dc6888420adb442d0802`. The draft
+  remains outside `docs/plans/`; no chunk plan is approved and no
+  theorem-development chunk is active.
+- The first independent review confirmed Equations (1)-(3), their signs and
+  conditioning order, support-aware decoding, the Markov equivalence, and the
+  finite-value boundary, but found that the original proposal discussed and
+  deferred, rather than allocated as a formal target, the manuscript's
+  separate existential statement that `(X,Y)` is perfectly representable.
+- Draft revision 2 restores that source allocation by proposing a law-invariant
+  pair predicate witnessed by a finite triple-law extension whose `(X,Y)`
+  marginal is the fixed pair law. Its `Fin n` normalization adds no restriction
+  beyond C01's proposed finite-auxiliary information boundary and avoids
+  requiring the auxiliary to live on the original sample space.
+- Added immutable record `OM-053` for the source-to-Lean boundary that the
+  manuscripts do not literally finite-qualify the introductory existential
+  auxiliary, while C01 deliberately limits information/perfectness statements
+  to the finite-valued pinned API. Structural fixed-`Z` semantics remain
+  unrestricted, `Fin n` only normalizes the hidden finite witness,
+  infinite-alphabet information statements remain excluded in C01, and PFR-C02
+  canonicalization later supplies the finite-canonical-witness justification.
+  `OM-014` retains its distinct canonical support-enumeration meaning.
+- Focused pinned-API probes compiled the structural and information contracts,
+  the pair-extension encoding, and normalization of an arbitrary finite
+  auxiliary, including `ULift (Fin 2)`, using the supported focused import
+  `LeanInfoTheory.Shannon.SemanticBridge.Markov`.
+- A second independent review found the mathematical and pinned-API proposal
+  feasible and requested exact revision identity, approval-checkpoint
+  validation, execution-baseline bookkeeping, revision policy, status
+  reconciliation, concrete edge regressions, and minor contract-table
+  corrections before approval.
+- DG-01 remains open. No maintained Lean source, dependency, manifest,
+  toolchain, approved plan, or gate resolution changed; no implementation,
+  commit, or push was authorized.
+
+### 10. PFR-C01 plan approval and DG-01 resolution - 2026-09-04
+
+- The project lead explicitly approved PFR-C01 Draft revision 2 dated
+  2026-09-04 without changing its contract and separately authorized creation
+  and commit of the approval-documentation checkpoint. No push was authorized.
+- Created the tracked approved plan at
+  [`docs/plans/pfr-c01-semantic-functional-representations.md`](plans/pfr-c01-semantic-functional-representations.md).
+  PFR-C01 is `Approved`, not `Active`; no theorem implementation has begun.
+- The approved source anchors are the six-page ISIT final manuscript, Section I
+  through Equations (1)-(3), digest
+  `48963AA59485B2C33B1A1E6E7C6EAD2251FDDDD26BD3691B6FCFFE683E6ED1C4`,
+  and the corresponding introduction of current extended version 16, digest
+  `98636D4C9F0618EC08FCA84559572780F604F197FDA90D8D7C787B3624245B8F`.
+  Focused probes through the supported
+  `LeanInfoTheory.Shannon.SemanticBridge.Markov` import compiled the structural
+  carrier, Equations (1)-(3), fixed perfectness, pair-law extension, and
+  higher-universe finite-witness bridge.
+- Resolved `DG-01` with the layered law-level/common-base `...Of` carrier,
+  support-correct existential product decoder, separate structural and
+  information layers, distinct fixed-auxiliary and existential-pair notions,
+  and the law-invariant `Fin n` triple-law extension. Information/perfectness
+  statements use the finite-valued pinned API without a source-space
+  `Fintype` assumption; structural fixed-`Z` semantics remain unrestricted.
+- Adopted `OM-053` as the explicit source-to-Lean record for the finite-valued
+  information boundary and retained PFR-C02's later finite-canonical-witness
+  justification. The other fourteen decision gates remain open.
+- Reconciled the formalization map, living summary, README, roadmap, and
+  project-scope phase language. The full ignored draft handoff was removed
+  before validation so it cannot compete with the tracked plan.
+- The authorized, successfully validated approval-checkpoint commit containing
+  the plan is the execution baseline. S01 must verify that exact commit before
+  activation records its hash; substituting that same hash is preauthorized
+  bookkeeping, while any different checkpoint is a material revision.
+- The initial approval-checkpoint validation passed: the 2,605-job default
+  build, exact strict placeholder scan, diff whitespace checks, all 24 relative
+  links across eight maintained Markdown files, absolute-path/app-directive
+  audit, dependency-pin checks, complete diff/status and artifact audit, and
+  tracked-plan hygiene. An independent approval-transition audit found no
+  remaining blocker. The final staged items 1-8 closeout is run after this
+  evidence record, with no subsequent file edit before commit.
+- PFR-C01 remains `Approved`, not `Active`. No Lean theorem implementation
+  occurred; S01 is the next separately prompted step.

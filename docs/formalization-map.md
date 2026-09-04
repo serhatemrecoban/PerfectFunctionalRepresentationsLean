@@ -4,6 +4,7 @@
 **Created:** 2026-09-03
 **Last adversarial review:** 2026-09-03
 **Project-lead acceptance:** 2026-09-03
+**Last planning-status reconciliation:** 2026-09-04
 **Implementation baseline:** repository commit `0e28f7a`; Lean declarations
 are unchanged from the bootstrap implementation at `57e132c`
 **Dependency baseline:** LeanInfoTheory `v0.1.0` at
@@ -15,9 +16,9 @@ proposes coherent theorem-development chunks. It is more concrete than the
 [roadmap](roadmap.md) and less detailed than an approved file under
 `docs/plans/`.
 
-The map does **not** authorize implementation. Each chunk requires its own
-detailed plan and explicit project-lead approval. No chunk is approved or
-active at this revision.
+The map does **not** authorize implementation by itself. Each chunk requires
+its own detailed plan and explicit project-lead approval. `PFR-C01` now has an
+approved plan but is not active; no other chunk is approved or active.
 
 ## 1. How to Read and Maintain This Map
 
@@ -59,9 +60,11 @@ Candidate chunk statuses used here are:
 | Superseded | The allocation was replaced, with its successor recorded |
 | Deferred | Work remains discoverable but is outside the current implementation sequence |
 
-At revision 2, `PFR-C01` through `PFR-C16` are all **Mapped**. All decision
-gates in Section 5 are **Open**: their recommendations are planning hypotheses,
-not adopted theorem or representation contracts.
+At revision 2, `PFR-C01` is **Approved** under its detailed plan dated
+2026-09-04 but is not **Active**; `PFR-C02` through `PFR-C16` remain **Mapped**.
+`DG-01` is resolved, while the other fourteen decision gates in Section 5
+remain **Open**. Open-gate recommendations remain planning hypotheses, not
+adopted theorem or representation contracts.
 
 ## 2. Source and Interpretation Contract
 
@@ -205,7 +208,7 @@ chunk plan supplies its exact contract.
 
 | Gate | State | Question and current recommendation | Resolution owner |
 | --- | --- | --- | --- |
-| `DG-01` | Open | Choose the pair-level carrier: a common base PMF with random-variable maps, or an equivalent joint-law package with proved transport. Define structural functional representation using `IsIndependentOf` plus existence of a support-correct decoder, separately from entropy equalities. The zero-conditional-entropy theorem supplies some decoder; it does not validate an arbitrary preselected bundled decoder. State Equation (1)-(3) results only under the finite-valued hypotheses required by LeanInfoTheory, including a finite auxiliary alphabet. | `PFR-C01` |
+| `DG-01` | Resolved — 2026-09-04 | Use a layered carrier: a law-level predicate on `q : PMF (alpha × beta × gamma)`, a common-base `...Of` wrapper defined by the full triple pushforward, and a separate law-invariant existential predicate for a pair law. Structural functional representation means independence of the first/third marginal plus existence of a product decoder correct on support, independently of entropy equalities. Fixed-auxiliary perfectness remains distinct from pair perfect representability; the latter is witnessed by `∃ n, ∃ q : PMF (alpha × beta × Fin n)`, with the required pair marginal and perfectness. Equations (1)-(3) and perfectness use exactly the finite-valued hypotheses required by pinned LeanInfoTheory, with no `[Fintype omega]`. Structural fixed-`Z` semantics remain unrestricted; `OM-053` records the deliberate finite-information source interpretation and PFR-C02's later canonicalization obligation. | `PFR-C01` |
 | `DG-02` | Open | Represent a marginally canonical auxiliary by a law `q : PMF (alpha -> beta)` whose coordinate pushforwards equal channel rows, but do not mistake those marginals for a canonical representation of an already fixed pair. The pair contract must retain `Y = W_X` on source support and the correct joint law; the channel contract covers every input. | `PFR-C02` |
 | `DG-03` | Open | Give channel-level perfect representability a prior-free factorization contract. The preferred witness is one posterior `V : beta -> PMF (alpha -> beta)` with `q.map (fun w => (w x, w)) = PMF.channelJoint (kappa x) V` for every `x`. Prove its connection to full-support-prior Markov statements and explain arbitrary null-output fibers. The pinned channel-extension equivalence factors one joint law only; `PFR-C02` must prove the full-support cancellation that yields a single common `V` across all inputs. | `PFR-C02` |
 | `DG-04` | Open | Separate intrinsic channel cardinality from pair support. For the binary-input channel clause, prefer `Fintype.card alpha = 2`; for Lemma 3, use a full-support input PMF or transport to its support subtype. For binary output, use the channel's active-output union or prove invariance under adding/removing globally zero outputs. Use checked relabeling to expose `Fin 2` constructions. | `PFR-C03` and `PFR-C05` |
@@ -298,20 +301,32 @@ appropriate only for dependency-independent chunks and coordinated files.
 
 ### PFR-C01 — Semantic Functional Representations
 
-**Anchors:** ISIT Section I, Equations (1)-(3).
+**Status:** Approved — Draft revision 2 approved 2026-09-04; not active.
+**Approved plan:**
+[PFR-C01 semantic functional representations](plans/pfr-c01-semantic-functional-representations.md).
+**Planning baseline:** repository commit
+`d9f63e713eab6f778132dc6888420adb442d0802`.
+**Execution baseline:** the authorized approval-checkpoint commit containing
+the approved plan; S01 records its verified hash.
+**Anchors:** ISIT Section I, including the unnumbered distinction between a
+specified perfect auxiliary and a perfectly representable pair, and Equations
+(1)-(3).
 **Prerequisites:** pinned `PMF` and LeanInfoTheory semantic bridge.
 **Risk:** medium.
-**Candidate module:** `Semantics/FunctionalRepresentation.lean`.
+**Approved module:** `Semantics/FunctionalRepresentation.lean`.
 
-This chunk should:
+The approved chunk will:
 
 - choose and document the common probability-space or joint-law carrier used
   for pair-level random variables, with transport lemmas sufficient to avoid
   dependence on an accidental sample-space presentation;
 - define a support-aware semantic functional representation of `(X,Y)` by
   an auxiliary `Z` and existence of a decoder correct almost surely;
-- define the pair-level notion of a perfect functional representation and
-  prove its equality, zero-CMI, and Markov formulations equivalent;
+- distinguish a specified auxiliary `Z` being a perfect functional
+  representation from the pair `(X,Y)` being perfectly representable via some
+  finite auxiliary on an extension of the pair law, rather than only on the
+  original source space;
+- prove the fixed-`Z` equality, zero-CMI, and Markov formulations equivalent;
 - connect independence and deterministic decoding to the two entropy/mutual
   information zero conditions in Equation (1);
 - formalize the exact identity in Equation (2);
@@ -942,6 +957,7 @@ fixtures, representation departures, or extended-only work.
 | `OM-050` | Examples 2-5 omit a hypothesis on their shared parameter `beta` | Treat the suite as an active-column fixture only under the implicit condition `0 < beta < 1`. At an endpoint, some displayed columns are zero and the value/pattern and operation hypotheses used in the prose no longer apply. `PFR-C07` must state the assumption. |
 | `OM-051` | Prose saying PPS/PPM and VPS/VPM “are inverses,” and calling cascades “equivalent” | Do not encode global mutually inverse functions: merges forget the split ratio or mask. Prove the exact witness-parameterized recovery directions needed by Lemma 6, with remembered parameters and endpoint equality or explicit output reindexing. `PFR-C07` and `PFR-C08` own these contracts. |
 | `OM-052` | Multiway-operation shorthand in Theorem 1 and the partition-weight construction | Primitive PPS and VPS operations are binary, while the prose sometimes creates an arbitrary weighted family or splits along an entire partition “by” one named operation. `PFR-C10`/`PFR-C11` must realize these as finite cascades, restrict zero weights and empty fibers, handle singleton and value-one cases, and prove the resulting endpoint. |
+| `OM-053` | The introductory existential auxiliary for perfect representability is not literally finite-qualified | C01 keeps structural fixed-`Z` semantics unrestricted but deliberately places its information/perfectness API and existential pair witness at the finite-valued boundary required by the pinned LeanInfoTheory contracts. `Fin n` only universe-normalizes the hidden finite witness; C01 excludes infinite-alphabet information statements. The 2026-09-04 `DG-01` resolution adopts this source-to-Lean interpretation. PFR-C02 canonicalization later supplies the mathematical justification that finite canonical witnesses suffice. |
 
 The register is a living audit. A newly noticed omission must receive a new
 entry or be explicitly subsumed by an existing entry. Do not renumber entries.
@@ -977,10 +993,12 @@ Every detailed plan should specialize, not weaken, these duties:
 
 ## 11. Planning Order
 
-The next action is to draft the detailed plan for `PFR-C01` only. That plan
-should make `DG-01` precise, probe the focused LeanInfoTheory imports, assign
-stable implementation steps, and stop for project-lead approval before any
-Lean implementation.
+PFR-C01 Draft revision 2 was approved on 2026-09-04 and `DG-01` is resolved.
+The authorized approval-checkpoint commit containing the approved plan is the
+execution baseline. The next permitted action is `PFR-C01-S01`: verify and
+record that commit's hash, change the chunk from `Approved` to `Active`,
+implement only S01, validate, report, and stop. No later step may begin
+automatically.
 
 Before `PFR-C02` is planned, review what `PFR-C01` actually exposed. Hold the
 Section 6 checkpoints before approving `PFR-C06`, `PFR-C11`/`PFR-C12`,

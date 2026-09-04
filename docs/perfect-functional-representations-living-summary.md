@@ -54,10 +54,12 @@ statements downstream. Canonical information units remain nats.
 
 **[Current] Active work.** Project bootstrap, initialization audit, and
 document-role reconciliation are complete. The project lead accepted revision
-2 of the formalization map as the current adaptable global reference after its
-second adversarial review. The next activity is detailed planning for
-`PFR-C01`; the map approves no chunk, and no theorem-development chunk or
-detailed chunk plan is approved.
+2 of the formalization map as the current adaptable global reference.
+PFR-C01 detailed-plan Draft revision 2 was approved on 2026-09-04, and DG-01
+was resolved according to it. The authorized approval-checkpoint commit
+containing the plan is the execution baseline. PFR-C01 is approved but not
+active, and no theorem implementation has begun; the next permitted action is
+the separately prompted S01 activation and implementation.
 
 Read next by task:
 
@@ -73,7 +75,7 @@ Read next by task:
 
 | Field | Value |
 | --- | --- |
-| Last reconciled | 2026-09-03 |
+| Last reconciled | 2026-09-04 |
 | Repository | `serhatemrecoban/PerfectFunctionalRepresentationsLean`, private |
 | Branch | `master` |
 | Initial source baseline | `57e132c` |
@@ -81,7 +83,8 @@ Read next by task:
 | Lean/mathlib baseline | `v4.33.1` |
 | Paper coverage | zero paper declarations implemented |
 | Formalization map | accepted revision 2; current adaptable global reference; non-authorizing |
-| Active chunk | none |
+| PFR-C01 detailed plan | [Approved Draft revision 2 dated 2026-09-04](plans/pfr-c01-semantic-functional-representations.md); status `Approved`, not `Active` |
+| Active chunk | none; PFR-C01 is approved and awaits S01 activation |
 | Numbered Future Work Notes | none |
 | Website | none; no approved website plan |
 | Validation baseline | default build passed; strict project-source placeholder scan passed |
@@ -98,8 +101,8 @@ The maintained document roles are:
 - `docs/roadmap.md`: where the project may go, without authorizing work;
 - `docs/formalization-map.md`: current global source allocation, candidate
   chunks, dependencies, decision gates, and internal omission register; and
-- future approved files under `docs/plans/`: what the project lead has
-  authorized to do next.
+- approved files under `docs/plans/`: what the project lead has authorized to
+  do next.
 
 Any task that materially changes current status, coverage, decisions, risks,
 architecture, map dependencies or omission dispositions, dependency or
@@ -155,8 +158,9 @@ approved; theorem-level equivalence is the primary paper claim.
 ## 3. Paper Coverage Matrix
 
 These rows record accepted coverage dispositions. Most are Lean targets; a row
-marked documentation-only is intentionally not a theorem target. No row is
-implemented work or an approved chunk.
+marked documentation-only is intentionally not a theorem target. The rows are
+not execution authority: PFR-C01 approval comes only from its tracked plan,
+and its covered statements remain unimplemented.
 
 | ISIT item | Mathematical role | Proof source | Status |
 | --- | --- | --- | --- |
@@ -279,6 +283,17 @@ finite types for semantic statements when practical, right-associated products,
 and LeanInfoTheory's nats convention. Make channel-to-coordinate-matrix
 translation explicit.
 
+**[Decision] PFR-C01 semantic contract.** DG-01 was resolved on 2026-09-04 by
+the [approved PFR-C01 plan](plans/pfr-c01-semantic-functional-representations.md).
+Use a law-level triple predicate with a full-pushforward common-base `...Of`
+wrapper. Structural representation is independence plus existence of a
+support-correct product decoder and has no finiteness requirement. Keep
+fixed-`Z` perfectness distinct from law-invariant existential pair perfectness;
+normalize the latter's hidden finite auxiliary as `Fin n` on an enlarged
+triple-law space. Information/perfectness statements use the pinned
+finite-valued API, with no source-space `Fintype` assumption; `OM-053` records
+this source-to-Lean boundary and PFR-C02's later canonicalization obligation.
+
 **[Provisional] Canonical representation.** A canonical random vector over an
 input alphabet `alpha` naturally has value type `alpha -> beta`; its law may be
 represented as `PMF (alpha -> beta)`, with coordinate pushforwards matching the
@@ -287,11 +302,11 @@ factorization for channel-level perfection, together with a proved
 full-support-prior Markov bridge. This still requires an approved chunk
 contract, especially for null output fibers and zero-prior inputs.
 
-**[Provisional] Layering.** Draft map revision 2 proposes sixteen chunks across
+**[Provisional] Layering.** Map revision 2 proposes sixteen chunks across
 semantic representation, finite coupling, the active finite-matrix boundary,
 typed operations and reachability, pattern/incidence systems, primal/dual
-characterizations, and final trust closure. The allocation is reviewable and
-adaptable; no chunk or module name is approved.
+characterizations, and final trust closure. The allocation remains adaptable;
+outside approved PFR-C01, no chunk or module name is approved.
 
 **[Provisional] Matrix boundary.** A direct `Matrix (Fin k) (Fin m)` encoding
 matches the paper but operations change the output dimension. The draft map's
@@ -326,11 +341,13 @@ upgrade.
   clean API. A bare coupling law with the right coordinate marginals is not by
   itself a canonical representation of a fixed pair: the joint decoder
   relation `Y = W_X` must remain explicit.
-- The manuscript fixes finite `X` and `Y` but does not separately emphasize
-  every auxiliary-alphabet hypothesis. Structural representation predicates
-  should be separated from information-valued statements, whose use of the
-  pinned LeanInfoTheory API requires the appropriate finite-valued auxiliary
-  contract.
+- The manuscript fixes finite `X` and `Y` but does not literally
+  finite-qualify every auxiliary alphabet. The approved PFR-C01 contract leaves
+  structural fixed-`Z` semantics unrestricted, places information/perfectness
+  statements at the finite-valued boundary required by the pinned API, and
+  uses `Fin n` only to normalize the hidden finite pair witness. `OM-053`
+  records this source-to-Lean interpretation; implementation must preserve it,
+  and PFR-C02 later supplies the finite-canonical-witness justification.
 - Split and merge operations change output types and reorder columns. The ISIT
   text gives PPM/VPM the domain `S_{k,m+1}` while quantifying merge indices only
   through `m`; the current extended draft clarifies that both source indices
@@ -388,10 +405,10 @@ upgrade.
 
 | Register | Current normalized status |
 | --- | --- |
-| Current activity | Prepare the detailed `PFR-C01` plan for project-lead review |
-| Formalization map | accepted revision 2 in `docs/formalization-map.md`; sixteen mapped candidate chunks, fifteen open decision gates, fifty-two internal omission/disposition records, no chunk approved |
-| Approved chunk plan | None |
-| Active theorem-development chunk | None |
+| Current activity | PFR-C01 is approved and awaits S01 verification of the approval-checkpoint hash, activation, and S01-only implementation |
+| Formalization map | accepted revision 2 in `docs/formalization-map.md`; PFR-C01 is approved but not active, PFR-C02 through PFR-C16 remain mapped, DG-01 is resolved, fourteen decision gates remain open, fifty-three omission/disposition records |
+| Approved chunk plan | [PFR-C01 semantic functional representations](plans/pfr-c01-semantic-functional-representations.md), Draft revision 2 approved 2026-09-04 |
+| Active theorem-development chunk | None; PFR-C01 is `Approved`, not `Active` |
 | Detailed numbered Future Work Notes | None opened; the authoritative register is in `docs/project-log.md` |
 | High-level direction | Maintained in `docs/roadmap.md` |
 | Website | Deferred roadmap direction only; no website or approved website plan |
@@ -439,6 +456,18 @@ separation, and coordinate-duality declarations used as planning evidence.
 Markdown links, manuscript digests, dependency revisions, and document
 whitespace were rechecked. These validations support planning feasibility;
 they do not approve a chunk or certify any paper theorem as implemented.
+
+On 2026-09-04, focused PFR-C01 planning probes verified the proposed
+support-aware structural layer, Equations (1)-(3), their CMI and Markov
+orientation, the fixed-auxiliary perfectness layer, and the `Fin n`
+pair-extension encoding. The finite-witness bridge was also compiled for the
+genuinely higher-universe auxiliary `ULift (Fin 2)`. These checks establish
+planning feasibility. The project lead subsequently approved Draft revision 2
+and resolved DG-01 on 2026-09-04. The approval-checkpoint build, placeholder,
+link, path/directive, dependency-pin, diff/status, artifact, and plan-hygiene
+checks passed, as did an independent approval-transition audit. This validates
+the planning and authorization checkpoint only; it does not certify a paper
+theorem as implemented.
 
 Future Lean steps must run focused owner/downstream builds. Milestones require
 the default build, placeholder scan, diff and import audit, documentation

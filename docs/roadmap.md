@@ -9,17 +9,20 @@ belongs in [project scope](project-scope.md), the current dependency-aware
 allocation belongs in the [formalization map](formalization-map.md), and only
 an explicitly approved chunk plan may authorize implementation.
 
-## Now: detailed planning for PFR-C01
+## Now: prepare approved PFR-C01 for S01
 
-Revision 2 of the global formalization map passed a second adversarial review
-and was accepted by the project lead as the current adaptable reference. The
-next activity is to prepare the detailed `PFR-C01` plan for separate approval;
-no theorem implementation is authorized yet. The map:
+Revision 2 of the global formalization map remains the project-lead-accepted,
+adaptable reference. The
+[PFR-C01 detailed plan](plans/pfr-c01-semantic-functional-representations.md),
+Draft revision 2 dated 2026-09-04, is approved, and DG-01 is resolved. PFR-C01
+is not active. The authorized approval-checkpoint commit containing the plan is
+the execution baseline; S01 must verify and record its hash before activation
+and implementation. No theorem implementation has begun. The map:
 
 - reconciles each in-scope ISIT statement with the current extended proof and
   clarification draft;
-- frames recommended semantic contracts and the decisions still required for
-  functional representations, canonical representations, perfect
+- records the approved PFR-C01 semantic contract and the decisions still
+  required for canonical representations, channel-level perfect
   representability, priors, support, and null fibers;
 - identifies candidate representations and decision gates for finite matrices
   and output-changing operations;
@@ -35,9 +38,9 @@ no theorem implementation is authorized yet. The map:
   distinction, value-one VPS question, and operation shorthand as open design
   obligations rather than silent assumptions.
 
-The map remains adaptable as implementation exposes better interfaces. A
-separate approved chunk plan is still required before production theorem work
-begins.
+The map remains adaptable as implementation exposes better interfaces. The
+approved PFR-C01 plan controls C01 execution after its checkpoint; every other
+chunk still requires a separate approved plan before production theorem work.
 
 ## Expected mathematical workstreams
 

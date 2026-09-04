@@ -10,7 +10,9 @@ This repository is in its private formalization-planning phase. It does not yet
 claim a completed formalization of any theorem from the paper. A
 [current formalization map](docs/formalization-map.md) allocates the paper to
 dependency-aware candidate chunks. Its acceptance as the adaptable global
-reference does not approve any chunk or theorem implementation.
+reference does not itself approve theorem implementation. The
+[PFR-C01 detailed plan](docs/plans/pfr-c01-semantic-functional-representations.md)
+is approved but not active; no paper theorem is yet claimed complete.
 
 ## Scope
 
@@ -69,10 +71,12 @@ lake build
 - [formalization map](docs/formalization-map.md): the adaptable global source
   allocation, chunk dependencies, decision gates, and internal omission
   register; and
-- future `docs/plans/` files: what the project lead has explicitly approved to
-  do next.
+- [approved PFR-C01 plan](docs/plans/pfr-c01-semantic-functional-representations.md)
+  and future `docs/plans/` files: what the project lead has explicitly approved
+  to do next.
 
-No theorem-development chunk or chunk plan is currently approved.
+PFR-C01 is approved but not active. No theorem-development implementation has
+begun.
 
 Local paper copies, textbooks, and working references are intentionally ignored
 and must not be committed.

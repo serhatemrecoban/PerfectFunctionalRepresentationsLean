@@ -96,8 +96,10 @@ continue to compile against `v0.1.0`.
 
 The repository has a validated dependency scaffold. Revision 2 of its first
 formalization map was accepted by the project lead as the current adaptable,
-non-authorizing global reference after a second adversarial pass. Detailed
-planning for `PFR-C01` is next. No paper theorem is represented as formalized
-until its statement, assumptions, source location, Lean ownership, and
-validation evidence are recorded. No theorem-development chunk is currently
-approved.
+non-authorizing global reference after a second adversarial pass. PFR-C01
+detailed-plan Draft revision 2 was approved on 2026-09-04, and DG-01 was
+resolved according to it. The authorized approval-checkpoint commit containing
+the tracked plan is the execution baseline. PFR-C01 is `Approved`, not
+`Active`; S01 must verify and record that commit's hash before implementation.
+No paper theorem is represented as formalized until its statement, assumptions,
+source location, Lean ownership, and validation evidence are recorded.
