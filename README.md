@@ -6,13 +6,24 @@ Representations*, developed as a downstream case study of
 
 ## Status
 
-This repository is in its private formalization-planning phase. It does not yet
-claim a completed formalization of any theorem from the paper. A
+This repository is in its initial theorem-development phase. A
 [current formalization map](docs/formalization-map.md) allocates the paper to
 dependency-aware candidate chunks. Its acceptance as the adaptable global
-reference does not itself approve theorem implementation. The
-[PFR-C01 detailed plan](docs/plans/pfr-c01-semantic-functional-representations.md)
-is approved but not active; no paper theorem is yet claimed complete.
+reference does not itself approve theorem implementation. PFR-C01 is complete
+under its
+[approved detailed plan](docs/plans/pfr-c01-semantic-functional-representations.md),
+following independent S08 validation and closeout on 2026-09-07. S01-S06
+implemented the support-aware structural
+functional-representation predicates, their common-base expansion theorem,
+full-triple-law transport, independence under deterministic postprocessing,
+the Equation (1) equivalence, the unconditional Equation (2) decomposition,
+and Equation (3) with its bound and equality/Markov criteria. The information
+results use finite-valued variables on an unrestricted source space; all four
+Equation (3) consequences require a functional representation. Fixed-auxiliary
+perfectness has equality, zero-CMI, Markov, and full-law transport interfaces.
+The separate existential pair predicate permits a new finite triple-law
+extension, depends only on the pair law, and accepts any finite perfect
+auxiliary through the universe-safe `Fin n` bridge.
 
 ## Scope
 
@@ -49,17 +60,32 @@ silently track LeanInfoTheory `master` or a machine-local checkout.
 
 ## Build
 
-The pinned Lean toolchain is Lean `v4.33.1`.
+The pinned Lean toolchain is Lean `v4.33.1`. Build the mathematical root and
+the separately maintained regression module:
 
 ```powershell
-lake update
 lake build
+lake build PerfectFunctionalRepresentations.Tests.Semantics.FunctionalRepresentation
 ```
+
+The root exposes the production semantic API but does not import regressions;
+the second command is required to validate them.
 
 ## Repository structure
 
-- `PerfectFunctionalRepresentations.lean`: project root import;
+- `PerfectFunctionalRepresentations.lean`: lightweight project root exposing
+  the dependency smoke test and production semantic API, without regressions;
 - `PerfectFunctionalRepresentations/`: Lean source modules;
+- `PerfectFunctionalRepresentations/Semantics/FunctionalRepresentation.lean`:
+  the separately importable 23-declaration structural, transport, Equations
+  (1)-(3), and fixed/existential perfectness API from PFR-C01-S01 through S06;
+- `PerfectFunctionalRepresentations/Tests/Semantics/FunctionalRepresentation.lean`:
+  support-sensitive, polymorphic, transport, postprocessing, and Equations
+  (1)-(3) regressions, including infinite sources, a bad preselected decoder,
+  distinct-value-type orientation checks, null conditioning fibers,
+  deterministic and singleton perfectness, an XOR fixed-auxiliary negative
+  case, separate-space witnesses, higher universes, and impossible `Fin 0`
+  extensions;
 - [`AGENTS.md`](AGENTS.md): how assistants work;
 - [living summary](docs/perfect-functional-representations-living-summary.md):
   where the project currently stands;
@@ -75,8 +101,12 @@ lake build
   and future `docs/plans/` files: what the project lead has explicitly approved
   to do next.
 
-PFR-C01 is approved but not active. No theorem-development implementation has
-begun.
+PFR-C01 is `Complete`: S01-S08 are validated, including the independent
+chunk-wide source, API, regression, manuscript, and build review. The root
+exposes the semantic module while regressions remain separately built.
+PFR-C02 detailed planning is the next eligible activity, but has not started
+and is not authorized by C01 completion. See the
+[S08 completion record](docs/project-log.md#31-pfr-c01-s08-independent-validation-and-chunk-completion---2026-09-07).
 
 Local paper copies, textbooks, and working references are intentionally ignored
 and must not be committed.

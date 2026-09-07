@@ -9,15 +9,35 @@ belongs in [project scope](project-scope.md), the current dependency-aware
 allocation belongs in the [formalization map](formalization-map.md), and only
 an explicitly approved chunk plan may authorize implementation.
 
-## Now: prepare approved PFR-C01 for S01
+## Next: PFR-C02 detailed planning after completed PFR-C01
 
 Revision 2 of the global formalization map remains the project-lead-accepted,
 adaptable reference. The
 [PFR-C01 detailed plan](plans/pfr-c01-semantic-functional-representations.md),
 Draft revision 2 dated 2026-09-04, is approved, and DG-01 is resolved. PFR-C01
-is not active. The authorized approval-checkpoint commit containing the plan is
-the execution baseline; S01 must verify and record its hash before activation
-and implementation. No theorem implementation has begun. The map:
+completed S01-S08 against execution baseline
+`5a9c7ca999639afe26c7bf235b4d044e0341b55a`. S01's support-aware structural
+predicates and common-base expansion theorem are implemented and validated.
+S02's full-triple-law transport and deterministic-postprocessing independence
+theorem were authorized and validated on 2026-09-05. S03's Equation (1)
+equivalence was separately authorized and validated on that date, at the
+finite-value boundary with no finite-source assumption. S04's unconditional
+Equation (2) decomposition was separately authorized and validated on
+2026-09-06 under that same finite-value boundary, without a representation
+premise. S05 was separately authorized on 2026-09-06 and completed and
+validated on 2026-09-07: Equation (3), its bound, and its equality/Markov
+consequences retain the functional-representation premise and the same
+finite-value, unrestricted-source boundary. S06 was explicitly authorized and
+validated on 2026-09-07. It supplies fixed-auxiliary perfectness and the
+law-invariant existential pair property, including a finite extension and
+arbitrary-finite, universe-safe witness bridge. S07 integration was explicitly
+authorized and internally validated on 2026-09-07. S08 was explicitly
+authorized and independently validated that day; completion reconciliation
+passed, and C01 is `Complete`.
+The lightweight root now exposes this semantic API, while regressions remain
+separately built. C02 is ready for detailed planning, which requires a new
+project-lead prompt; implementation additionally requires a separately
+approved detailed plan. No C02 work has started. The map:
 
 - reconciles each in-scope ISIT statement with the current extended proof and
   clarification draft;
@@ -39,8 +59,8 @@ and implementation. No theorem implementation has begun. The map:
   obligations rather than silent assumptions.
 
 The map remains adaptable as implementation exposes better interfaces. The
-approved PFR-C01 plan controls C01 execution after its checkpoint; every other
-chunk still requires a separate approved plan before production theorem work.
+completed PFR-C01 plan records its validated contract; every other chunk still
+requires a separate approved plan before production theorem work.
 
 ## Expected mathematical workstreams
 

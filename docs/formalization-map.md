@@ -5,8 +5,9 @@
 **Last adversarial review:** 2026-09-03
 **Project-lead acceptance:** 2026-09-03
 **Last planning-status reconciliation:** 2026-09-04
-**Implementation baseline:** repository commit `0e28f7a`; Lean declarations
-are unchanged from the bootstrap implementation at `57e132c`
+**Last completion/dependency reconciliation:** 2026-09-07
+**Map-preparation baseline:** repository commit `0e28f7a`; at that baseline,
+Lean declarations were unchanged from the bootstrap implementation at `57e132c`
 **Dependency baseline:** LeanInfoTheory `v0.1.0` at
 `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f`, Lean and mathlib `v4.33.1`
 
@@ -17,8 +18,10 @@ proposes coherent theorem-development chunks. It is more concrete than the
 `docs/plans/`.
 
 The map does **not** authorize implementation by itself. Each chunk requires
-its own detailed plan and explicit project-lead approval. `PFR-C01` now has an
-approved plan but is not active; no other chunk is approved or active.
+its own detailed plan and explicit project-lead approval. `PFR-C01` has
+completed its approved plan, with S01-S08 validated on 2026-09-07, including
+independent chunk-wide validation and completion reconciliation. No other
+chunk is approved or active.
 
 ## 1. How to Read and Maintain This Map
 
@@ -60,8 +63,10 @@ Candidate chunk statuses used here are:
 | Superseded | The allocation was replaced, with its successor recorded |
 | Deferred | Work remains discoverable but is outside the current implementation sequence |
 
-At revision 2, `PFR-C01` is **Approved** under its detailed plan dated
-2026-09-04 but is not **Active**; `PFR-C02` through `PFR-C16` remain **Mapped**.
+As reconciled on 2026-09-07, `PFR-C01` is **Complete** under its detailed plan
+dated 2026-09-04. `PFR-C02` is **Ready for detailed planning** because its C01
+prerequisite is complete; this is not planning or implementation authorization.
+`PFR-C03` through `PFR-C16` remain **Mapped**.
 `DG-01` is resolved, while the other fourteen decision gates in Section 5
 remain **Open**. Open-gate recommendations remain planning hypotheses, not
 adopted theorem or representation contracts.
@@ -74,6 +79,14 @@ The primary source is the six-page ISIT manuscript *On Perfect Functional
 Representations*, reviewed in full, with SHA-256 digest:
 
 `48963AA59485B2C33B1A1E6E7C6EAD2251FDDDD26BD3691B6FCFFE683E6ED1C4`.
+
+The 2026-09-05 S01 review identified a digest mismatch in the then-available
+same-named copy. On 2026-09-07 the exact approved binary was recovered, and S08
+freshly authenticated and inspected the C01 Section I anchors. The approved
+source identity remains unchanged; see the
+[provenance history and resolution](perfect-functional-representations-living-summary.md#10-reference-and-provenance-boundary).
+This closes the missing-binary limitation without retroactively authenticating
+earlier checks or changing mathematical coverage or omission dispositions.
 
 The accepted mathematical target comprises Equations (1)-(3), Definitions
 1-4, Lemmas 1-6, Theorems 1-2, Corollary 1, the non-representable
@@ -301,13 +314,15 @@ appropriate only for dependency-independent chunks and coordinated files.
 
 ### PFR-C01 — Semantic Functional Representations
 
-**Status:** Approved — Draft revision 2 approved 2026-09-04; not active.
+**Status:** Complete — Draft revision 2 approved 2026-09-04; S01-S08 validated.
+S08 was explicitly authorized on 2026-09-07; independent chunk-wide validation
+and canonical completion reconciliation passed that day.
 **Approved plan:**
 [PFR-C01 semantic functional representations](plans/pfr-c01-semantic-functional-representations.md).
 **Planning baseline:** repository commit
 `d9f63e713eab6f778132dc6888420adb442d0802`.
-**Execution baseline:** the authorized approval-checkpoint commit containing
-the approved plan; S01 records its verified hash.
+**Execution baseline:** approval-checkpoint commit
+`5a9c7ca999639afe26c7bf235b4d044e0341b55a`.
 **Anchors:** ISIT Section I, including the unnumbered distinction between a
 specified perfect auxiliary and a perfectly representable pair, and Equations
 (1)-(3).
@@ -315,7 +330,46 @@ specified perfect auxiliary and a perfectly representable pair, and Equations
 **Risk:** medium.
 **Approved module:** `Semantics/FunctionalRepresentation.lean`.
 
-The approved chunk will:
+S01-S03 now provide the structural predicates and expansion, full-triple-law
+transport, independence under deterministic right-postprocessing, and the
+Equation (1) equivalence `isFunctionalRepresentationOf_iff_zero_conditions`.
+Equation (1) requires finite value alphabets but no finite source assumption,
+and preserves existential decoding correct only on support. S04 adds
+`mutualInfoOf_eq_pfr_decomposition`, the exact unconditional Equation (2)
+identity with finite value alphabets and an unrestricted source type; it does
+not require functional representation. S05 adds four methods requiring the
+structural representation premise: Equation (3), its upper bound, equality
+iff `I(X;Z|Y) = 0`, and equality iff `X - Y - Z` is Markov. They retain exactly
+the three finite value alphabets and unrestricted source, without requiring
+full support or a chosen conditional law on null fibers. S06 adds the
+fixed-perfect law/common-base predicates, equality/zero-CMI/Markov
+equivalences retaining structural representation, and full-triple-law
+transport. Its separate existential pair predicates admit a perfect
+`Fin n` triple-law extension with the prescribed pair marginal, transport by
+pair-law equality, and accept any finite perfect auxiliary through
+`Fintype.equivFin`, including higher-universe auxiliaries. No auxiliary on
+the original source or redundant positivity premise is imposed. This is
+the approved finite-information boundary, not a new cardinality bound or
+the later C02 canonicalization result.
+S07 exposes this 23-declaration semantic module through the lightweight project
+root, retaining the dependency smoke test and excluding the separate regression
+module. No source allocation, decision-gate disposition, or later chunk is
+changed by this integration.
+S03 validation is recorded in
+[project log entry 16](project-log.md#16-pfr-c01-s03-equation-1---2026-09-05),
+S04 validation in
+[project log entry 19](project-log.md#19-pfr-c01-s04-equation-2---2026-09-06),
+S05 validation in
+[project log entry 22](project-log.md#22-pfr-c01-s05-equation-3---2026-09-06-to-2026-09-07),
+S06 validation in
+[project log entry 25](project-log.md#25-pfr-c01-s06-fixed-and-existential-perfectness---2026-09-07),
+and the S07 internal milestone in
+[project log entry 28](project-log.md#28-pfr-c01-s07-integration-and-internal-milestone---2026-09-07).
+S08 independent validation and completion, including approved-source recovery,
+are recorded in
+[project log entry 31](project-log.md#31-pfr-c01-s08-independent-validation-and-chunk-completion---2026-09-07).
+
+The completed chunk's approved scope was to:
 
 - choose and document the common probability-space or joint-law carrier used
   for pair-level random variables, with transport lemmas sufficient to avoid
@@ -346,9 +400,14 @@ focused imports, and tests for deterministic and degenerate cases.
 
 ### PFR-C02 — Canonical Representations and the Channel Property
 
+**Status:** Ready for detailed planning — C01 completed 2026-09-07; no C02
+planning or implementation has started or been authorized.
 **Anchors:** ISIT Section II-A, Equations (5)-(7), Definition 1, Remark 1,
 Lemma 1, Definition 2; current extended Section II-A.
-**Prerequisite:** `PFR-C01`.
+**Prerequisite:** completed `PFR-C01`, with the public guarantees and
+non-guarantees in Section 14 of its approved plan. Private proof helpers are
+not a downstream API. Finite canonical witnesses and the channel contract
+remain C02 obligations; DG-02 and DG-03 remain open.
 **Risk:** high because it fixes the semantic API used by every later chunk.
 **Candidate module:** `Semantics/Canonical.lean`.
 
@@ -994,11 +1053,17 @@ Every detailed plan should specialize, not weaken, these duties:
 ## 11. Planning Order
 
 PFR-C01 Draft revision 2 was approved on 2026-09-04 and `DG-01` is resolved.
-The authorized approval-checkpoint commit containing the approved plan is the
-execution baseline. The next permitted action is `PFR-C01-S01`: verify and
-record that commit's hash, change the chunk from `Approved` to `Active`,
-implement only S01, validate, report, and stop. No later step may begin
-automatically.
+Approval-checkpoint commit `5a9c7ca999639afe26c7bf235b4d044e0341b55a`
+is the verified execution baseline. PFR-C01 is `Complete`. S01-S08 are validated,
+with S02 and S03 separately authorized and completed on 2026-09-05. S04 was
+separately authorized and completed on 2026-09-06. S05 was separately
+authorized on that date and completed on 2026-09-07. S06 was explicitly
+authorized and validated on 2026-09-07. S07 integration was explicitly
+authorized and internally validated that day. The project lead then explicitly
+authorized S08; its independent chunk-wide pass and completion reconciliation
+completed on 2026-09-07. C02 detailed planning is next eligible but requires a
+new prompt, and its implementation requires a separately approved plan.
+No later chunk may begin automatically.
 
 Before `PFR-C02` is planned, review what `PFR-C01` actually exposed. Hold the
 Section 6 checkpoints before approving `PFR-C06`, `PFR-C11`/`PFR-C12`,

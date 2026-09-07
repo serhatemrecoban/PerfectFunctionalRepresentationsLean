@@ -2,21 +2,21 @@
 
 ## Approved Detailed Plan
 
-**Status:** Approved; not active
+**Status:** Complete
 **Planning baseline:** `d9f63e713eab6f778132dc6888420adb442d0802`
 **Approved contract:** Draft revision 2 dated 2026-09-04
 **Approval date:** 2026-09-04
-**Execution baseline:** the authorized approval-checkpoint commit containing this plan
-**Implementation status:** Not started
-**Active theorem-development chunk:** None
+**Execution baseline:** `5a9c7ca999639afe26c7bf235b4d044e0341b55a`
+**Implementation status:** PFR-C01-S01 through S08 validated; independent validation and completion reconciliation passed 2026-09-07
+**Active theorem-development chunk:** None; PFR-C02 is not approved or started
 
 This tracked file is the canonical approved execution contract for PFR-C01.
 The project lead approved Draft revision 2 without a contract change and
-resolved DG-01 according to Section 3. Approval does not activate theorem
-development. The authorized approval-checkpoint commit containing this plan is
-the execution baseline. S01 must verify and record its hash before changing
-PFR-C01 from `Approved` to `Active`; each stable step still requires its own
-explicit prompt.
+resolved DG-01 according to Section 3. The authorized approval checkpoint is
+commit `5a9c7ca999639afe26c7bf235b4d044e0341b55a`. After verifying that baseline,
+the pinned dependencies, and the understood worktree, PFR-C01 was activated
+for S01 on 2026-09-04. Each later stable step still requires its own explicit
+prompt.
 
 ## 1. Baselines and provenance
 
@@ -57,6 +57,27 @@ explicit prompt.
   PFR-C01 theorem.
 
 The manuscripts must not be copied into or reproduced by the repository.
+
+**Provenance follow-up — 2026-09-05.** The independent S01 review found that
+the available same-named ISIT PDF hashes to
+`15D9ADEEBB42E67FE7C57794F3FE5F65DECEAD4F5AD8F44E7506A83C9859F171`,
+not the approved digest above. A targeted local search did not recover the
+approved binary. The reviewer found the available Section I consistent with
+S01, but this is not fresh verification of the approved binary. The extended
+companion's digest matches. The approved source identity and execution
+contract remained unchanged; recovery, or project-lead designation of a
+replacement and revalidation of affected source contracts, was then pending.
+See [project log entry 12](../project-log.md#12-independent-s01-review-and-provenance-follow-up---2026-09-05).
+
+**Provenance resolution — 2026-09-07.** S08 recovered the exact approved
+six-page binary in the project lead's local paper folder outside the checkout.
+The implementing task and fresh independent validator each confirmed the
+approved `48963AA5...E6ED1C4` digest above, the matching extended companion,
+and the relevant Section I/page 1 anchors by text and visual inspection.
+The missing-binary limitation is closed without source redesignation or a
+contract revision. Earlier same-name-copy checks remain historically limited;
+this does not assert whole-manuscript equivalence or extend C01 coverage. See
+[project log entry 31](../project-log.md#31-pfr-c01-s08-independent-validation-and-chunk-completion---2026-09-07).
 
 ## 2. Exact scope and non-goals
 
@@ -303,8 +324,7 @@ Under the same finite assumptions and
 `hFR : IsFunctionalRepresentationOf p X Y Z`:
 
 ```lean
-theorem IsFunctionalRepresentationOf.
-    mutualInfoOf_eq_condEntropyOf_sub_condMutualInfoOf :
+theorem IsFunctionalRepresentationOf.mutualInfoOf_eq_condEntropyOf_sub_condMutualInfoOf :
     mutualInfoOf p Y Z =
       condEntropyOf p Y X - condMutualInfoOf p X Z Y
 ```
@@ -315,15 +335,13 @@ theorem IsFunctionalRepresentationOf.mutualInfoOf_le_condEntropyOf :
 ```
 
 ```lean
-theorem IsFunctionalRepresentationOf.
-    mutualInfoOf_eq_condEntropyOf_iff_condMutualInfoOf_eq_zero :
+theorem IsFunctionalRepresentationOf.mutualInfoOf_eq_condEntropyOf_iff_condMutualInfoOf_eq_zero :
     mutualInfoOf p Y Z = condEntropyOf p Y X ↔
       condMutualInfoOf p X Z Y = 0
 ```
 
 ```lean
-theorem IsFunctionalRepresentationOf.
-    mutualInfoOf_eq_condEntropyOf_iff_isMarkovChainOf :
+theorem IsFunctionalRepresentationOf.mutualInfoOf_eq_condEntropyOf_iff_isMarkovChainOf :
     mutualInfoOf p Y Z = condEntropyOf p Y X ↔
       IsMarkovChainOf p X Y Z
 ```
@@ -615,27 +633,36 @@ supported generic theorem with this PMF-first contract. It is therefore
 temporarily public and project-local. Upstreaming requires a separate
 architecture/API review and does not occur in PFR-C01.
 
+Revisit this existing candidate after C01 in a separately authorized
+LeanInfoTheory maintenance/release window, or when another concrete consumer
+needs it. Re-search the then-current LeanInfoTheory and mathlib APIs before
+proposing an addition. Naming, generality, downstream compatibility, and any
+dependency update require separate assessment and authorization. The current
+contract remains structural, with no finiteness or measurability assumptions;
+this note authorizes no migration or family of generalized theorems.
+
 The unconditional Equation (2) identity is also mathematically reusable, but
 its current owner is PFR-C01 because it is an exact manuscript anchor. Possible
 future upstreaming does not widen this chunk.
 
 ## 9. Approval, execution baseline, and status transitions
 
-### Approved - current
+### Approved - completed transition
 
 - The project lead approved PFR-C01 Draft revision 2 dated 2026-09-04 without
   changing its contract.
 - DG-01 is resolved according to Section 3.
 - This tracked plan and the approval-time canonical-document reconciliation
-  are contained in the authorized approval checkpoint.
-- PFR-C01 is `Approved`, not `Active`; no theorem-development chunk is active
-  and no Lean implementation has begun.
+  are contained in the authorized approval checkpoint
+  `5a9c7ca999639afe26c7bf235b4d044e0341b55a`.
+- PFR-C01 remained `Approved`, not `Active`, until the separately prompted S01
+  activation on 2026-09-04.
 - The planning/probe baseline remains `d9f63e7...`.
 
 The project lead separately authorized the approval-documentation commit, but
 no push. The complete approval-checkpoint validation and evidence are recorded
-in Section 13. The authorized commit containing this plan is the execution
-baseline and must be verified before S01 begins.
+in Section 13. Its verified hash is
+`5a9c7ca999639afe26c7bf235b4d044e0341b55a`.
 
 Because a commit cannot contain its own hash, the approved plan initially
 identifies the execution baseline as "the authorized approval-checkpoint commit
@@ -649,9 +676,10 @@ baseline change. It requires the ordinary plan-health review, explicit
 project-lead reapproval, full approval-checkpoint revalidation, and separate
 commit authorization before S01 may begin.
 
-### Active
+### Active - historical transition
 
-A later explicit PFR-C01-S01 prompt is required. At S01 start:
+The project lead's explicit instruction to start step 1 supplied the required
+PFR-C01-S01 prompt. At S01 start:
 
 1. Verify the exact approval-checkpoint hash.
 2. Verify a clean or completely understood worktree.
@@ -660,8 +688,25 @@ A later explicit PFR-C01-S01 prompt is required. At S01 start:
 5. Record the execution-baseline hash.
 6. Change PFR-C01 from `Approved` to `Active` in the same coherent change.
 
-PFR-C01 remains `Active` through S01-S07. Each step requires its own explicit
-prompt, validates, reports, and stops.
+All activation checks passed on 2026-09-04. The two unrelated worktree paths
+`AGENTS.md` and `docs/leaninfotheory-discoverability.md` were understood as
+concurrent user-owned documentation work and excluded from S01. PFR-C01
+remained `Active` through S01-S07. Each step requires its own explicit prompt,
+validates, reports, and stops.
+
+PFR-C01-S01 completed and passed its implementation-step validation on
+2026-09-04. The project lead explicitly authorized PFR-C01-S02 on 2026-09-05;
+it completed and passed validation that day. The project lead separately
+authorized PFR-C01-S03 on 2026-09-05; it completed and passed validation that
+day. The project lead separately authorized S04 on 2026-09-06; it completed
+and passed validation that day. The project lead separately authorized S05
+on 2026-09-06; it completed and passed validation on 2026-09-07. The project
+lead explicitly authorized S06 on 2026-09-07; it completed and passed
+implementation-step validation that day. The project lead subsequently
+authorized S07 on 2026-09-07; root integration and internal validation passed
+that day. At that milestone, "implementation finished; independent validation
+pending," C01 remained `Active`; S08 had not started and required a separate
+explicit prompt.
 
 ### Complete
 
@@ -677,9 +722,21 @@ If S08 fails, the exact affected step is reopened and PFR-C01 remains `Active`.
 A repair requires a separate prompt and a fresh independent pass. A reviewer
 who materially repairs the implementation cannot provide that final pass.
 
+The project lead explicitly authorized S08 on 2026-09-07. Its fresh independent
+chunk-wide validation passed without an implementation repair. Completion
+documentation was reconciled under Section 15, and C01 became `Complete` that
+day. S08 evidence is recorded below and in project log entry 31; C02 remains
+unstarted and requires separate authorization.
+
 ## 10. Stable implementation steps
 
+The dated S01-S07 evidence below records status and provenance as they stood
+at each step or review. Later completion and source recovery are recorded at
+S08 and in Section 1; they do not retroactively change those earlier checks.
+
 ### PFR-C01-S01 - Structural foundation
+
+**Status:** Validated — 2026-09-04.
 
 **Prerequisites:** Approved plan; authorized approval-checkpoint commit;
 verified execution baseline; pinned dependencies.
@@ -697,7 +754,41 @@ verified execution baseline; pinned dependencies.
 > unused-ambient-point regressions. Do not add entropy, transport, perfectness,
 > or pair-existential declarations. Validate, report, and stop.
 
+**Validation evidence:**
+
+- Added only the approved production and regression modules.
+- Exposed exactly `IsFunctionalRepresentation`,
+  `IsFunctionalRepresentationOf`, and
+  `isFunctionalRepresentationOf_iff`; no public helper, typeclass premise, or
+  declaration attribute was added.
+- The expansion theorem transports support in both directions with the pinned
+  `PMF.mem_support_map_iff` theorem and preserves first/third independence,
+  right-associated triple projections, and the support-qualified decoder.
+- Polymorphic constructor/eliminator examples compile without typeclasses; the
+  concrete regressions cover a null source point and arbitrary decoder behavior
+  at an unrealized `(X,Z)` input. Two later non-blocking review fixtures also
+  reject a positive-support decoder collision and show that deterministic
+  decodability does not compensate for dependence of `X` and `Z`.
+- Focused production and regression builds passed with 2,755 and 2,756 jobs;
+  the 2,605-job default build also passed.
+- A disposable consumer importing only the production module compiled all
+  three declarations. `#print axioms` reported only `propext`,
+  `Classical.choice`, and `Quot.sound`, with no `sorryAx`.
+- The strict placeholder scan, whitespace checks, dependency-pin audit, public
+  API/import/scope inspection, and an independent read-only S01 review passed.
+- The root import remains unchanged, disposable consumer and PDF-render probes
+  were removed, and no S02-or-later declaration was added.
+
+**Independent reviewer follow-up — 2026-09-05:** `Reviewer - Chunk 1` reported
+`PASS WITH NON-BLOCKING SUGGESTIONS`, with no required code, API, regression,
+or documentation-status correction. Both optional negative fixtures were
+already present and passed. Its sole caveat concerns the manuscript identity
+recorded in Section 1. S01 remains validated; this step review does not replace
+the chunk-wide S08 review or authorize S02 or a checkpoint commit.
+
 ### PFR-C01-S02 - Transport and deterministic postprocessing
+
+**Status:** Validated — authorized and completed 2026-09-05.
 
 **Prerequisites:** Validated S01 outputs.
 
@@ -712,7 +803,55 @@ verified execution baseline; pinned dependencies.
 > postprocessing. Do not claim preservation of decoding, perfectness, or mutual
 > information. Validate, report, and stop.
 
+**Validation evidence:**
+
+- Added exactly `isFunctionalRepresentationOf_congr_jointLaw` and
+  `isIndependentOf_comp_right`. Their contracts have five and four independent
+  universe parameters respectively, with no typeclass or injectivity premise.
+- Triple-law transport unfolds the existing law wrapper and rewrites by the
+  full joint-law equality. Right-postprocessing maps the pinned independence
+  factorization and normalizes with `indepProd`, `PMF.map_bind`,
+  `PMF.map_comp`, and `Function.comp_def`. No separate PMF helper, two-sided
+  processing theorem, import, or declaration attribute was needed.
+- The initial eight anonymous regressions cover the two polymorphic public
+  contracts, supported collisions in a noninjective triple map, transport between
+  uniform `Bool` and pure `Unit` source presentations, and projection of a
+  two-bit independent auxiliary onto its first bit. The latter fixture also
+  proves that decoding was possible before projection and fails afterwards,
+  even though independence survives. All named fixtures/helpers are private.
+- Focused production and regression builds passed with 2,755 and 2,756 jobs;
+  the default build passed with 2,605 jobs. A production-only consumer checked
+  the exact signatures and independent source universes. Both new theorem
+  axiom audits reported only `propext`, `Classical.choice`, and `Quot.sound`.
+- A separate read-only source/regression audit found no issue and verified
+  preservation of S01. S01 production changed only by adding a universe name
+  unused by its declarations; removing the appended tests in memory reproduces
+  the exact pre-S02 S01 test digest. The final repository checks are recorded in
+  [project log entry 13](../project-log.md#13-pfr-c01-s02-transport-and-postprocessing---2026-09-05).
+- The ISIT provenance caveat in Section 1 is unchanged. No numbered
+  information identity, perfectness result, root import, or S03 work was added.
+- The contextual review follow-up added one combined anonymous regression:
+  equality of all three pairwise laws does not suffice for structural
+  transport. Production is unchanged. Repeated builds and public theorem
+  axiom checks passed; direct whitespace checks cover both untracked Lean
+  files. Their final SHA-256 snapshot and the deduplicated upstream-note
+  clarification are recorded in
+  [project log entry 14](../project-log.md#14-s02-contextual-review-follow-up---2026-09-05).
+
+**Independent reviewer follow-up — 2026-09-05:** `Reviewer - Chunk 1`
+reviewed the final integrated S02 snapshot, including the pairwise-law
+regression, and found no issue requiring a change. Its subsequent comparison
+with the implementation-side material left that assessment and confidence
+unchanged, with no correction or optional improvement recommended. Fresh
+first-pass checks, the comparison's lack of additional checks, and the
+source-identity, historical-diff, and non-blindness limitations are recorded in
+[project log entry 15](../project-log.md#15-independent-s02-review-and-comparison---2026-09-05).
+S02 remains validated; this review does not complete S08 or authorize S03,
+upstream migration, or a checkpoint commit.
+
 ### PFR-C01-S03 - Equation (1)
+
+**Status:** Validated — authorized and completed 2026-09-05.
 
 **Prerequisites:** Structural API from S01; pinned zero-MI and
 zero-conditional-entropy equivalences. S02 is the enforced predecessor but not
@@ -729,7 +868,57 @@ infinite-source signature regression.
 > valid existential decoder while a separately chosen bad decoder fails on
 > support. Validate through a public consumer import, report, and stop.
 
+**Validation evidence:**
+
+- Added exactly `isFunctionalRepresentationOf_iff_zero_conditions`, reusing
+  the S01 structural expansion and the pinned zero-MI/independence and
+  zero-conditional-entropy/existential-function equivalences. A compiling
+  discovery probe verified both dependency contracts before use.
+- The theorem has four independent universes, exactly the three value-type
+  `Fintype` instances, and no source-finiteness, measurability, full-support,
+  explicit nonemptiness, or chosen-decoder premise. The conditional entropy
+  has the exact orientation `H(Y|(X,Z))`. No helper, import, or attribute was
+  added; earlier production declarations are unchanged.
+- Three anonymous regressions cover the generic signature, recovery of an
+  existential decoder from the zero conditions while a named bad decoder
+  fails on support, and a pure PMF on the infinite ambient type `Nat`.
+  The new named fixture is private, and all previous regressions are retained.
+- Focused production/regression builds passed with 2,755/2,756 jobs; the
+  default build passed with 2,605 jobs. A production-only consumer checked the
+  exact public signature. The new theorem's axiom audit reported only
+  `propext`, `Classical.choice`, and `Quot.sound`, with no `sorryAx`.
+- An internal read-only source/regression audit found no issue. The
+  pre-S03 Lean bytes were preserved in an ignored review handoff, and final
+  module fingerprints identify the compiled snapshot. Detailed checks,
+  source interpretation, and artifact disposition are recorded in
+  [project log entry 16](../project-log.md#16-pfr-c01-s03-equation-1---2026-09-05).
+- The ISIT source-identity caveat and approved finite-value boundary remain
+  unchanged. S04 and the later independent chunk-wide S08 review have not
+  started; no checkpoint commit or push is authorized by this step.
+
+**Contextual self-review — 2026-09-05.** The requested read-only review and
+subsequent implementation reassessment found no justified source or regression
+change. Fresh focused/default builds, a production-only signature and decoder
+extraction consumer, and the axiom audit passed on the unchanged entry-16
+source fingerprints. The actual pre-S03 Lean comparison preserves attribution;
+there is no corresponding whole-document snapshot. Only review-evidence
+records were updated. This is not independent validation, and the source
+provenance caveat, approved contract, and S04 boundary remain unchanged. See
+[project log entry 17](../project-log.md#17-s03-contextual-self-review-and-reassessment---2026-09-05).
+
+**Independent step review received — 2026-09-06.** The project lead supplied
+`Reviewer - Chunk 1`'s consolidated source-based review of this final snapshot.
+It recommended no corrective or optional change before S03 finalization under
+the approved finite-valued contract. Receipt checks matched all five reported
+source/document fingerprints before reconciliation. Source and regressions
+remain unchanged; S03 remains validated. The manuscript-authentication and
+historical-diff limitations remain explicit. This review does not complete
+S08 or authorize S04. See
+[project log entry 18](../project-log.md#18-independent-s03-review-and-finalization---2026-09-06).
+
 ### PFR-C01-S04 - Equation (2)
+
+**Status:** Validated — authorized and completed 2026-09-06.
 
 **Prerequisites:** The S01-created module and pinned chain and entropy
 identities. S03 is the enforced predecessor but not a mathematical
@@ -747,7 +936,47 @@ helpers; orientation regression.
 > private. Do not introduce a functional-representation hypothesis. Validate
 > orientation against the manuscript and a focused consumer, report, and stop.
 
+**Implementation evidence — 2026-09-06:** Added exactly
+`mutualInfoOf_eq_pfr_decomposition` with the Section 5.3 contract and one
+private conditioning-pair swap helper. There is no representation hypothesis,
+finite-source assumption, new direct import, or simp attribute. The pinned
+chain rules, conditional-entropy identity, and equivalence invariance were
+checked in a focused compiling probe before production use. Two anonymous
+regressions cover the unrestricted polymorphic contract and the exact
+orientation on an arbitrary `PMF Nat` with distinct value types. Production,
+regression, public-only consumer, signature/axiom audit, and default build
+passed; only standard `propext`, `Classical.choice`, and `Quot.sound` axioms
+occur. Direct pre-S04 snapshot comparison preserves all earlier declarations
+and regressions. The manuscript-provenance caveat remains unchanged. Full
+checks and fingerprints are in
+[project log entry 19](../project-log.md#19-pfr-c01-s04-equation-2---2026-09-06).
+This closes S04 only: S05 has not started, and S08 remains pending.
+
+**Contextual self-review and reassessment — 2026-09-06:** No correctness,
+contract, API, or maintenance issue justified a source or regression change.
+The read-only recommendation to retain the implementation was presented before
+the implementation-side reassessment, which upheld it. Fresh focused/default
+builds, public-only signature/axiom and edge-instance checks, and source/diff
+audits cover the unchanged S04 Lean fingerprints. This is not an independent
+review. See
+[project log entry 20](../project-log.md#20-s04-contextual-self-review-and-reassessment---2026-09-06).
+
+**Independent review and finalization — 2026-09-06:** The independent S04
+report recommended no corrective or optional change. All five supplied
+source/document fingerprints matched before receipt was recorded; no Lean
+change followed. The reviewer's direct source/snapshot assessment, fresh
+builds, consumer, signature/axiom audit, and documented limitations are
+recorded separately from implementation-side evidence in
+[project log entry 21](../project-log.md#21-independent-s04-review-and-finalization---2026-09-06).
+S04 retains status `Validated`. The approved ISIT provenance caveat is
+unresolved; this step review does not complete S08 or authorize S05.
+
 ### PFR-C01-S05 - Equation (3)
+
+**Status:** Validated on 2026-09-07 after separate authorization on 2026-09-06.
+The exact pre-S05 source and seven-document snapshot was preserved before
+maintained edits. Implementation and validation are recorded in
+[project log entry 22](../project-log.md#22-pfr-c01-s05-equation-3---2026-09-06-to-2026-09-07).
 
 **Prerequisites:** S01 structural predicate; S03 zero conditions; S04
 decomposition; pinned CMI nonnegativity and zero-CMI/Markov equivalence.
@@ -763,7 +992,48 @@ Markov; null-fiber regressions.
 > functional-representation assumption. Add null-conditioning-fiber and
 > unused-value regressions. Validate, report, and stop.
 
+**Implementation evidence — 2026-09-07:** Exactly the four Section 5.4 methods
+are implemented, each retaining `hFR`, four independent universes, three
+finite value alphabets, and an unrestricted source. The reduced identity uses
+S03/S04; the bound and Markov form reuse pinned nonnegativity and zero-CMI
+equivalence. No helper, import, simp attribute, or perfectness predicate was
+added. Five anonymous regressions cover all four generic contracts and an
+actual null `Y` fiber with support-only decoding. Production (2,755 jobs),
+regression (2,756 jobs), and default (2,605 jobs) builds passed, as did a
+production-only consumer auditing all eleven public signatures and axioms.
+Only `propext`, `Classical.choice`, and `Quot.sound` appeared. The approved
+ISIT provenance caveat remains unresolved. This completed S05's
+implementation-step validation, not S08; at that closeout C01 remained
+`Active`, and S06 had not started or been authorized by that completion.
+
+**Contextual self-review and editorial correction — 2026-09-07:** The review
+and subsequent implementation reassessment retained the source and tests.
+`S05-SR-01` joined three qualified declaration names in Section 5.4: a line
+break immediately after the dot fails Lean parsing. This is a Section 17
+editorial correction only; no name, signature, hypothesis, or contract changed.
+Fresh builds and public-only signature/axiom and edge-instance checks passed.
+See [project log entry 23](../project-log.md#23-s05-contextual-self-review-and-reassessment---2026-09-07).
+At that self-review S05 remained `Validated`, C01 remained `Active`, and S06
+was unstarted. This is not an independent step review or the S08 pass.
+
+**Independent review received and reconciled — 2026-09-07:** The independent,
+source-based report recommended finalizing S05 without a corrective or
+optional change. Its five supplied fingerprints matched the current files
+before these receipt notes. It separately checked the four new signatures
+and axioms, focused/default builds, a new consumer, and all three parser-name
+corrections. Evidence and limitations are attributed in
+[project log entry 24](../project-log.md#24-independent-s05-review-and-finalization---2026-09-07).
+S05 is finalized without a Lean or test change and retains status `Validated`.
+C01 remains `Active`; the manuscript-provenance caveat remains unresolved.
+This review does not complete S08 or authorize S06.
+
 ### PFR-C01-S06 - Fixed and existential perfectness
+
+**Status:** Validated on 2026-09-07 after explicit authorization that day. The exact
+pre-S06 source and seven-document snapshot was preserved before implementation.
+Implementation and validation are recorded in
+[project log entry 25](../project-log.md#25-pfr-c01-s06-fixed-and-existential-perfectness---2026-09-07).
+This step does not authorize S07 or complete S08.
 
 **Prerequisites:** S01 structural layer; S02 postprocessing theorem; S05
 Equation-(3) reduced equality, bound, zero-CMI equality condition, and Markov
@@ -790,7 +1060,64 @@ higher-universe regressions; perfectness regressions.
 > Do not infer that the XOR pair itself is nonrepresentable. Validate, report,
 > and stop.
 
+**Implementation evidence — 2026-09-07:** Exactly the four definitions and
+eight theorems assigned to S06 are implemented, bringing the production API
+to 23 public declarations. The fixed-perfect equivalences retain structural
+representation and exactly the required finite value alphabets, with an
+unrestricted source. Full-triple-law transport and pair-law transport remain
+distinct. The pair predicates use a separate `Fin n` triple-law extension;
+the arbitrary-finite bridge reindexes through `Fintype.equivFin`, transports
+the support decoder through its inverse, and preserves independence and
+mutual information. The new relabeling helper is private; no public alias,
+new direct import, or simp attribute was added.
+
+Fifteen anonymous regressions with five private helpers cover the polymorphic
+interfaces, deterministic/singleton positive cases, a functional but
+nonperfect XOR auxiliary, cross-source pair-law transport, separate-space
+witness extraction, `ULift (Fin 2) : Type 1`, and impossibility of a `Fin 0`
+extension. The XOR regression makes no negative claim about the pair itself.
+Production (2,755 jobs), regression (2,756 jobs), and default (2,605 jobs)
+builds passed. A production-only consumer checked all twelve new signatures
+and all eight new theorem axiom reports, with only `propext`,
+`Classical.choice`, and `Quot.sound`; it also exercised unrestricted `PMF Nat`,
+distinct value types, higher-universe bridging, and extension extraction.
+The bounded source audit is implementation-side evidence, not S08. Exact
+pre-S06 comparison preserves earlier production declaration bodies and test
+text. The available manuscripts' page 1 was rechecked; the approved ISIT
+provenance caveat is unchanged. C01 remains `Active`; S07 has not started.
+
+**Contextual self-review and reassessment — 2026-09-07:** The read-only review
+recommended retention and was presented before the implementation-side second
+decision pass. Reassessment retained the Lean source and regressions without
+a contract or API change. Fresh combined production/regression and default
+builds, twelve signature checks, eight theorem axiom reports, and isolated
+nondegenerate higher-universe, support-only perfectness, and positive-witness
+checks passed. No new finding or Future Work Note was justified. This is not
+independent validation; S06 remains `Validated`, C01 remains `Active`, S07 is
+unstarted, and the approved ISIT provenance caveat is unchanged. See
+[project log entry 26](../project-log.md#26-s06-contextual-self-review-and-reassessment---2026-09-07).
+
+**Independent review received — 2026-09-07:** The independent report recommends
+retaining and finalizing S06 for the approved finite-information contract,
+with no required or optional change or additional review turn. All five
+supplied fingerprints matched before receipt edits. The reviewer separately
+checked the twelve new signatures, eight theorem axiom reports, focused and
+default builds, a new consumer, source/regression boundaries, and available
+manuscript anchors. Its direct and delegated evidence and snapshot limitations
+are distinguished in
+[project log entry 27](../project-log.md#27-independent-s06-review-and-finalization---2026-09-07).
+The implementation and tests are retained unchanged. S06 is finalized and
+remains `Validated`; C01 remains `Active`, S07 is unstarted, and S08 is still
+required. Approved-ISIT authentication remains unresolved. These receipt notes
+are outside the reviewer's frozen document fingerprints and change no contract.
+
 ### PFR-C01-S07 - Integration and internal milestone
+
+**Status:** Validated after explicit authorization on 2026-09-07. The root,
+two semantic Lean files, and seven canonical documents were preserved in an
+ignored pre-step comparison snapshot. The execution baseline is unchanged.
+Milestone: **implementation finished; independent validation pending**.
+C01 remains `Active`; S08 has not started.
 
 **Prerequisites:** All validated S01-S06 outputs.
 
@@ -805,7 +1132,59 @@ full internal validation; status remains `Active` with validation pending.
 > "implementation finished; independent validation pending." Do not mark
 > complete or begin C02. Report and stop.
 
+**Implementation evidence — 2026-09-07:** The root now imports semantic
+production alongside Basic and excludes the regression module. Production
+and regressions are unchanged: all 23 approved declarations (six definitions,
+seventeen theorems) and all seventeen regression-matrix rows were audited.
+The existing 42 anonymous examples meet the matrix, so no new fixture or
+public API was needed. Both production helpers and all test helpers remain
+private; finite-value, support, universe, transport, and import contracts are
+unchanged. The root closes over three project modules and eleven supported
+LeanInfoTheory modules, without examples or non-stable anchors.
+
+The combined production/regression/root build passed (2,759 jobs), and the
+default build passed (2,758 jobs). A consumer importing only the root checked
+all 23 signatures, all seventeen theorem axiom reports, and five integration
+examples covering structural extraction, exact Equation (2) with distinct
+higher-universe values, finite witness extraction with positive cardinality,
+pair transport, and the arbitrary-finite law bridge. Only `propext`,
+`Classical.choice`, and `Quot.sound` occurred. The available manuscripts' page 1
+anchors were rechecked; approved-ISIT authentication remains unresolved.
+Detailed validation, regression mapping, attribution, and artifact disposition
+are in
+[project log entry 28](../project-log.md#28-pfr-c01-s07-integration-and-internal-milestone---2026-09-07).
+This is the internal implementation milestone, not S08 or C01 completion. No
+contract revision, source redesignation, C02 work, commit, or push is implied.
+
+**Contextual self-review and reassessment — 2026-09-07:** The read-only review
+recommended retention before a separate implementation-side decision pass.
+Reassessment retained the root, production, and regressions unchanged. Fresh
+builds, all 23 signature and seventeen theorem axiom checks, a root-only import
+boundary check, and generic Markov-to-pair witness extraction passed. No missing
+regression, actionable finding, or new Future Work Note was justified. See
+[project log entry 29](../project-log.md#29-s07-contextual-self-review-and-reassessment---2026-09-07).
+S07 remains `Validated` at the internal milestone; C01 remains `Active`, S08
+is unstarted, and approved-ISIT authentication remains unresolved. This is
+implementation-side evidence, not independent validation or a contract revision.
+
+**Independent review received and reconciled — 2026-09-07:** The focused S07
+report recommends retaining and finalizing the implementation, with no required
+or optional change or additional reviewer turn. All ten supplied fingerprints
+matched before receipt edits. The reviewer separately checked the root-only
+API/import environment, all 23 signatures and seventeen theorem axiom reports,
+five integration examples, focused/default builds, regressions, documentation,
+and available manuscript anchors. Its direct and delegated evidence and
+limitations are attributed in
+[project log entry 30](../project-log.md#30-independent-s07-review-and-finalization---2026-09-07).
+Root, production, and regressions are retained unchanged. S07 is finalized and
+remains `Validated`; C01 remains `Active` at the internal milestone, S08 is
+unstarted, and approved-ISIT authentication remains unresolved. These receipt
+notes are outside the reviewer's frozen document fingerprints and do not
+complete S08 or authorize C02.
+
 ### PFR-C01-S08 - Independent validation and completion reconciliation
+
+**Status:** Validated — explicitly authorized and completed 2026-09-07.
 
 **Prerequisites:** Completed S07 state; independent reviewer; separate explicit
 prompt.
@@ -822,6 +1201,50 @@ PFR-C01 status `Complete`.
 > after repair. If everything passes, reconcile completion documentation and
 > mark C01 `Complete`. Do not begin C02, commit, or push without separate
 > authorization.
+
+**Independent validation and completion evidence:**
+
+- A fresh reviewer agent, given the approved contract and local evidence but
+  no inherited implementation verdict, independently inspected the whole
+  chunk. It made no implementation or canonical-document edits and used
+  separately scoped build/API and documentation/artifact subaudits.
+- All six definitions, seventeen public theorems, seventeen regression-matrix
+  rows, support/finite/universe boundaries, enlarged pair-law witnesses,
+  private helpers, and focused root/import boundaries passed. No step needed
+  reopening; the root, production, and regression source bytes were retained.
+- The exact approved ISIT and matching extended companion were independently
+  authenticated and their C01 page 1 anchors freshly inspected. Section 1
+  records the prospective resolution of the prior missing-binary limitation.
+- Fresh production, regression, root, and default builds, root/semantic
+  consumers, signature and axiom checks, strict placeholder scans, and
+  dependency/artifact audits passed. Evidence attribution and check details
+  are recorded in
+  [project log entry 31](../project-log.md#31-pfr-c01-s08-independent-validation-and-chunk-completion---2026-09-07).
+- The seven owning documents were reconciled to C01 `Complete`, with C02
+  ready for detailed planning only. The approved contracts, execution
+  baseline, pins, DG-01, and omission dispositions are unchanged. No Lean
+  repair, commit, push, dependency migration, or C02 work was performed.
+
+**Implementation-side self-review — 2026-09-07:** The requested read-only
+review and subsequent reassessment found no justified corrective or optional
+implementation change. Fresh source/manuscript, build, provenance, and
+documentation checks support retaining S08 `Validated` and C01 `Complete`.
+Only self-review records were added; no earlier-step code or approved contract
+changed. This is not another independent S08 pass, and these follow-up notes
+are outside that review's frozen document fingerprints. See
+[project log entry 32](../project-log.md#32-pfr-c01-s08-self-review-and-retention---2026-09-07).
+
+**Independent reviewer follow-up — 2026-09-07:** `Reviewer - Chunk 1`
+reviewed the final integrated S08 state, including the later self-review
+notes, and recommended retaining S08 `Validated` and C01 `Complete`. All
+eighteen completion criteria were assessed; no corrective change, optional
+addition, step reopening, or further reviewer turn was recommended. All
+sixteen supplied fingerprints matched again on receipt. Its fresh direct and
+delegated checks, earlier-finding reconciliation, and remaining historical
+and release limitations are recorded in
+[project log entry 33](../project-log.md#33-independent-s08-review-and-finalization---2026-09-07).
+Lean source is retained unchanged. These receipt notes are outside that
+review's frozen document state; no C02 work, commit, or push follows from them.
 
 ## 11. Logical prerequisites and enforced execution order
 
@@ -1241,6 +1664,7 @@ On 2026-09-04, the project lead approved Draft revision 2 and confirmed:
 9. The explicit PFR-C02 guarantees and non-guarantees.
 10. The approval-time validation and ignored-handoff supersession duties.
 
-This approval resolves DG-01 and establishes status `Approved`; it does not
-establish status `Active`. The separately authorized approval checkpoint must
-be validated, committed, and verified before S01 may begin.
+The approval resolved DG-01 and established status `Approved`; it did not by
+itself establish status `Active`. The separately authorized approval checkpoint
+was then validated, committed, and verified before S01 activation, as recorded
+in Section 9.
