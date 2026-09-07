@@ -124,11 +124,15 @@ Future Work Note to an approved plan.
   separately importable.
 - Separate semantic functional-representation and channel statements from
   finite-coordinate matrix encodings and optimization consequences.
-- Before proving a new information-theoretic lemma or creating a local
-  alternative, search the installed pinned LeanInfoTheory dependency, its
-  generated public API inventory, declaration index, module guide and relevant
-  examples, and the pinned mathlib source. Verify every candidate declaration
-  with focused imports and Lean (`#check`, `#print`, or a compiling probe).
+- Before proving a new information-theoretic result or generic local
+  alternative, search the installed pinned LeanInfoTheory dependency and local
+  source, its API documentation, declaration index, theorem highlights, and
+  module guide where relevant, plus pinned mathlib. Use `rg`, `#check`,
+  `#print`, and, when available, `#loogle` or `#search`; verify each candidate
+  with a focused compiling probe before using or rejecting it. Do not reprove a
+  generic information-theory theorem before completing this search, and record
+  only genuine friction in the
+  [discoverability log](docs/leaninfotheory-discoverability.md).
 - Treat LeanInfoTheory examples and non-stable internals as discovery and
   reference material only. Maintained PFR modules should depend on supported
   public imports and declarations unless a separately reviewed need justifies
@@ -215,6 +219,9 @@ Future Work Note to an approved plan.
 - `docs/formalization-map.md` owns the current global source allocation,
   dependency-aware candidate chunks, cross-chunk decision gates, and internal
   omission/disposition register. It is adaptable and non-authorizing.
+- `docs/leaninfotheory-discoverability.md` owns concise empirical feedback on
+  genuinely difficult LeanInfoTheory API searches; it does not authorize an
+  upstream change or a dependency modification.
 - Future files under `docs/plans/` own what the project lead has explicitly
   approved for execution. A plan is authoritative only for its stated scope
   and status.
