@@ -186,8 +186,30 @@ Future Work Note to an approved plan.
 - Each implementation prompt addresses one approved step. Complete and
   validate that step, report it, and stop.
 - Do not begin a later step automatically.
-- If a discovery invalidates later steps, stop for a plan-health review.
-- Record deferred ideas without pulling them into the active step.
+- Use plans and review procedures as aids to sound mathematical work, not as
+  inflexible scripts. During an authorized step, make justified improvements to
+  proof routes, organization and plan details when evidence warrants them.
+  Update the relevant plan or notes, explain the reason, preserve original
+  reviewed records, and ensure review addresses the actual resulting work.
+- If a discovery affects later steps, reassess plan health and resolve routine
+  adjustments with judgment. Ask the lead when a change requires a substantive
+  decision about mathematical intent, scope or acceptance, or when the intended
+  outcome is genuinely unclear. Do not silently weaken a theorem or abandon a
+  required outcome. This discretion does not start another step automatically.
+- During chunk planning, revisit relevant mapped deferrals and numbered Future
+  Work Notes; record their handling in the plan, including when none apply.
+  Reassess them when their triggers arise, without automatically starting work.
+- Link each worthwhile deferred suggestion, including review advice, to an
+  existing map or plan obligation with an owner and revisit trigger. Otherwise
+  open a numbered Future Work Note in the project log and reflect its status
+  in the living summary. Preserve the original suggestion reference; do not
+  duplicate mapped work or leave a genuine deferral only in a review report.
+- When an optional suggestion's value is uncertain, it may be deferred with
+  the open question and a revisit trigger rather than prematurely declined.
+  Deferral is not a promise to implement: later reassessment may adopt, continue
+  deferring, or decline it with a dated reason and retained history. Unresolved
+  correctness or acceptance concerns must still be investigated or escalated;
+  they cannot be bypassed as optional future work.
 - During initial planning, record every intentional omission from the reviewed
   manuscript anchors in the map's internal omission register, including cited
   results, proof-only prose, fixtures not intended as public API, technically
@@ -199,6 +221,13 @@ Future Work Note to an approved plan.
   rationale.
 - Chunk completion requires an independent validation pass against its
   completion criteria.
+- For an explicit **with review** or plan-review request, follow
+  [`docs/review-protocol.md`](docs/review-protocol.md) and the installed
+  [`operating instructions`](docs/review-operations.md). The implementation
+  task invokes native tools and owns its chunk reviewer; ordinary discussion,
+  inspection and reviewer work must not recursively trigger this workflow.
+  Private `.pfr-review/` records are durable state, excluded from scratch cleanup.
+  One eligible processed message authorizes one step, never an automatic next step.
 
 ## Document roles and proactive maintenance
 
@@ -222,6 +251,8 @@ Future Work Note to an approved plan.
 - `docs/leaninfotheory-discoverability.md` owns concise empirical feedback on
   genuinely difficult LeanInfoTheory API searches; it does not authorize an
   upstream change or a dependency modification.
+- `docs/review-protocol.md` owns opt-in supervised review rules;
+  `docs/review-operations.md` owns installed entry points and operating limits.
 - Future files under `docs/plans/` own what the project lead has explicitly
   approved for execution. A plan is authoritative only for its stated scope
   and status.
@@ -239,8 +270,8 @@ owners; use links and short normalized summaries.
 Future Work Notes use immutable numbers. The project log owns each note's full
 rationale, trigger, history, and disposition; the living summary owns its
 current normalized classification. Active or standing notes do not authorize
-implementation, and completed, superseded, or obsolete notes remain available
-for stable historical references.
+implementation, and completed, declined, superseded, or obsolete notes remain
+available for stable historical references.
 
 The living summary is shared canonical context: any project thread may edit it
 when its work materially changes that context, and the project lead remains the

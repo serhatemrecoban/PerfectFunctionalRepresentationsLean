@@ -94,39 +94,28 @@ continue to compile against `v0.1.0`.
 
 ## Current phase
 
-The repository has a validated dependency scaffold. Revision 2 of its first
-formalization map was accepted by the project lead as the current adaptable,
-non-authorizing global reference after a second adversarial pass. PFR-C01
-detailed-plan Draft revision 2 was approved on 2026-09-04, and DG-01 was
-resolved according to it. Approval-checkpoint commit
-`5a9c7ca999639afe26c7bf235b4d044e0341b55a` is the execution baseline.
-PFR-C01 is `Complete`; S01's structural predicates and common-base expansion
-and S02's full-triple-law transport and deterministic-postprocessing
-independence theorem are implemented and validated. S03's Equation (1)
-equivalence was separately authorized and validated on 2026-09-05, with finite
-value alphabets, an unrestricted source type, and existential decoding correct
-only on support. S04's unconditional Equation (2) decomposition was explicitly
-authorized and validated on 2026-09-06, with finite value alphabets, no
-finite-source assumption, and no functional-representation premise. S05 was
-separately authorized on 2026-09-06 and validated on 2026-09-07: Equation (3),
-its bound, and its equality/Markov consequences all retain a
-functional-representation premise, finite value alphabets, an unrestricted
-source, and support-only decoding. The project lead explicitly authorized
-S06 on 2026-09-07, and it completed implementation-step validation that day.
-Fixed-auxiliary perfectness retains support-aware representation alongside
-its equality, zero-CMI, and Markov forms. Existential pair perfectness is a
-pair-law property with a finite triple-law extension, not an auxiliary
-required on the original source. Its arbitrary-finite bridge preserves the
-approved universe and finite-value boundary; it does not prove a general
-existence or channel-level canonicalization theorem. S07 integration was
-explicitly authorized and internally validated on 2026-09-07. The lightweight
-root now exposes the semantic API, with regressions separately built. S08 was
-explicitly authorized on 2026-09-07. Its independent chunk-wide validation
-and completion reconciliation passed, so all S01-S08 steps are validated.
-The exact approved ISIT copy was recovered and the C01 source anchors freshly
-rechecked; no source redesignation or scope change was needed. C02 detailed
-planning is next eligible, but requires a new prompt and has not started.
-Completion does not enlarge project scope or authorize C02 implementation.
-No further paper theorem is represented as formalized until its
-statement, assumptions, source location, Lean ownership, and validation
-evidence are recorded.
+**Current, 2026-10-04:** C01–C16 are durably complete. C16's supported S05
+closure and exact final-source applicability were verified before the
+[private repository checkpoint](project-log.md#post-c16-checkpoint).
+The [approved C16 revision-2 plan](plans/pfr-c16-coverage-api-trust-closure.md)
+authorizes formalization closure within the existing six-page scope. Its
+[readiness matrix](pfr-c16-readiness-audit.md#c16-s05-readiness) separates
+established coverage and decisions from the final durable closure boundary.
+Original plans and pre-finalization records keep their historical meaning;
+[current closure navigation](pfr-c16-readiness-audit.md#c16-s04-navigation)
+points to the preserved records and later verified handoffs.
+
+The current API retains support-aware semantic contracts, exact active-output
+and numeric bridges, finite nonempty-input LP interfaces, private fixtures and
+the no-wrapper decision. DG-01–DG-15 are resolved. Original OM-001–071 rationale
+is preserved without publication-facing condensation or archival curation.
+
+C16 does not authorize new theorem families, extended-only results, generic LP
+infrastructure, solver integration, a dependency upgrade, commits/pushes,
+release, publication or a website. Those directions retain their separate
+owners and triggers in the [disposition register](pfr-c16-readiness-audit.md#c16-s04-dispositions)
+and [roadmap](roadmap.md).
+
+The lead separately authorized committing and pushing accumulated progress
+through C16 on 2026-10-04 while keeping the repository private. That checkpoint
+does not authorize a release, public publication, new mathematics or website work.

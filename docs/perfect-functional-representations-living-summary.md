@@ -25,147 +25,70 @@ Status labels:
 
 ## 0. AI Assistant Quick Start
 
-**[Current] Mission.** This private Lean 4 repository will formalize the
-six-page ISIT manuscript *On Perfect Functional Representations* by Serhat Emre
-Coban, Yanina Y. Shkel, and Emre Telatar. It is a downstream case study of
-LeanInfoTheory, not an extension of LeanInfoTheory's core library scope.
+**Current, 2026-10-04:** C01–C16 are durably complete. The General Assistant
+verified C16's supported S05 closure, all fifteen criteria and exact final-source
+applicability before the [private repository checkpoint](project-log.md#post-c16-checkpoint).
+There is no active implementation step. The
+[completed C16 contract](plans/pfr-c16-coverage-api-trust-closure.md) and its
+original notes retain their pre-closure checkpoint; the later durable record
+establishes CC09 and completion. New work requires separate authorization.
 
-**[Current] State.** The lightweight root exposes the PFR-C01 semantic module
-alongside the dependency smoke test; regressions remain separately imported.
-PFR-C01 is complete after independent S08 validation and closeout on 2026-09-07.
-The semantic module is also independently importable and
-contains the two support-aware structural functional-representation predicates,
-their common-base expansion theorem, full-triple-law transport,
-independence under deterministic right-postprocessing, the Equation (1)
-equivalence, the unconditional Equation (2) decomposition, and Equation (3)
-with its bound and equality/Markov criteria. It also distinguishes specified
-auxiliary perfectness from existential pair perfectness, with a separate
-regression module. Its 23 public declarations
-include `isFunctionalRepresentationOf_iff_zero_conditions`: finite-valued
-`X`, `Y`, and `Z` form a functional representation iff `I(X;Z) = 0` and
-`H(Y|(X,Z)) = 0`, with an unrestricted source type and an existential decoder
-correct only on support. `mutualInfoOf_eq_pfr_decomposition` gives exact
-Equation (2), with finite value alphabets, an unrestricted source, and no
-functional-representation premise. All four Equation (3) methods retain a
-functional-representation premise and the same finite-value boundary; equality
-holds iff `I(X;Z|Y) = 0`, equivalently the Markov chain `X - Y - Z`. No full
-support or null-fiber conditional law is required. Fixed-perfect equality,
-zero-CMI, and Markov equivalences retain the structural conjunct, and transport
-uses the full triple law. The existential pair predicate depends only on the
-pair law, permits a separate perfect `Fin n` triple-law extension, and accepts
-any finite perfect auxiliary in any universe through the finite reindexing
-bridge. Canonicalization, channel-level perfectness, matrix results,
-algorithms, and complexity claims are not yet formalized.
-The initial source baseline is commit `57e132c`.
+Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
+actual source and pinned APIs before relying on a summary. Plans and review aid
+judgment; preserve mathematical intent and acceptance, document justified
+adaptations, and stop after the one authorized step.
 
-**[Current] Dependency.** `lakefile.toml` pins LeanInfoTheory `v0.1.0`; the
-manifest resolves it to
-`0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f`. That release uses Lean and
-mathlib `v4.33.1`. Verify every upstream name against this checkout.
+**Essential boundaries**
 
-**[Decision] Scope.** The six-page ISIT manuscript fixes target inclusion. The
-current extended draft is an evolving proof and clarification companion for
-in-scope results: consult it when the conference version is terse or unclear,
-but do not import extended-only material without separate approval.
-
-**[Decision] Architecture.** Treat mathlib as the foundational library and the
-pinned LeanInfoTheory release as the primary information-theory library. Reuse
-their `PMF`, channel, entropy, information-measure, independence, and Markov
-APIs before adding local material. Keep paper-specific functional
-representations, singular channels, matrix operations, reachability, and LP
-statements downstream. Canonical information units remain nats.
-
-**[Current] Work status.** Project bootstrap, initialization audit, and
-document-role reconciliation are complete. The project lead accepted revision
-2 of the formalization map as the current adaptable global reference.
-PFR-C01 detailed-plan Draft revision 2 was approved on 2026-09-04, and DG-01
-was resolved according to it. Approval-checkpoint commit
-`5a9c7ca999639afe26c7bf235b4d044e0341b55a` is the verified execution
-baseline. PFR-C01 was activated for S01, which completed and validated on 2026-09-04;
-the project lead explicitly authorized S02 on 2026-09-05, and it completed
-and validated that day. The project lead explicitly authorized S03 on
-2026-09-05; the Equation (1) equivalence and its regressions completed and
-validated that day. The independent S03 review received on 2026-09-06
-recommended no corrective or optional change. The project lead separately
-authorized S04 on 2026-09-06; implementation and validation completed that day.
-The independent S04 report received that day recommended retaining the
-implementation with no corrective or optional change; its receipt and source
-identity were reconciled without a Lean change.
-The project lead separately authorized S05 on 2026-09-06; Equation (3) and its
-equality/Markov consequences completed and validated on 2026-09-07.
-The independent S05 report received on 2026-09-07 recommended no corrective
-or optional change. Its source identity was reconciled, and S05 was finalized
-without a Lean change. The project lead explicitly authorized S06 on
-2026-09-07; fixed and existential perfectness completed implementation-step
-validation that day. The independent S06 report received that day recommended
-retention with no corrective or optional change. Its source identity was
-reconciled, and S06 was finalized without a Lean change. The project lead then
-explicitly authorized S07 on 2026-09-07; root integration and internal
-validation passed that day, leaving C01 `Active` at the milestone
-"implementation finished; independent validation pending." The independent
-S07 report received that day was reconciled against
-the current files, and S07 was finalized without a Lean or regression change.
-The project lead then explicitly authorized S08 on 2026-09-07. A fresh
-independent chunk-wide pass and completion reconciliation succeeded: C01 is
-`Complete`, and all eight steps are validated. The exact approved ISIT binary
-was recovered and the C01 source anchors freshly rechecked; the earlier
-missing-binary limitation is closed. C02 is ready for detailed planning but
-has not started and requires a new prompt; no later chunk begins automatically.
-The subsequent `Reviewer - Chunk 1` S08 report covered the final self-review
-notes and was reconciled against all sixteen supplied fingerprints. S08 and
-C01 retain their validated/complete statuses without a Lean change; detailed
-review evidence is recorded in Section 9.
-
-Read next by task:
+- Scope is the six-page ISIT manuscript; extended v16 is the version-bound
+  proof/clarification companion. [Exact source identities and ledger](pfr-c16-coverage-audit.md#source-identities-and-reading-method).
+- Reuse pinned LeanInfoTheory `v0.1.0` and mathlib on Lean `v4.33.1`.
+  No dependency upgrade is authorized.
+- Structural representations allow unrestricted carriers. Information uses
+  finite value alphabets, independent universes and nats; source spaces need not
+  be finite. Keep support-only decoding, null fibers, fixed/existential witnesses
+  and full-support converse hypotheses explicit.
+- The finite ambient-channel LP characterizations use
+  `[Fintype α] [Nonempty α] [Finite β]` and singularity.
+  Necessity has weaker hypotheses. [B01–B11](pfr-c16-readiness-audit.md#boundary-index)
+  record all boundaries; the [no-wrapper decision](pfr-c16-readiness-audit.md#c16-s03-wrapper)
+  retains a concrete consumer trigger.
+- The lightweight root excludes matrix, optimization, optional decoding,
+  examples and tests. Build separately imported modules explicitly.
+- DG-01–DG-15 are resolved. OM-001–071 and original review history remain intact.
+  Numbered Future Work Notes: **none**. No known required implementation is
+  left by S05; final validation and supported closure are complete.
+- Release, remote/publication validation, metadata, omission curation and website
+  work require separate decisions. Local completion does not establish them.
 
 | Task | Read next |
 | --- | --- |
-| Formalization-map review | Sections 2-8, `docs/formalization-map.md`, the exact ISIT paper, and relevant material in the current extended draft |
-| Lean theorem implementation | The approved step, its formalization-map chunk, Sections 3-7, owning modules, and exact source statement |
-| API or architecture review | Sections 3, 5, 7, 8, and targeted Git/log history |
-| Dependency upgrade | Sections 1, 4, 5, and the candidate LeanInfoTheory release notes/API contract |
-| General Assistant reconciliation | This whole summary, `AGENTS.md`, project scope, the roadmap, `docs/project-log.md`, Git state, and temporary handoffs |
+| Inspect C16 closure | [C16 plan](plans/pfr-c16-coverage-api-trust-closure.md), [readiness matrix](pfr-c16-readiness-audit.md#c16-s05-readiness), [implementation evidence](pfr-c16-implementation-notes.md) |
+| Check a paper claim or interpretation | [Source ledger](pfr-c16-coverage-audit.md), then its exact source/fixture and relevant manuscript anchor |
+| Check API, imports or trust | [Readiness audit](pfr-c16-readiness-audit.md#complete-declaration-and-trust-inventory), [API/import audit](pfr-c16-readiness-audit.md#c16-s03-api) |
+| Revisit an omission or suggestion | [Map register](formalization-map.md#9-internal-exhaustive-omission-and-disposition-register), [dated dispositions](pfr-c16-readiness-audit.md#c16-s04-dispositions), [Future Work Notes](project-log.md#future-work-notes) |
+| Recover history or review provenance | [Preserved-record routes](pfr-c16-readiness-audit.md#c16-s04-navigation), then targeted log/notes entries |
+| Work with review | [Review protocol](review-protocol.md) and [installed operations](review-operations.md); reuse the bound reviewer and durable private state |
+| Understand scope or later direction | [Project scope](project-scope.md), [roadmap](roadmap.md), relevant sections below |
 
 ## 1. Document and Repository Status
 
-| Field | Value |
+| Field | Current value |
 | --- | --- |
-| Last reconciled | 2026-09-07 |
-| Repository | `serhatemrecoban/PerfectFunctionalRepresentationsLean`, private |
-| Branch | `master` |
-| Initial source baseline | `57e132c` |
-| LeanInfoTheory dependency | immutable tag `v0.1.0`, commit `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
-| Lean/mathlib baseline | `v4.33.1` |
-| Paper coverage | C01 structural predicates, expansion, law transport, postprocessing independence, Equations (1)-(3), fixed perfectness, and existential pair perfectness independently validated; canonicalization and later results remain targets |
-| Formalization map | accepted revision 2; current adaptable global reference; non-authorizing |
-| PFR-C01 detailed plan | [Approved Draft revision 2 dated 2026-09-04](plans/pfr-c01-semantic-functional-representations.md); status `Complete` |
-| Active chunk | None; PFR-C01 S01-S08 validated, C02 detailed planning next eligible but not started |
-| C01 delivery checkpoint | The commit introducing [project log entry 34](project-log.md#34-authorized-c01-delivery-checkpoint---2026-09-07); distinct from the approved execution baseline |
-| Numbered Future Work Notes | none |
-| Website | none; no approved website plan |
-| Validation baseline | S08 independent chunk-wide pass; fresh production, regression, root, default, consumer, signature, axiom, and hygiene checks passed; details in Section 9 |
+| Reconciled | 2026-10-04, post-closure checkpoint; C01–C16 complete, with C16 durable closure and pre-edit source applicability verified |
+| Checkpoint preparation baseline | Branch `master`, HEAD `54c1714d1a9a891939d6c9f7d38c0d05896b2c75`; this checkpoint packages the accumulated C02–C16 work, without rewriting historical step baselines |
+| Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
+| Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |
+| Completed plan | [C16 revision 2](plans/pfr-c16-coverage-api-trust-closure.md); preserved pre-closure text, later supported completion recorded in the [checkpoint entry](project-log.md#post-c16-checkpoint) |
+| Coverage and decisions | [Ledger](pfr-c16-coverage-audit.md), [readiness](pfr-c16-readiness-audit.md#c16-s05-readiness); DG-01–DG-15 resolved, all 71 omission rows preserved |
+| Remote/release state | GitHub verified private on 2026-10-04; lead authorized this checkpoint's commit/push. Actual delivery is verified against Git/GitHub, separately from C16 acceptance; no release or CI result is implied |
 
-The maintained document roles are:
-
-- `README.md`: reader entry point and basic project navigation;
-- `AGENTS.md`: how assistants work;
-- this living summary: where the project stands, including normalized
-  future-work status;
-- `docs/project-scope.md`: what belongs in the project;
-- `docs/project-log.md`: what happened and why, plus authoritative detailed
-  Future Work Notes;
-- `docs/roadmap.md`: where the project may go, without authorizing work;
-- `docs/formalization-map.md`: current global source allocation, candidate
-  chunks, dependencies, decision gates, and internal omission register; and
-- approved files under `docs/plans/`: what the project lead has authorized to
-  do next.
-
-Any task that materially changes current status, coverage, decisions, risks,
-architecture, map dependencies or omission dispositions, dependency or
-manuscript identity, validation evidence, approved work, roadmap direction, or
-future-work disposition must update the owning canonical documents before
-completion without waiting for a separate request. Use links and compact
-derived summaries instead of duplicating detailed content across owners.
+Document ownership is fixed in [AGENTS.md](../AGENTS.md#document-roles-and-proactive-maintenance):
+README is the reader entry point; scope owns inclusion; this summary owns current
+context; the map owns allocation, gates and omissions; the log owns history and
+numbered Future Work Notes; plans own approved contracts; audits and notes own
+detailed coverage/evidence. Update the relevant owners in the same coherent
+change and link history instead of accumulating it here.
 
 ## 2. Mission, Scope, and Success Criteria
 
@@ -178,7 +101,7 @@ research-paper formalization can be built on the public LeanInfoTheory library.
 Paper-specific constructions remain here, just as application-specific
 certificate machinery belongs in its own downstream repository.
 
-**[Target] In scope.** Definitions 1-4, Lemmas 1-6, Theorems 1-2, Corollary
+**[Decision] In scope.** Definitions 1-4, Lemmas 1-6, Theorems 1-2, Corollary
 1, the non-representable example, the operation examples needed for validation,
 and the finite optimization statements used by the ISIT paper.
 
@@ -213,49 +136,31 @@ approved; theorem-level equivalence is the primary paper claim.
 
 ## 3. Paper Coverage Matrix
 
-These rows record accepted coverage dispositions. Most are Lean targets; a row
-marked documentation-only is intentionally not a theorem target. The rows are
-not execution authority: PFR-C01 approval comes only from its tracked plan.
-Equations (1)-(3) and the adjacent unnumbered fixed/existential pair perfectness
-notions are implemented and independently validated in C01 at the approved
-finite-value boundary; the remaining
-numbered targets are unimplemented. The structural semantic API and validation
-evidence are recorded separately in Sections 0 and 9.
+The [C16 ledger](pfr-c16-coverage-audit.md) is the exhaustive owner: 51 numbered
+items, 122 prose occurrences, a six-page sweep and version-bound companion
+dependencies. This table is a navigation summary of completed C01–C15 coverage.
 
-| ISIT item | Mathematical role | Proof source | Status |
-| --- | --- | --- | --- |
-| Equation (1) | Functional representation: independence and deterministic decoding | ISIT I | Implemented and validated in S03; finite value alphabets, unrestricted source |
-| Equation (2) | Unconditional mutual-information decomposition | ISIT I; extended I; LeanInfoTheory chain rules | Implemented and validated in S04; finite value alphabets, unrestricted source, no representation premise |
-| Equation (3) | Representation-specific reduced identity and perfect upper bound | ISIT I; extended I; LeanInfoTheory nonnegativity and Markov equivalence | Implemented and validated in S05; all four consequences retain the representation premise, finite value alphabets, and unrestricted source |
-| Definition 1 | Canonical functional representation | ISIT II-A | Target |
-| Lemma 1 | Replace an arbitrary representation by an equally informative canonical one | ISIT II-A | Target |
-| Definition 2 | Channel-level perfect representability | ISIT II-A | Target |
-| Definition 3 | Singular finite channel/matrix | ISIT II-B | Target |
-| Lemma 2 | Perfect implies singular; singular is sufficient for binary input or output | ISIT II-B; extended appendix | Target |
-| Example 1 | A singular `3 x 3` channel that is not perfectly representable | ISIT II-B; extended appendix | Target |
-| Equation (9), Lemma 3 | Binary-input optimum via total variation and maximal coupling | ISIT II-C; extended appendix | Target |
-| Definition 4 | Nonzero column value and binary support pattern | ISIT III-A | Target |
-| PPS, PPM, VPS, VPM | Four operations on singular channel matrices | ISIT III-A | Target |
-| Lemma 4 | Normalize an operation cascade to PPS, then VPS, then PPM | ISIT III-A; extended appendix | Target |
-| Lemmas 5-6 | Preservation of representability/non-representability | ISIT III-B; extended appendix | Target |
-| Theorem 1 | Reach `1_k` from `M` via PPM/PPS/VPM; equivalently construct `M` from `1_k` via PPS/VPS/PPM | ISIT III-B and appendix; extended proof | Target |
-| Pattern compression and incidence matrix `H` | Reduce a singular matrix to distinct patterns and partition weights | ISIT IV-A | Target |
-| Theorem 2 | Primal LP optimum equals one iff perfectly representable | ISIT IV-A; extended appendix | Target |
-| Corollary 1 | Dual LP characterization | ISIT IV-B | Target |
-| Complexity remark | LP size and the efficient-solvability question posed by the ISIT paper; the current extended draft gives extended-only answers | ISIT IV-C | Documentation-only coverage |
+| Paper content | Complete owner and detailed record |
+| --- | --- |
+| Functional representations, Equations (1)–(3), fixed/existential perfectness | [C01 plan](plans/pfr-c01-semantic-functional-representations.md) |
+| Definition 1, Lemma 1, canonicalization, Remark 1, Definition 2 and prior boundary | [C02 readiness](pfr-c02-readiness-audit.md) |
+| Definition 3, necessity, small-output Lemma 2, singular counterexample | [C03 readiness](pfr-c03-readiness-audit.md) |
+| Equation (9), finite total variation/maximal coupling; binary-input Lemmas 2–3 | [C04](pfr-c04-readiness-audit.md), [C05](pfr-c05-readiness-audit.md) |
+| Definition 4, channel/matrix/active-output and numeric boundary | [C06 readiness](pfr-c06-readiness-audit.md) |
+| Four typed operations and Examples 2–5 | [C07 readiness](pfr-c07-readiness-audit.md) |
+| Lemma 4 finite normalization | [C08 readiness](pfr-c08-readiness-audit.md) |
+| Lemmas 5–6 preservation | [C09 readiness](pfr-c09-readiness-audit.md) |
+| Finite operation synthesis and both Theorem 1 characterizations | [C10](pfr-c10-readiness-audit.md), [C11](pfr-c11-readiness-audit.md) |
+| Pattern compression/Real data and full/reduced incidence; Examples 6–7 | [C12](pfr-c12-readiness-audit.md), [C13](pfr-c13-readiness-audit.md) |
+| Theorem 2 attained primal characterization | [C14 readiness](pfr-c14-readiness-audit.md) |
+| Corollary 1 attained dual characterization and finite counts | [C15 readiness](pfr-c15-readiness-audit.md) |
+| External Equation (4), Remark 2, complexity discussion and other intentional omissions | [Original OM register](formalization-map.md#9-internal-exhaustive-omission-and-disposition-register) and [C16 dispositions](pfr-c16-readiness-audit.md#c16-s04-dispositions) |
 
-Draft map revision 2 allocates these rows across sixteen candidate chunks and
-splits high-risk rows such as Lemma 2, Theorem 1, and the LP development. A
-detailed chunk plan may split an allocation further after a plan-health review.
-
-**[Provisional] Map coverage granularity.** Revision 2 assigns Remark 1
-formal theorem coverage, Examples 2-7 to checked fixtures or demonstrations,
-and externally sourced Remark 2 to the internal omission register. Equation
-(4) is intentionally not targeted because it is an external bound, is not
-needed by the exact characterization, and has unit-sensitive wording. These
-are accepted as adaptable map dispositions rather than frozen public-API
-contracts; they do not bring the extended-only information-measure discussion
-into scope.
+Complete coverage does not require a public declaration for every display.
+[DG-15](pfr-c16-readiness-audit.md#c16-s03-dg15) records exact public, private,
+fixture and documentation owners, including Figure 1 and extended examples.
+Frozen earlier plans/audits retain their original pre-finalization checkpoints;
+later verified handoffs establish their completion.
 
 ## 4. Evidence and Conflict Judgment
 
@@ -337,496 +242,162 @@ interfaces.
 Focused imports are preferred. The PFR root must not import heavy matrix or
 optimization machinery merely because a late paper theorem uses it.
 
-## 6. Stable and Provisional Design Decisions
+## 6. Stable Design Decisions and Architecture
 
-**[Decision] Stable.** Use functions `alpha -> PMF beta` for channels, arbitrary
-finite types for semantic statements when practical, right-associated products,
-and LeanInfoTheory's nats convention. Make channel-to-coordinate-matrix
-translation explicit.
+- Channels are functions `α → PMF β`; products are right-associated and
+  information is Real-valued in nats. Reuse mathlib and pinned LeanInfoTheory.
+- Structural functional representation is independence plus a product decoder
+  correct on support. The common-base wrapper uses the **full triple pushforward**.
+  Fixed-auxiliary perfectness and existential pair perfectness are distinct.
+  The latter uses a finite triple-law extension with a `Fin n` hidden witness;
+  it need not supply an auxiliary on the original source. C02 supplies finite
+  canonical sufficiency, without claiming arbitrary infinite-auxiliary
+  information preservation (OM-053).
+- Canonical vectors have law `PMF (α → β)`. Coordinate marginals alone do not
+  express a representation of a fixed pair: independence and evaluation decoding
+  remain explicit. Intrinsic channel perfectness uses one posterior for every
+  row. Null-output completions are arbitrary; support transport handles
+  arbitrary priors and ambient converses retain full-support hypotheses.
+- Finite TV is half-L1 in Real with exact ENNReal overlap/residual laws and an
+  explicit product-PMF maximal coupling. The optional Fano decoder bridge stays
+  separate; it adds no dependency to the coupling core or root. Existing
+  semantic KL dependencies remain allowed.
+- Raw coordinates allow empty inputs and zero columns. The active finite channel
+  state requires nonempty finite input, positive output cardinality and active
+  columns; singularity is separate. Admitted values include one and patterns are
+  nonempty support finsets. Exact/Real reconstruction and enumeration bridges are
+  explicit; no data is invented for ambient zero columns.
+- PPS uses strict positive split ratios; VPS admits value one and requires two
+  nonempty pieces. All source merge indices and resulting order are explicit.
+  Inverses retain witnesses and directed equivalences. Type-valued witnessed
+  paths and a finite structural certificate prove normalization; expanding
+  rewrites are not assumed to terminate. Pinned `Finpartition` supports exact
+  labelled blocks and finite multiway paths.
+- Compression retains actual forward/reverse paths and every ambient coordinate.
+  Valid Real data requires positive occurring-pattern values and weighted row
+  normalization. Full/reduced incidence restricts both rows and admissible
+  partitions; equality-feasibility equivalence requires nonnegative coefficients.
+  The literal mixed ISIT encoding is rejected with its reason retained.
+- Primal and dual predicates are distinct and use attained `IsGreatest`/`IsLeast`
+  objectives. Specialized finite convex separation/correction proves the dual.
+  All-vector reindexing preserves inverse maps and entire objective images.
+  Reduced counts are not the full-system counts. No general LP library or solver
+  is implemented. Existing nonsingular rejection and singular primal/dual
+  endpoints support the [no-wrapper decision](pfr-c16-readiness-audit.md#c16-s03-wrapper).
 
-**[Decision] PFR-C01 semantic contract.** DG-01 was resolved on 2026-09-04 by
-the [approved PFR-C01 plan](plans/pfr-c01-semantic-functional-representations.md).
-Use a law-level triple predicate with a full-pushforward common-base `...Of`
-wrapper. Structural representation is independence plus existence of a
-support-correct product decoder and has no finiteness requirement. Keep
-fixed-`Z` perfectness distinct from law-invariant existential pair perfectness;
-normalize the latter's hidden finite auxiliary as `Fin n` on an enlarged
-triple-law space. Information/perfectness statements use the pinned
-finite-valued API, with no source-space `Fintype` assumption; `OM-053` records
-this source-to-Lean boundary and PFR-C02's later canonicalization obligation.
+| Layer | Implemented ownership |
+| --- | --- |
+| Lightweight root | Basic, FunctionalRepresentation, Canonical, Singularity, FiniteCoupling and Binary |
+| Optional probability | FiniteCouplingDecoding |
+| Matrix | Channel/SingularColumns; OperationIndices/Operations; OperationPaths/OperationFactorization/OperationCalculus; Preservation; Partitions/MultiwayOperations; Reachability/CanonicalReachability; PatternCompression |
+| Optimization | Incidence/IncidenceConstruction; Primal; Dual/DualCharacterization |
+| Demonstrations/regressions | Two Examples owners and 28 Tests owners, separately imported |
 
-**[Provisional] Canonical representation.** A canonical random vector over an
-input alphabet `alpha` naturally has value type `alpha -> beta`; its law may be
-represented as `PMF (alpha -> beta)`, with coordinate pushforwards matching the
-channel rows. The draft map recommends a prior-free common-posterior
-factorization for channel-level perfection, together with a proved
-full-support-prior Markov bridge. This still requires an approved chunk
-contract, especially for null output fibers and zero-prior inputs.
+The [complete 56-owner API/import audit](pfr-c16-readiness-audit.md#c16-s03-api)
+owns exact modules, public-name counts and actual import exclusions. C01–C15
+decisions are implemented; [DG-01–DG-15](formalization-map.md#5-decision-gates)
+retain their approved rationale. Generic upstream candidates require separate
+library review and a reviewed release upgrade before downstream adoption.
 
-**[Provisional] Layering.** Map revision 2 proposes sixteen chunks across
-semantic representation, finite coupling, the active finite-matrix boundary,
-typed operations and reachability, pattern/incidence systems, primal/dual
-characterizations, and final trust closure. The allocation remains adaptable;
-outside approved PFR-C01, no chunk or module name is approved.
+## 7. Mathematical Boundaries to Preserve
 
-**[Provisional] Matrix boundary.** A direct `Matrix (Fin k) (Fin m)` encoding
-matches the paper but operations change the output dimension. The draft map's
-leading candidate is an active heterogeneous finite-channel state based on
-`Sigma fun m => alpha -> PMF (Fin m)`, but strengthened with nonempty input,
-positive output-cardinality, and active-column invariants. It uses explicit
-output relabeling and derived `ENNReal`/`Real` matrix views. The detailed chunk
-plan must verify that choice; dimension changes must not be buried under casts.
+The anticipated design risks are now checked contracts, recorded in
+[B01–B11](pfr-c16-readiness-audit.md#boundary-index). Future changes must preserve:
 
-**[Superseded] Earlier ownership framing.** An early readiness discussion
-treated PFR-specific notions as possible LeanInfoTheory prerequisites. The
-approved downstream ownership boundary replaces that framing; it is not an
-active upstream proposal.
+- independent universes, unrestricted source spaces, the finite-information
+  boundary and full joint-law transport;
+- support-only decoding, a common all-row posterior, null-fiber conventions and
+  full-support converses;
+- distinct raw, active, semantic and LP empty/singleton cases; LP input must be
+  nonempty, while an admissible partition family may be empty;
+- exact active restriction/injection and compression recovery, including every
+  unused ambient output;
+- ENNReal finiteness, justified Real conversion/cancellation and the explicit
+  zero-residual branch of totalized maximal-coupling division;
+- strict PPS/legal VPS guards, all merge indices, directed recoveries, genuine
+  finite paths and retained endpoints;
+- independent noninvolutive input/output reindexing and entire objective images;
+- nonnegative full/reduced feasibility and both index restrictions; signed and
+  mixed-system guards prevent false equivalences; and
+- distinct LP attainment contracts, positive certificate correction and exact
+  reduced variable counts.
 
-**[Decision] Upstream boundary.** Do not move paper-specific APIs into
-LeanInfoTheory for convenience. A missing general theorem may be proposed
-upstream only after a concrete downstream need and separate compatibility
-review. PFR continues to build against `v0.1.0` until an approved release
-upgrade.
-
-## 7. Anticipated Lean and Mathematical Risks
-
-- The paper treats the support of `X` as the whole finite input alphabet,
-  while channel-level perfect representability is prior-independent. The
-  intrinsic binary-input channel clause should use a two-element input type;
-  pair-level Lemma 3 must instead expose a full-support input law or transport
-  to its support subtype. Its final equality can fail as a channel criterion
-  for a degenerate prior. Binary-output claims likewise need an active-output
-  restriction or an explicit globally-zero-output invariance theorem.
-- Canonical vectors are finite dependent products in mathematical prose but
-  ordinary function types in Lean; coordinate laws and extensionality need a
-  clean API. A bare coupling law with the right coordinate marginals is not by
-  itself a canonical representation of a fixed pair: the joint decoder
-  relation `Y = W_X` must remain explicit.
-- The manuscript fixes finite `X` and `Y` but does not literally
-  finite-qualify every auxiliary alphabet. The approved PFR-C01 contract leaves
-  structural fixed-`Z` semantics unrestricted, places information/perfectness
-  statements at the finite-valued boundary required by the pinned API, and
-  uses `Fin n` only to normalize the hidden finite pair witness. `OM-053`
-  records this source-to-Lean interpretation; implementation must preserve it,
-  and PFR-C02 later supplies the finite-canonical-witness justification.
-- Split and merge operations change output types and reorder columns. The ISIT
-  text gives PPM/VPM the domain `S_{k,m+1}` while quantifying merge indices only
-  through `m`; the current extended draft clarifies that both source indices
-  range through `m + 1`. The formal contract should adopt and record that
-  source-backed correction while still specifying the resulting column order.
-- The paper takes the output alphabet to be the support of `Y`, whereas an
-  ambient matrix type may admit all-zero columns for which Definition 4 has no
-  value or pattern. The matrix boundary must state its nonzero-column contract.
-- Literal VPS masks can create an all-zero child column, while PPS requires a
-  strict split to preserve active columns. VPS is also printed for
-  `0 < beta < 1`, although later constructions may split a value-one column.
-  The operation contract must resolve both issues and state Examples 2-5 under
-  their implicit `0 < beta < 1` parameter condition.
-- The paper's claims that split/merge pairs are “inverses” retain hidden split
-  parameters, and its multiway PPS/VPS prose abbreviates finite binary
-  cascades. Lean must use witness-parameterized recovery theorems and explicit
-  finite paths, including singleton, zero-weight, empty-fiber, and value-one
-  cases.
-- Lemma 4's informal repeated-interchange argument needs a rigorous
-  normalization or termination measure, particularly if a local rewrite can
-  lengthen a cascade.
-- Multiway VPS and the decoder-fiber construction need an exact-partition
-  interface before the later incidence-system chunk. The draft map now assigns
-  its minimal form to `PFR-C10` and leaves enumeration and incidence ownership
-  to `PFR-C13`, avoiding a hidden dependency cycle.
-- PMF masses are `ENNReal`, while the paper's LP is real-valued. The conversion
-  boundary and finiteness/nonnegativity obligations require deliberate design.
-- Neither LeanInfoTheory nor pinned mathlib has a ready finite-PMF
-  total-variation/coupling API. The draft map allocates a local finite
-  maximal-coupling development before the binary-input part of Lemma 2 and
-  Lemma 3.
-- Conditional and Markov statements must handle null fibers consistently.
-- Theorem 1 mixes semantic existence with combinatorial matrix reachability;
-  explicit equivalence and relabeling lemmas will likely dominate the proof.
-- Theorem 2 and Corollary 1 require an explicit optimization contract. Because
-  pinned mathlib has no ready LP strong-duality layer, the draft map recommends
-  `IsGreatest`/`IsLeast` attainment statements and a specialized finite
-  convex-separation argument rather than a general LP library. The dual chunk
-  still requires focused feasibility probes before approval.
-- The input alphabet must be nonempty at the LP boundary; for an empty input,
-  the manuscript's displayed primal can be unbounded.
-- Human-oriented LP descriptions may count effective variables rather than the
-  coordinates of one literal displayed encoding. The current extended draft
-  now distinguishes a full system indexed by all `2^k - 1` nonzero patterns
-  from the reduced system on the `m` patterns that occur, and explains why
-  their feasibility is equivalent. The literal ISIT `m × R` system with all
-  Bell partitions but only occurring-pattern rows can contain unconstrained
-  columns and is not accepted as a third formal encoding. Corollary 1's `m`
-  dual variables belong to the reduced system. Draft map revision 2 assigns
-  the primary representation and reduction/equivalence decisions to
-  `PFR-C12` and `PFR-C13`. No detailed contract, optimization-attainment
-  theorem, or complexity theorem is approved yet.
+Printed/intended/Lean differences remain in the source ledger and original
+omission register. A changed extended manuscript requires affected-contract
+revalidation. A plausible interpretation that changes mathematical content or
+strength requires a project-lead decision.
 
 ## 8. Current Work, Roadmap, and Future Work
 
-| Register | Current normalized status |
+**Current, 2026-10-04:** C01–C16 are durably complete. The
+[readiness record](pfr-c16-readiness-audit.md#c16-s05-readiness) establishes
+CC01–CC08 at its reviewed checkpoint. Both S05 original reports are reconciled;
+final checks and supported closure establish CC09, freshly verified in the
+[post-closure checkpoint](project-log.md#post-c16-checkpoint).
+No new theorem family or unresolved mathematical/API implementation is identified.
+
+| Register | Normalized current state |
 | --- | --- |
-| Current activity | PFR-C01 complete; awaiting an explicit PFR-C02 detailed-planning prompt |
-| Formalization map | accepted revision 2 in `docs/formalization-map.md`; PFR-C01 complete, PFR-C02 ready for detailed planning, PFR-C03 through PFR-C16 mapped; DG-01 resolved, fourteen decision gates open, fifty-three omission/disposition records |
-| Approved chunk plan | [PFR-C01 semantic functional representations](plans/pfr-c01-semantic-functional-representations.md), Draft revision 2 approved 2026-09-04 |
-| Active theorem-development chunk | None; PFR-C01 S01-S08 validated against execution baseline `5a9c7ca999639afe26c7bf235b4d044e0341b55a`; no C02 authorization |
-| Detailed numbered Future Work Notes | None opened; the authoritative register is in `docs/project-log.md` |
-| High-level direction | Maintained in `docs/roadmap.md` |
-| Website | Deferred roadmap direction only; no website or approved website plan |
+| Completed chunks | C01–C16; [preserved contracts and closure checks](pfr-c16-readiness-audit.md#c16-s04-navigation), with final C16 closure in the [checkpoint entry](project-log.md#post-c16-checkpoint) |
+| Gates / omissions | DG-01–DG-15 resolved; OM-001–071 original IDs and rationale preserved |
+| C16 reviewer | Existing `/root/pfr_c16_reviewer`, originating task `01a0fd72-febb-7d03-ae0c-9e8ee42d78bf`; requested Astra/ultra/no parent history, effective settings unknown. All five steps are closed and original reports reconciled. S05 cumulative assessment and corrected-source reassessment satisfy all three criteria; supported closure is verified. Revision-1 plan review is historical; no separate revision-2 plan review is claimed. |
+| Numbered Future Work Notes | None opened; [authoritative register](project-log.md#future-work-notes) freshly checked in S05 |
+| Mapped suggestions and later directions | [Dated disposition register](pfr-c16-readiness-audit.md#c16-s04-dispositions) names original references, owners and triggers; no unowned worthwhile deferral |
+| Release / website | Separate decisions, [roadmap](roadmap.md#later-or-deferred-directions); no approved website plan |
 
-When numbered Future Work Notes exist, this summary will list every note
-exactly once in a compact current-status view. Active, standing, transferred,
-and deferred notes will be separated from completed, superseded, and obsolete
-notes. The project log retains each note's detailed rationale and dated
-history. An active note is not an approved chunk.
-
-The roadmap groups possible mathematical, completion, release, and later
-directions. The formalization map owns the more detailed current allocation,
-decision gates, and internal omission register; it remains adaptable and does
-not authorize implementation. Scope exclusions remain governed by Section 2
-and `docs/project-scope.md`.
+Future notes retain immutable numbers and full history in the log. Their current
+classification belongs here, including terminal dispositions. Mapped work,
+review advice and roadmap inclusion do not authorize implementation. Reassess
+concrete triggers; neither automatically implement nor silently discard an idea.
 
 ## 9. Validation and Trust State
 
-The following chronological records describe the state and evidence at each
-dated milestone. Later status changes and source recovery do not retroactively
-enlarge earlier reviews; the final S08 paragraph records current completion.
+C16 S01–S05 are durably complete. The [C16 evidence register](pfr-c16-implementation-notes.md)
+owns exact actors, commands, failures, source identities and original reports.
+The [S05 cumulative crosswalk](pfr-c16-readiness-audit.md#c16-s05-readiness)
+records the fresh assessment. The following earlier results retain their original
+dates and limits; S05 evidence is recorded separately.
 
-At bootstrap and again during the 2026-09-02 initialization audit, `lake build`
-completed successfully with 2,605 jobs against the pinned dependency. The
-strict project-source placeholder scan returned no matches. The project Lean
-sources are a lightweight `PerfectFunctionalRepresentations.lean` root and
-`PerfectFunctionalRepresentations/Basic.lean`; the latter's only substantive
-content is a smoke-test example importing `LeanInfoTheory.Shannon.Entropy` and
-applying `entropy_nonneg`.
+- S01 reconciled all six ISIT pages, 51 numbered items, 122 prose occurrences and
+  version-bound extended dependencies, including the corrected Example 6 entry.
+  Its independent review freshly checked the manuscripts and source.
+- S02 audited all 56 maintained owners: 6,534 original compiled-owner occurrences,
+  6,518 distinct names, complete public/private/generated/instance inventories,
+  and 1,813 anonymous commands in 34 exact-body copy files. Copies and generated
+  descendants have separate counts and provenance. Allowed transitive axioms are
+  `propext`, `Classical.choice` and `Quot.sound`; generated ownership and compiler
+  runtime-helper investigations retain their precise limits.
+- S02 independent review reproduced the original-owner audit and controls,
+  checked all copy transformations and independently compiled two copy files.
+  It did not independently recompile all 34. Complete details are in the
+  [trust inventory](pfr-c16-readiness-audit.md#complete-declaration-and-trust-inventory).
+- S03 checked all 935 public source-named declarations, all 28 isolated
+  production/example module closures, nine public consumers, pinned reuse and
+  endpoint composition. The reviewer freshly replayed the closures and consumers;
+  it inspected parent build receipts and reused S02 trust under exact hashes.
+  It did not rerun the full build or whole trust audit in S03.
+- S03 parent builds passed all 56 explicit targets (2,823 jobs) and the default
+  target (2,762), with cached artifacts. Required placeholder and whitespace
+  checks passed. S04 changed documentation and checked exact applicability; its original
+  build and hygiene results remain in its evidence section.
 
-The same audit built the focused channel and Markov modules and compiled
-`#check`s for all 17 declarations named in Section 5 under their exact
-namespaces.
+- S05 freshly rehashed and inspected both manuscripts, every source/interpretation
+  and boundary obligation, complete public/API ownership, full maintained builds
+  and trust/import controls. The independent reviewer also ran the complete
+  original-owner audit, all 34 anonymous-copy elaborations, all 28 isolated
+  imports, consumers and builds. One PPM page locator is corrected with provenance.
+  The original review found a stale current map allocation; the bounded correction
+  and readiness pointer received a separate independent reassessment. All three
+  S05 criteria are satisfied, with both original reports and their limits retained.
+  Final checks and supported durable closure establish C16 completion; the
+  [2026-10-04 checkpoint](project-log.md#post-c16-checkpoint) verifies the later record.
 
-The 2026-09-03 documentation-architecture reconciliation again passed the
-2,605-job default build. A deliberate broad dependency probe built the complete
-`LeanInfoTheory.Shannon` umbrella successfully with 3,056 jobs, after which all
-17 named declarations passed exact `#check` verification. Relative Markdown
-links, status vocabulary, manuscript digests, document whitespace, placeholder
-policy, tracked-file scope, and repository hygiene were also checked; no Lean,
-manifest, toolchain, or dependency file changed.
-
-The second formalization-map review on 2026-09-03 again passed the 2,605-job
-default build and strict placeholder scan. Independent audits checked the
-acyclic chunk graph, source coverage and dispositions, all 16 chunk IDs, 15
-decision-gate IDs, and 52 omission IDs and references. A focused compiling
-probe verified the additional pinned marginal, partition, reindexing, finite
-separation, and coordinate-duality declarations used as planning evidence.
-Markdown links, manuscript digests, dependency revisions, and document
-whitespace were rechecked. These validations support planning feasibility;
-they do not approve a chunk or certify any paper theorem as implemented.
-
-On 2026-09-04, focused PFR-C01 planning probes verified the proposed
-support-aware structural layer, Equations (1)-(3), their CMI and Markov
-orientation, the fixed-auxiliary perfectness layer, and the `Fin n`
-pair-extension encoding. The finite-witness bridge was also compiled for the
-genuinely higher-universe auxiliary `ULift (Fin 2)`. These checks establish
-planning feasibility. The project lead subsequently approved Draft revision 2
-and resolved DG-01 on 2026-09-04. The approval-checkpoint build, placeholder,
-link, path/directive, dependency-pin, diff/status, artifact, and plan-hygiene
-checks passed, as did an independent approval-transition audit. This validates
-the planning and authorization checkpoint only; it does not certify a paper
-theorem as implemented.
-
-PFR-C01-S01 then added the separately importable structural production and
-regression modules. Focused builds passed with 2,755 and 2,756 jobs, and the
-2,605-job default build remained green. A production-only consumer confirmed
-the exact three-declaration polymorphic API; its sole public theorem depends
-only on `propext`, `Classical.choice`, and `Quot.sound`. The strict placeholder,
-whitespace, dependency-pin, import, public-surface, support-edge, and artifact
-checks passed. An independent read-only review confirmed the source
-orientation, support transport, regressions, and S01-only scope. At that
-checkpoint, PFR-C01 remained active and S02 had not started.
-
-On 2026-09-05, the separate `Reviewer - Chunk 1` review was received and
-reconciled with verdict `PASS WITH NON-BLOCKING SUGGESTIONS`. It independently
-validated the three-declaration API, both negative fixtures, focused/default
-builds, proof trust, and documentation state, with no required S01 fix. Its
-sole caveat is the unresolved ISIT binary identity in Section 10. This S01
-review does not satisfy the later chunk-wide S08 validation or authorize a
-checkpoint commit or S02 execution.
-
-The subsequently authorized S02 completed on 2026-09-05. It added full
-triple-law structural transport across independent source universes and
-deterministic right-postprocessing of independence, bringing the production
-API to five public declarations without extra imports or typeclasses.
-Focused production/regression builds, the default build, exact-signature
-consumer, and theorem axiom audits passed. A separate read-only audit checked
-the source and regressions, including supported many-to-one maps and a case
-where postprocessing preserves independence but destroys decoding. Full
-evidence is in [project log entry 13](project-log.md#13-pfr-c01-s02-transport-and-postprocessing---2026-09-05).
-The source-identity caveat below remained recorded; S03 had not started at
-that checkpoint.
-
-The S02 contextual review follow-up added a regression showing that even all
-three equal pairwise laws cannot replace the full triple-law premise. It
-also clarified the existing upstream-ownership note without authorizing a
-migration. Production remains unchanged; repeated validation, direct checks
-of the untracked files, and final file fingerprints are recorded in
-[project log entry 14](project-log.md#14-s02-contextual-review-follow-up---2026-09-05).
-
-The separate `Reviewer - Chunk 1` review of the final S02 snapshot found no
-issue requiring a change. Its later comparison with implementation-side
-material left that assessment unchanged and recommended no additional optional
-improvement. The first-pass verification and remaining limitations are
-recorded in [project log entry 15](project-log.md#15-independent-s02-review-and-comparison---2026-09-05).
-S02 remained validated; S03 was paused pending an explicit prompt at that
-checkpoint, and the chunk-wide S08 review remained a later obligation.
-
-The project lead subsequently authorized S03 on 2026-09-05. It added exactly
-`isFunctionalRepresentationOf_iff_zero_conditions` under the unchanged
-approved contract, bringing the production API to six declarations. The
-theorem requires finite value alphabets, not a finite source type, and reuses
-the pinned zero-MI and zero-conditional-entropy equivalences. Its regressions
-cover an infinite source and the distinction between an existential
-support-correct decoder and a separately chosen bad decoder. Focused and
-default builds, the production-only signature consumer, axiom audit,
-placeholder scan, and direct untracked-source checks passed. An internal
-read-only source audit found no issue; this does not replace the separate
-reviewer or chunk-wide S08 validation. The final snapshot and full evidence
-are in [project log entry 16](project-log.md#16-pfr-c01-s03-equation-1---2026-09-05).
-At that closeout, S03 was validated, S04 had not started, and the
-manuscript-provenance caveat remained unchanged.
-
-The subsequent S03 contextual self-review and implementation reassessment
-found no justified code or regression change. Fresh focused/default builds,
-the public signature and decoder-extraction consumer, and the axiom audit
-passed on the unchanged source snapshot. Only review records were updated;
-this does not constitute independent validation. See
-[project log entry 17](project-log.md#17-s03-contextual-self-review-and-reassessment---2026-09-05).
-
-The independent S03 report received on 2026-09-06 recommended no corrective
-or optional change before step finalization. The implementation task verified
-that all five reviewed source/document fingerprints matched before recording
-receipt; no Lean change followed. The reviewer's source inspection, fresh
-builds, consumer, and axiom checks remain separately attributed in
-[project log entry 18](project-log.md#18-independent-s03-review-and-finalization---2026-09-06).
-At that reconciliation, S03 remained validated, the manuscript-provenance
-caveat remained unresolved, and C01 remained `Active` with S04 not started
-and S08 still required.
-
-The project lead subsequently authorized S04 on 2026-09-06. The exact
-unconditional Equation (2) identity completed and passed implementation-step
-validation that day, under the unchanged finite-value contract and without
-a functional-representation premise. One private conditioning-pair swap
-helper supports the sole new public theorem. Two anonymous regressions cover
-the polymorphic contract and an arbitrary source PMF on `Nat` with distinct
-value types. Focused production/regression builds, the public-only consumer
-and signature/axiom audit, and the default build passed. Exact pre-S04 source
-and seven-document snapshots were retained for step-specific comparison;
-this does not repair earlier missing historical baselines or complete S08. See
-[project log entry 19](project-log.md#19-pfr-c01-s04-equation-2---2026-09-06).
-At S04 closeout, S05 had not started and the manuscript-provenance caveat
-remained unchanged.
-
-The S04 contextual self-review and subsequent implementation reassessment
-retained the same source and regressions: no justified change was found.
-Fresh focused/default builds, public-only signature/axiom and edge-instance
-checks, and snapshot/diff audits are recorded in
-[project log entry 20](project-log.md#20-s04-contextual-self-review-and-reassessment---2026-09-06).
-This implementation-side review does not replace independent validation;
-at that review S04 remained `Validated`, S05 was unstarted, and S08 was still
-required.
-
-The independent S04 report received on 2026-09-06 recommended no corrective
-or optional change. Before recording receipt, all five supplied source and
-document fingerprints matched the current files. The reviewer inspected the
-exact pre-S04 comparisons and reported fresh focused/default builds, a new
-public-only consumer, signature/axiom checks, and documentation validation.
-Its evidence and limitations are separately attributed in
-[project log entry 21](project-log.md#21-independent-s04-review-and-finalization---2026-09-06).
-S04 is finalized without a source correction and retains status `Validated`.
-At that reconciliation the manuscript-provenance caveat remained unresolved,
-C01 remained `Active`, and S05 had not started. Independent chunk-wide S08
-validation is still needed.
-
-The project lead subsequently authorized S05 on 2026-09-06; it completed and
-passed implementation-step validation on 2026-09-07 under the unchanged
-Equation (3) contract. All four reduced-identity, bound, equality/zero-CMI, and
-equality/Markov methods retain the functional-representation premise, four
-universes, exactly three finite value alphabets, and an unrestricted source.
-No helper, import, or simp attribute was added. Five anonymous regressions
-consume all four generic contracts and a concrete null `Y` fiber with
-support-only decoding. Focused production/regression and default builds, and
-a public-only consumer auditing all eleven signatures and axioms passed.
-Exact pre-S05 source and seven-document snapshots remain available for
-step-specific comparison. The available manuscripts' page 1 statements were
-rechecked; the approved ISIT provenance caveat remains unchanged. The bounded
-internal audit is implementation-side evidence, not independent S08 validation.
-See
-[project log entry 22](project-log.md#22-pfr-c01-s05-equation-3---2026-09-06-to-2026-09-07).
-At S05 closeout, S05 was `Validated`, C01 remained `Active`, and S06 had not
-started and required its own prompt.
-
-The S05 contextual self-review and implementation reassessment on 2026-09-07
-retained the Lean source and regressions. It applied only `S05-SR-01`, joining
-three qualified names in the plan's contract sketches after paired parser
-checks confirmed the line-break issue. Names, contracts, and approved scope
-are unchanged. Fresh builds, signature/axiom checks, and isolated S05
-edge-instance consumers passed; see
-[project log entry 23](project-log.md#23-s05-contextual-self-review-and-reassessment---2026-09-07).
-This is implementation-side review evidence, not an independent review or
-S08 completion. The manuscript-provenance caveat and S06 stop boundary were
-unchanged by that self-review.
-
-The independent S05 report received on 2026-09-07 recommended retaining and
-finalizing the implementation with no additional corrective or optional
-change. All five supplied fingerprints matched before recording receipt.
-The reviewer separately checked the four new signatures and axioms,
-production/regression/default builds, a new consumer, and the three corrected
-plan-name layouts. Its direct and delegated evidence are distinguished in
-[project log entry 24](project-log.md#24-independent-s05-review-and-finalization---2026-09-07).
-At that receipt, S05 was finalized and remained `Validated`; C01 remained
-`Active`, S06 was unstarted, and S08 was still required. The approved ISIT
-provenance caveat remains unresolved. Those receipt notes are not part of the
-reviewer's frozen document fingerprints.
-
-The project lead subsequently authorized S06 on 2026-09-07; implementation-step
-validation completed that day under the unchanged approved contract. Its four
-definitions and eight theorems distinguish fixed-perfect equality/CMI/Markov
-forms from existential pair perfectness on a separate finite extension. The
-arbitrary-finite bridge preserves the pair marginal, support decoder,
-independence, and information equality, including higher-universe auxiliaries.
-There are now 23 public declarations; the sole new production helper remains
-private, with no new direct import or simp attribute.
-
-Fifteen anonymous regressions cover the generic interfaces, deterministic and
-singleton positive cases, a functional but nonperfect XOR auxiliary, pair-law
-transport, separate-space extraction, a genuinely `Type 1` auxiliary, and
-impossibility of `Fin 0` extensions. Production/regression/default builds
-(2,755 / 2,756 / 2,605 jobs) and a production-only consumer passed. The consumer
-checked all twelve new signatures and eight new theorem axiom reports, using
-only `propext`, `Classical.choice`, and `Quot.sound`, and exercised `PMF Nat`,
-distinct value types, higher-universe bridging, and extension extraction.
-Exact pre-S06 comparisons preserve earlier production declaration bodies and
-test text. The bounded source audit is implementation-side evidence, not S08.
-The available manuscripts' page 1 was rechecked; the approved ISIT provenance
-caveat is unchanged. Details and evidence attribution are in
-[project log entry 25](project-log.md#25-pfr-c01-s06-fixed-and-existential-perfectness---2026-09-07).
-S06 is `Validated`, C01 remains `Active`, and S07 has not started. S08 and the
-separate ISIT provenance follow-up remain pending; no root integration,
-contract revision, commit, or push is implied by S06 completion.
-
-The requested S06 contextual self-review and implementation reassessment on
-2026-09-07 retained the source and regressions. Fresh builds, all twelve new
-signature checks and eight theorem axiom reports, plus isolated checks of
-two supported higher-universe auxiliary values, decoder failure at a null
-source point under perfectness, and witness-cardinality positivity found no
-defect. The recommendation was presented before reassessment and evidence-only
-documentation edits. See
-[project log entry 26](project-log.md#26-s06-contextual-self-review-and-reassessment---2026-09-07).
-This is not an independent review or S08 completion. S06 remains `Validated`,
-S07 is unstarted, and the approved ISIT provenance caveat remains unresolved.
-
-The independent S06 report received on 2026-09-07 recommended retaining and
-finalizing S06 for the approved finite-information contract, without a required
-or optional change or another review turn. All five supplied fingerprints
-matched before recording receipt. Its fresh builds, production-only consumer,
-twelve signature and eight theorem axiom checks, source assessment, and
-manuscript inspection are distinct from its delegated audits and this task's
-receipt checks; see
-[project log entry 27](project-log.md#27-independent-s06-review-and-finalization---2026-09-07).
-S06 is finalized and remains `Validated`; C01 remains `Active`, S07 is
-unstarted, and S08 is still required. The approved ISIT provenance caveat
-remains unresolved. These receipt notes are outside the reviewer's frozen
-document fingerprints; the Lean source and regressions are unchanged.
-
-The project lead subsequently authorized S07 on 2026-09-07. The root now
-exposes the semantic production module alongside Basic, without importing
-regressions. Production and all 42 anonymous regressions remain unchanged;
-the complete 23-declaration API and all seventeen approved regression rows
-were audited, with no missing fixture. Combined production/regression/root
-and default builds passed (2,759 and 2,758 jobs). A root-only consumer checked
-all 23 signatures, all seventeen theorem axiom reports (only `propext`,
-`Classical.choice`, and `Quot.sound`), and five integration examples.
-Public/private boundaries, focused imports, pinned dependencies, support and
-finite/universe contracts, and available manuscript page 1 anchors were
-checked. Full evidence and the regression mapping are in
-[project log entry 28](project-log.md#28-pfr-c01-s07-integration-and-internal-milestone---2026-09-07).
-S07 is `Validated`; C01 remains `Active` with **implementation finished;
-independent validation pending**. This implementation-side audit does not
-complete S08 or resolve approved-ISIT authentication. No C02 work, commit, or
-push was authorized or performed; S08 has not started.
-
-The S07 contextual self-review and implementation reassessment on 2026-09-07
-retained the root, production, and regressions unchanged. Fresh builds,
-23 signature and seventeen theorem axiom checks, root-only import-boundary
-verification, and generic Markov-to-pair witness extraction passed. The existing
-42 examples cover all seventeen approved regression rows; no additional fixture
-or earlier-step change was justified. Review and second-pass dispositions are in
-[project log entry 29](project-log.md#29-s07-contextual-self-review-and-reassessment---2026-09-07).
-This is not independent validation: S07 remains `Validated`, C01 remains
-`Active`, S08 is unstarted, and approved-ISIT authentication remains unresolved.
-
-The independent S07 report received on 2026-09-07 recommended retention and
-finalization, without a required or optional change or another reviewer turn.
-All ten supplied fingerprints matched before receipt edits. The reviewer's
-fresh builds, root-only consumer, 23 signature and seventeen theorem axiom
-checks, import environment, and manuscript inspection are distinct from its
-delegated source/documentation audits and this task's receipt checks. See
-[project log entry 30](project-log.md#30-independent-s07-review-and-finalization---2026-09-07).
-The root, production, and regressions are unchanged. S07 is finalized and
-remains `Validated`; C01 remains `Active` with independent chunk validation
-pending. S08 is unstarted, and approved-ISIT authentication remains unresolved.
-The receipt notes are outside the reviewer's frozen document fingerprints.
-
-On 2026-09-07 the project lead explicitly authorized **S08**. A fresh
-independent reviewer agent inspected the full chunk, not merely S07 or the
-implementation report, and obtained separately scoped build/API and
-documentation/artifact audits. All six definitions, seventeen public theorems,
-seventeen regression-matrix rows, exact Equation (1)-(3) contracts,
-support/finite/universe boundaries, pair-law extension bridge, and root/import
-boundaries passed. Fresh builds, root and semantic consumers, signature and
-axiom checks, and repository hygiene passed. The exact approved six-page ISIT
-binary was recovered; the main task and independent reviewer each verified its
-digest, the matching extended companion, and their C01 page 1 anchors. The
-source-recovery resolution is current evidence, not retroactive authentication
-of the older same-name-copy reviews. Seven canonical documents were reconciled
-without changing Lean source or dependencies. **C01 is `Complete`; S01-S08
-are `Validated`.** C02 is ready for detailed planning only and remains
-unstarted. The independent evidence, completion checks, and limitations are in
-[project log entry 31](project-log.md#31-pfr-c01-s08-independent-validation-and-chunk-completion---2026-09-07).
-No commit, push, dependency migration, or C02 work was authorized or performed.
-
-The subsequent 2026-09-07 S08 self-review and implementation reassessment
-recommended retaining the completed implementation and closeout. Fresh checks
-found no corrective issue; only the separate self-review record and brief
-plan/summary notes were added. This is implementation-side evidence, not a
-new independent pass or retrospective enlargement of that review. S08 remains
-`Validated`, C01 remains `Complete`, and C02 is unstarted. See
-[project log entry 32](project-log.md#32-pfr-c01-s08-self-review-and-retention---2026-09-07).
-
-The independent `Reviewer - Chunk 1` S08 report received on 2026-09-07
-assessed all eighteen completion criteria in the final integrated state,
-including the self-review notes. It recommended retention with no corrective
-or optional change, reopening, or additional reviewer turn. All sixteen
-supplied fingerprints matched on receipt. Its fresh builds, public consumer,
-signature/axiom checks, and authenticated manuscript inspection are distinct
-from its delegated audits and this task's receipt checks. See
-[project log entry 33](project-log.md#33-independent-s08-review-and-finalization---2026-09-07).
-The root, production, and regressions remain unchanged. S08 is finalized as
-`Validated`, C01 remains `Complete`, and C02 remains unstarted. These receipt
-notes are outside the reviewer's frozen document fingerprints and do not
-authorize a commit, push, dependency migration, or C02 work.
-
-The project lead subsequently authorized committing and pushing completed C01
-on 2026-09-07. The delivery checkpoint preserves the reviewed Lean source and
-the original approval/execution baseline; separately owned AGENTS and
-discoverability edits are excluded. Scope and pre-delivery validation are in
-[project log entry 34](project-log.md#34-authorized-c01-delivery-checkpoint---2026-09-07).
-C02 remains unstarted. Remote delivery must be verified against Git rather than
-inferred from the earlier local review records.
-
-Future Lean steps must run focused owner/downstream builds. Milestones require
-the default build, placeholder scan, diff and import audit, documentation
-reconciliation, and repository-hygiene check. Approved axioms must be audited
-explicitly before any release claim.
+Earlier plan reviews, execution reviews, workflow recoveries and unavailable or
+failed probes retain their original meaning in
+[preserved records](pfr-c16-readiness-audit.md#c16-s04-navigation). Later successful
+checks do not retroactively certify them. Favorable review is distinct from
+subsequent durable closure. No remote CI, clean rebuild, arbitrary library/compiler
+safety theorem or publication acceptance is claimed by these local checks.
 
 ## 10. Reference and Provenance Boundary
 

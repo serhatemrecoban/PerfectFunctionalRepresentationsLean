@@ -1,5 +1,8 @@
 /.lake/
 /tmp/
+/.pfr-review/
+/tools/pfr_review/core/fixtures/runs/
+/tools/pfr_review/core/evidence/
 /papers/
 /references/
 /info theory e-books/

@@ -1,0 +1,53 @@
+{
+  "report": {
+    "schema": 1,
+    "tag": "INACTIVE_FIXTURE_ONLY_V1",
+    "request_id": "fixture-review-request:clean-1",
+    "attempt": 1,
+    "source_ref": "5203fce2bde6f156a8f323fe6166c5e6e55921b09e1772579b278935eacf0681",
+    "kind": "STEP",
+    "binding_digest": "c00e155e16009ed6ee184bed537e22bca509a42b7c8705978ba8890efb38adda",
+    "scope": "Independent read-only inspection of the specified Case.lean and supplied normative excerpt for C1. Diagnostic toy scope only; no production acceptance.",
+    "findings": [],
+    "criteria": [
+      {
+        "id": "C1",
+        "status": "SATISFIED",
+        "evidence": [
+          "reviewer:clean-1-source",
+          "reviewer:clean-1-hash"
+        ]
+      }
+    ],
+    "verification": [
+      "reviewer:clean-1-source",
+      "reviewer:clean-1-hash"
+    ],
+    "earlier_reconciliation": "No earlier substantive review or findings exist for this reviewer. The supplied parent evidence reports a method and limitations but supplies no substantive source observation or verdict; this assessment rests on my direct inspection.",
+    "conclusion": "C1 is satisfied by source inspection: exchange quantifies arbitrary propositions P and Q, assumes only P ∧ Q, and constructs Q ∧ P using h.2 and h.1. The inspected file matches its supplied SHA-256 inventory entry. Lean compilation and environment validation were not performed. This conclusion grants no production authority."
+  },
+  "new_evidence": [
+    {
+      "id": "reviewer:clean-1-source",
+      "actor": "/root/pfr_native_toy_20260909",
+      "method": "Direct UTF-8 inspection of the entire specified source file and manual comparison of its statement and proof with the supplied C1 normative excerpt.",
+      "source_ref": "5203fce2bde6f156a8f323fe6166c5e6e55921b09e1772579b278935eacf0681",
+      "inspected_source": "C:\\Users\\coban\\Desktop\\PerfectFunctionalRepresentationsLean\\tmp\\ra-integration-02\\candidate\\fixtures\\runs\\fixture-r94y7x8_\\project\\Case.lean",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\coban\\Desktop\\PerfectFunctionalRepresentationsLean\\tmp\\ra-integration-02\\candidate\\fixtures\\runs\\fixture-r94y7x8_\\project\\Case.lean' -Raw -Encoding UTF8",
+      "output": "namespace ReviewFixture\n\ntheorem exchange (P Q : Prop) : P ∧ Q → Q ∧ P := by\n  intro h\n  exact ⟨h.2, h.1⟩\n\nend ReviewFixture\n\r\n",
+      "outcome": "PASS",
+      "limitations": "Source-level mathematical assessment only; no Lean compilation, dependency inspection, environment inspection, or production PFR validation. The aggregate source_ref and binding_digest were supplied and were not independently reconstructed. Read-only behavior was followed but was not enforced by isolation."
+    },
+    {
+      "id": "reviewer:clean-1-hash",
+      "actor": "/root/pfr_native_toy_20260909",
+      "method": "Computed SHA-256 of the specified source file and compared it with the supplied Case.lean inventory entry; they match.",
+      "source_ref": "5203fce2bde6f156a8f323fe6166c5e6e55921b09e1772579b278935eacf0681",
+      "inspected_source": "C:\\Users\\coban\\Desktop\\PerfectFunctionalRepresentationsLean\\tmp\\ra-integration-02\\candidate\\fixtures\\runs\\fixture-r94y7x8_\\project\\Case.lean",
+      "command": "Get-FileHash -LiteralPath 'C:\\Users\\coban\\Desktop\\PerfectFunctionalRepresentationsLean\\tmp\\ra-integration-02\\candidate\\fixtures\\runs\\fixture-r94y7x8_\\project\\Case.lean' -Algorithm SHA256 | Select-Object Algorithm, Hash, Path | ConvertTo-Json -Compress",
+      "output": "{\"Algorithm\":\"SHA256\",\"Hash\":\"523C32068443FD12550782DC77C91A117F61900C9A33CA8D2A303B05F2F00F94\",\"Path\":\"C:\\\\Users\\\\coban\\\\Desktop\\\\PerfectFunctionalRepresentationsLean\\\\tmp\\\\ra-integration-02\\\\candidate\\\\fixtures\\\\runs\\\\fixture-r94y7x8_\\\\project\\\\Case.lean\"}\r\n",
+      "outcome": "PASS",
+      "limitations": "Confirms only the observed file's match with its supplied inventory hash at the time of this command. The source read and hash computation were separate operations. Other inventory files and the aggregate source reference were not inspected or authenticated; hashing does not establish Lean compilation or mathematical certification."
+    }
+  ]
+}
