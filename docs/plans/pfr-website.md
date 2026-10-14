@@ -1,6 +1,6 @@
 # PFR Research Website Plan
 
-**Status: Original website complete and live; structured-blueprint extension in validation, 2026-10-14.** The lead authorized building the research website
+**Status: Complete and live, including the structured blueprint and dependency graph, 2026-10-14.** The lead authorized building the research website
 and requested a detailed plan followed by implementation when practical. This
 plan records that bounded website task, not a new mathematical chunk. Baseline:
 `da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence is recorded below and in the project log; the execution
@@ -327,3 +327,9 @@ tests, existing website/API/Lean gates, 40 responsive page combinations and 88
 targeted interaction/layout checks. Hosted validation and live delivery remain
 pending at this checkpoint. The preceding site remains live until the unchanged
 publication gates accept and deploy the new payload.
+
+Delivery is complete at `0d64f197cc63d53e620e89ab51841ee69c0bfa78`.
+Hosted website/API and all-module Lean workflows pass. All 45 live payload files
+match that commit; the 88 targeted checks and 40 responsive page combinations
+pass again against the public site. The readiness record owns exact run links.
+The final documentation-only closeout leaves the tested payload and code intact.

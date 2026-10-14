@@ -58,7 +58,8 @@ See [readiness](public-readiness.md#argument-map-revision--2026-10-14).
 The lead also authorized a [structured blueprint and directed dependency graph](plans/pfr-website.md#approved-structured-blueprint-extension--2026-10-14).
 Its 41 entries distinguish formalized contracts, private checked examples and
 cited context; the prior argument map is retained as a separate guide. The
-extension is in validation, with delivery tracked in
+extension is complete and live, with hosted Lean/API gates and live browser/file
+checks passed; exact delivery evidence is tracked in
 [readiness](public-readiness.md#structured-blueprint-and-dependency-graph--2026-10-14).
 New mathematical work requires separate authorization.
 
@@ -112,7 +113,7 @@ adaptations, and stop after the one authorized step.
 
 | Field | Current value |
 | --- | --- |
-| Reconciled | 2026-10-14, completed manuscript-grounded website argument map and delivery evidence; C01–C16 completion and historical acceptance unchanged |
+| Reconciled | 2026-10-14, structured blueprint and directed dependency graph complete and live; C01–C16 completion and historical acceptance unchanged |
 | Readiness review baseline | Public `master` at `ceef8793673697cce0a4a1862d30ab0d77fb6dd5`; readiness documentation and build checks do not change Lean sources or historical step baselines |
 | Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |

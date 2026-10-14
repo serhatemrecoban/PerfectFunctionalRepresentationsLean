@@ -10016,3 +10016,9 @@ sources are unchanged. The [plan](plans/pfr-website.md#approved-structured-bluep
 owns maintenance/acceptance; [readiness](public-readiness.md#structured-blueprint-and-dependency-graph--2026-10-14)
 owns exact validation and delivery evidence. No new theorem work or upstream
 dependency change was authorized or performed.
+
+Delivery is complete at `0d64f19`: website run `38631914515` and all-module
+Lean run `38631914562` pass. All 45 live payload files match the committed
+source. The 88 targeted graph/statement checks and 40 responsive page cases
+pass again on the deployed site. This final documentation-only checkpoint
+records the evidence and changes none of the tested implementation files.
