@@ -10,11 +10,8 @@ belongs to its authors, separately from the implementation below.
 ## Lean formalization
 
 **Serhat Emre Coban** developed the Lean formalization in
-PerfectFunctionalRepresentationsLean. These separate credits were confirmed by
-the project lead on 2026-10-14. They do not assert a separate copyright-holder
-identity or grant permission to redistribute the paper.
-
-The formalization was completed using **LeanInfoTheory v0.1.0**, commit
+PerfectFunctionalRepresentationsLean. The formalization was completed using
+**LeanInfoTheory v0.1.0**, commit
 `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f`, together with mathlib and Lean 4.
 Their authors and contributors retain credit for the reused libraries and tools;
 the dependencies retain their own licenses. PFR does not claim those foundations
