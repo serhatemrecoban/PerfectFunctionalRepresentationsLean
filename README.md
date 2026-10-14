@@ -6,14 +6,17 @@ Representations*, developed as a downstream case study of
 
 ## Status
 
-**Current, 2026-10-04:** C01–C16 are complete. C16's supported final closure,
+**Current, 2026-10-14:** C01–C16 are complete. C16's supported final closure,
 satisfied criteria and exact final-source applicability were verified before
 this [private repository checkpoint](docs/project-log.md#post-c16-checkpoint).
 The [approved C16 plan](docs/plans/pfr-c16-coverage-api-trust-closure.md) and
 [integrated readiness](docs/pfr-c16-readiness-audit.md#c16-s05-readiness) retain
 their original pre-closure evidence; the later durable record establishes completion.
-The repository remains private. Formalization completion, release and public
-publication are separate milestones.
+This repository is public under the existing Apache-2.0 software license,
+as authorized by the project lead on 2026-10-14. The
+[publication checkpoint](docs/project-log.md#public-repository-checkpoint)
+records delivery and visibility verification. No tagged release or website is
+implied by making the source public.
 
 The development includes semantic/canonical representations, singularity and
 binary cases, finite maximal coupling, typed matrix operations and constructive
@@ -24,8 +27,10 @@ fixture, documentation disposition or intentional omission.
 
 ## Scope and mathematical boundaries
 
-The six-page ISIT manuscript fixes scope. Extended version 16 supplies recorded
-proofs and clarification; its additional results are outside current scope.
+The six-page ISIT manuscript fixes scope. Extended version 16 supplies the
+historical C01–C16 proof/clarification baseline. The lead supplied extended
+`(19) (2)` on 2026-10-13; selected appended proofs were compared, not the entire
+new draft. Extended-only results remain outside current scope.
 Information uses finite value alphabets and nats, with unrestricted source spaces
 where supported. Support-only decoders and null fibers remain explicit.
 All-prior bounds and forward results retain their generality; ambient converses
@@ -68,6 +73,7 @@ checks, inherited evidence and later validation.
 | Boundaries, trust, API and readiness | [C16 readiness audit](docs/pfr-c16-readiness-audit.md) |
 | Chunk allocation, decisions and omissions | [Formalization map](docs/formalization-map.md) |
 | Evidence, history and agent workflow | [Implementation notes](docs/pfr-c16-implementation-notes.md), [project log](docs/project-log.md), [AGENTS.md](AGENTS.md) |
+| Measured LeanInfoTheory reuse | [Complete declaration list](output/reuse-audit/leaninfotheory-pfr-reuse-list.txt), [evidence and source locations](output/reuse-audit/leaninfotheory-pfr-reuse-evidence.json) |
 
 The [root](PerfectFunctionalRepresentations.lean) imports Basic, four semantic
 modules and finite coupling. `Probability/FiniteCouplingDecoding.lean`,
@@ -79,8 +85,9 @@ their original plans, notes and project-log entries.
 
 ## Website and release
 
-No project website or website plan is approved. A public site, release metadata,
-remote validation and publication-facing curation require separate decisions;
+Public repository availability is authorized separately from C16 completion.
+No project website or website plan is approved. A public site, tagged release,
+new release metadata and publication-facing omission curation require separate decisions;
 see the [roadmap](docs/roadmap.md). Local papers and references remain external
 or ignored and must not be committed.
 
@@ -88,5 +95,7 @@ or ignored and must not be committed.
 
 Project-authored software is licensed under Apache-2.0; see [LICENSE](LICENSE).
 The paper and cited references retain their own copyrights and licences.
-Copyright-holder wording and source-file headers require project-lead
-verification before public release.
+On 2026-10-14 the project lead confirmed retaining this license for public
+availability and leaving unverified copyright-holder and bibliographic metadata
+unspecified. No new authorship, affiliation, DOI or copyright-holder claim is
+made; adding such metadata requires verification.

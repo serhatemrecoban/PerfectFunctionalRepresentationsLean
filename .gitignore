@@ -6,6 +6,8 @@
 /papers/
 /references/
 /info theory e-books/
+# Private reading copies, manuscript derivatives and internal PDF reports.
+/output/pdf/
 /.vscode/
 /.idea/
 __pycache__/

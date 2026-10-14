@@ -25,13 +25,16 @@ Status labels:
 
 ## 0. AI Assistant Quick Start
 
-**Current, 2026-10-04:** C01–C16 are durably complete. The General Assistant
+**Current, 2026-10-14:** C01–C16 are durably complete. The General Assistant
 verified C16's supported S05 closure, all fifteen criteria and exact final-source
 applicability before the [private repository checkpoint](project-log.md#post-c16-checkpoint).
 There is no active implementation step. The
 [completed C16 contract](plans/pfr-c16-coverage-api-trust-closure.md) and its
 original notes retain their pre-closure checkpoint; the later durable record
-establishes CC09 and completion. New work requires separate authorization.
+establishes CC09 and completion. The lead authorized updating and publishing the
+GitHub repository on 2026-10-14; see the
+[publication checkpoint](project-log.md#public-repository-checkpoint).
+New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
 actual source and pinned APIs before relying on a summary. Plans and review aid
@@ -40,8 +43,11 @@ adaptations, and stop after the one authorized step.
 
 **Essential boundaries**
 
-- Scope is the six-page ISIT manuscript; extended v16 is the version-bound
-  proof/clarification companion. [Exact source identities and ledger](pfr-c16-coverage-audit.md#source-identities-and-reading-method).
+- Scope is the six-page ISIT manuscript. C01–C16's verified proof/clarification
+  baseline remains extended v16. On 2026-10-13 the lead supplied extended
+  `(19) (2)` as the current companion; the selected Appendix A/B proofs were
+  compared, not the whole new draft. See Section 10 and the
+  [historical source ledger](pfr-c16-coverage-audit.md#source-identities-and-reading-method).
 - Reuse pinned LeanInfoTheory `v0.1.0` and mathlib on Lean `v4.33.1`.
   No dependency upgrade is authorized.
 - Structural representations allow unrestricted carriers. Information uses
@@ -58,8 +64,9 @@ adaptations, and stop after the one authorized step.
 - DG-01–DG-15 are resolved. OM-001–071 and original review history remain intact.
   Numbered Future Work Notes: **none**. No known required implementation is
   left by S05; final validation and supported closure are complete.
-- Release, remote/publication validation, metadata, omission curation and website
-  work require separate decisions. Local completion does not establish them.
+- Public repository availability is separately authorized. Tagged releases, new
+  metadata, omission curation and website work still require separate decisions.
+  Local formalization completion does not establish remote delivery or CI.
 
 | Task | Read next |
 | --- | --- |
@@ -75,13 +82,13 @@ adaptations, and stop after the one authorized step.
 
 | Field | Current value |
 | --- | --- |
-| Reconciled | 2026-10-04, post-closure checkpoint; C01–C16 complete, with C16 durable closure and pre-edit source applicability verified |
-| Checkpoint preparation baseline | Branch `master`, HEAD `54c1714d1a9a891939d6c9f7d38c0d05896b2c75`; this checkpoint packages the accumulated C02–C16 work, without rewriting historical step baselines |
+| Reconciled | 2026-10-14, public-repository checkpoint; C01–C16 completion and historical acceptance unchanged |
+| Publication preparation baseline | Branch `master`, HEAD `9e659bdce7260cb15a99ca2c20a564f906bd2bcf`; post-C16 documentation and measured reuse are added without changing Lean sources or historical step baselines |
 | Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |
 | Completed plan | [C16 revision 2](plans/pfr-c16-coverage-api-trust-closure.md); preserved pre-closure text, later supported completion recorded in the [checkpoint entry](project-log.md#post-c16-checkpoint) |
 | Coverage and decisions | [Ledger](pfr-c16-coverage-audit.md), [readiness](pfr-c16-readiness-audit.md#c16-s05-readiness); DG-01–DG-15 resolved, all 71 omission rows preserved |
-| Remote/release state | GitHub verified private on 2026-10-04; lead authorized this checkpoint's commit/push. Actual delivery is verified against Git/GitHub, separately from C16 acceptance; no release or CI result is implied |
+| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; see the [publication checkpoint](project-log.md#public-repository-checkpoint). No tagged release or CI result is implied |
 
 Document ownership is fixed in [AGENTS.md](../AGENTS.md#document-roles-and-proactive-maintenance):
 README is the reader entry point; scope owns inclusion; this summary owns current
@@ -206,6 +213,15 @@ are in namespace `PMF`; every other name in this list is in namespace
   `mutualInfoOf_deterministic_chain_rule_left`,
   `mutualInfoOf_markov_chain_rule`, and
   `mutualInfoOf_dataProcessing`.
+
+**[Current] Measured explicit reuse, 2026-10-13.** Across all 56 maintained Lean
+files, compiler-resolved source references identify 105 pinned LeanInfoTheory
+declarations (76 theorems, 23 definitions, six abbreviations) at 1,385 sites.
+Implementation modules account for 748 sites, including inline checks; dedicated
+tests account for 636 and examples for one. These are direct explicit references,
+not all implicit proof dependencies or a measure of code/time saved. The
+[measurement record](project-log.md#187-leaninfotheory-explicit-reuse-inventory--2026-10-13)
+links the complete list, exact locations and reproducible counter.
 
 **[Decision] Discovery and reuse workflow.** Mathlib and pinned LeanInfoTheory
 are both principal libraries for this project. Failure to remember a name is
@@ -405,7 +421,7 @@ Reviewed copies of both manuscripts live outside the repository. Any local
 working copies placed inside the project must remain under ignored reference
 directories and must not be committed.
 
-**[Current] Reviewed reference identity.** The six-page ISIT manuscript was
+**[History] C01–C16 reviewed reference identity.** The six-page ISIT manuscript was
 reviewed on 2026-09-02 and its digest was reverified on 2026-09-03. On
 2026-09-03 the project lead designated a newer extended draft as the current
 proof and clarification companion, and its in-scope statements and proof
@@ -414,8 +430,34 @@ committing their contents:
 
 - six-page ISIT manuscript, SHA-256
   `48963AA59485B2C33B1A1E6E7C6EAD2251FDDDD26BD3691B6FCFFE683E6ED1C4`;
-- current eighteen-page extended draft, SHA-256
+- then-current eighteen-page extended v16 draft, SHA-256
   `98636D4C9F0618EC08FCA84559572780F604F197FDA90D8D7C787B3624245B8F`.
+
+**[Current] Updated companion — 2026-10-13.** The lead supplied
+`On_perfect_functional_representation__Extended_version_ (19) (2).pdf`
+(18 pages), SHA-256
+`59A7CCD1E881B0A8F4BEE657727CE92A561108CA0DDB6B8F2AEB60E1D56DBC16`,
+as the current extended version while requesting a private annotated ISIT
+reading copy. Its selected Appendix A/B proofs (pp.12–16 and p.17 left through
+Theorem 2's concluding sentence) match v16 after subtracting two from equation
+numbers and their references: new (103)–(219), old (105)–(221). The existing
+support, output-order and normalization-proof qualifications remain applicable.
+The new IV-B passage still supplies no separate Corollary 1 proof.
+
+This is a bounded proof-supplement comparison, not whole-draft revalidation or
+new Lean acceptance. Check other affected passages before relying on them in
+future work. Preserve v16-bound C01–C16 source identities, locators and original
+validation records. The source PDFs and previous reading copy were not modified;
+the requested derivative is local and not authorized for commit/publication.
+See [project log entry 185](project-log.md#185-updated-extended-companion-and-private-reading-copy---2026-10-13).
+
+A subsequent lead-requested private revision retains the original Lemma 4
+proof in black/red and adds a blue human-language reconstruction of the existing
+finite-certificate proof, followed by a discussion of the termination gap and
+its resolution. The finite-auxiliary limitation and extended-version LP remark
+remain explicit. This is editorial feedback to the paper, not a new Lean theorem
+or approval of arbitrary rewrite termination; see
+[project log entry 186](project-log.md#186-lemma-4-proof-feedback-in-the-private-reading-copy--2026-10-13).
 
 **[History] ISIT binary identity — 2026-09-05.** The then-available
 `ISIT_2026__On_perfect_functional_representations___final_manuscript_ (3).pdf`
@@ -455,9 +497,12 @@ review date and cryptographic digest in addition to relevant sections or
 pages, then revisit affected contracts when the digest changes. Page numbers
 alone are not stable version identity.
 
-**[Uncertain] Release metadata.** The exact bibliographic record, publication
-status, rights holder, source-file header, and citation metadata remain subject
-to project-lead verification before public release.
+**[Decision] Publication metadata boundary — 2026-10-14.** The lead approved
+public repository availability under the existing Apache-2.0 software license,
+with unverified copyright-holder and bibliographic metadata left unspecified.
+No new source-header, rights-holder, affiliation, DOI or publication-status claim
+is introduced. Adding such metadata remains subject to lead verification; the
+manuscripts and private derived reports remain unpublished by this repository.
 
 **[History] Provenance attestation.** The inherited-context report records that
 no external information-theory formalization repository was consulted or

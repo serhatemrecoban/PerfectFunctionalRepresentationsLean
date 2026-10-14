@@ -119,3 +119,11 @@ and [roadmap](roadmap.md).
 The lead separately authorized committing and pushing accumulated progress
 through C16 on 2026-10-04 while keeping the repository private. That checkpoint
 does not authorize a release, public publication, new mathematics or website work.
+
+On 2026-10-14 the lead separately authorized updating the GitHub repository and
+making it public, retaining the existing Apache-2.0 software license and leaving
+unverified copyright-holder/bibliographic metadata unspecified. This authorizes
+public source availability, not manuscript or private-report distribution, a
+tagged release, new theorem work or a website. The
+[publication checkpoint](project-log.md#public-repository-checkpoint) records
+delivery and visibility verification.

@@ -9455,3 +9455,173 @@ No papers, private runtime records, generated test evidence, caches or binaries
 are staged. All other accumulated source and historical-document bytes are
 preserved, including the explicitly disclosed whitespace notices. The remote
 remains private; this checkpoint does not authorize changing that visibility.
+
+## 185. Updated extended companion and private reading copy — 2026-10-13
+
+The lead supplied `On_perfect_functional_representation__Extended_version_ (19) (2).pdf`
+as the current extended version and requested an updated private coverage-colored
+ISIT PDF with its omitted proofs appended. The new 18-page source hashes to
+`59A7CCD1E881B0A8F4BEE657727CE92A561108CA0DDB6B8F2AEB60E1D56DBC16`.
+The approved six-page ISIT identity and historical extended-v16 C01–C16 evidence
+remain unchanged; no manuscript is added to canonical source control.
+
+The selected Appendix A/B content, pp.12–16 and p.17 left through the sentence
+after (219), was compared with the historical v16 counterpart. Extracted proof
+text matches after reducing equation numbers and their references by two:
+(103)–(219) now corresponds to (105)–(221). The retained support/null-fiber,
+output-permutation and repeated-rewrite qualifications still apply. Inspection
+of the new IV-B passage found no separate Corollary 1 proof. Lemma 1 and
+Theorem 1 are already proved in ISIT and are not duplicated; Lemmas 2–6,
+the Example 1 counterexample (extended Lemma 7), and Theorem 2 are appended.
+Appendix C and unrelated extended-only material remain excluded.
+
+The lead clarified that “solve the dual LP” expresses the mathematical alternative
+criterion, not an executable-solver claim. That phrase and the analogous primal
+LP-reduction/testing passages are blue in the revised reading copy, with an
+explicit no-certified-solver/no-runtime-result qualification. This changes the
+editorial coloring, not the theorem contracts or OM-018's solver deferral.
+Explicit ease/runtime/complexity assertions and the literal repeated-rewrite
+termination claims remain red; the normalization theorem is proved by a different
+route. Original manuscript wording and the earlier reading copy are preserved.
+
+This task does not revalidate the entire new manuscript, change Lean sources,
+dependencies or acceptance records, or authorize a commit, push or publication.
+The standing manuscript-update protocol owns rechecking other passages when
+next relied on; no new unowned implementation deferral is opened. The living
+summary distinguishes the current companion from the historical validated one.
+
+The resulting 14-page PDF was rendered and every page visually inspected.
+Retained manuscript glyphs match their respective sources in text and font,
+with position differences below 0.001 pt; the last proof excerpt contains no
+Appendix C text. Only the three selected ISIT passages changed from red to blue
+(171 glyphs). All four input-file hashes, including the previous reading copy,
+remain unchanged. These are artifact-fidelity checks, not a Lean rebuild.
+
+## 186. Lemma 4 proof feedback in the private reading copy — 2026-10-13
+
+Following discussion of the expanding-rewrite gap, the lead requested that the
+original Lemma 4 proof be retained in black with its two red termination claims
+unchanged, and that the reading copy include a blue human-language proof following
+the actual Lean construction. The new prose follows `SplitForest`'s exact support
+and coordinate invariant, all three append updates, induction on the original
+path, and finite tree realization as PPS, VPS and PPM blocks. Separate read-only
+checks against `Matrix/OperationFactorization.lean` found no missing essential
+argument; they are prose/source checks, not new installed-workflow acceptance.
+
+The revised private PDF has 18 pages: original Lemma 4 proof on pp.11–12,
+alternative proof on pp.15–16, the earlier finite-auxiliary limitation on p.17,
+and “How Formalization Clarified the Normalization Proof” on p.18. The black
+extended-version LP remark remains on p.8. Navigation and the color legend
+explain the special comparison convention: black on the original Lemma 4 proof
+does not retract the verified local identities. The new discussion distinguishes
+the missing termination justification from a false theorem or a demonstrated
+nonterminating rewrite strategy. No complexity or arbitrary-strategy termination
+claim is introduced.
+
+The local output is `output/pdf/pfr-isit-formalization-coverage-lemma4-revised.pdf`,
+SHA-256 `99F78FF18841A822DF6B201D4D10FE70A96FE3D7AC5AD042284196166DF1F2BC`.
+It was rendered, and all changed pages were visually checked. A glyph-level
+comparison verified 1,688 requested blue-to-black changes, all 140 red glyphs
+in the two original termination claims unchanged, and 37,983 other retained
+body glyphs unchanged in text, font, position and color. Original manuscripts
+and previous reading copies remain untouched. The English reconstruction is
+checked against the Lean proof, not itself kernel-checked. No Lean source,
+dependency, plan, omission disposition or acceptance record changed; no commit,
+push or publication was authorized. Generated scratch scripts and renders were
+removed after validation; only the final private PDF is delivered.
+
+<a id="187-leaninfotheory-explicit-reuse-inventory--2026-10-13"></a>
+
+## 187. LeanInfoTheory explicit reuse inventory — 2026-10-13
+
+At the lead's request, counted direct explicit LeanInfoTheory references in all
+56 Git-tracked maintained Lean sources at `9e659bdce7260cb15a99ca2c20a564f906bd2bcf`.
+The unchanged pinned dependency is `v0.1.0`, commit
+`0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f`. A fresh build of all 55 child modules
+plus the root succeeded (2,823 jobs), including modules outside the lightweight
+root closure.
+
+The counter reads Lean's `.ilean` v5 constant-reference usages, selecting actual
+owning modules rather than namespace spellings. All counted names, kinds and
+owners agree with the pinned public manifest and declaration index; each source
+range matches the actual name or a namespace-shortened spelling. No duplicate
+sites or unrecognized API names were found. A separate read-only counter agreed.
+This credits LeanInfoTheory-owned additions to `PMF` without attributing mathlib's
+own declarations to it.
+
+Results: **105 distinct declarations** (76 theorems, 23 definitions, six
+abbreviations), **1,385 explicit references** (341 theorem, 850 definition,
+194 abbreviation). Implementation modules contain 748 references to 96 distinct
+declarations; dedicated tests contain 636 references to 55; example modules
+contain one reference to one. Distinct category totals overlap. Implementation
+modules include 66 anonymous-example references and some named regression
+fixtures: that category is not exclusively production proofs. Seven references
+are in section-variable context. The 237 named implementation-module consumers
+include private helpers and named fixtures, not 237 separate paper results.
+
+The complete per-declaration list is in the local
+[readable inventory](../output/reuse-audit/leaninfotheory-pfr-reuse-inventory.html)
+and [plain-text list](../output/reuse-audit/leaninfotheory-pfr-reuse-list.txt).
+The [evidence JSON](../output/reuse-audit/leaninfotheory-pfr-reuse-evidence.json)
+records all exact source sites, declaration owners, source/artifact/configuration
+hashes and dependency identities. The accompanying
+[counter](../output/reuse-audit/count_reuse.py) reproduces the inventory after an
+all-module build; rerunning it alone does not perform that build or independent
+validation.
+
+These counts exclude comments, imports, scratch material, dependency-internal
+and transitive references, and implicit tactic/elaborator dependencies without a
+written name reference. They provide adoption evidence, not a code-size or
+development-time saving estimate. The prior private positioning brief is left
+unchanged. No Lean source, dependency, review acceptance or publication status
+changed, and no commit or push was authorized.
+
+<a id="public-repository-checkpoint"></a>
+
+## 188. Public repository checkpoint — 2026-10-14
+
+The lead requested updating GitHub and making the repository public. When asked
+about the standing metadata gate, the lead explicitly chose to retain the
+existing Apache-2.0 software license and leave unverified copyright-holder and
+bibliographic metadata unspecified. No new ownership, affiliation, DOI, source
+header or manuscript-publication claim is introduced. This is public source
+availability, not a tagged GitHub release, a website, new mathematical scope or
+publication-facing omission curation.
+
+Preparation began at `9e659bdce7260cb15a99ca2c20a564f906bd2bcf` on `master`.
+GitHub reported the repository private with administrator access; fetching the
+remote showed no divergence and only the `master` branch, with no tags. The
+pinned LeanInfoTheory dependency is publicly accessible. The pending additions
+are the post-C16 manuscript-interpretation notes and explicit-reuse inventory;
+Lean sources, dependencies and review tooling are unchanged.
+
+Publication-safety inspection covered the eight ordinary branch/remote commits
+and 165 historical paths. It found no tracked manuscripts, binary attachments,
+private runtime records or matches for common credential/private-key patterns.
+Historical local paths, task identifiers and the intentional toy review fixture
+are retained as existing project history; the scan is not a guarantee against
+every possible secret. Local Codex snapshot refs contain untracked PDFs, so
+delivery must push `master` explicitly, never mirror all refs. The added
+`/output/pdf/` ignore rule keeps all seven local reading copies/internal reports
+private without deleting them. Only the four reviewed reuse-audit artifacts in
+`output/reuse-audit/` are selected for version control; their historical private
+measurement labels do not change the results or imply a new measurement.
+
+Fresh `lake build` passed (2,762 jobs), the required Lean placeholder scan
+returned no matches, and `git diff --check` passed. The previous day's complete
+56-owner build passed (2,823 jobs); no Lean source has changed since that run.
+The reuse counter was rerun into ignored scratch output: all 105 declarations,
+1,385 reference sites, source/artifact/configuration hashes and dependency
+identities match the retained inventory. One trailing space in the newly tracked
+counter was removed during the staged whitespace check, and its artifacts were
+regenerated to retain the exact counter fingerprint; counts and reference sites
+remain unchanged. Review-workflow regression suites were
+not rerun for this documentation-only checkpoint; their software is unchanged.
+No new remote CI result is asserted.
+
+GitHub visibility was changed using the explicit repository target and verified
+as `PUBLIC` / `isPrivate: false` on 2026-10-14. The existing Apache-2.0 license
+and default branch `master` were confirmed. This entry accompanies the selected
+source checkpoint; delivery uses an explicit `HEAD:refs/heads/master` push and
+completion requires remote `master` to match the final local commit. No tag,
+GitHub Release, website, manuscript upload or all-refs push is part of this task.

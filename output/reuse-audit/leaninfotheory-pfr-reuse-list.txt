@@ -1,0 +1,256 @@
+LeanInfoTheory reuse in PerfectFunctionalRepresentationsLean
+Measured 13 October 2026
+
+Source baseline: 9e659bdce7260cb15a99ca2c20a564f906bd2bcf
+Dependency: LeanInfoTheory v0.1.0 / 0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f
+
+RESULT
+105 distinct declarations: 76 theorems, 23 definitions, 6 abbreviations.
+1,385 explicit compiler-resolved references: 341 theorem + 850 definition + 194 abbreviation references.
+
+implementation: 748 references to 96 distinct declarations.
+tests: 636 references to 55 distinct declarations.
+examples: 1 references to 1 distinct declarations.
+
+METHOD AND LIMITS
+- One use means one distinct compiler-recorded constant/name/source-span reference, not a runtime call.
+- Counted references appear in definitions, theorem statements, proof scripts, section variables and checked examples.
+- Implementation modules include inline anonymous examples and named regression fixtures; they are not exclusively production proofs.
+- No comment mentions, import lines, scratch files, generated copies, dependency-internal uses or transitive uses are counted.
+- Implicit elaborator/tactic/simp dependencies without a corresponding source-name reference are not counted.
+- The same declaration may occur in several categories; distinct category counts must not be added.
+- Owned PMF additions are credited to LeanInfoTheory; mathlib-owned PMF declarations are excluded.
+- Repeated references are sensitive to notation, proof style and refactoring. Counts do not measure code, time or effort saved.
+- Declarations may be mathematically important even when explicitly referenced only once.
+
+Implementation-module total includes 66 references in anonymous inline examples.
+There are 237 named implementation-module consumers (including private helpers and named fixtures),
+plus 7 references in section-variable context. These consumers are not distinct paper results.
+
+COMPLETE DECLARATION LIST
+Columns: implementation modules | tests | examples | total
+
+Shannon names below have the prefix LeanInfoTheory.Shannon.; PMF names retain their full names.
+
+DEFINITIONS
+   0 |    1 |   0 |    1  IsCondIndependentOf
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 70
+   5 |    5 |   0 |   10  IsIndependent
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 42
+  12 |   24 |   0 |   36  IsIndependentOf
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 47
+   3 |    5 |   0 |    8  IsMarkovChain
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 56
+   2 |    6 |   0 |    8  IsMarkovChainOf
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 49
+   1 |    0 |   0 |    1  condEntropy
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 596
+   1 |    1 |   0 |    2  condEntropyFstGivenSnd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Conditional; source line 171
+  18 |   19 |   0 |   37  condEntropyOf
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 616
+   1 |    7 |   0 |    8  condFstGivenSnd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Conditional; source line 52
+   1 |    0 |   0 |    1  condFstGivenSndChannel
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 210
+   8 |    7 |   0 |   15  condMutualInfoOf
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 628
+   3 |   13 |   0 |   16  decodingErrorProbability
+       Owner/import: LeanInfoTheory.Shannon.Fano; source line 83
+  27 |   44 |   0 |   71  entropy
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 36
+  24 |   14 |   0 |   38  entropyOf
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 169
+  44 |   31 |   0 |   75  indepProd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Product; source line 44
+   5 |    2 |   0 |    7  jointEntropyOf
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 270
+  11 |   11 |   0 |   22  mutualInfo
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 601
+  39 |   61 |   0 |  100  mutualInfoOf
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 622
+  32 |    2 |   0 |   34  PMF.binaryMixture
+       Owner/import: LeanInfoTheory.Probability.FiniteMixture; source line 35
+  11 |    3 |   0 |   14  PMF.channelExtension
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 71
+ 164 |  164 |   0 |  328  PMF.channelJoint
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 63
+   2 |    0 |   0 |    2  PMF.deterministicChannel
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 48
+  16 |    0 |   0 |   16  PMF.supportFinset
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 81
+
+ABBREVIATIONS
+  19 |   15 |   0 |   34  fstMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 35
+  27 |   35 |   0 |   62  fstSndMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 147
+   4 |    0 |   0 |    4  fstThirdMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 177
+  26 |   49 |   0 |   75  sndMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 39
+   6 |    4 |   0 |   10  sndThirdMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 182
+   5 |    4 |   0 |    9  thirdMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 187
+
+THEOREMS
+   0 |    2 |   0 |    2  apply_eq_zero_of_fstMarginal_eq_zero
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 488
+   0 |    2 |   0 |    2  apply_eq_zero_of_sndMarginal_eq_zero
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 498
+   1 |    0 |   0 |    1  apply_le_fstMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 418
+   1 |    0 |   0 |    1  apply_le_sndMarginal
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 429
+   1 |    0 |   0 |    1  channelJoint_condFstGivenSndChannel
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 265
+   1 |    0 |   0 |    1  condEntropyFstGivenSnd_of_sndMarginal_ne_zero
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Conditional; source line 190
+   3 |    0 |   0 |    3  condEntropyOf_eq
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 923
+   1 |    0 |   0 |    1  condEntropyOf_eq_zero_iff_exists_function
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Theorems; source line 222
+   1 |    0 |   0 |    1  condEntropy_eq_sum_sndMarginal_mul_condEntropyFstGivenSnd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Conditional; source line 273
+   1 |    0 |   0 |    1  condFstGivenSndChannel_of_sndMarginal_eq_zero
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 222
+   1 |    0 |   0 |    1  condFstGivenSndChannel_of_sndMarginal_ne_zero
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 229
+   1 |    0 |   0 |    1  condFstGivenSnd_apply
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Conditional; source line 72
+   1 |    0 |   0 |    1  condMutualInfoOf_eq_condEntropyOf_sub_condEntropyOf
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 1034
+   1 |    0 |   0 |    1  condMutualInfoOf_eq_zero_iff_isMarkovChainOf
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 168
+   1 |    0 |   0 |    1  condMutualInfoOf_nonneg
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Theorems; source line 751
+   2 |    0 |   0 |    2  condMutualInfoOf_swap
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 685
+   1 |    2 |   0 |    3  decodingErrorProbability_eq_sum
+       Owner/import: LeanInfoTheory.Shannon.Fano; source line 107
+   0 |    1 |   0 |    1  decodingErrorProbability_le_one
+       Owner/import: LeanInfoTheory.Shannon.Fano; source line 134
+   0 |    1 |   0 |    1  decodingErrorProbability_nonneg
+       Owner/import: LeanInfoTheory.Shannon.Fano; source line 126
+   4 |    0 |   0 |    4  entropyOf_comp_equiv
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 215
+   4 |    3 |   0 |    7  entropyOf_comp_injective
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 223
+   7 |    1 |   0 |    8  entropy_map_equiv
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 61
+   1 |    2 |   0 |    3  entropy_map_injective
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 76
+   2 |    0 |   0 |    2  entropy_nonneg
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 45
+   3 |    7 |   0 |   10  entropy_pure
+       Owner/import: LeanInfoTheory.Shannon.Entropy; source line 109
+   1 |    0 |   0 |    1  fstMarginal_apply
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 93
+   2 |    1 |   0 |    3  fstMarginal_indepProd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Product; source line 109
+   5 |    0 |   0 |    5  fstMarginal_map
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 47
+   6 |    3 |   0 |    9  fstMarginal_map_pair
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 66
+   1 |    0 |   0 |    1  fstMarginal_map_swap
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 80
+   0 |    1 |   0 |    1  fstMarginal_ne_zero_of_apply_ne_zero
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 507
+   2 |    0 |   0 |    2  fstSndMarginal_map_triple
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 169
+   1 |    0 |   0 |    1  fstThirdMarginal_map_triple
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 230
+   2 |    4 |   0 |    6  indepProd_apply
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Product; source line 68
+   1 |    9 |   0 |   10  isIndependentOf_iff_map_eq_indepProd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 203
+   4 |    0 |   0 |    4  isIndependentOf_swap
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 236
+   3 |    4 |   0 |    7  isIndependent_indepProd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 158
+   2 |    2 |   0 |    4  isMarkovChainOf_comp
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 308
+   1 |    1 |   0 |    2  isMarkovChain_channelExtension
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 285
+   0 |    1 |   0 |    1  isMarkovChain_iff_crossProduct
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 72
+   1 |    0 |   0 |    1  isMarkovChain_iff_exists_channelExtension
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Markov; source line 425
+   3 |    0 |   0 |    3  mutualInfoOf_chain_rule_fst
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Theorems; source line 853
+   1 |    0 |   0 |    1  mutualInfoOf_chain_rule_snd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Theorems; source line 867
+   2 |    0 |   0 |    2  mutualInfoOf_comp_right_le
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Theorems; source line 960
+   2 |    2 |   0 |    4  mutualInfoOf_eq
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 1008
+   2 |    0 |   0 |    2  mutualInfoOf_eq_entropyOf_sub_condEntropyOf
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 1100
+   1 |    0 |   0 |    1  mutualInfoOf_eq_entropyOf_sub_condEntropyOf_swap
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 1109
+   1 |    0 |   0 |    1  mutualInfoOf_eq_zero_iff_isIndependentOf
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 278
+   1 |    0 |   0 |    1  mutualInfoOf_le_entropyOf_left
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Theorems; source line 591
+   2 |    0 |   0 |    2  mutualInfoOf_swap
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 645
+   2 |    0 |   0 |    2  mutualInfo_eq
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 815
+   0 |    1 |   0 |    1  mutualInfo_eq_zero_iff_isIndependent
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Independence; source line 257
+   1 |    1 |   0 |    2  sndMarginal_apply
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 120
+   2 |    2 |   0 |    4  sndMarginal_indepProd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Product; source line 126
+   3 |    0 |   0 |    3  sndMarginal_map
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 58
+   3 |    3 |   0 |    6  sndMarginal_map_pair
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 73
+   1 |    0 |   0 |    1  sndMarginal_map_swap
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 87
+   0 |    1 |   0 |    1  sndMarginal_ne_zero_of_apply_ne_zero
+       Owner/import: LeanInfoTheory.Shannon.InfoMeasures; source line 517
+   4 |    0 |   0 |    4  sndMarginal_sndThirdMarginal
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Conditional; source line 478
+   1 |    0 |   0 |    1  support_condFstGivenSnd
+       Owner/import: LeanInfoTheory.Shannon.SemanticBridge.Conditional; source line 122
+  33 |    0 |   0 |   33  PMF.binaryMixture_apply
+       Owner/import: LeanInfoTheory.Probability.FiniteMixture; source line 43
+   1 |    0 |   0 |    1  PMF.bind_toReal_apply
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 64
+   2 |    0 |   0 |    2  PMF.channelExtension_deterministicChannel
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 349
+  14 |    6 |   0 |   20  PMF.channelJoint_apply
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 93
+   5 |    0 |   0 |    5  PMF.channelJoint_eq_iff_eq_on_support
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 382
+   9 |    1 |   0 |   10  PMF.channelJoint_map_fst
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 129
+   1 |    6 |   0 |    7  PMF.channelJoint_map_snd
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 150
+   4 |    0 |   0 |    4  PMF.eq_pure_iff_support_eq_singleton
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 109
+   6 |   12 |   0 |   18  PMF.map_apply_eq_zero_of_notMem_range
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 155
+  19 |   14 |   0 |   33  PMF.map_apply_equiv
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 181
+  21 |   11 |   0 |   32  PMF.map_apply_of_injective
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 129
+   2 |    0 |   0 |    2  PMF.mem_supportFinset
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 86
+   5 |    2 |   1 |    8  PMF.mem_support_channelJoint_iff
+       Owner/import: LeanInfoTheory.Probability.FiniteChannel; source line 371
+   3 |    0 |   0 |    3  PMF.sum_toReal
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 42
+   1 |    0 |   0 |    1  PMF.toReal_le_one
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 38
+   2 |    0 |   0 |    2  PMF.toReal_nonneg
+       Owner/import: LeanInfoTheory.Probability.Finite; source line 34
+
+HOW TO USE THESE NUMBERS
+Use these as concrete evidence of library adoption, together with examples of mathematical leverage.
+Do not convert them into an unmeasured code-size or development-time saving.
+
+The companion JSON gives all 1,385 exact source locations, source hashes, owner modules, kinds and audit metadata.
+Rebuild all maintained modules, then rerun count_reuse.py to reproduce the inventory.

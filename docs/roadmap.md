@@ -45,6 +45,12 @@ address rights, licensing/citation metadata, distribution and remote validation.
 No release, publication-facing omission curation or public publication state is
 implied by C16 completion or this roadmap.
 
+The lead separately authorized public repository availability on 2026-10-14,
+under the existing Apache-2.0 license and without inventing unverified metadata.
+The [publication checkpoint](project-log.md#public-repository-checkpoint) records
+that bounded delivery. A tagged release, website, new metadata and omission
+curation remain separate directions, not consequences of this visibility change.
+
 ## Later or deferred directions
 
 The [dated disposition register](pfr-c16-readiness-audit.md#c16-s04-dispositions)
