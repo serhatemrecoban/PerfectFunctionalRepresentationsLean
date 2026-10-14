@@ -80,11 +80,30 @@ are downloaded; PFR is compiled from source. Public artifacts accelerate the
 dependency build: this is not a claim to rebuild all of mathlib from source.
 The workflow runs no models or live reviewers and does not publish build outputs.
 
-**Validation in progress:** the new gate's eleven model-free tests and static
-checks pass locally. A separate anonymous public checkout and the first hosted
-CI execution must finish before fresh-checkout or hosted-build success is claimed.
-The final evidence is recorded in the project log and updated here after those
-runs complete.
+**Completed hosted validation:** [public CI run 38570736438](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38570736438)
+passed on `626f4a40c831c273fed0f2160e6f9e751e6a3a71`, using Ubuntu 24.04 and
+fresh PFR compilation. Its eleven gate tests, all-module build (2,823 jobs),
+default build (2,762 jobs), ten installed dependency identities/cleanliness and
+clean-checkout checks passed. The public logs were inspected: no private material
+or common secret patterns were detected, and no build artifacts were uploaded.
+
+That successful run reported a non-blocking Node 20 deprecation annotation for
+checkout v4. The workflow now pins the official Node-24 checkout v7.0.1 source;
+see [subsequent runs](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/workflows/lean.yml)
+for validation of the updated workflow. This is a CI action change, not a Lean,
+mathlib or LeanInfoTheory upgrade.
+
+**Completed independent Windows checkout:** an anonymous HTTPS clone of
+`ceef8793673697cce0a4a1862d30ab0d77fb6dd5` fetched all ten locked package
+repositories and 8,690 public cache files without copying the primary checkout's
+PFR or LeanInfoTheory artifacts. All 56 modules and the default build passed
+(2,823 and 2,762 jobs), the placeholder scan found no matches, and the checkout
+and dependency configuration stayed clean. This used the already installed
+Lean 4.33.1 toolchain, not a new Windows toolchain installation. A subsequent
+anonymous fast-forward to `626f4a4` confirmed no Lean/configuration change.
+The published gate then passed all eleven tests, both builds and all ten
+dependency checks in that clone; this second execution reused its freshly built
+artifacts and is explicitly a cached rerun.
 
 ## Exact coverage to advertise
 

@@ -9670,9 +9670,9 @@ build cache. It does not run native reviewers, models or private review suites.
 The action bootstrap still fetches the official elan installer; action SHA
 pinning is not a claim that the entire bootstrap chain is immutable.
 
-Local all-module and default builds passed (2,823 and 2,762 jobs). A fresh
-anonymous public Windows checkout and the first hosted CI run are being
-validated separately; their results will be added below rather than inferred
+Local all-module and default builds passed (2,823 and 2,762 jobs). At the first
+readiness checkpoint, the anonymous public Windows checkout and hosted CI results
+were still pending; their completed results are recorded below, not inferred
 from local cached builds. The installed review workflow's implementation is
 unchanged; only an ambiguous private-project phrase in its README was clarified,
 so its long model-free regression suites are not rerun for this change.
@@ -9681,4 +9681,41 @@ README, scope, roadmap and living-summary routes point to the readiness record.
 The compact website proposal remains directional, owned by the General Assistant
 with the lead's later website request as its trigger; no duplicate Future Work
 Note is needed. No website, release/tag, manuscript upload, omission curation or
-dependency upgrade is performed.
+mathematical dependency upgrade is performed.
+
+The first hosted run, [38570736438](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38570736438),
+passed at `626f4a40c831c273fed0f2160e6f9e751e6a3a71` on Ubuntu 24.04 in
+6m37s. Logs establish all eleven gate tests, all 56 modules (2,823 build jobs),
+the default build (2,762 jobs), ten clean installed pins, unchanged configuration
+and clean checkout. Independent inspection of all 455 log lines (62,500 bytes;
+SHA-256 `46113c506942d09a79a1ad612bfca3cd0f570dec3d48c3161bfbee9c3eb3564a`)
+found no common secret patterns, private paths or manuscript content. No Actions
+artifact was produced. The published readiness delta was also inspected: ten
+reachable commits, 175 paths and 224 unique blobs, with no blocking exposure.
+
+That run's only annotation concerned checkout v4's Node 20 declaration, which
+the runner executed on Node 24. The follow-up pins official checkout v7.0.1 at
+`3d3c42e5aac5ba805825da76410c181273ba90b1`, whose action declares Node 24;
+read-only permissions and `persist-credentials: false` remain unchanged. The
+official action documentation and exact action definition were inspected before
+the change. A subsequent public CI run will validate this runtime adjustment;
+mathematical dependencies and the build gate are unchanged. The README
+introduction was also simplified for research readers while retaining precise
+scope and history links.
+
+The independent Windows clone of public `ceef879` completed fresh PFR and
+LeanInfoTheory source compilation: all 56 modules (2,823 jobs) and the default
+target (2,762 jobs) passed. The build window was 13:14:33–13:34:28 UTC. The
+placeholder scan returned no matches, and tracked diff/status stayed clean.
+All ten package repositories and 8,690 dependency cache files were fetched
+publicly with credential helpers disabled and an isolated cache; no primary
+checkout compiled artifacts were copied. The existing Lean 4.33.1 toolchain
+was reused, so this is not a clean-machine Windows installation claim. A further
+anonymous fetch and exact fast-forward to `626f4a4` succeeded, with no Lean or
+dependency-configuration delta from the tested baseline.
+The fresh log records 56 PFR and 15 LeanInfoTheory module compilations. At
+`626f4a4`, all eleven published gate tests and the all-module/default build gate
+also passed, verifying all ten installed revisions and clean tracked dependency
+files. This latter execution is a cached rerun, not a second cold build. The
+clone's final status was clean; detailed local logs and their hashes were
+retained separately from the public repository.

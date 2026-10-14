@@ -6,17 +6,13 @@ Representations*, developed as a downstream case study of
 
 ## Status
 
-**Current, 2026-10-14:** C01–C16 are complete. C16's supported final closure,
-satisfied criteria and exact final-source applicability were verified before
-this [private repository checkpoint](docs/project-log.md#post-c16-checkpoint).
-The [approved C16 plan](docs/plans/pfr-c16-coverage-api-trust-closure.md) and
-[integrated readiness](docs/pfr-c16-readiness-audit.md#c16-s05-readiness) retain
-their original pre-closure evidence; the later durable record establishes completion.
-This repository is public under the existing Apache-2.0 software license,
-as authorized by the project lead on 2026-10-14. The
-[publication checkpoint](docs/project-log.md#public-repository-checkpoint)
-records delivery and visibility verification. No tagged release or website is
-implied by making the source public.
+**Current, 2026-10-14:** all sixteen planned formalization chunks are complete.
+The source is public under Apache-2.0, with the scope qualifications below.
+This is a completed downstream case study of **LeanInfoTheory v0.1.0**, not
+a claim to formalize the entire extended manuscript. See the
+[public-readiness record](docs/public-readiness.md) for content checks,
+attribution and reproducibility evidence. No tagged release or website has been
+published.
 
 The development includes semantic/canonical representations, singularity and
 binary cases, finite maximal coupling, typed matrix operations and constructive
@@ -32,10 +28,14 @@ historical C01–C16 proof/clarification baseline. The lead supplied extended
 `(19) (2)` on 2026-10-13; selected appended proofs were compared, not the entire
 new draft. Extended-only results remain outside current scope.
 Information uses finite value alphabets and nats, with unrestricted source spaces
-where supported. Support-only decoders and null fibers remain explicit.
+where supported. In particular, information-preserving canonicalization and the
+binary information bound cover finite-valued auxiliaries, not the paper's fully
+unrestricted auxiliary reading. Support-only decoders and null fibers remain explicit.
 All-prior bounds and forward results retain their generality; ambient converses
 that need full input support say so. The LP interfaces require finite alphabets
-and nonempty input. See [project scope](docs/project-scope.md) and the
+and nonempty input. They use the corrected full/reduced indexing clarified by
+the extended manuscript, and are mathematical characterizations, not an
+executable LP solver. See [project scope](docs/project-scope.md) and the
 [boundary audit](docs/pfr-c16-readiness-audit.md#boundary-index).
 
 ## Dependencies and build
@@ -44,7 +44,8 @@ Lean is pinned to `v4.33.1`; LeanInfoTheory is pinned to immutable `v0.1.0`
 (`0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f`). Mathlib is resolved through
 `lake-manifest.json`. Upgrades need a dedicated reviewed step.
 
-Install Git, [elan](https://github.com/leanprover/elan) and Python 3.11 or newer.
+Install Git, [elan](https://github.com/leanprover/elan) and Python 3.11 or newer
+(use `python3` below if your system does not name it `python`).
 The committed toolchain file selects the Lean version automatically. From a fresh
 checkout:
 
@@ -69,18 +70,10 @@ lake build
 ```
 
 The default target excludes separately imported matrix, optimization,
-demonstration and regression modules. Build every maintained module explicitly
-(PowerShell, with `rg` available):
-
-```powershell
-$pfrTargets = @('PerfectFunctionalRepresentations') + @(rg --files PerfectFunctionalRepresentations -g '*.lean' | ForEach-Object { $_.Replace('\', '.').Replace('/', '.') -replace '\.lean$', '' })
-lake build @pfrTargets
-```
-
-The current inventory has 56 owners including the root. S05's fresh complete-target
-build passed 2,823 jobs and the default build passed 2,762, using cached artifacts.
-[Implementation notes](docs/pfr-c16-implementation-notes.md) distinguish fresh
-checks, inherited evidence and later validation.
+demonstration and regression modules; use the all-module command above for full
+validation. Historical chunk acceptance and validation remain available in the
+[implementation notes](docs/pfr-c16-implementation-notes.md) and
+[completion checkpoint](docs/project-log.md#post-c16-checkpoint).
 
 ## Reading and module routes
 
