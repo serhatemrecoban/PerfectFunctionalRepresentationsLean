@@ -80,18 +80,19 @@ are downloaded; PFR is compiled from source. Public artifacts accelerate the
 dependency build: this is not a claim to rebuild all of mathlib from source.
 The workflow runs no models or live reviewers and does not publish build outputs.
 
-**Completed hosted validation:** [public CI run 38570736438](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38570736438)
-passed on `626f4a40c831c273fed0f2160e6f9e751e6a3a71`, using Ubuntu 24.04 and
+**Completed hosted validation:** [public CI run 38573351527](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38573351527)
+passed on `d06a1187611790134bc94ea8aa06232b4f020baa`, using Ubuntu 24.04 and
 fresh PFR compilation. Its eleven gate tests, all-module build (2,823 jobs),
 default build (2,762 jobs), ten installed dependency identities/cleanliness and
 clean-checkout checks passed. The public logs were inspected: no private material
 or common secret patterns were detected, and no build artifacts were uploaded.
 
-That successful run reported a non-blocking Node 20 deprecation annotation for
-checkout v4. The workflow now pins the official Node-24 checkout v7.0.1 source;
-see [subsequent runs](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/workflows/lean.yml)
-for validation of the updated workflow. This is a CI action change, not a Lean,
-mathlib or LeanInfoTheory upgrade.
+The [initial successful run](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38570736438)
+on `626f4a4` reported a non-blocking Node 20 deprecation annotation for checkout
+v4. The final workflow pins the official Node-24 checkout v7.0.1 source; the
+successful final run has no warning annotations. This is a CI action change,
+not a Lean, mathlib or LeanInfoTheory upgrade. Subsequent evidence-only
+documentation changes leave the tested sources, build gate and workflow unchanged.
 
 **Completed independent Windows checkout:** an anonymous HTTPS clone of
 `ceef8793673697cce0a4a1862d30ab0d77fb6dd5` fetched all ten locked package
@@ -144,10 +145,11 @@ Important qualifications must remain visible beside headline results:
   auxiliaries; the paper's unrestricted-auxiliary reading is not fully covered.
 - Support-only decoders, total null-fiber conventions and full-support converse
   assumptions are explicit. Channel-only claims must not acquire a hidden prior.
-- The LP results use corrected full/reduced incidence indexing, consistent with
-  the extended formulation, rather than the literal mixed ISIT indexing. They
-  prove mathematical characterizations, not an executable LP solver or runtime
-  claim.
+- The ambient-channel LP characterizations assume singularity, finite alphabets
+  and nonempty input. The LP results use corrected full/reduced incidence indexing,
+  consistent with the extended formulation, rather than the literal mixed ISIT
+  indexing. They prove mathematical characterizations, not an executable LP
+  solver or runtime claim.
 - Lemma 4's normalization theorem is proved using finite path/certificate
   induction. The informal repeated-rewrite termination argument is not asserted
   to have been verified.

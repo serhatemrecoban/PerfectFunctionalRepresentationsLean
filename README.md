@@ -32,10 +32,11 @@ where supported. In particular, information-preserving canonicalization and the
 binary information bound cover finite-valued auxiliaries, not the paper's fully
 unrestricted auxiliary reading. Support-only decoders and null fibers remain explicit.
 All-prior bounds and forward results retain their generality; ambient converses
-that need full input support say so. The LP interfaces require finite alphabets
-and nonempty input. They use the corrected full/reduced indexing clarified by
-the extended manuscript, and are mathematical characterizations, not an
-executable LP solver. See [project scope](docs/project-scope.md) and the
+that need full input support say so. The ambient-channel LP characterizations
+assume singularity, finite alphabets and nonempty input. They use the corrected
+full/reduced indexing clarified by the extended manuscript, and are mathematical
+characterizations, not an executable LP solver. See
+[project scope](docs/project-scope.md) and the
 [boundary audit](docs/pfr-c16-readiness-audit.md#boundary-index).
 
 ## Dependencies and build
