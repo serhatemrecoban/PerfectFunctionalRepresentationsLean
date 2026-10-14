@@ -12,8 +12,8 @@ This is a completed downstream case study of **LeanInfoTheory v0.1.0**, not
 a claim to formalize the entire extended manuscript. See the
 [public-readiness record](docs/public-readiness.md) for content checks,
 attribution and reproducibility evidence. The [research website](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
-is implemented; initial deployment validation is in progress. No tagged release
-has been published.
+is now live, with source-linked results, discussion and reproduction guidance.
+No tagged release has been published.
 
 The development includes semantic/canonical representations, singularity and
 binary cases, finite maximal coupling, typed matrix operations and constructive
@@ -104,8 +104,8 @@ Public repository availability is authorized separately from C16 completion.
 The lead authorized the compact research website on 2026-10-14. Its four pages
 cover the problem, precise theorem links, discussion/limitations and reproduction
 with citation. Source lives in `site/`; the [website plan](docs/plans/pfr-website.md)
-records design, validation and maintenance. GitHub Pages is configured; the first
-deployment is being validated. Tagged releases, unverified
+records design, validation and maintenance. The site is published on GitHub Pages,
+with HTTPS and automated publication checks. Tagged releases, unverified
 metadata and publication-facing omission curation remain separate decisions;
 see the [roadmap](docs/roadmap.md). Local papers and references remain external
 or ignored and must not be committed.

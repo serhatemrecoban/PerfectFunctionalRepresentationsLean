@@ -1,10 +1,10 @@
 # PFR Research Website Plan
 
-**Status: Active, 2026-10-14.** The lead authorized building the research website
+**Status: Complete, 2026-10-14.** The lead authorized building the research website
 and requested a detailed plan followed by implementation when practical. This
 plan records that bounded website task, not a new mathematical chunk. Baseline:
-`da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence will be recorded
-here and in the project log; a plan is not evidence of successful deployment.
+`da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence is recorded below and in the project log; the execution
+plan itself is not evidence of successful deployment.
 
 ## Purpose and audience
 
@@ -142,6 +142,21 @@ maximum domain and linking both constructive characterizations; all were adopted
 No blocking mathematical or attribution finding remains. Lean sources, toolchain
 and dependency configuration are unchanged.
 
-W04 is in progress: Pages workflow hosting is configured with HTTPS, but hosted
-deployment and live validation remain pending. See the project-log entry for
-delivery revision and actual hosted results when complete.
+W04 complete: [the public site](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
+was deployed from `18a4833b3397d4410e54e8fd0235ac4c53dc84b9` by
+[website run 38580736326](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38580736326).
+All 21 guard tests passed on Ubuntu (no skips). Live browser tests repeated all
+sixteen viewport/page combinations and the interaction/no-JavaScript checks.
+All nine served files matched the committed bytes. Public logs/inventory were
+reviewed, HTTPS and repository homepage verified, and the owned preview server
+stopped. The official deploy action's non-blocking `punycode` warning is recorded
+in readiness; all check annotations are empty.
+
+[Lean CI run 38580736535](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38580736535)
+passed on the same commit: all 56 modules (2,823 jobs), default build (2,762 jobs),
+eleven gate tests, ten installed pins and clean checkout. A final local default
+build passed too. Closing changes record only this evidence and current status;
+site, tools, workflows, Lean sources and dependency pins remain the tested versions.
+The [project-log entry](../project-log.md#research-website) records delivery.
+Approved paper metadata remains a separate, already recorded follow-up—not an
+unfinished website implementation requirement.

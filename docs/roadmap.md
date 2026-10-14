@@ -72,8 +72,9 @@ directions are outside current execution:
 The lead subsequently authorized website implementation on 2026-10-14. The
 [website plan](plans/pfr-website.md) owns that bounded delivery: four static pages
 explain the paper, source-linked results, discussion/limitations, normalization
-proof feedback and reproduction/citation. Source and checks are implemented;
-initial GitHub Pages deployment validation is in progress. The
+proof feedback and reproduction/citation. The
+[site is live](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
+on GitHub Pages, with verified source links and desktop/mobile validation. The
 [readiness record](public-readiness.md#website-direction-for-later-implementation)
 owns current delivery evidence. This complements LeanInfoTheory's library
 documentation; it does not duplicate its API portal or change the dependency pin.

@@ -28,7 +28,7 @@ Status labels:
 **Current, 2026-10-14:** C01–C16 are durably complete. The General Assistant
 verified C16's supported S05 closure, all fifteen criteria and exact final-source
 applicability before the [private repository checkpoint](project-log.md#post-c16-checkpoint).
-There is no active implementation step. The
+There is no active mathematical implementation step. The
 [completed C16 contract](plans/pfr-c16-coverage-api-trust-closure.md) and its
 original notes retain their pre-closure checkpoint; the later durable record
 establishes CC09 and completion. The lead authorized updating and publishing the
@@ -37,7 +37,8 @@ GitHub repository on 2026-10-14; see the
 The subsequent [public-readiness review](public-readiness.md) covers content,
 attribution and reproducibility without changing the formalization. The lead
 subsequently authorized the [research website plan](plans/pfr-website.md): four
-static pages are implemented, with initial Pages deployment validation in progress.
+static pages are live on [GitHub Pages](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/),
+with verified source links and desktop/mobile checks.
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
@@ -96,7 +97,7 @@ adaptations, and stop after the one authorized step.
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |
 | Completed plan | [C16 revision 2](plans/pfr-c16-coverage-api-trust-closure.md); preserved pre-closure text, later supported completion recorded in the [checkpoint entry](project-log.md#post-c16-checkpoint) |
 | Coverage and decisions | [Ledger](pfr-c16-coverage-audit.md), [readiness](pfr-c16-readiness-audit.md#c16-s05-readiness); DG-01–DG-15 resolved, all 71 omission rows preserved |
-| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; secret scanning/push protection enabled. See [readiness](public-readiness.md) for the exact fresh-checkout and CI validation state. No tagged release; four-page website implemented, initial Pages validation in progress |
+| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; secret scanning/push protection enabled. See [readiness](public-readiness.md) for the exact fresh-checkout and CI validation state. No tagged release; [four-page research website](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/) deployed and live-checked |
 
 Document ownership is fixed in [AGENTS.md](../AGENTS.md#document-roles-and-proactive-maintenance):
 README is the reader entry point; scope owns inclusion; this summary owns current
@@ -367,7 +368,7 @@ No new theorem family or unresolved mathematical/API implementation is identifie
 | C16 reviewer | Existing `/root/pfr_c16_reviewer`, originating task `01a0fd72-febb-7d03-ae0c-9e8ee42d78bf`; requested Astra/ultra/no parent history, effective settings unknown. All five steps are closed and original reports reconciled. S05 cumulative assessment and corrected-source reassessment satisfy all three criteria; supported closure is verified. Revision-1 plan review is historical; no separate revision-2 plan review is claimed. |
 | Numbered Future Work Notes | None opened; [authoritative register](project-log.md#future-work-notes) freshly checked in S05 |
 | Mapped suggestions and later directions | [Dated disposition register](pfr-c16-readiness-audit.md#c16-s04-dispositions) names original references, owners and triggers; no unowned worthwhile deferral |
-| Release / website | Separate decisions, [roadmap](roadmap.md#later-or-deferred-directions); no approved website plan |
+| Release / website | [Research website](plans/pfr-website.md) authorized separately and deployed on 2026-10-14; tagged release and unverified publication metadata remain separate decisions |
 
 Future notes retain immutable numbers and full history in the log. Their current
 classification belongs here, including terminal dispositions. Mapped work,
@@ -519,7 +520,7 @@ credited to Serhat Emre Coban. [AUTHORS.md](../AUTHORS.md) and
 third-party permissions or a paper publication record. Public readiness and a
 future LeanInfoTheory announcement preserve the **v0.1.0** dependency baseline;
 neither requires an upgrade. The [readiness record](public-readiness.md) owns
-the publication checks and proposed website direction, not a new theorem plan.
+the publication checks and live website evidence, not a new theorem plan.
 
 **[History] Provenance attestation.** The inherited-context report records that
 no external information-theory formalization repository was consulted or

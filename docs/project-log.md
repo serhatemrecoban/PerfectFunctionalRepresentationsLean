@@ -9794,3 +9794,34 @@ without deployment and Pages/id-token permissions only for the deployment job.
 It uploads only `site/`, never the repository or private local records. Hosted
 deployment and live verification are pending at this implementation checkpoint;
 configuration is not reported as a successful deployment.
+
+**Delivery and final validation:** implementation commit
+`18a4833b3397d4410e54e8fd0235ac4c53dc84b9` was pushed only to `master`.
+[Website run 38580736326](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38580736326)
+passed (all 21 guard tests on Ubuntu, no skips) and deployed the
+[HTTPS research site](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/).
+Live browser tests repeated all sixteen page/viewport combinations, keyboard,
+disclosure, clipboard and JavaScript-disabled checks. All nine served files
+matched the committed bytes. The Pages artifact omits `.nojekyll`; no Jekyll
+processing is used in this static-artifact deployment. The repository homepage
+was set to the verified URL, and the owned local preview server was stopped.
+
+Public workflow logs and the nine-file artifact inventory were reviewed, with
+no detected private content or common credential patterns; tokens are masked.
+The official deployment action reports a non-blocking upstream `punycode`
+deprecation message. Deployment succeeds, and all GitHub check annotations are
+empty; no action version was changed just to hide that warning. Secret-scanning
+alerts remained empty at the final query; this is not an exhaustive guarantee.
+
+The fresh [Lean run 38580736535](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38580736535)
+passed on the same commit in 6m34s: eleven gate tests, all 56 maintained modules
+(2,823 jobs), default target (2,762 jobs), all ten installed dependency revisions
+and clean checkout. Its public log checks found no detected private material or
+common credential patterns. A final local default build also passed (2,762 jobs).
+
+W01–W04 are complete. The closing documentation-only checkpoint normalizes the
+live status and records this evidence; it skips duplicate hosted CI while
+leaving the tested site, tools, workflows, Lean source and dependencies unchanged.
+No tagged release, manuscript upload, private-ref push or mathematical change
+was made. The approved-paper-link/citation follow-up retains its existing
+readiness owner; no duplicate Future Work Note was created.

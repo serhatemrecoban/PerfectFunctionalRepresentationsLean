@@ -1,11 +1,11 @@
-# Public readiness and website direction
+# Public readiness and research website
 
 **Review date: 2026-10-14.** PFR is a public, completed case study of
 **LeanInfoTheory v0.1.0**. Public source availability is not a claim to have
 formalized the whole extended manuscript, redistributed the paper, or issued a
-tagged software release. The current readiness work adds reproducible build
-checks and clear attribution; it does not change the mathematics or dependency
-baseline.
+tagged software release. The readiness work adds reproducible build checks and clear attribution;
+the subsequently authorized research website presents those verified results.
+Neither changes the mathematics or dependency baseline.
 
 ## Public content
 
@@ -32,7 +32,9 @@ explicitly includes Actions history and logs in public visibility.
 Secret scanning and push protection were enabled and confirmed on 2026-10-14.
 The initial alert query returned no alerts; this does not certify completion or
 exhaustiveness of GitHub's asynchronous scanning. No paid security feature,
-history rewrite, tag, website deployment or manuscript upload was requested.
+history rewrite, tag, website deployment or manuscript upload was requested in
+that initial readiness phase. The later website authorization and delivery are
+recorded below.
 
 ## Attribution and permission boundaries
 
@@ -184,8 +186,14 @@ security certification.
 
 GitHub Pages is configured for workflow hosting with HTTPS at
 [the research-site URL](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/).
-Initial deployment and live checks are in progress; configuration alone is not
-a deployment result. The [website workflow](../.github/workflows/site.yml)
+[Website run 38580736326](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38580736326)
+successfully validated and deployed commit
+`18a4833b3397d4410e54e8fd0235ac4c53dc84b9`. All 21 guard tests passed on Ubuntu
+(no skips). Live browser checks passed on all four pages at 1440, 768, 390 and
+320 px, including keyboard entry, disclosures, clipboard success/fallback and
+JavaScript-disabled navigation. Visual checks found no remaining layout issue.
+All nine served files matched the committed bytes; `.nojekyll` is omitted by the
+artifact action and is unnecessary for this direct static deployment. The [website workflow](../.github/workflows/site.yml)
 validates the site before uploading only `site/`. PRs validate without
 deployment; only the deployment job receives Pages/identity-token write
 permissions. Actions are pinned to inspected official source SHAs. No private
@@ -202,7 +210,20 @@ python -B -m http.server 8765 --bind 127.0.0.1 --directory site
 Open the local server in a browser, inspect desktop and mobile layouts, test
 keyboard navigation and copy fallback, and stop it when finished. Keep source
 links and their manifest synchronized when changing the advertised snapshot.
-The plan and final project-log entry record actual validation and deployment.
+The plan and [project-log entry](project-log.md#research-website) record actual
+validation and deployment. Public workflow logs were reviewed; the archive
+inventory contains only the nine intended site files, with no detected private
+content or common credential patterns. Tokens were masked. The deploy action
+emits a non-blocking upstream `punycode` deprecation message; deployment succeeds
+and GitHub reports zero check annotations. No action version was changed merely
+to suppress it. The repository homepage now points to the confirmed site URL.
+
+The same delivery commit also passed the fresh
+[all-module Lean CI run 38580736535](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38580736535):
+all 56 modules (2,823 jobs), default target (2,762 jobs), eleven public-build gate
+tests, all ten installed pins and clean checkout. No Lean source, dependency or
+toolchain change was made. The closing evidence-only documentation commit leaves
+all tested site, tools, workflows and mathematical sources unchanged.
 
 A later LeanInfoTheory release may celebrate this completed downstream case
 study. That announcement should explicitly say **built against v0.1.0**; neither
