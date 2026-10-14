@@ -1,0 +1,102 @@
+{
+  "commit": "da44e39a2ec2936d32195dd97df21c1bd19e63bc",
+  "repository": "https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean",
+  "entries": [
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/FunctionalRepresentation.lean",
+      "line": 176,
+      "needle": "theorem IsFunctionalRepresentationOf.mutualInfoOf_eq_condEntropyOf_sub_condMutualInfoOf",
+      "label": "Functional-representation information identity"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/FunctionalRepresentation.lean",
+      "line": 216,
+      "needle": "theorem IsFunctionalRepresentationOf.mutualInfoOf_eq_condEntropyOf_iff_isMarkovChainOf",
+      "label": "Equality characterized by the Markov property"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Canonical.lean",
+      "line": 308,
+      "needle": "theorem IsFunctionalRepresentationOf.exists_canonical_preserving_mutualInfo",
+      "label": "Lemma 1: information-preserving canonicalization"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Singularity.lean",
+      "line": 53,
+      "needle": "theorem IsPerfectlyRepresentableChannel.isSingular",
+      "label": "Lemma 2: singularity is necessary"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Binary.lean",
+      "line": 384,
+      "needle": "theorem isPerfectlyRepresentableChannel_iff_isSingular_of_binary",
+      "label": "Lemma 2: binary-side sufficiency"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Probability/FiniteCoupling.lean",
+      "line": 377,
+      "needle": "theorem exists_coupling_minimizing_mismatch (p q : PMF beta) :",
+      "label": "Maximal coupling attains the mismatch minimum"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Binary.lean",
+      "line": 567,
+      "needle": "theorem IsFunctionalRepresentationOf.mutualInfoOf_le_binary_bound",
+      "label": "Lemma 3: universal binary information bound"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Binary.lean",
+      "line": 629,
+      "needle": "theorem exists_binary_information_maximizer (p : PMF (Fin 2))",
+      "label": "Lemma 3: finite attaining representation"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/OperationFactorization.lean",
+      "line": 2058,
+      "needle": "theorem normalize {S T : ActiveFiniteChannel alpha} (p : OperationPath S T)",
+      "label": "Lemma 4: ordered operation normal form"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/CanonicalReachability.lean",
+      "line": 2481,
+      "needle": "theorem isPerfectlyRepresentable_iff_fromAllOnes (S : ActiveFiniteChannel alpha) :",
+      "label": "Theorem 1: constructive channel characterization"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Optimization/Primal.lean",
+      "line": 142,
+      "needle": "theorem isPerfectlyRepresentableChannel_iff_isGreatest_compressedPatternData",
+      "label": "Theorem 2: attained primal characterization"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Optimization/DualCharacterization.lean",
+      "line": 255,
+      "needle": "theorem isPerfectlyRepresentableChannel_iff_isLeast_compressedPatternData",
+      "label": "Corollary 1: attained dual characterization"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/OperationFactorization.lean",
+      "line": 800,
+      "needle": "private def SplitForest.ofPath {S T : ActiveFiniteChannel alpha}",
+      "label": "Proof support: induction on the original path"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/OperationFactorization.lean",
+      "line": 1988,
+      "needle": "private theorem FactorizationCertificate.realize {S T : ActiveFiniteChannel alpha}",
+      "label": "Proof support: finite certificate realization"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/OperationCalculus.lean",
+      "line": 1929,
+      "needle": "-- Equation (174) identifies the three inversions. This rank is used only for",
+      "label": "Proof boundary: inversion classification is not a termination measure"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/CanonicalReachability.lean",
+      "line": 2466,
+      "needle": "theorem isPerfectlyRepresentable_iff_toAllOnes (S : ActiveFiniteChannel alpha) :",
+      "label": "Theorem 1: reduction to the all-ones channel"
+    }
+  ]
+}

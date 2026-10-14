@@ -9738,3 +9738,59 @@ evidence-only commit skips a duplicate hosted CI run, not any changed-code
 validation or a standing validation requirement. Temporary clone/cache cleanup
 was refused by tool policy before deletion; both remain with the unchanged
 local validation logs. No alternative removal method was attempted.
+
+<a id="research-website"></a>
+
+## 190. Research website implementation — 2026-10-14
+
+The lead authorized building the PFR website, including a Discussion section,
+and requested a detailed plan followed by implementation when practical. The
+[website plan](plans/pfr-website.md) records the bounded delivery and maintenance
+contract. This supersedes entry 189's suggestions-only website boundary; it
+does not reopen C01–C16 or authorize a dependency upgrade or paper redistribution.
+
+The implementation is a self-contained four-page static site under `site/`:
+Overview, Results, Discussion, and Reproduce & cite. It uses editorial styling,
+an original explanatory SVG, relative links, local assets and optional clipboard
+enhancement. No comments service, tracking, cookies, external fonts or frontend
+package chain is added. The site distinguishes paper authors from formalization
+credit, retains Apache-2.0 software attribution, and does not invent a paper URL,
+DOI or publication date.
+
+Discussion explains finite-auxiliary and support limits, the finite-certificate
+normalization proof, full/reduced LP indexing, exact manuscript scope and the
+measured LeanInfoTheory reuse inventory. It does not assert a decreasing rewrite
+inversion count, arbitrary rewrite termination, complete newer-draft coverage,
+an executable LP solver or counterfactual code/time savings. Sixteen mathematical
+and proof-support links are pinned to `da44e39a2ec2936d32195dd97df21c1bd19e63bc`.
+
+Independent read-only content review found no blocking mathematical/attribution
+issue. Its optional TV-domain/convention clarification and second constructive
+characterization link were adopted. Independent static/interaction review found
+a clipboard edge case, corrected to retain truthful manual-copy guidance when
+selection is unavailable. The site guard checks files, internal links/fragments,
+local assets, basic accessibility structure and exact source lines; it is not an
+exhaustive security or accessibility certification.
+
+Local validation: `tools/test_website.py` ran 21 tests (20 passed; one Windows
+symlink-privilege skip); `tools/check_website.py` checked four pages and 131
+links/assets, with all sixteen source anchors verified. Browser tests in headless
+Microsoft Edge covered all four pages at 1440, 768, 390 and 320 px, no horizontal
+overflow or resource/JavaScript errors, keyboard skip navigation, disclosures,
+clipboard success/fallback, and all four pages without JavaScript. Screenshots
+were inspected. An initial 320 px heading overflow was corrected; a clipboard
+test's premature synchronous assertion was changed to wait for actual feedback.
+The four isolated clipboard controls also cover null/throwing selection.
+Ignored QA scripts/screenshots remain local, not website payload.
+
+Existing public-build gate tests (11), static hygiene/release-pin check,
+placeholder scan, `lake build` (2,762 jobs) and whitespace checks passed. Lean
+sources, toolchain, manifest and dependency configuration are unchanged. The
+README, scope, roadmap, living summary and readiness record are reconciled.
+
+GitHub Pages is configured for workflow hosting and HTTPS. The new workflow
+uses inspected SHA-pinned official actions, read-only validation, PR checks
+without deployment and Pages/id-token permissions only for the deployment job.
+It uploads only `site/`, never the repository or private local records. Hosted
+deployment and live verification are pending at this implementation checkpoint;
+configuration is not reported as a successful deployment.

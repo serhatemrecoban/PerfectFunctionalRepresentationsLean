@@ -137,5 +137,13 @@ Emre Coban; see [AUTHORS.md](../AUTHORS.md). This does not establish an unverifi
 rights-holder or third-party permission claim. An approved public paper link and
 full citation remain pending. The [readiness record](public-readiness.md)
 identifies the exact manuscript versions and the limited comparison of the newer
-extended companion. It proposes a compact website, but building or deploying
-that site waits for a later request.
+extended companion.
+
+The lead then authorized building the research website on 2026-10-14, including
+an explanatory Discussion section, and requested a detailed plan followed by
+implementation. The [website plan](plans/pfr-website.md) records the bounded
+static-site and GitHub Pages delivery. This authorizes public presentation of
+verified source/coverage and original explanations, not redistribution of local
+papers or annotations, new mathematics, dependency upgrades or unverified
+publication metadata. Current deployment evidence belongs in the readiness
+record.

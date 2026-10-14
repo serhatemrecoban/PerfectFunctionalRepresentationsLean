@@ -158,34 +158,51 @@ Important qualifications must remain visible beside headline results:
   [omission register](formalization-map.md#9-internal-exhaustive-omission-and-disposition-register)
   preserves the reasons.
 
-## Website direction for later implementation
+<a id="website-direction-for-later-implementation"></a>
 
-A compact research-project site is appropriate. It should complement
-LeanInfoTheory's library documentation with this paper's results and their exact
-formal contracts. Website implementation and deployment wait for a later request.
+## Website implementation and hosting
 
-Suggested sections:
+The lead authorized the website on 2026-10-14, including an explanatory
+Discussion section, and requested a detailed plan with implementation when
+practical. The [website plan](plans/pfr-website.md) records scope, design,
+acceptance and maintenance. This supersedes the earlier suggestions-only phase.
 
-1. **Overview:** the research problem, all paper authors, the formalization
-   author, repository link and the immutable LeanInfoTheory `v0.1.0` baseline.
-2. **Main results:** a small paper-to-Lean table with theorem names and links
-   pinned to the published source commit; place essential assumptions next to
-   each result.
-3. **Scope and limitations:** the exact ISIT/extended versions, finite-auxiliary
-   restriction, corrected LP indexing and intentional exclusions.
-4. **What formal verification clarified:** the Lemma 4 normalization proof as
-   a concrete example of improved proof precision, without reproducing the
-   manuscript or claiming the theorem was false.
-5. **Reproduce and cite:** tested installation commands, public CI, software
-   citation, an approved paper citation/link when available, and dependency
-   attribution.
+The site has four pages: Overview, Results, Discussion, and Reproduce & cite.
+Discussion covers finite auxiliaries and support, constructive normalization,
+LP indexing, exact manuscript scope and measured library reuse. It is authored
+explanatory content, not a comments service. Paper credits remain separate from
+formalization credit. No manuscript is distributed and missing official paper
+metadata is not invented.
 
-Use a small static site with accessible text, mobile-readable tables and minimal
-JavaScript. GitHub Pages is a natural hosting option for this repository, but no
-host or deployment is selected in this pass. Avoid a second library API portal,
-private proof annotations, unapproved manuscript downloads, and unmeasured
-code/time-saving claims. The measured reuse inventory can be a supporting link,
-not the main claim of mathematical value.
+Source lives in `site/`: buildless HTML, shared CSS, a small clipboard
+enhancement and original SVG assets. There are no third-party assets, analytics,
+cookies or frontend dependencies. Source links are pinned to
+`da44e39a2ec2936d32195dd97df21c1bd19e63bc` and checked against exact Git lines by
+`tools/check_website.py`; `tools/test_website.py` exercises the guard.
+These are structural/publication checks, not exhaustive accessibility or
+security certification.
+
+GitHub Pages is configured for workflow hosting with HTTPS at
+[the research-site URL](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/).
+Initial deployment and live checks are in progress; configuration alone is not
+a deployment result. The [website workflow](../.github/workflows/site.yml)
+validates the site before uploading only `site/`. PRs validate without
+deployment; only the deployment job receives Pages/identity-token write
+permissions. Actions are pinned to inspected official source SHAs. No private
+runtime store, whole-repository upload or local snapshot ref is published.
+
+For local maintenance:
+
+```text
+python -B tools/test_website.py
+python -B tools/check_website.py
+python -B -m http.server 8765 --bind 127.0.0.1 --directory site
+```
+
+Open the local server in a browser, inspect desktop and mobile layouts, test
+keyboard navigation and copy fallback, and stop it when finished. Keep source
+links and their manifest synchronized when changing the advertised snapshot.
+The plan and final project-log entry record actual validation and deployment.
 
 A later LeanInfoTheory release may celebrate this completed downstream case
 study. That announcement should explicitly say **built against v0.1.0**; neither

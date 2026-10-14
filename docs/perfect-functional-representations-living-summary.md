@@ -35,8 +35,9 @@ establishes CC09 and completion. The lead authorized updating and publishing the
 GitHub repository on 2026-10-14; see the
 [publication checkpoint](project-log.md#public-repository-checkpoint).
 The subsequent [public-readiness review](public-readiness.md) covers content,
-attribution and reproducibility without changing the formalization. Website
-direction is proposed there; implementation has not been authorized.
+attribution and reproducibility without changing the formalization. The lead
+subsequently authorized the [research website plan](plans/pfr-website.md): four
+static pages are implemented, with initial Pages deployment validation in progress.
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
@@ -69,8 +70,9 @@ adaptations, and stop after the one authorized step.
   left by S05; final validation and supported closure are complete.
 - Public repository availability and readiness checks are separately authorized.
   The lead confirmed paper/formalization credits in [AUTHORS.md](../AUTHORS.md).
-  Tagged releases, unverified metadata, omission curation and website
-  implementation still require separate decisions.
+  Website implementation is separately authorized; see its plan and readiness
+  record for delivery status. Tagged releases, unverified metadata and omission
+  curation still require separate decisions.
   Local formalization completion does not establish remote delivery or CI.
 
 | Task | Read next |
@@ -88,13 +90,13 @@ adaptations, and stop after the one authorized step.
 
 | Field | Current value |
 | --- | --- |
-| Reconciled | 2026-10-14, public-readiness checks and confirmed author credits; C01–C16 completion and historical acceptance unchanged |
+| Reconciled | 2026-10-14, research website implementation and public-readiness evidence; C01–C16 completion and historical acceptance unchanged |
 | Readiness review baseline | Public `master` at `ceef8793673697cce0a4a1862d30ab0d77fb6dd5`; readiness documentation and build checks do not change Lean sources or historical step baselines |
 | Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |
 | Completed plan | [C16 revision 2](plans/pfr-c16-coverage-api-trust-closure.md); preserved pre-closure text, later supported completion recorded in the [checkpoint entry](project-log.md#post-c16-checkpoint) |
 | Coverage and decisions | [Ledger](pfr-c16-coverage-audit.md), [readiness](pfr-c16-readiness-audit.md#c16-s05-readiness); DG-01–DG-15 resolved, all 71 omission rows preserved |
-| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; secret scanning/push protection enabled. See [readiness](public-readiness.md) for the exact fresh-checkout and CI validation state. No tagged release or website |
+| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; secret scanning/push protection enabled. See [readiness](public-readiness.md) for the exact fresh-checkout and CI validation state. No tagged release; four-page website implemented, initial Pages validation in progress |
 
 Document ownership is fixed in [AGENTS.md](../AGENTS.md#document-roles-and-proactive-maintenance):
 README is the reader entry point; scope owns inclusion; this summary owns current

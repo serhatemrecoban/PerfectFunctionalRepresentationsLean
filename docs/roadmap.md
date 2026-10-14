@@ -67,15 +67,16 @@ directions are outside current execution:
   approval;
 - an optional presentation layer emphasizing bits beyond the existing
   nats-to-bits conversion; and
-- a public project website, DOI, and final publication metadata.
+- a DOI and final publication metadata.
 
-PFR currently has no website, website source, Pages configuration or hosting
-configuration. The lead requested website suggestions, with implementation
-explicitly deferred. The [proposed compact site](public-readiness.md#website-direction-for-later-implementation)
-would explain the paper, main theorem links, exact scope, proof feedback and
-reproduction/citation; it is not an approved execution plan. The General Assistant
-will revisit this direction when the lead requests website implementation.
-LeanInfoTheory's site remains the dependency's documentation, not a PFR site.
+The lead subsequently authorized website implementation on 2026-10-14. The
+[website plan](plans/pfr-website.md) owns that bounded delivery: four static pages
+explain the paper, source-linked results, discussion/limitations, normalization
+proof feedback and reproduction/citation. Source and checks are implemented;
+initial GitHub Pages deployment validation is in progress. The
+[readiness record](public-readiness.md#website-direction-for-later-implementation)
+owns current delivery evidence. This complements LeanInfoTheory's library
+documentation; it does not duplicate its API portal or change the dependency pin.
 
 The completed case study stays pinned to **LeanInfoTheory v0.1.0**, including
 during public presentation and any celebration in the library's next release.
