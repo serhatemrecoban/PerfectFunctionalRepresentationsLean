@@ -284,4 +284,7 @@ and the unchanged hosted deployment gates. Exact evidence belongs in
 
 Local acceptance passes, including independent mathematical and visual reviews,
 responsive/no-JavaScript/large-text checks and the existing website/API/default
-Lean build gates. Hosted validation and deployment remain pending.
+Lean build gates. Delivery is complete at `f4e5a7d`: hosted website/compiler and
+all-module Lean checks pass, all 41 live payload files match source, and the
+responsive/interaction checks pass again on the deployed site. The readiness
+record owns exact run links and limitations.

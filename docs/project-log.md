@@ -9980,3 +9980,9 @@ blocker. The finite X/Y/Z qualification was surfaced in the overview following
 review. The [approved plan](plans/pfr-website.md#approved-argument-map-revision--2026-10-14)
 and [readiness record](public-readiness.md#argument-map-revision--2026-10-14)
 own acceptance and exact validation/delivery status.
+
+Delivery is complete at `f4e5a7d`. Hosted website run `38625112501` and all-module
+Lean run `38625112458` pass; the 41 live payload files match the committed bytes.
+Responsive and interaction checks pass locally and live. The final
+documentation-only closeout records those results without changing the tested
+site, mathematical code, API data or library pins.

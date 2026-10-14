@@ -403,4 +403,21 @@ Independent visual review additionally checked the complete argument section at
 1440/390/320 px, all fifteen in-page result links, keyboard navigation to Theorem
 2, 320-pixel no-JavaScript reading and 200% font sizing. No clipping, overflow,
 browser errors or unresolved findings. Hosted validation and delivery remain
-pending at this local checkpoint.
+pending at this local checkpoint; the subsequent results follow.
+
+**Delivery complete.** Commit `f4e5a7da1513a2c14fbe30db2fb4038fa5b60dd8`
+was pushed only to public `master`.
+
+- [Website run 38625112501](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38625112501)
+  passed payload validation, the fresh compiler-backed API comparison and
+  installed-pin/checkout checks, then deployed successfully.
+- [All-module run 38625112458](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38625112458)
+  passed the complete public Lean build gate and checkout checks.
+- All 41 live payload files match the committed bytes. The 32 page/viewport
+  checks, keyboard/disclosure/no-JavaScript and clipboard controls were repeated
+  successfully on the live site. Local shared-layout checks also pass all 28
+  cases, including header contrast and printed title.
+
+The final documentation-only closeout changes no deployed file, mathematical
+source, API inventory, validation rule or dependency pin. The local Windows
+symlink-privilege skip remains recorded; it is not recast as a local pass.

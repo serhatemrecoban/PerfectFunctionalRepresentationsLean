@@ -49,11 +49,12 @@ is complete and live: a centered full-width masthead, sans-serif headings and a
 narrow reading column replace the editorial hero/cards, retaining content and API
 scope. The exact title, ISIT 2026 description and verified Paper link are published;
 the homepage no longer presents internal chunk counts. See the
-[latest delivery evidence](public-readiness.md#academic-layout-correction--2026-10-14).
+[academic-layout delivery evidence](public-readiness.md#academic-layout-correction--2026-10-14).
 The lead's subsequent [argument-map revision](plans/pfr-website.md#approved-argument-map-revision--2026-10-14)
 reconnects the blueprint's mathematical narrative after rereading the relevant
-ISIT/current extended passages. Content review passes; validation and deployment
-status are tracked in [readiness](public-readiness.md#argument-map-revision--2026-10-14).
+ISIT/current extended passages. It is complete and live, with independent content
+and visual review, hosted Lean/API validation and live delivery checks passed.
+See [readiness](public-readiness.md#argument-map-revision--2026-10-14).
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
@@ -106,7 +107,7 @@ adaptations, and stop after the one authorized step.
 
 | Field | Current value |
 | --- | --- |
-| Reconciled | 2026-10-14, completed academic website layout, paper link and delivery evidence; C01–C16 completion and historical acceptance unchanged |
+| Reconciled | 2026-10-14, completed manuscript-grounded website argument map and delivery evidence; C01–C16 completion and historical acceptance unchanged |
 | Readiness review baseline | Public `master` at `ceef8793673697cce0a4a1862d30ab0d77fb6dd5`; readiness documentation and build checks do not change Lean sources or historical step baselines |
 | Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |
