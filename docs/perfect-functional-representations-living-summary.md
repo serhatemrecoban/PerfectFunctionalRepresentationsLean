@@ -55,6 +55,11 @@ reconnects the blueprint's mathematical narrative after rereading the relevant
 ISIT/current extended passages. It is complete and live, with independent content
 and visual review, hosted Lean/API validation and live delivery checks passed.
 See [readiness](public-readiness.md#argument-map-revision--2026-10-14).
+The lead also authorized a [structured blueprint and directed dependency graph](plans/pfr-website.md#approved-structured-blueprint-extension--2026-10-14).
+Its 41 entries distinguish formalized contracts, private checked examples and
+cited context; the prior argument map is retained as a separate guide. The
+extension is in validation, with delivery tracked in
+[readiness](public-readiness.md#structured-blueprint-and-dependency-graph--2026-10-14).
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect

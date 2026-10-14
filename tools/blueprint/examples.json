@@ -1,0 +1,289 @@
+{
+  "entries": [
+    {
+      "id": "example-2",
+      "section": "operations",
+      "label": "Example 2",
+      "title": "Split one column proportionally",
+      "kind": "example",
+      "status": "fixture",
+      "paper": "ISIT 2026, p. 3, Section III-A, Example 2 and Equations (11)–(12).",
+      "statement_html": "<p>For 0 &lt; β &lt; 1, applying PPS with ratio 1/2 to the second column of the common three-input, five-output channel in Equation (11) gives the six-output channel in Equation (12).</p>",
+      "proof_html": "<p>The fixture applies the actual PPS constructor to the source channel, supplies the strict split-ratio witnesses, and proves equality of the entire resulting real matrix with the displayed target. Additional checks cover every probability entry, active outputs, singularity and row sums.</p>",
+      "qualifier_html": "<p>This is a private checked fixture, not a separately exported example theorem. The strict parameter range keeps every source output active; the endpoint parameters 0 and 1 are not instances of this active-channel fixture. Paper column labels are translated to zero-based Lean indices.</p>",
+      "declarations": [],
+      "evidence": [
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 132,
+          "needle": "private abbrev example2",
+          "label": "Private PPS fixture with legality witnesses"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 150,
+          "needle": "private theorem example2_real",
+          "label": "Whole-matrix equality for Equation (12)"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 442,
+          "needle": "Activity is checked for every output",
+          "label": "Activity, singularity and row-sum checks"
+        }
+      ],
+      "depends": [
+        {
+          "id": "column-operations",
+          "type": "statement",
+          "why": "The example instantiates the legal proportional-split operation on an active singular channel."
+        }
+      ]
+    },
+    {
+      "id": "example-3",
+      "section": "operations",
+      "label": "Example 3",
+      "title": "Merge columns with the same support",
+      "kind": "example",
+      "status": "fixture",
+      "paper": "ISIT 2026, p. 3, Section III-A, Example 3 and Equations (11), (13).",
+      "statement_html": "<p>For 0 &lt; β &lt; 1, applying PPM to the fourth and fifth columns of Equation (11) gives the four-output channel in Equation (13). The merged columns have the same support.</p>",
+      "proof_html": "<p>The fixture supplies the ordering and common-support witnesses to the actual PPM constructor. It checks all entries through a whole-matrix equality and also verifies the resulting channel's active outputs, singularity and row sums.</p>",
+      "qualifier_html": "<p>This is a private fixture, not public example API. The strict parameter range is required by the active-output presentation. The merge includes the final source column, using the full source-index range clarified in the extended v16 companion; paper indices are converted to zero-based Lean indices.</p>",
+      "declarations": [],
+      "evidence": [
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 136,
+          "needle": "private abbrev example3",
+          "label": "Private PPM fixture, including the final column"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 274,
+          "needle": "private theorem example3_real",
+          "label": "Whole-matrix equality for Equation (13)"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 428,
+          "needle": "The printed operations' exact legality witnesses",
+          "label": "Explicit operation-legality checks"
+        }
+      ],
+      "depends": [
+        {
+          "id": "column-operations",
+          "type": "statement",
+          "why": "The example instantiates proportional merging with its common-support and distinct-column requirements."
+        }
+      ]
+    },
+    {
+      "id": "example-4",
+      "section": "operations",
+      "label": "Example 4",
+      "title": "Split a column's support",
+      "kind": "example",
+      "status": "fixture",
+      "paper": "ISIT 2026, p. 3, Section III-A, Example 4 and Equations (11), (14).",
+      "statement_html": "<p>For 0 &lt; β &lt; 1, applying VPS to the first column of Equation (11), with input mask (1, 1, 0), gives the six-output channel in Equation (14). Both parts of the split contain a nonzero entry.</p>",
+      "proof_html": "<p>The private source fixture provides a supported input on each side of the mask. The VPS constructor therefore produces two active columns; a complete real-matrix equality checks the intended ordering and every target entry. Further fixtures verify activity, singularity and row sums.</p>",
+      "qualifier_html": "<p>The example is checked by private fixtures rather than exposed as stable public API. Its source parameter satisfies 0 &lt; β &lt; 1. The Boolean mask is interpreted on zero-based Lean input labels, with paper column 1 represented by index 0.</p>",
+      "declarations": [],
+      "evidence": [
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 141,
+          "needle": "private abbrev example4",
+          "label": "Private VPS fixture with both nonempty pieces"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 209,
+          "needle": "private theorem example4_real",
+          "label": "Whole-matrix equality for Equation (14)"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 428,
+          "needle": "The printed operations' exact legality witnesses",
+          "label": "Mask-support and legality checks"
+        }
+      ],
+      "depends": [
+        {
+          "id": "column-operations",
+          "type": "statement",
+          "why": "The example instantiates support splitting with a supported input on each side of the mask."
+        }
+      ]
+    },
+    {
+      "id": "example-5",
+      "section": "operations",
+      "label": "Example 5",
+      "title": "Merge equal-valued disjoint columns",
+      "kind": "example",
+      "status": "fixture",
+      "paper": "ISIT 2026, p. 3, Section III-A, Example 5 and Equations (11), (15).",
+      "statement_html": "<p>For 0 &lt; β &lt; 1, applying VPM to the first and third columns of Equation (11) gives the four-output channel in Equation (15). Those columns have disjoint supports and equal nonzero value 1 − β.</p>",
+      "proof_html": "<p>The fixture proves the equality of the two column values and their support disjointness before invoking VPM. A whole-matrix equality verifies the result, supplemented by exact probability-entry, activity, singularity and normalization checks.</p>",
+      "qualifier_html": "<p>This is a private checked example, not a public theorem alias. Its legality depends on 0 &lt; β &lt; 1 and on both VPM guards; it is not a claim that arbitrary disjoint columns may be merged. Paper labels 1 and 3 become Lean indices 0 and 2.</p>",
+      "declarations": [],
+      "evidence": [
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 145,
+          "needle": "private abbrev example5",
+          "label": "Private VPM fixture with equal-value and disjointness witnesses"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 332,
+          "needle": "private theorem example5_real",
+          "label": "Whole-matrix equality for Equation (15)"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/MatrixOperations.lean",
+          "line": 428,
+          "needle": "The printed operations' exact legality witnesses",
+          "label": "Column-value and disjoint-support checks"
+        }
+      ],
+      "depends": [
+        {
+          "id": "column-operations",
+          "type": "statement",
+          "why": "The example instantiates value-preserving merging under its equal-value and disjoint-support conditions."
+        }
+      ]
+    },
+    {
+      "id": "example-6",
+      "section": "incidence",
+      "label": "Example 6",
+      "title": "The five partitions of three inputs",
+      "kind": "example",
+      "status": "fixture",
+      "paper": "ISIT 2026, p. 4 right, Section IV-A, Example 6 (three-input partitions).",
+      "statement_html": "<p>A three-element input set has exactly five partitions: the single whole block, three choices of a pair together with the remaining singleton, and the partition into three singletons.</p>",
+      "proof_html": "<p>The fixture proves an exhaustive case split for every exact partition, then shows that the paper-ordered list is injective and surjective. The resulting equivalence with Fin 5 proves the cardinality-five check used by the incidence examples.</p>",
+      "qualifier_html": "<p>This is an exact three-input fixture with private enumeration helpers, not a general Bell-number formula or a public example API. The general Bell-count statement cited in the paper remains intentionally outside the formalized scope.</p>",
+      "declarations": [],
+      "evidence": [
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/Incidence.lean",
+          "line": 1337,
+          "needle": "private theorem partition_cases",
+          "label": "Exhaustive five-case partition proof"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/Incidence.lean",
+          "line": 1365,
+          "needle": "private def paperPartitions",
+          "label": "Paper-ordered partition enumeration and bijection proofs"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/Incidence.lean",
+          "line": 1390,
+          "needle": "example : Fintype.card Q = 5",
+          "label": "Checked partition cardinality"
+        }
+      ],
+      "depends": [
+        {
+          "id": "incidence-system",
+          "type": "statement",
+          "why": "The example enumerates the exact partitions used as full incidence-system column indices."
+        }
+      ]
+    },
+    {
+      "id": "example-7",
+      "section": "incidence",
+      "label": "Example 7",
+      "title": "The three-input incidence matrix",
+      "kind": "example",
+      "status": "fixture",
+      "paper": "ISIT 2026, p. 4 right, Section IV-A, Example 7 and Equation (17).",
+      "statement_html": "<p>Indexing the seven nonempty input patterns and the five exact partitions in the paper's orders produces the displayed 7 × 5 incidence matrix. Every one of its 35 entries is checked. An additional fixture verifies how a proper reduced 4 × 2 system is obtained by selecting its occurring-pattern rows and admissible-partition columns.</p>",
+      "proof_html": "<p>Private row and column equivalences connect the finite paper coordinates to semantic patterns and partitions. Exhaustive entry calculations establish the full matrix equality. A separate reindexing equality identifies the reduced fixture with the specified submatrix of that full matrix.</p>",
+      "qualifier_html": "<p>These are private coordinate fixtures, not newly exported example declarations. The full and reduced incidence systems retain distinct index types; the extra reduced-submatrix check does not identify them or supply a general LP solver.</p>",
+      "declarations": [],
+      "evidence": [
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/Incidence.lean",
+          "line": 1384,
+          "needle": "private def paperRows",
+          "label": "Exact paper row and column equivalences"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/Incidence.lean",
+          "line": 1397,
+          "needle": "private theorem paper_entries",
+          "label": "All 35 incidence entries"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/Incidence.lean",
+          "line": 1402,
+          "needle": "private theorem paper_fullMatrix",
+          "label": "Full 7 × 5 matrix equality"
+        },
+        {
+          "file": "PerfectFunctionalRepresentations/Tests/Examples/Incidence.lean",
+          "line": 1464,
+          "needle": "private theorem r13Paper_submatrix",
+          "label": "Proper reduced 4 × 2 submatrix and exact-entry fixture"
+        }
+      ],
+      "depends": [
+        {
+          "id": "incidence-system",
+          "type": "statement",
+          "why": "The matrix entries express membership of nonempty patterns in exact partitions."
+        },
+        {
+          "id": "example-6",
+          "type": "proof",
+          "why": "The full-coordinate verification uses the exhaustive five-partition enumeration and its column equivalence."
+        }
+      ]
+    },
+    {
+      "id": "remark-2",
+      "section": "channels",
+      "label": "Remark 2",
+      "title": "Connections to other information measures",
+      "kind": "remark",
+      "status": "not-formalized",
+      "paper": "ISIT 2026, p. 4 left, Remark 2 between the Theorem 1 proof and Section IV: three unnumbered displays and the final channel-synthesis sentence.",
+      "statement_html": "<p>The remark discusses cited connections between perfect representability, graph entropy, the privacy-funnel quantity, the related g<sub>0</sub> expression, and zero redundancy in channel synthesis.</p>",
+      "proof_html": "<p>No Lean proof of these external equivalences or synthesis interpretations is claimed. The coverage audit records the graph-entropy, privacy-funnel, g<sub>0</sub> and channel-synthesis occurrences separately, rather than treating the formalized constructive theorem as a proof of them.</p>",
+      "qualifier_html": "<p>Intentionally not formalized: the cited information measures and external channel-synthesis model are outside this case study's scope. These are documentation dispositions, not missing proof placeholders. Coverage of Theorem 1 does not extend automatically to Remark 2.</p>",
+      "declarations": [],
+      "evidence": [
+        {
+          "file": "docs/pfr-c16-coverage-audit.md",
+          "line": 134,
+          "needle": "C16-REM02",
+          "label": "Remark 2 coverage and deliberate exclusion"
+        },
+        {
+          "file": "docs/pfr-c16-coverage-audit.md",
+          "line": 202,
+          "needle": "C16-PROSE-REM02-01",
+          "label": "Graph-entropy, privacy-funnel, g0 and synthesis dispositions"
+        }
+      ],
+      "depends": [
+        {
+          "id": "definition-2",
+          "type": "statement",
+          "why": "The external discussion concerns channel perfect representability; this is a contextual link, not a formalized proof dependency."
+        }
+      ]
+    }
+  ]
+}

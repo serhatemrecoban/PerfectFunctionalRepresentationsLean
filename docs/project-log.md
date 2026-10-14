@@ -9986,3 +9986,33 @@ Lean run `38625112458` pass; the 41 live payload files match the committed bytes
 Responsive and interaction checks pass locally and live. The final
 documentation-only closeout records those results without changing the tested
 site, mathematical code, API data or library pins.
+
+<a id="website-structured-blueprint"></a>
+
+## 194. Point-by-point blueprint and directed graph — 2026-10-14
+
+The lead requested the definition/result structure and dependency graph seen in
+the PCP and Fermat project blueprints, while permitting PFR's current design.
+Verified those rendered sites and official Lean Blueprint tooling conventions;
+used them as presentation references only. Retain the blue–green design and
+existing static deployment rather than introducing another toolchain.
+
+Replaced the narrative-only blueprint with 41 individually indexed statements,
+proof ideas, qualifications, status labels and exact Lean evidence. All numbered
+ISIT definitions/results/examples/remarks are represented; six examples are
+explicitly private fixtures and Remark 2 remains intentionally unformalized.
+The graph has 81 selected directed edges, distinguishing statement vocabulary
+from proof ingredients. Keep the earlier equivalence map as a separate argument
+guide. The actual Lean routes do not justify Lemma 4 → Theorem 1/LP edges.
+
+The single authoring registry and deterministic generator keep statement and
+graph navigation synchronized. Source verification reuses the unchanged API
+inventory and checks exact private-fixture anchors at its pinned snapshot.
+Independent content review tightened finite/nonempty assumptions; tooling and
+browser reviews prompted HTML-boundary regressions, robust topological layout,
+readable default zoom and true optional fit-width behavior. The existing
+publication gates are extended, not weakened. Local manuscripts and mathematical
+sources are unchanged. The [plan](plans/pfr-website.md#approved-structured-blueprint-extension--2026-10-14)
+owns maintenance/acceptance; [readiness](public-readiness.md#structured-blueprint-and-dependency-graph--2026-10-14)
+owns exact validation and delivery evidence. No new theorem work or upstream
+dependency change was authorized or performed.

@@ -1,0 +1,386 @@
+{
+  "entries": [
+    {
+      "id": "definition-4",
+      "section": "operations",
+      "label": "Definition 4",
+      "title": "Column values and patterns",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT Section III-A, Definition 4; extended Section III-A",
+      "statement_html": "<p>An active column of a singular channel is its positive common value times the indicator of its nonempty input-support pattern. These values and patterns give exact coordinates for the channel.</p>",
+      "proof_html": "",
+      "qualifier_html": "<p>The pattern coordinates use finite input. Inactive columns have no active-column value. Normalization is row-wise; the sum of all distinct pattern values need not be one.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.columnValue",
+        "PerfectFunctionalRepresentations.columnPattern",
+        "PerfectFunctionalRepresentations.column_eq_ite"
+      ],
+      "depends": [
+        {"id": "definition-3", "type": "statement", "why": "The common positive column value is defined for a singular channel."}
+      ]
+    },
+    {
+      "id": "column-operations",
+      "section": "operations",
+      "label": "Four operation definitions",
+      "title": "Legal splits and merges",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT Section III-A, operations 1–4; extended Section III-A",
+      "statement_html": "<ul><li><strong>PPS:</strong> split a column in a ratio 0 &lt; t &lt; 1, retaining its pattern.</li><li><strong>PPM:</strong> merge two columns with the same pattern, adding their values.</li><li><strong>VPS:</strong> split a column's support into two nonempty parts, retaining its value.</li><li><strong>VPM:</strong> merge two equal-value columns with disjoint supports.</li></ul>",
+      "proof_html": "",
+      "qualifier_html": "<p>Operations act on active finite singular channels with finite nonempty input and retain stochastic normalization, singularity and specified column order. VPS admits value one; this follows the intended construction rather than the paper's unnecessarily strict printed value range.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.MatrixOperations.pps",
+        "PerfectFunctionalRepresentations.MatrixOperations.ppm",
+        "PerfectFunctionalRepresentations.MatrixOperations.vps",
+        "PerfectFunctionalRepresentations.MatrixOperations.vpm"
+      ],
+      "depends": [
+        {"id": "definition-4", "type": "statement", "why": "Values and support patterns specify the legal operation domains and their effects."}
+      ]
+    },
+    {
+      "id": "witnessed-recovery",
+      "section": "operations",
+      "label": "Supporting lemma",
+      "title": "Recovering an operation's source",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT Section III-B, inverse-operation discussion; extended Appendix B, Lemma 6 proof",
+      "statement_html": "<p>PPS and PPM recover one another when the split ratio is retained; VPS and VPM recover one another when the support mask is retained. The recovered endpoint agrees with the original through a specified output bijection. These recoveries extend to witnessed finite paths.</p>",
+      "proof_html": "<p>Calculate the affected and unaffected column entries, prove the recovered split is legal, and keep the directed output comparison. Reverse a path by reversing its edges and composing those comparisons.</p>",
+      "qualifier_html": "<p>The legal channels have finite nonempty input and active finite output. Merging forgets information: this is recovery with witnesses, not a globally inverse function on bare channels or an assertion that arbitrary masks are unique.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.MatrixOperations.ppsRecovery_channel",
+        "PerfectFunctionalRepresentations.MatrixOperations.ppmRecovery_channel",
+        "PerfectFunctionalRepresentations.MatrixOperations.vpsRecovery_channel",
+        "PerfectFunctionalRepresentations.MatrixOperations.vpmRecovery_channel",
+        "PerfectFunctionalRepresentations.MatrixOperations.Cascade.reverse"
+      ],
+      "depends": [
+        {"id": "column-operations", "type": "statement", "why": "The statement concerns the four legal split and merge operations."}
+      ]
+    },
+    {
+      "id": "lemma-4",
+      "section": "normalization",
+      "label": "Lemma 4",
+      "title": "An ordered normal form",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT Section III-A, Lemma 4; extended Appendix B, Lemma 4 proof",
+      "statement_html": "<p>Every finite PPS/VPS/PPM cascade from an active singular channel admits three homogeneous blocks: PPS, then VPS, then PPM. The resulting endpoint matches the original endpoint up to an explicit output bijection.</p>",
+      "proof_html": "<p>Induct on the original finite path to construct a certificate recording weighted fragments and their support splits. Structural traversals of the certificate's finite splitting and gathering trees realize the three stages. The proof does not assume that repeatedly applying length-increasing local rewrites terminates.</p>",
+      "qualifier_html": "<p>Input is finite and nonempty; output is active and finite. This proves existence, not uniqueness, confluence or termination of every rewrite strategy. The paper uses normal form to explain the partition interpretation; Lean's Theorem 1 construction and equality-feasibility necessity proof do not invoke this general normalizer.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.MatrixOperations.NormalForm",
+        "PerfectFunctionalRepresentations.MatrixOperations.OperationPath.normalize"
+      ],
+      "depends": [
+        {"id": "column-operations", "type": "statement", "why": "The allowed paths and three normal-form blocks are built from PPS, VPS and PPM."}
+      ]
+    },
+    {
+      "id": "lemma-5",
+      "section": "preservation",
+      "label": "Lemma 5",
+      "title": "Preserving perfectness",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT Section III-B, Lemma 5; extended Appendix B, Lemma 5 proof",
+      "statement_html": "<p>Legal PPS, PPM and VPS operations preserve perfect representability.</p>",
+      "proof_html": "<p>Transport the full canonical-vector law and common posterior. PPS uses one shared Bernoulli choice across the vector; PPM collapses labels and mixes posteriors using the column-value ratio; VPS applies the support mask to the vector. Each construction verifies the complete coordinate joint factorization.</p>",
+      "qualifier_html": "<p>The preservation statements concern active finite singular channels with finite nonempty input. They need no chosen input prior. VPM is not included in this positive preservation claim.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.MatrixOperations.pps_isPerfectlyRepresentable",
+        "PerfectFunctionalRepresentations.MatrixOperations.ppm_isPerfectlyRepresentable",
+        "PerfectFunctionalRepresentations.MatrixOperations.vps_isPerfectlyRepresentable"
+      ],
+      "depends": [
+        {"id": "column-operations", "type": "statement", "why": "The three preservation statements name the legal PPS, PPM and VPS operations."},
+        {"id": "definition-2", "type": "proof", "why": "The canonical law and common-posterior factorization are transported to the new channel."}
+      ]
+    },
+    {
+      "id": "lemma-6",
+      "section": "preservation",
+      "label": "Lemma 6",
+      "title": "Preserving nonperfectness",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT Section III-B, Lemma 6; extended Appendix B, Lemma 6 proof",
+      "statement_html": "<p>Legal PPS, PPM and VPM operations preserve nonperfect representability.</p>",
+      "proof_html": "<p>If the transformed channel were perfect, its witnessed recovery and Lemma 5 would recover a perfect original channel, contradicting the hypothesis.</p>",
+      "qualifier_html": "<p>The channels are active, finite and singular, with finite nonempty input. The operation family changes from VPS in Lemma 5 to VPM here. Ratios, support masks and directed output relabelings remain part of the recovery argument.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.MatrixOperations.pps_not_isPerfectlyRepresentable",
+        "PerfectFunctionalRepresentations.MatrixOperations.ppm_not_isPerfectlyRepresentable",
+        "PerfectFunctionalRepresentations.MatrixOperations.vpm_not_isPerfectlyRepresentable"
+      ],
+      "depends": [
+        {"id": "lemma-5", "type": "proof", "why": "Perfectness of the recovered source follows from positive preservation."},
+        {"id": "witnessed-recovery", "type": "proof", "why": "The inverse operation recovers the original channel with explicit witnesses and output comparison."}
+      ]
+    },
+    {
+      "id": "theorem-1",
+      "section": "constructive",
+      "label": "Theorem 1",
+      "title": "Constructive characterization",
+      "kind": "theorem",
+      "status": "formalized",
+      "paper": "ISIT Section III-B, Theorem 1 and Appendix; extended Section III-B, Theorem 1 proof",
+      "statement_html": "<p>An active finite channel is perfectly representable exactly when it can be built from the one-output all-ones channel by PPS/VPS/PPM operations. Equivalently, it can be reduced to that seed by PPS/VPM/PPM operations.</p>",
+      "proof_html": "<p>A perfect canonical witness gives an auxiliary channel reached both from the original channel and from the seed. Finite splitting constructions produce the two paths; compose one with the witnessed reverse of the other. The converse directions follow from the perfect seed and preservation.</p>",
+      "qualifier_html": "<p>Input is finite and nonempty; output is active and finite. The result is prior-free and retains explicit output bijections. This construction builds its own ordered stages, without calling Lemma 4's general normalizer.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.MatrixOperations.isPerfectlyRepresentable_iff_fromAllOnes",
+        "PerfectFunctionalRepresentations.MatrixOperations.isPerfectlyRepresentable_iff_toAllOnes"
+      ],
+      "depends": [
+        {"id": "definition-2", "type": "proof", "why": "The canonical law and common posterior supply the auxiliary-channel construction."},
+        {"id": "lemma-2-necessary", "type": "proof", "why": "Perfectness supplies singularity for the legal construction."},
+        {"id": "column-operations", "type": "proof", "why": "Finite multiway realizations of the binary operations construct the two paths."},
+        {"id": "witnessed-recovery", "type": "proof", "why": "Reversing and composing the paths identifies the required endpoints."},
+        {"id": "lemma-5", "type": "proof", "why": "A path from the perfect seed preserves perfectness."},
+        {"id": "lemma-6", "type": "proof", "why": "A reduction to the perfect seed cannot start at a nonperfect channel."}
+      ]
+    },
+    {
+      "id": "pattern-compression",
+      "section": "incidence",
+      "label": "Supporting lemma",
+      "title": "Compressing repeated patterns",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT Section IV opening; extended Section IV opening",
+      "statement_html": "<p>A finite singular channel has the same perfect-representability status as its compressed pattern-data channel: remove inactive outputs and merge all columns sharing a nonempty pattern, adding their values.</p>",
+      "proof_html": "<p>Construct an actual finite PPM compression path and retain its witnessed PPS reverse. Apply perfectness preservation in both directions, and transport through the active-output presentation.</p>",
+      "qualifier_html": "<p>For the optimization bridge the input is finite and nonempty. Compressed data have distinct nonempty patterns, positive real values and per-input normalization, not a requirement that all pattern values sum to one.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.CompressedPatternData",
+        "PerfectFunctionalRepresentations.isPerfectlyRepresentableChannel_iff_compressedPatternData"
+      ],
+      "depends": [
+        {"id": "definition-4", "type": "statement", "why": "Compression groups active columns by their support patterns and aggregates their values."},
+        {"id": "witnessed-recovery", "type": "proof", "why": "The retained PPS reverse reconstructs the original active channel."},
+        {"id": "lemma-5", "type": "proof", "why": "PPM compression and its PPS reconstruction both preserve perfectness."}
+      ]
+    },
+    {
+      "id": "incidence-system",
+      "section": "incidence",
+      "label": "Supporting definitions and lemma",
+      "title": "Partition incidence and feasible weights",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT Section IV-A, equation (16) and incidence setup; extended Section IV-A, equations (40)–(56)",
+      "statement_html": "<p>The reduced matrix H has one row per occurring nonempty pattern and one column per exact input partition whose blocks all occur. Its entry is one precisely when the pattern is a block of that partition. Equality feasibility means Hw = v and w ≥ 0. The full zero-padded system has equivalent nonnegative equality feasibility.</p>",
+      "proof_html": "",
+      "qualifier_html": "<p>Valid compressed data have finite nonempty input. This uses the extended version's clarified full/reduced indexing, not occurring-pattern rows combined with every Bell partition. A partition family may be empty. The equality-system bridge does not automatically transport arbitrary LP objectives or inequalities.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Incidence.reducedMatrix",
+        "PerfectFunctionalRepresentations.Incidence.Feasible",
+        "PerfectFunctionalRepresentations.Incidence.FullFeasible",
+        "PerfectFunctionalRepresentations.Incidence.exists_fullFeasible_iff"
+      ],
+      "depends": [
+        {"id": "pattern-compression", "type": "statement", "why": "The system is indexed by the valid compressed pattern data and their positive values."}
+      ]
+    },
+    {
+      "id": "incidence-normalization",
+      "section": "incidence",
+      "label": "Supporting lemma",
+      "title": "Normalization of partition weights",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "Extended Section IV-A, equations (54)–(55); Appendix B, Theorem 2 proof",
+      "statement_html": "<p>Let P record membership of inputs in occurring patterns. Exact partitions and channel normalization give PH = 1 and Pv = 1. Consequently, every equality solution Hw = v has ∑<sub>j</sub> w<sub>j</sub> = 1.</p>",
+      "proof_html": "<p>For each input, an exact partition has exactly one block containing it. Sum the incidence equalities over the patterns containing that input and use its channel row sum.</p>",
+      "qualifier_html": "<p>Input is finite, and the normalization conclusion needs it to be nonempty. The identities concern partition weights; they do not say that all pattern values sum to one.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Incidence.inputMatrix_mul_reducedMatrix",
+        "PerfectFunctionalRepresentations.Incidence.inputMatrix_mulVec_value",
+        "PerfectFunctionalRepresentations.Incidence.sum_eq_one_of_reduced_eq"
+      ],
+      "depends": [
+        {"id": "incidence-system", "type": "statement", "why": "The identities use the reduced incidence matrix and exact partitions."},
+        {"id": "pattern-compression", "type": "proof", "why": "The compressed data retain row-wise channel normalization."}
+      ]
+    },
+    {
+      "id": "incidence-equality",
+      "section": "incidence",
+      "label": "Supporting characterization",
+      "title": "Perfectness is equality feasibility",
+      "kind": "theorem",
+      "status": "formalized",
+      "paper": "ISIT Section IV-A, weight construction and equality criterion; extended Section IV-A, equations (45)–(63)",
+      "statement_html": "<p>A finite singular channel with nonempty input is perfectly representable exactly when its reduced incidence system has nonnegative weights w satisfying Hw = v.</p>",
+      "proof_html": "<p>For necessity, each supported canonical decoder partitions the input into its nonempty output fibres; aggregate decoder probabilities by the resulting partition. For sufficiency, realize the positive partition weights by PPS from the seed, split their supports by VPS, then merge equal patterns by PPM. Preservation proves the constructed channel perfect.</p>",
+      "qualifier_html": "<p>Zero weights are omitted from the concrete construction. The necessity proof extracts partitions directly; it does not call Theorem 1 or Lemma 4's general normalizer.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Incidence.exists_feasible_of_isPerfectlyRepresentableChannel",
+        "PerfectFunctionalRepresentations.Incidence.partitionConstruction",
+        "PerfectFunctionalRepresentations.Incidence.isPerfectlyRepresentableChannel_iff_exists_feasible",
+        "PerfectFunctionalRepresentations.Incidence.isPerfectlyRepresentableChannel_iff_feasible_compressedPatternData"
+      ],
+      "depends": [
+        {"id": "incidence-system", "type": "statement", "why": "The characterization uses reduced nonnegative equality feasibility."},
+        {"id": "definition-2", "type": "proof", "why": "Supported canonical decoders and their common posterior give the necessity weights."},
+        {"id": "incidence-normalization", "type": "proof", "why": "Equality weights sum to one, so their positive support supplies the PPS construction."},
+        {"id": "column-operations", "type": "proof", "why": "Finite multiway PPS, VPS and PPM realize the supplied weights."},
+        {"id": "lemma-5", "type": "proof", "why": "The constructed path carries perfectness from the seed to the data channel."},
+        {"id": "pattern-compression", "type": "proof", "why": "The ambient-channel characterization transports through compressed data."}
+      ]
+    },
+    {
+      "id": "primal-program",
+      "section": "primal",
+      "label": "LP definition",
+      "title": "The reduced primal program",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT Section IV-A, equation (18); extended Section IV-A, equation (64)",
+      "statement_html": "<p>Primal feasibility means w ≥ 0 and Hw ≤ v. The objective is ∑<sub>j</sub> w<sub>j</sub>, summed over admissible exact partitions.</p>",
+      "proof_html": "",
+      "qualifier_html": "<p>The program uses valid compressed data on finite nonempty input. The zero vector is feasible, including when no admissible partition exists. This is a mathematical feasible set and objective, not an executable solver.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Primal.Feasible",
+        "PerfectFunctionalRepresentations.Primal.objective"
+      ],
+      "depends": [
+        {"id": "incidence-system", "type": "statement", "why": "The primal uses the reduced pattern–partition matrix and value vector."}
+      ]
+    },
+    {
+      "id": "primal-saturation",
+      "section": "primal",
+      "label": "Supporting lemma",
+      "title": "Value one forces equality",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "Extended Appendix B, Theorem 2 proof, equations (201)–(219)",
+      "statement_html": "<p>Every primal-feasible objective is at most one. A feasible vector attains one exactly when all incidence constraints are tight: Hw = v.</p>",
+      "proof_html": "<p>Normalization gives P(v − Hw) = (1 − ∑<sub>j</sub> w<sub>j</sub>)1. Nonnegative slack implies the upper bound. If the objective is one, every nonempty pattern contains an input whose zero slack sum forces that pattern's slack coordinate to vanish.</p>",
+      "qualifier_html": "<p>Input is finite and nonempty; nonempty occurring patterns and nonnegative slack are essential. The result concerns the same coefficient vector, including its zero coordinates.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Primal.objective_le_one",
+        "PerfectFunctionalRepresentations.Primal.objective_eq_one_iff",
+        "PerfectFunctionalRepresentations.Primal.equality_feasible_iff"
+      ],
+      "depends": [
+        {"id": "primal-program", "type": "statement", "why": "The bound and saturation statement concern primal-feasible vectors and their objective."},
+        {"id": "incidence-normalization", "type": "proof", "why": "The structural matrix identities give the slack identity and equality-weight normalization."}
+      ]
+    },
+    {
+      "id": "theorem-2",
+      "section": "primal",
+      "label": "Theorem 2",
+      "title": "The primal value-one criterion",
+      "kind": "theorem",
+      "status": "formalized",
+      "paper": "ISIT Section IV-A, Theorem 2; extended Section IV-A and Appendix B, Theorem 2 proof",
+      "statement_html": "<p>A finite singular channel with nonempty input is perfectly representable exactly when the greatest attained value of its reduced primal program is one.</p>",
+      "proof_html": "<p>Equality feasibility supplies an actual primal vector of value one. Conversely, a feasible vector attaining one saturates every incidence constraint and hence supplies equality feasibility. The universal upper bound establishes greatestness.</p>",
+      "qualifier_html": "<p>The Lean contract uses IsGreatest on attained objective values: both attainment and the universal bound are included. No solver or runtime guarantee is asserted.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Primal.isPerfectlyRepresentableChannel_iff_exists_objective_eq_one",
+        "PerfectFunctionalRepresentations.Primal.isPerfectlyRepresentableChannel_iff_isGreatest_compressedPatternData"
+      ],
+      "depends": [
+        {"id": "primal-program", "type": "statement", "why": "The characterization concerns the reduced primal objective values."},
+        {"id": "incidence-equality", "type": "proof", "why": "Equality feasibility characterizes perfectness."},
+        {"id": "primal-saturation", "type": "proof", "why": "Equality feasibility is equivalent to feasible attainment of the universal upper bound one."}
+      ]
+    },
+    {
+      "id": "dual-program",
+      "section": "dual",
+      "label": "LP definition",
+      "title": "The reduced dual program",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT Section IV-B, equation (19); extended Section IV-B, equations (65)–(68)",
+      "statement_html": "<p>Dual feasibility means y ≥ 0 and Hᵀy ≥ 1. The objective is vᵀy. There is one variable for each occurring nonempty pattern and one partition constraint for each admissible exact partition.</p>",
+      "proof_html": "",
+      "qualifier_html": "<p>The program uses valid compressed data on finite nonempty input. The right-hand 1 is the all-ones vector on admissible partitions. These reduced coordinates are distinct from the full zero-padded equality system.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Dual.Feasible",
+        "PerfectFunctionalRepresentations.Dual.objective"
+      ],
+      "depends": [
+        {"id": "incidence-system", "type": "statement", "why": "The dual uses the transpose of the reduced incidence matrix and the occurring-pattern values."}
+      ]
+    },
+    {
+      "id": "weak-duality",
+      "section": "dual",
+      "label": "Supporting lemmas",
+      "title": "Weak duality and a value-one witness",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "Supporting formal proof of ISIT Section IV-B, Corollary 1",
+      "statement_html": "<p>Every primal-feasible objective is bounded above by every dual-feasible objective. The indicator of patterns containing any fixed input is dual-feasible and has objective one.</p>",
+      "proof_html": "<p>Multiply the incidence inequalities by nonnegative coordinates and rearrange finite sums to obtain weak duality. An exact partition contains the fixed input in exactly one block; row normalization gives the witness's objective one.</p>",
+      "qualifier_html": "<p>Input is finite and nonempty, so an input-row witness is available. A dual-feasible vector of value one exists for every such valid compressed datum, even nonperfect data. Its existence alone is therefore not the perfectness criterion; it must also be a least value.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Dual.weak_duality",
+        "PerfectFunctionalRepresentations.Dual.rowWitness",
+        "PerfectFunctionalRepresentations.Dual.feasible_rowWitness",
+        "PerfectFunctionalRepresentations.Dual.objective_rowWitness",
+        "PerfectFunctionalRepresentations.Dual.one_mem_objectiveValues"
+      ],
+      "depends": [
+        {"id": "primal-program", "type": "statement", "why": "Weak duality compares primal-feasible objectives, not the primal characterization theorem."},
+        {"id": "dual-program", "type": "statement", "why": "Weak duality and the row witness concern dual feasibility and objective values."},
+        {"id": "incidence-normalization", "type": "proof", "why": "Exact-partition and row-normalization identities establish the witness constraints and objective."}
+      ]
+    },
+    {
+      "id": "dual-certificate",
+      "section": "dual",
+      "label": "Supporting theorem",
+      "title": "A strict certificate for nonperfectness",
+      "kind": "theorem",
+      "status": "formalized",
+      "paper": "Supporting formal proof of ISIT Section IV-B, Corollary 1; specialized separation route",
+      "statement_html": "<p>Every nonperfect valid compressed datum admits a dual-feasible vector with objective strictly below one.</p>",
+      "proof_html": "<p>When the admissible partition family is empty, use the zero vector. Otherwise equality infeasibility places v outside the finite incidence-column convex hull. Strict separation supplies a linear certificate; adding a suitable pattern-cardinality vector makes its coordinates nonnegative, and positive rescaling makes it dual-feasible with objective below one.</p>",
+      "qualifier_html": "<p>Valid compressed data have finite nonempty input. This is a specialized finite convex-separation proof, not an invocation or formalization of unrestricted general LP strong duality. The cardinality correction uses row-normalization identities, not a sum-one claim for pattern values.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Dual.exists_feasible_objective_lt_one_of_not_perfect"
+      ],
+      "depends": [
+        {"id": "dual-program", "type": "statement", "why": "The certificate is a dual-feasible vector with a strict objective bound."},
+        {"id": "incidence-equality", "type": "proof", "why": "Nonperfectness excludes equality feasibility and hence membership in the incidence-column convex hull."},
+        {"id": "incidence-normalization", "type": "proof", "why": "Normalization identifies equality weights with convex coefficients and supports the cardinality correction."}
+      ]
+    },
+    {
+      "id": "corollary-1",
+      "section": "dual",
+      "label": "Corollary 1",
+      "title": "The dual value-one criterion",
+      "kind": "theorem",
+      "status": "formalized",
+      "paper": "ISIT Section IV-B, Corollary 1; extended Section IV-B, Corollary 1",
+      "statement_html": "<p>A finite singular channel with nonempty input is perfectly representable exactly when the least attained value of its reduced dual program is one.</p>",
+      "proof_html": "<p>For a perfect channel, a primal value-one witness and weak duality give the lower bound one on every dual value; the row-derived witness attains it. Conversely, nonperfectness supplies a feasible dual value below one, contradicting leastness.</p>",
+      "qualifier_html": "<p>The Lean contract uses IsLeast on attained objective values. It includes attainment and the universal lower bound, covers empty partition families, and does not claim an executable LP solver.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.Dual.isPerfectlyRepresentableChannel_iff_isLeast_compressedPatternData"
+      ],
+      "depends": [
+        {"id": "dual-program", "type": "statement", "why": "The characterization concerns the reduced dual objective values."},
+        {"id": "theorem-2", "type": "proof", "why": "Perfectness supplies a primal-feasible vector attaining one."},
+        {"id": "weak-duality", "type": "proof", "why": "Weak duality gives the lower bound and the row witness gives attainment."},
+        {"id": "dual-certificate", "type": "proof", "why": "The strict subunit certificate proves the converse by contradiction."}
+      ]
+    }
+  ]
+}

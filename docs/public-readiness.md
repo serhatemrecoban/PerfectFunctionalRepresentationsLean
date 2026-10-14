@@ -421,3 +421,58 @@ was pushed only to public `master`.
 The final documentation-only closeout changes no deployed file, mathematical
 source, API inventory, validation rule or dependency pin. The local Windows
 symlink-privilege skip remains recorded; it is not recast as a local pass.
+
+## Structured blueprint and dependency graph — 2026-10-14
+
+The lead requested a point-by-point blueprint and a directed graph, using PCP
+and Fermat as presentation references. The rendered reference sites and the
+[official Lean Blueprint documentation](https://github.com/PatrickMassot/leanblueprint#editing-the-blueprint)
+confirm a common tool-supported convention, not a compulsory visual standard.
+No implementation, assets or mathematical code were copied. PFR retains its
+blue–green styling and uses an original standard-library static renderer, not a
+new plasTeX/Graphviz or Lean dependency.
+
+The [statement blueprint](../site/blueprint/index.html) has 41 entries: 34
+formalized-contract entries, six private checked examples and one deliberately
+unformalized cited remark. Lemmas 2 and 3 are subdivided by conclusion; all
+numbered ISIT definitions, results, examples and both remarks are accounted for.
+Selected supporting definitions and facts explain the bridges. This is not a
+claim that every incidental manuscript sentence or the whole extended draft is
+formalized. Statements retain finite-auxiliary, support, active-output and
+nonempty-input qualifications, corrected LP indices and attained-extremum scope.
+
+The [graph](../site/blueprint/dep_graph_document.html) contains 41 nodes and 81
+typed edges, with whole-development and three topic views. Each topic includes
+its transitive prerequisites. Solid edges are proof ingredients; dashed edges
+are statement vocabulary. These are curated source-audited mathematical
+dependencies, not compiler-extracted calls or equivalence arrows. The graph
+deliberately does not invent Lemma 4 → Theorem 1 or Lemma 4 → LP proof edges.
+The earlier equivalence map remains in the separate
+[argument guide](../site/blueprint/guide.html).
+
+One registry generates entries, graph nodes/edges, previews and textual
+dependency lists. Public declaration names resolve against the unchanged
+compiler-backed API inventory; private fixture and coverage anchors are checked
+at its immutable source snapshot. Generator tests reject cycles, unknown
+declarations, missing evidence, drifted anchors, unsafe/incomplete HTML and
+out-of-order graph placement. Hosted publication additionally requires exact
+regeneration; the existing fresh Lean API and all-module gates remain intact.
+
+Local checks pass: 31 blueprint tests, fourteen API tests, 23 website tests
+(22 pass and one Windows symlink-privilege skip), unchanged API/source rendering
+for 992 declarations in 27 modules, the static gate for 56 maintained Lean
+modules, `lake build` (2,762 jobs), and a clean placeholder scan. Independent
+content review exposed missing standalone nonempty-input qualifications, which
+were added. Independent tooling tests exposed incomplete-fragment and layout
+ordering cases, now fixed and covered by regressions. The website guard passes
+35 pages and 5,700 links/assets. Browser checks pass 40 page/viewport combinations
+at 1440/768/390/320 px, plus 88 targeted graph/statement checks: readable default
+zoom, true fit-width, topic selection, previews, reset, mouse panning, keyboard
+scroll/activation, 44-pixel controls and no-JavaScript fallback. All four graph
+views have no node overlap, text overflow or sampled edge crossing through
+unrelated node interiors. The existing broad QA was adapted to scoped
+navigation-current markers and direct-child disclosure summaries, since the
+new blueprint has secondary navigation and nested disclosures; no requirement
+was dropped. Final screenshots were visually inspected. Hosted validation and
+delivery remain pending at this local checkpoint. No Lean source, dependency
+pin, private manuscript or historical mathematical acceptance changes.

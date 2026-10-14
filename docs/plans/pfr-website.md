@@ -1,6 +1,6 @@
 # PFR Research Website Plan
 
-**Status: Complete and live, including the academic-layout correction, 2026-10-14.** The lead authorized building the research website
+**Status: Original website complete and live; structured-blueprint extension in validation, 2026-10-14.** The lead authorized building the research website
 and requested a detailed plan followed by implementation when practical. This
 plan records that bounded website task, not a new mathematical chunk. Baseline:
 `da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence is recorded below and in the project log; the execution
@@ -288,3 +288,42 @@ Lean build gates. Delivery is complete at `f4e5a7d`: hosted website/compiler and
 all-module Lean checks pass, all 41 live payload files match source, and the
 responsive/interaction checks pass again on the deployed site. The readiness
 record owns exact run links and limitations.
+
+## Approved structured-blueprint extension — 2026-10-14
+
+The lead requested individual definition/lemma/theorem entries and a directed
+dependency graph like the PCP and Fermat blueprint sites. Baseline: `7ba57ff`.
+Keep PFR's established blue–green design. Adopt the widely used Lean Blueprint
+conventions without requiring its plasTeX/Graphviz toolchain: the site's own
+static renderer is sufficient for this bounded presentation change.
+
+Provide a persistent statement index, visible statements and qualifications,
+expandable proof ideas and exact Lean evidence, stable anchors, status labels,
+and a separate directed graph. Include every numbered ISIT definition, result,
+example and remark, distinguishing private checked fixtures and intentional
+exclusions. Selected supporting entries explain the actual proof routes. Edges
+mean statement vocabulary or proof ingredients, not equivalence, module imports
+or complete compiler-extracted dependencies. Retain the argument map separately.
+
+The authoring records are `tools/blueprint/{semantics,operations,examples}.json`;
+`page.html` and `guide.html` there own the shared template and argument guide.
+Run `python -B tools/generate_blueprint.py` after edits, then its `--check`
+mode and `tools/test_generate_blueprint.py`. The same entries generate statements,
+dependency lists, graph views and previews. Public declarations resolve against
+the compiler-backed API inventory; private evidence anchors are checked at that
+inventory's immutable source commit. Changing a graph edge requires source-backed
+review of its rationale, not merely passing the structural checks.
+
+Acceptance includes mathematical cross-review, acyclic/valid links and source
+evidence, readable desktop/mobile graph navigation, keyboard and no-JavaScript
+controls, reproducible generated output, the existing website/API/Lean gates,
+and verified hosted delivery. No Lean source, library pin, formalization scope,
+private manuscript, or existing compiler-backed publication gate changes.
+Exact validation and delivery evidence belongs in
+[readiness](../public-readiness.md#structured-blueprint-and-dependency-graph--2026-10-14).
+
+Local acceptance passes: independent mathematical/tooling reviews, 31 generator
+tests, existing website/API/Lean gates, 40 responsive page combinations and 88
+targeted interaction/layout checks. Hosted validation and live delivery remain
+pending at this checkpoint. The preceding site remains live until the unchanged
+publication gates accept and deploy the new payload.

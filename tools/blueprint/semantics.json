@@ -1,0 +1,316 @@
+{
+  "entries": [
+    {
+      "id": "fr",
+      "section": "foundations",
+      "label": "Definition · Section I, (1)",
+      "title": "Functional representation",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT §I, equation (1) and its preceding decoder formulation.",
+      "statement_html": "<p>A functional representation of (X, Y) is an auxiliary random variable Z such that X and Z are independent and there is a deterministic decoder f with Y = f(X, Z) on the support of the joint law.</p><p>For finite value alphabets, this is equivalent to I(X; Z) = 0 and H(Y | X, Z) = 0.</p>",
+      "proof_html": "",
+      "qualifier_html": "<p>The structural definition permits unrestricted carriers. Its equivalence with the zero-information conditions requires finite-valued X, Y and Z, not a finite probability source. Decoding is required only on support.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsFunctionalRepresentationOf",
+        "PerfectFunctionalRepresentations.isFunctionalRepresentationOf_iff_zero_conditions"
+      ],
+      "depends": []
+    },
+    {
+      "id": "information-bound",
+      "section": "foundations",
+      "label": "Identity and bound · Section I, (2)–(3)",
+      "title": "The information bound",
+      "kind": "theorem",
+      "status": "formalized",
+      "paper": "ISIT §I, equations (2)–(3).",
+      "statement_html": "<p>For arbitrary finite-valued X, Y and Z,</p><div class=\"equation\">I(Y; Z) = H(Y | X) − I(X; Z | Y) − H(Y | X, Z) + I(X; Z).</div><p>For a functional representation, the last two terms vanish, giving</p><div class=\"equation\">I(Y; Z) = H(Y | X) − I(X; Z | Y) ≤ H(Y | X).</div>",
+      "proof_html": "<p>Expand mutual information by the chain rule in two orders. Independence and deterministic decoding remove the last two terms. Nonnegativity of conditional mutual information gives the upper bound.</p>",
+      "qualifier_html": "<p>The four-term identity does not require a functional representation. Only its specialization and bound use that hypothesis. All three value alphabets are finite; the source space is unrestricted.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.mutualInfoOf_eq_pfr_decomposition",
+        "PerfectFunctionalRepresentations.IsFunctionalRepresentationOf.mutualInfoOf_eq_condEntropyOf_sub_condMutualInfoOf",
+        "PerfectFunctionalRepresentations.IsFunctionalRepresentationOf.mutualInfoOf_le_condEntropyOf"
+      ],
+      "depends": [
+        {"id": "fr", "type": "statement", "why": "The specialized identity and bound assume a functional representation; the four-term identity does not."}
+      ]
+    },
+    {
+      "id": "perfect-representation",
+      "section": "foundations",
+      "label": "Definition and equality criterion · Section I",
+      "title": "Perfectness is the Markov equality case",
+      "kind": "theorem",
+      "status": "formalized",
+      "paper": "ISIT §I, the equality discussion following (3) and the definition of a perfect functional representation.",
+      "statement_html": "<p>A functional representation Z is perfect when I(Y; Z) = H(Y | X). Among functional representations, the following are equivalent:</p><div class=\"equation\">I(Y; Z) = H(Y | X) ⇔ I(X; Z | Y) = 0 ⇔ X → Y → Z.</div>",
+      "proof_html": "<p>The information identity turns equality in the bound into zero conditional mutual information. LeanInfoTheory's finite-information Markov characterization identifies this with conditional independence of X and Z given Y.</p>",
+      "qualifier_html": "<p>Finite-valued X, Y and Z are assumed. The independence and decoding requirements remain part of perfectness; an information equality or Markov condition alone is not a functional representation. Null output fibres impose no extra conditional-law claim.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsPerfectFunctionalRepresentationOf",
+        "PerfectFunctionalRepresentations.isPerfectFunctionalRepresentationOf_iff_isMarkovChainOf"
+      ],
+      "depends": [
+        {"id": "fr", "type": "statement", "why": "Perfectness retains the structural functional-representation requirements."},
+        {"id": "information-bound", "type": "proof", "why": "The identity identifies equality with zero conditional mutual information."}
+      ]
+    },
+    {
+      "id": "definition-1",
+      "section": "canonical",
+      "label": "Definition 1",
+      "title": "Canonical representations and couplings",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT §II-A, equation (5), Definition 1 and its intended evaluation decoder.",
+      "statement_html": "<p>A canonical representation is a random function W from inputs to outputs, independent of X, that recovers Y by evaluation: Y = W(X) on support. A law q on such functions is a canonical coupling of a channel K when the coordinate W(x) has law K(x) for every input x.</p>",
+      "proof_html": "",
+      "qualifier_html": "<p>These are distinct contracts. Correct coordinate marginals alone do not ensure independence or evaluation decoding for an already fixed triple. Conversely, a canonical representation of a fixed pair determines the channel rows only on that pair's input support.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsCanonicalFunctionalRepresentationOf",
+        "PerfectFunctionalRepresentations.IsCanonicalCoupling"
+      ],
+      "depends": [
+        {"id": "fr", "type": "statement", "why": "Canonicality specifies the auxiliary as a random decoder with evaluation recovery."}
+      ]
+    },
+    {
+      "id": "lemma-1",
+      "section": "canonical",
+      "label": "Lemma 1",
+      "title": "Canonicalization preserves information",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT §II-A, Lemma 1 and equations (6)–(7); the current extended companion repeats this proof in §II-A.",
+      "statement_html": "<p>Every functional representation Z with finite-valued X, Y and Z has a canonical replacement W on the same source, with the same X and Y, such that</p><div class=\"equation\">I(Y; W) = I(Y; Z).</div>",
+      "proof_html": "<p>Choose a support-correct decoder f and set W(x) = f(x, Z) for every input x. Independence and evaluation decoding follow from the original representation. Apply the information identity to Z and W. Since W is a function of Z, ordinary and conditional data processing force the resulting two differences to have opposite signs, hence both are zero.</p>",
+      "qualifier_html": "<p>The original auxiliary Z is finite-valued in the information theorem. The unrestricted-auxiliary reading of the manuscript is not covered. The probability source itself need not be finite.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsFunctionalRepresentationOf.exists_canonical_preserving_mutualInfo"
+      ],
+      "depends": [
+        {"id": "definition-1", "type": "statement", "why": "The conclusion is a canonical representation of the same pair."},
+        {"id": "information-bound", "type": "proof", "why": "The two representation identities combine with ordinary and conditional data processing."}
+      ]
+    },
+    {
+      "id": "definition-2",
+      "section": "channels",
+      "label": "Definition 2",
+      "title": "Perfect representability of a channel",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT §II-A, Definition 2 and its continuation explaining the common posterior and Markov property.",
+      "statement_html": "<p>A channel K is perfectly representable when there are one law q of a random decoder W and one posterior channel V from outputs to decoder vectors such that, for every input x, the joint law of (W(x), W) under q equals the law obtained by sampling y from K(x) and then W from V(y).</p><p>This single posterior must work for every input row.</p>",
+      "proof_html": "",
+      "qualifier_html": "<p>This is a prior-free structural definition with nonempty input. It does not assume finite alphabets or a chosen input law. Lemma 1 helps relate finite pair perfectness to this definition; it is not a prerequisite for defining the all-row factorization.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel"
+      ],
+      "depends": [
+        {"id": "definition-1", "type": "statement", "why": "Uses the canonical-vector framework; this is a vocabulary edge, not a canonicalization theorem dependency."}
+      ]
+    },
+    {
+      "id": "prior-bridge",
+      "section": "channels",
+      "label": "Remark 1 and supporting bridge",
+      "title": "Channel perfectness and the input prior",
+      "kind": "remark",
+      "status": "formalized",
+      "paper": "ISIT §II-A, Remark 1 and the discussion following Definition 2.",
+      "statement_html": "<p>For a finite perfectly representable channel, one canonical coupling law produces a perfect canonical joint for every input prior. Conversely, for a specified full-support input prior p, the pair law p(x)K(y | x) is perfectly representable if and only if K is perfectly representable.</p>",
+      "proof_html": "<p>The common posterior factors the canonical joint for any prior, so the Markov equality criterion gives perfectness. For the converse, canonicalize a finite perfect pair witness, recover every row using full input support, and extract its common posterior.</p>",
+      "qualifier_html": "<p>Input and output alphabets are finite and input is nonempty. Reusing a coupling means forming fresh canonical joints, not asserting independence of an existing random variable from arbitrary new variables. Pair representability permits a finite auxiliary on an extension of the pair law. Without full input support, the converse concerns the channel restricted to that support.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.exists_canonicalCoupling",
+        "PerfectFunctionalRepresentations.isPerfectlyRepresentablePair_channelJoint_iff_of_fullSupport"
+      ],
+      "depends": [
+        {"id": "definition-2", "type": "proof", "why": "All-row common-posterior factorization gives a Markov canonical joint for every prior."},
+        {"id": "perfect-representation", "type": "proof", "why": "The Markov equality criterion turns that joint into a perfect representation."},
+        {"id": "lemma-1", "type": "proof", "why": "The finite pair-to-channel converse first replaces its perfect witness by a canonical one."}
+      ]
+    },
+    {
+      "id": "definition-3",
+      "section": "channels",
+      "label": "Definition 3",
+      "title": "Singular channels",
+      "kind": "definition",
+      "status": "formalized",
+      "paper": "ISIT §II-B, Definition 3.",
+      "statement_html": "<p>A channel is singular if any two positive entries in a fixed output column are equal:</p><div class=\"equation\">K(y | x₁) &gt; 0 and K(y | x₂) &gt; 0 ⇒ K(y | x₁) = K(y | x₂).</div>",
+      "proof_html": "",
+      "qualifier_html": "<p>Singularity here is a columnwise probability condition, not a determinant condition. The predicate needs neither finite alphabets nor an input prior; an entirely zero column imposes no condition.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsSingularChannel"
+      ],
+      "depends": []
+    },
+    {
+      "id": "lemma-2-necessary",
+      "section": "channels",
+      "label": "Lemma 2(a)",
+      "title": "Perfect channels must be singular",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT §II-B, Lemma 2, necessary direction; current extended Appendix A, p.12, (103)–(108).",
+      "statement_html": "<p>Every perfectly representable channel is singular.</p>",
+      "proof_html": "<p>Fix an output emitted by two rows and choose a vector in its common posterior support. The factorization forces that vector to decode to the chosen output at both inputs. Comparing the same positive vector mass in the two factorizations shows that the two channel entries agree.</p>",
+      "qualifier_html": "<p>This prior-free proof requires no finite-alphabet assumption. Nonempty input is inherited from the channel-perfectness definition. No cancellation of a zero posterior mass is used.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.isSingular"
+      ],
+      "depends": [
+        {"id": "definition-2", "type": "proof", "why": "A shared supported posterior vector compares both positive channel entries."},
+        {"id": "definition-3", "type": "statement", "why": "The conclusion is the columnwise singularity condition."}
+      ]
+    },
+    {
+      "id": "lemma-2-input",
+      "section": "channels",
+      "label": "Lemma 2(b)",
+      "title": "Singularity suffices for two inputs",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT §II-B, Lemma 2, binary-input converse; current extended Appendix A, p.12, (109)–(122).",
+      "statement_html": "<p>For a finite channel with exactly two inputs, singularity is sufficient for perfect representability. Together with part (a), perfect representability and singularity are equivalent.</p>",
+      "proof_html": "<p>Use the explicit maximal coupling of the two rows. At a shared output, singularity makes the supported decoder vector constant. At an output exclusive to one row, the input is determined. These cases yield one posterior for both rows, hence a perfect channel.</p>",
+      "qualifier_html": "<p>The output alphabet is finite and the input has cardinality exactly two. Globally unused outputs receive a total posterior without imposing a false positive-mass condition. Only the explicit coupling construction, not its mismatch optimality, is used for sufficiency.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.isPerfectlyRepresentableChannel_iff_isSingular_of_input_card_eq_two"
+      ],
+      "depends": [
+        {"id": "definition-2", "type": "statement", "why": "Sufficiency must construct a common posterior for both input rows."},
+        {"id": "definition-3", "type": "statement", "why": "Singularity is the sufficient hypothesis."},
+        {"id": "maximal-coupling", "type": "proof", "why": "Uses the explicit coupling's shared/exclusive atom structure, not the optimal-mismatch theorem."},
+        {"id": "lemma-2-necessary", "type": "proof", "why": "Supplies the other direction of the displayed equivalence."}
+      ]
+    },
+    {
+      "id": "lemma-2-output",
+      "section": "channels",
+      "label": "Lemma 2(c)",
+      "title": "Singularity suffices for two active outputs",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT §II-B, Lemma 2, binary-output converse; current extended Appendix A, pp.12–13, (123)–(132).",
+      "statement_html": "<p>For a finite channel with nonempty input and at most two active outputs, singularity is sufficient for perfect representability. Together with part (a), the two properties are equivalent.</p>",
+      "proof_html": "<p>After restricting to active outputs, singularity forces either identical rows or a deterministic channel. In the first case, a random constant decoder is perfect; in the second, the deterministic decoder vector is perfect. Transport the witness back to the ambient output alphabet.</p>",
+      "qualifier_html": "<p>Both alphabets are finite. The formal result counts the union of row supports, so unused labels do not matter and singleton active output is included. This is a separate proof from the binary-input coupling argument.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.isPerfectlyRepresentableChannel_iff_isSingular_of_activeOutputs_card_le_two"
+      ],
+      "depends": [
+        {"id": "definition-2", "type": "statement", "why": "The equal-row and deterministic cases require a perfect channel witness."},
+        {"id": "definition-3", "type": "proof", "why": "The columnwise condition forces the equal-row/deterministic dichotomy."},
+        {"id": "lemma-2-necessary", "type": "proof", "why": "Supplies the other direction of the displayed equivalence."}
+      ]
+    },
+    {
+      "id": "example-1",
+      "section": "channels",
+      "label": "Example 1",
+      "title": "Singularity is not sufficient in general",
+      "kind": "example",
+      "status": "formalized",
+      "paper": "ISIT §II-B, Example 1 and (8); current extended Appendix A, p.13, Lemma 7 and (133)–(144).",
+      "statement_html": "<p>The channel with rows (½, ½, 0), (½, 0, ½), and (0, ½, ½) is singular but is not perfectly representable.</p>",
+      "proof_html": "<p>Assume a common-posterior witness exists. Choose a supported decoder vector whose first coordinate selects the first output. The shared posterior forces its second coordinate to select that output too. Its third coordinate must select one of the remaining two outputs; either choice forces an incompatible value in an earlier coordinate. Thus no witness exists.</p>",
+      "qualifier_html": "<p>The negative statement rules out every possible canonical law and common posterior, not merely one candidate coupling. This is a direct support argument; it does not use Theorem 1 or an LP certificate.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.nonrepresentable3x3_isSingular",
+        "PerfectFunctionalRepresentations.nonrepresentable3x3_not_isPerfectlyRepresentableChannel"
+      ],
+      "depends": [
+        {"id": "definition-2", "type": "proof", "why": "Common-posterior support constraints produce the contradiction."},
+        {"id": "definition-3", "type": "statement", "why": "The displayed matrix satisfies the singularity definition directly."}
+      ]
+    },
+    {
+      "id": "maximal-coupling",
+      "section": "binary",
+      "label": "Supporting lemma · Total variation and coupling",
+      "title": "Total variation is the minimum mismatch",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT §II-C, (9); current extended Appendix A, p.14, (154)–(159) and the following maximal-coupling attainment statement.",
+      "statement_html": "<p>For finite laws p and q, define TV(p, q) = ½∑<sub>y</sub>|p(y) − q(y)|. Every coupling (U, V) of these laws satisfies</p><div class=\"equation\">Pr[U ≠ V] ≥ TV(p, q),</div><p>and an explicitly constructed maximal coupling attains equality.</p>",
+      "proof_html": "<p>A coupling's diagonal mass at y is at most min(p(y), q(y)); summing bounds its agreement probability. Put that common mass on the diagonal and couple the residual masses after normalization. Their disjoint supports make the residual contribution entirely off-diagonal. Handle zero residual mass separately.</p>",
+      "qualifier_html": "<p>The alphabet is finite and both marginals are verified exactly. Equal laws, disjoint supports and zero-probability symbols are included. This supplies a witness, not just an infimum formula.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.finiteTV",
+        "PerfectFunctionalRepresentations.maximalCoupling",
+        "PerfectFunctionalRepresentations.IsCoupling.finiteTV_le_mismatchMass_toReal",
+        "PerfectFunctionalRepresentations.mismatchMass_maximalCoupling_toReal",
+        "PerfectFunctionalRepresentations.exists_coupling_minimizing_mismatch"
+      ],
+      "depends": []
+    },
+    {
+      "id": "binary-entropy",
+      "section": "binary",
+      "label": "Supporting lemma · Binary canonical entropy",
+      "title": "Decoder mismatch determines conditional entropy",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "Current extended Appendix A, pp.13–14, proof of Lemma 3, (145)–(152).",
+      "statement_html": "<p>For a binary input X and a canonical decoder vector W = (W₁, W₂),</p><div class=\"equation\">H(Y | W) = Pr[W₁ ≠ W₂] H(X).</div><p>Consequently I(Y; W) = H(Y) − Pr[W₁ ≠ W₂] H(X).</p>",
+      "proof_html": "<p>Condition on a positive-mass decoder vector. If its coordinates agree, the output is constant. Otherwise evaluation is an injective relabeling of the binary input, whose law is unchanged by independence. Sum these fibre entropies with their probabilities; zero-mass fibres contribute zero.</p>",
+      "qualifier_html": "<p>The output alphabet is finite. The identity allows every binary input prior, including point masses, and needs no additional full-support or prescribed-channel-marginal assumption. It does not assign a particular entropy to arbitrary completions of null fibres.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsCanonicalFunctionalRepresentationOf.condEntropyOf_eq_binary_mismatch",
+        "PerfectFunctionalRepresentations.IsCanonicalFunctionalRepresentationOf.mutualInfoOf_eq_binary_mismatch"
+      ],
+      "depends": [
+        {"id": "definition-1", "type": "proof", "why": "Independence and evaluation decoding identify each positive conditional output law."}
+      ]
+    },
+    {
+      "id": "lemma-3-optimum",
+      "section": "binary",
+      "label": "Lemma 3(a)",
+      "title": "The attained binary information optimum",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT §II-C, Lemma 3 and (10); current extended Appendix A, pp.13–14, (145)–(161).",
+      "statement_html": "<p>Let X have a binary input alphabet and let r be the total variation distance between the two specified channel rows. Every finite-auxiliary functional representation satisfies</p><div class=\"equation\">I(Y; Z) ≤ H(Y) − rH(X).</div><p>The canonical representation built from the maximal coupling attains this bound, so it is an actual maximum within the formalized finite-auxiliary class.</p>",
+      "proof_html": "<p>For a full-support input prior, canonicalize any candidate and apply the mismatch-entropy identity and the universal coupling bound. A point prior has H(X) = 0 and is handled without recovering an unseen channel row. For attainment, use the specified maximal coupling as the decoder-vector law and verify its representation property, exact pair law and information value.</p>",
+      "qualifier_html": "<p>The input is binary, the output and original auxiliary are finite-valued, and the source space is unrestricted. The bound and attainment allow every input prior. The attaining joint may live on a new source; no optimizer on an arbitrary pre-existing source is promised. Infinite auxiliaries are not covered.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.IsFunctionalRepresentationOf.mutualInfoOf_le_binary_bound",
+        "PerfectFunctionalRepresentations.maximalBinaryCanonicalJoint_attains"
+      ],
+      "depends": [
+        {"id": "lemma-1", "type": "proof", "why": "The universal-bound component replaces an arbitrary finite auxiliary by a canonical one."},
+        {"id": "binary-entropy", "type": "proof", "why": "Converts decoder mismatch probability into the information objective."},
+        {"id": "maximal-coupling", "type": "proof", "why": "Bounds every mismatch and supplies a coupling that attains the bound."}
+      ]
+    },
+    {
+      "id": "lemma-3-equality",
+      "section": "binary",
+      "label": "Lemma 3(b)",
+      "title": "When the binary optimum is perfect",
+      "kind": "lemma",
+      "status": "formalized",
+      "paper": "ISIT §II-C, Lemma 3, final clause; current extended Appendix A, p.14, (162)–(164).",
+      "statement_html": "<p>For a finite binary-input channel and a full-support input prior,</p><div class=\"equation\">rH(X) = I(X; Y) ⇔ the channel is singular.</div><p>Thus the attained binary optimum reaches H(Y | X) exactly for singular channels. Singularity implies the equality for every prior, even without full support.</p>",
+      "proof_html": "<p>The universal representation bound applied to the attaining witness gives I(X; Y) ≤ rH(X). A singular binary channel has a perfect canonical witness, giving the reverse inequality. Conversely, numerical equality makes the attaining pair perfect; the full-support pair/channel bridge and necessary singularity recover singularity of the whole channel.</p>",
+      "qualifier_html": "<p>Full input support is essential for the ambient-channel converse: a degenerate prior cannot detect an unused row. The statement concerns finite output alphabets, with r defined from the actual two channel rows.</p>",
+      "declarations": [
+        "PerfectFunctionalRepresentations.binary_entropy_eq_mutualInfo_iff_isSingular_of_fullSupport"
+      ],
+      "depends": [
+        {"id": "lemma-3-optimum", "type": "proof", "why": "The attained optimum supplies the witness made perfect by numerical equality."},
+        {"id": "information-bound", "type": "proof", "why": "Bounds the attaining witness by conditional output entropy."},
+        {"id": "lemma-2-input", "type": "proof", "why": "A singular binary channel has a perfect witness."},
+        {"id": "lemma-2-necessary", "type": "proof", "why": "A recovered perfectly representable channel must be singular."},
+        {"id": "prior-bridge", "type": "proof", "why": "Transports channel witnesses to priors and recovers the channel from a full-support perfect pair."}
+      ]
+    }
+  ]
+}
