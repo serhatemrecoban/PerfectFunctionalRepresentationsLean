@@ -39,7 +39,7 @@
     "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
   },
   "generator_hashes": {
-    "tools/generate_api.py": "6130e3bbd26d12f55bd3504c74d34cef79148dfac4f32d0e52a3c46943b208b6",
+    "tools/generate_api.py": "18409425bccde89ed84bfa7e0ef50261777a8306f463525f08480816c39114e2",
     "tools/export_api.lean": "6e03ac29678779e875c343b97d68b60eab41cc7e9a31573eff98087c346606a5",
     "tools/api_search.js": "22d5221861847d04c364d96475989ffb7fd8146fcff944badbb6bb3940324975",
     "tools/api_style.css": "99b741b7da81a3460f289a3a61b7857eb740a21e756deb8ea9a6a418a1f64f49",
