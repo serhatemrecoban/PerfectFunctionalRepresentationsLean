@@ -36,12 +36,13 @@ GitHub repository on 2026-10-14; see the
 [publication checkpoint](project-log.md#public-repository-checkpoint).
 The subsequent [public-readiness review](public-readiness.md) covers content,
 attribution and reproducibility without changing the formalization. The lead
-subsequently authorized the [research website plan](plans/pfr-website.md): the
-initial four-page site is live on [GitHub Pages](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/),
-with verified source links and desktop/mobile checks. Its approved extension is
-active: overview, mathematical blueprint and generated PFR API, using
-LeanInfoTheory's blue–green palette and retaining Discussion and reproduction.
-See [readiness](public-readiness.md) for the extension's actual delivery evidence.
+subsequently authorized the [research website plan](plans/pfr-website.md), now
+complete and live on [GitHub Pages](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/):
+overview, mathematical blueprint and generated PFR API, using LeanInfoTheory's
+blue–green palette and retaining Discussion and reproduction. Hosted Lean and
+website checks passed; source links, desktop/mobile behavior and all published
+file bytes were verified. See [readiness](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
+for exact delivery evidence.
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
@@ -94,13 +95,13 @@ adaptations, and stop after the one authorized step.
 
 | Field | Current value |
 | --- | --- |
-| Reconciled | 2026-10-14, research website implementation and public-readiness evidence; C01–C16 completion and historical acceptance unchanged |
+| Reconciled | 2026-10-14, completed website blueprint/API/palette delivery and public-readiness evidence; C01–C16 completion and historical acceptance unchanged |
 | Readiness review baseline | Public `master` at `ceef8793673697cce0a4a1862d30ab0d77fb6dd5`; readiness documentation and build checks do not change Lean sources or historical step baselines |
 | Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |
 | Completed plan | [C16 revision 2](plans/pfr-c16-coverage-api-trust-closure.md); preserved pre-closure text, later supported completion recorded in the [checkpoint entry](project-log.md#post-c16-checkpoint) |
 | Coverage and decisions | [Ledger](pfr-c16-coverage-audit.md), [readiness](pfr-c16-readiness-audit.md#c16-s05-readiness); DG-01–DG-15 resolved, all 71 omission rows preserved |
-| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; secret scanning/push protection enabled. See [readiness](public-readiness.md) for the exact fresh-checkout and CI validation state. No tagged release; [four-page research website](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/) deployed and live-checked |
+| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; secret scanning/push protection enabled. See [readiness](public-readiness.md) for the exact fresh-checkout and CI validation state. No tagged release; [research website with blueprint and API](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/) deployed and live-checked |
 
 Document ownership is fixed in [AGENTS.md](../AGENTS.md#document-roles-and-proactive-maintenance):
 README is the reader entry point; scope owns inclusion; this summary owns current

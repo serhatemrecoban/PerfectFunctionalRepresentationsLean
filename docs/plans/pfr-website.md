@@ -1,6 +1,6 @@
 # PFR Research Website Plan
 
-**Status: Initial delivery complete; structure/palette extension active, 2026-10-14.** The lead authorized building the research website
+**Status: Complete, including the structure/palette extension, 2026-10-14.** The lead authorized building the research website
 and requested a detailed plan followed by implementation when practical. This
 plan records that bounded website task, not a new mathematical chunk. Baseline:
 `da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence is recorded below and in the project log; the execution
@@ -195,7 +195,7 @@ W01–W04 evidence. It does not change mathematical scope or dependency pins.
   acceptance criteria. No new library dependency or external runtime asset.
 
 Generated API data must be reproducible from the recorded mathematical snapshot.
-Any change to Lean source requires regeneration and refreshed source identities.
+Any change to documented Lean source requires regeneration and refreshed source identities.
 Routine website builds should not install a second Lean toolchain or rebuild a
 new dependency graph merely to change presentation.
 
@@ -208,5 +208,12 @@ jobs), with all ten installed dependency identities/clean tracked trees checked
 before and after export. The existing default build and public static gate pass.
 Browser checks cover eight representative pages at four widths and search,
 keyboard, disclosures, no-JavaScript reading and clipboard success/fallback.
-Independent content/tooling review has no unresolved blocker. Hosted delivery
-and final live verification remain to be recorded below.
+Independent content/tooling review has no unresolved blocker.
+
+W08 delivery is complete at `b4ca3387b76f6f6a71ee90b1951601bb5d4f4cfb`.
+Both hosted workflows passed: all maintained Lean modules and the website's
+static/compiler-backed API gates followed by Pages deployment. All 42 published
+files match the committed bytes; the browser checks above were repeated against
+the live site successfully. The [readiness record](../public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
+owns exact run links and validation evidence. The closing documentation-only
+checkpoint does not change the tested website, tooling or mathematical sources.

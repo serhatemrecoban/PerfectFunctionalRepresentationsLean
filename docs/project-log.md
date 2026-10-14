@@ -9879,3 +9879,15 @@ Publication remains pending at this implementation checkpoint. The subsequent
 delivery record will distinguish local generation, hosted validation and verified
 live content. No release tag, private-ref push, dependency change or mathematical
 implementation is authorized by this website extension.
+
+**Delivery and final validation.** The subsequent implementation checkpoint
+`b4ca3387b76f6f6a71ee90b1951601bb5d4f4cfb` was committed and pushed only to
+public `master`. Hosted website run `38587761160` and all-module Lean run
+`38587760967` succeeded, including the fresh compiler-backed API comparison.
+The Pages artifact and all 42 live files match committed bytes. Live browser
+checks repeat the local 32 page/viewport combinations and API search, keyboard,
+no-JavaScript and clipboard controls successfully. The complete public run logs
+were reviewed. See the [readiness record](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
+for exact run links, checks and limitations. W05–W08 are complete; this final
+evidence-only documentation checkpoint leaves the deployed site, tools,
+workflows, mathematical sources and dependency pins unchanged.

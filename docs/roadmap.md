@@ -74,11 +74,12 @@ The lead subsequently authorized website implementation on 2026-10-14. The
 approved extension adds a mathematical blueprint and compiler-generated PFR API
 to the overview, source-linked results, discussion/limitations, normalization
 proof feedback and reproduction/citation, using LeanInfoTheory's blue–green
-palette. The original
+palette. The updated
 [site is live](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
 on GitHub Pages, with verified source links and desktop/mobile validation. The
-[readiness record](public-readiness.md#website-direction-for-later-implementation)
-owns current delivery evidence, including the extension's validation status.
+[readiness record](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
+owns current delivery evidence, including the completed extension's hosted and
+live validation.
 The PFR-only API complements LeanInfoTheory's library documentation; it does not
 republish its dependency API or change the dependency pin.
 

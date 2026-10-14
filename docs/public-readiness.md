@@ -272,8 +272,29 @@ inspection includes the overview, blueprint/diagram, API index and theorem pages
 The final source/render guard checks 33 pages and 4,715 links/assets, including
 34 human source anchors and 31 direct blueprint-to-API links. Fresh generation
 and a separate compiler-backed `--check` agree exactly (2,794 build jobs and all
-ten installed pins verified). The final hosted delivery evidence will be recorded
-after publication; local success alone does not establish deployment.
+ten installed pins verified).
+
+**Hosted delivery and live verification.** Commit
+`b4ca3387b76f6f6a71ee90b1951601bb5d4f4cfb` was pushed only to public `master`.
+The [website run 38587761160](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38587761160)
+passed all 23 website tests without skips on Ubuntu, fourteen API tests, the
+33-page/4,715-reference guard and a fresh compiler-backed comparison of all 992
+API entries, before deploying through GitHub Pages. The separate
+[Lean run 38587760967](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38587760967)
+passed eleven public-build tests, all 56 maintained modules (2,823 jobs), the
+default target (2,762 jobs), all ten installed pins and clean-checkout checks.
+The Linux symlink pass does not convert the recorded local Windows skip into a pass.
+
+The downloaded Pages artifact has exactly 42 regular files with safe, unique
+paths and no links; its inventory and every file byte match committed `site/`
+content (excluding the intentionally omitted `.nojekyll`). All 42 live files
+also returned HTTP 200 and matched those committed bytes. The 32 browser
+page/viewport combinations and separate API-search/keyboard/no-JavaScript tests
+were repeated successfully against the live site. The full logs of both runs
+were inspected; a targeted private-path/credential-pattern scan found no
+matches, not an exhaustive security guarantee. The official deployment action
+still emits a nonblocking Node `punycode` deprecation warning. The final
+documentation-only checkpoint leaves tested sources and deployed bytes unchanged.
 
 For API maintenance, add these commands to the existing site checks:
 
