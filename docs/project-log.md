@@ -10022,3 +10022,33 @@ Lean run `38631914562` pass. All 45 live payload files match the committed
 source. The 88 targeted graph/statement checks and 40 responsive page cases
 pass again on the deployed site. This final documentation-only checkpoint
 records the evidence and changes none of the tested implementation files.
+
+<a id="website-discussion-rewrite"></a>
+
+## 195. Discussion-page editorial revision — 2026-10-14
+
+At the lead's request, rewrote the discussion page while retaining its five
+topics, stable anchors and blue–green design. The normalization narrative now
+explains the expanding-rewrite difficulty before introducing the finite
+certificate construction. The limitations distinguish finite-valued variables
+from a finite source space and explain why null input rows cannot be recovered
+from one joint law. The LP discussion spells out both full/reduced indices,
+equality-feasibility bridges, attained extrema and the specialized dual proof.
+Coverage remains bounded to the ISIT target and selected companion passages.
+
+Moved proof-source detail and reuse-count methodology into disclosures, retained
+the manuscript-identity disclosure, and removed internal chunk-count wording.
+All reuse figures remain unchanged; the 66-reference subset is more precisely
+labelled as anonymous inline examples. Read-only semantic and operations/LP
+reviews checked the claims against source; editorial review prompted a final
+clarity pass. No mathematical contract, dependency, omission disposition,
+generated API/blueprint or publication gate changed.
+
+Local validation: website guard (35 pages, 5,702 links/assets), website tests
+(22 passes, one existing Windows symlink-privilege skip), API/blueprint freshness,
+static public-build checks and `lake build` (2,762 jobs) pass. Placeholder scan
+has no matches; diff hygiene passes. Browser checks cover 40 page/viewport
+combinations plus 10 discussion-section cases, keyboard disclosures, no-JS
+reading and the Lemma 4 link. Desktop/mobile renders were inspected. Publication
+continues through the unchanged hosted website and Lean CI gates; GitHub records
+their outcomes for the resulting commit.
