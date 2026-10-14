@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: >-
+  Cite this repository for the Lean formalization and cite On Perfect Functional
+  Representations separately for the mathematical paper. See AUTHORS.md.
+type: software
+title: PerfectFunctionalRepresentationsLean
+authors:
+  - family-names: Coban
+    given-names: Serhat Emre
+repository-code: https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean
+url: https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean
+license: Apache-2.0

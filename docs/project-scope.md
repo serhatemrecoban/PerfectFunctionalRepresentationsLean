@@ -91,6 +91,8 @@ continue to compile against `v0.1.0`.
 - Upgrades occur in dedicated commits after release-note review and a complete
   project build.
 - The project does not track LeanInfoTheory `master` in maintained state.
+- Publication, a project website, or acknowledgement in a later LeanInfoTheory
+  release does not require upgrading this completed v0.1.0 case study.
 
 ## Current phase
 
@@ -127,3 +129,13 @@ public source availability, not manuscript or private-report distribution, a
 tagged release, new theorem work or a website. The
 [publication checkpoint](project-log.md#public-repository-checkpoint) records
 delivery and visibility verification.
+
+The subsequent public-readiness request authorizes content/history review,
+attribution clarification and reproducible public build checks. The lead
+confirmed paper credit to all three authors and formalization credit to Serhat
+Emre Coban; see [AUTHORS.md](../AUTHORS.md). This does not establish an unverified
+rights-holder or third-party permission claim. An approved public paper link and
+full citation remain pending. The [readiness record](public-readiness.md)
+identifies the exact manuscript versions and the limited comparison of the newer
+extended companion. It proposes a compact website, but building or deploying
+that site waits for a later request.

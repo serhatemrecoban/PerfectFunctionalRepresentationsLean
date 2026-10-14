@@ -1,0 +1,50 @@
+name: All Lean modules
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pfr-lean-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Check out public source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Check release pin and public source hygiene
+        run: |
+          python3 -B tools/test_public_build.py
+          python3 -B tools/check_public_build.py static
+
+      - name: Install pinned Lean toolchain
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1
+        with:
+          auto-config: "false"
+          build: "false"
+          test: "false"
+          lint: "false"
+          use-mathlib-cache: "false"
+          use-github-cache: "false"
+
+      - name: Fetch public mathlib release artifacts
+        run: lake exe cache get --cache-from=master,legacy
+
+      - name: Build every maintained module and verify installed pins
+        run: python3 -B tools/check_public_build.py build
+
+      - name: Verify checkout stayed clean
+        run: |
+          git diff --exit-code
+          test -z "$(git ls-files --others --exclude-standard)"

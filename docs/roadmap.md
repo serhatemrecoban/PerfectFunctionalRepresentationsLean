@@ -48,8 +48,10 @@ implied by C16 completion or this roadmap.
 The lead separately authorized public repository availability on 2026-10-14,
 under the existing Apache-2.0 license and without inventing unverified metadata.
 The [publication checkpoint](project-log.md#public-repository-checkpoint) records
-that bounded delivery. A tagged release, website, new metadata and omission
-curation remain separate directions, not consequences of this visibility change.
+that bounded delivery. The subsequent [public-readiness work](public-readiness.md)
+adds content/history checks, confirmed author credits and a public all-module
+build gate. A tagged release, unverified metadata and omission curation remain
+separate decisions, not consequences of this visibility change.
 
 ## Later or deferred directions
 
@@ -67,10 +69,17 @@ directions are outside current execution:
   nats-to-bits conversion; and
 - a public project website, DOI, and final publication metadata.
 
-PFR currently has no website, website source, Pages configuration, hosting
-configuration, or approved website plan. A website may be reconsidered during
-public-release preparation; LeanInfoTheory's website is documentation for the
-dependency, not a PFR website.
+PFR currently has no website, website source, Pages configuration or hosting
+configuration. The lead requested website suggestions, with implementation
+explicitly deferred. The [proposed compact site](public-readiness.md#website-direction-for-later-implementation)
+would explain the paper, main theorem links, exact scope, proof feedback and
+reproduction/citation; it is not an approved execution plan. The General Assistant
+will revisit this direction when the lead requests website implementation.
+LeanInfoTheory's site remains the dependency's documentation, not a PFR site.
+
+The completed case study stays pinned to **LeanInfoTheory v0.1.0**, including
+during public presentation and any celebration in the library's next release.
+An upgrade is a separate possible future task, not a publication prerequisite.
 
 ## Approval boundary
 

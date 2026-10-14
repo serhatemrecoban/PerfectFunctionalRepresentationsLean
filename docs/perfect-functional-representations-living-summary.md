@@ -34,6 +34,9 @@ original notes retain their pre-closure checkpoint; the later durable record
 establishes CC09 and completion. The lead authorized updating and publishing the
 GitHub repository on 2026-10-14; see the
 [publication checkpoint](project-log.md#public-repository-checkpoint).
+The subsequent [public-readiness review](public-readiness.md) covers content,
+attribution and reproducibility without changing the formalization. Website
+direction is proposed there; implementation has not been authorized.
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
@@ -64,8 +67,10 @@ adaptations, and stop after the one authorized step.
 - DG-01–DG-15 are resolved. OM-001–071 and original review history remain intact.
   Numbered Future Work Notes: **none**. No known required implementation is
   left by S05; final validation and supported closure are complete.
-- Public repository availability is separately authorized. Tagged releases, new
-  metadata, omission curation and website work still require separate decisions.
+- Public repository availability and readiness checks are separately authorized.
+  The lead confirmed paper/formalization credits in [AUTHORS.md](../AUTHORS.md).
+  Tagged releases, unverified metadata, omission curation and website
+  implementation still require separate decisions.
   Local formalization completion does not establish remote delivery or CI.
 
 | Task | Read next |
@@ -77,18 +82,19 @@ adaptations, and stop after the one authorized step.
 | Recover history or review provenance | [Preserved-record routes](pfr-c16-readiness-audit.md#c16-s04-navigation), then targeted log/notes entries |
 | Work with review | [Review protocol](review-protocol.md) and [installed operations](review-operations.md); reuse the bound reviewer and durable private state |
 | Understand scope or later direction | [Project scope](project-scope.md), [roadmap](roadmap.md), relevant sections below |
+| Check public delivery, reproducibility or website direction | [Public-readiness record](public-readiness.md), [attribution](../AUTHORS.md), [public build workflow](../.github/workflows/lean.yml) |
 
 ## 1. Document and Repository Status
 
 | Field | Current value |
 | --- | --- |
-| Reconciled | 2026-10-14, public-repository checkpoint; C01–C16 completion and historical acceptance unchanged |
-| Publication preparation baseline | Branch `master`, HEAD `9e659bdce7260cb15a99ca2c20a564f906bd2bcf`; post-C16 documentation and measured reuse are added without changing Lean sources or historical step baselines |
+| Reconciled | 2026-10-14, public-readiness checks and confirmed author credits; C01–C16 completion and historical acceptance unchanged |
+| Readiness review baseline | Public `master` at `ceef8793673697cce0a4a1862d30ab0d77fb6dd5`; readiness documentation and build checks do not change Lean sources or historical step baselines |
 | Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |
 | Completed plan | [C16 revision 2](plans/pfr-c16-coverage-api-trust-closure.md); preserved pre-closure text, later supported completion recorded in the [checkpoint entry](project-log.md#post-c16-checkpoint) |
 | Coverage and decisions | [Ledger](pfr-c16-coverage-audit.md), [readiness](pfr-c16-readiness-audit.md#c16-s05-readiness); DG-01–DG-15 resolved, all 71 omission rows preserved |
-| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; see the [publication checkpoint](project-log.md#public-repository-checkpoint). No tagged release or CI result is implied |
+| Remote/release state | GitHub visibility verified `PUBLIC` on 2026-10-14; secret scanning/push protection enabled. See [readiness](public-readiness.md) for the exact fresh-checkout and CI validation state. No tagged release or website |
 
 Document ownership is fixed in [AGENTS.md](../AGENTS.md#document-roles-and-proactive-maintenance):
 README is the reader entry point; scope owns inclusion; this summary owns current
@@ -503,6 +509,15 @@ with unverified copyright-holder and bibliographic metadata left unspecified.
 No new source-header, rights-holder, affiliation, DOI or publication-status claim
 is introduced. Adding such metadata remains subject to lead verification; the
 manuscripts and private derived reports remain unpublished by this repository.
+
+The lead subsequently confirmed separate authorship credits: the paper is by
+Serhat Emre Coban, Yanina Y. Shkel and Emre Telatar; the Lean formalization is
+credited to Serhat Emre Coban. [AUTHORS.md](../AUTHORS.md) and
+[CITATION.cff](../CITATION.cff) record that distinction, without inferring
+third-party permissions or a paper publication record. Public readiness and a
+future LeanInfoTheory announcement preserve the **v0.1.0** dependency baseline;
+neither requires an upgrade. The [readiness record](public-readiness.md) owns
+the publication checks and proposed website direction, not a new theorem plan.
 
 **[History] Provenance attestation.** The inherited-context report records that
 no external information-theory formalization repository was consulted or

@@ -17,7 +17,7 @@ the small policy-hook refactor had SHA-256
 `adb9c81e107162b49d531b95515f3b5eb811de6bcc79cc908d436b05014a0dcb`.
 The preserved completed diagnostic archive has SHA-256
 `34aed4cfe449380b9cb285f7db5ddbc4adff92130f813f08e621170c86c6032f`.
-These are this private project's earlier prototypes, not a new external library.
+These are this project's earlier private prototypes, not a new external library.
 Default fixture path/provenance guards remain in place; only the separate project
 adapter opts into real source reads and approved private record writes.
 

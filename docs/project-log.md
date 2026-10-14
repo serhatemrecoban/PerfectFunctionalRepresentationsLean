@@ -9625,3 +9625,60 @@ and default branch `master` were confirmed. This entry accompanies the selected
 source checkpoint; delivery uses an explicit `HEAD:refs/heads/master` push and
 completion requires remote `master` to match the final local commit. No tag,
 GitHub Release, website, manuscript upload or all-refs push is part of this task.
+
+<a id="public-readiness-checks"></a>
+
+## 189. Public readiness, attribution and reproducible CI — 2026-10-14
+
+The lead authorized public-content/history and Actions-log review, attribution
+and permission checks, fresh-checkout validation, and website suggestions only.
+The baseline is public `master` at `ceef8793673697cce0a4a1862d30ab0d77fb6dd5`.
+The LeanInfoTheory v0.1.0 pin is retained: a future library release may celebrate
+this case study without requiring PFR to upgrade. No Lean source, dependency,
+paper coverage, historical review acceptance or omission disposition changes.
+
+A separate read-only review enumerated nine published commits, 169 historical
+paths and 212 unique blobs (8,164,606 bytes). All blobs were regular text; no
+manuscripts, binary attachments, private runtime stores or common credential/key
+patterns were detected. Local paths, provenance/task identifiers, the Git author
+email and the labeled toy reviewer fixture were retained as existing history,
+not credentials. This pattern-based inspection is not an exhaustive security
+guarantee. Only the published branch history is in scope for delivery; local
+Codex snapshot refs and seven ignored PDFs remain unpublished.
+
+GitHub initially reported zero workflows, runs, artifacts, issues, pull requests,
+releases and repository comments; there were no historical Actions logs to
+review. Secret scanning and push protection were enabled and verified. The first
+alert query was empty, not evidence that asynchronous scanning is exhaustive or
+complete. The public-readiness document owns the detailed checks and limits.
+
+The lead reconfirmed Apache-2.0, paper credit to Serhat Emre Coban, Yanina Y.
+Shkel and Emre Telatar, and formalization credit to Serhat Emre Coban. AUTHORS.md
+and software-only CITATION.cff record these distinct roles. No DOI, publication
+date, rights-holder, affiliation or permission from another party is invented.
+An approved paper link/full bibliography remain pending; the repository does
+not distribute the manuscripts or relicense them under the software license.
+
+The new standard-library Python build gate enumerates all 56 maintained Lean
+modules, checks release identities and placeholder/path hygiene, builds all
+modules plus the default target, verifies all ten installed dependency revisions
+and tracked-file cleanliness, and refuses changed dependency configuration.
+Eleven focused model-free tests pass, including positive and negative controls.
+The public Actions workflow uses SHA-pinned actions, read-only permissions and
+public mathlib release artifacts, with no persisted checkout credentials or PFR
+build cache. It does not run native reviewers, models or private review suites.
+The action bootstrap still fetches the official elan installer; action SHA
+pinning is not a claim that the entire bootstrap chain is immutable.
+
+Local all-module and default builds passed (2,823 and 2,762 jobs). A fresh
+anonymous public Windows checkout and the first hosted CI run are being
+validated separately; their results will be added below rather than inferred
+from local cached builds. The installed review workflow's implementation is
+unchanged; only an ambiguous private-project phrase in its README was clarified,
+so its long model-free regression suites are not rerun for this change.
+
+README, scope, roadmap and living-summary routes point to the readiness record.
+The compact website proposal remains directional, owned by the General Assistant
+with the lead's later website request as its trigger; no duplicate Future Work
+Note is needed. No website, release/tag, manuscript upload, omission curation or
+dependency upgrade is performed.
