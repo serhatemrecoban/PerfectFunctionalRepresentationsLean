@@ -121,7 +121,7 @@ The mathematical paper is by **Serhat Emre Coban, Yanina Y. Shkel, and Emre
 Telatar**. The Lean formalization is by **Serhat Emre Coban**. See
 [AUTHORS.md](AUTHORS.md) for attribution and [CITATION.cff](CITATION.cff) for
 software citation. Cite the paper separately for its mathematical results;
-an approved public paper link and complete bibliography are still pending.
+the [ISIT 2026 paper is available through its DOI](https://doi.org/10.1109/ISIT62367.2026.11653684).
 
 This case study was completed with **LeanInfoTheory v0.1.0**. Its publication
 and recognition in a future LeanInfoTheory release do not require a dependency

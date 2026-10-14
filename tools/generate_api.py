@@ -177,14 +177,14 @@ def generate_data(root: Path) -> dict:
 def page_shell(title: str, body: str, scripts: str = "", filename: str = "index.html") -> str:
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Compiler-generated PFR API reference with precise types, documentation and commit-pinned source links.">
+<meta name="description" content="Lean API for the ISIT 2026 paper On Perfect Functional Representations, with compiler-generated types, documentation and commit-pinned source links.">
 <meta name="theme-color" content="#155799"><link rel="canonical" href="https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/api/{quote(filename)}">
-<title>{html.escape(title)} · PFR API</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<title>{html.escape(title)} · On Perfect Functional Representations API</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="api.css">{scripts}</head><body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap header-inner"><p class="project-name"><a href="../index.html">Perfect Functional Representations</a></p>
-<p class="project-tagline">A Lean formalization of the ISIT paper, built on LeanInfoTheory v0.1.0.</p>
-<nav class="nav" aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../blueprint/index.html">Blueprint</a><a href="index.html" aria-current="page">Lean API</a><a href="../discussion.html">Discussion</a><a href="../reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="{REPOSITORY}">GitHub</a></nav></div></header>
+<header class="site-header"><div class="wrap header-inner"><p class="project-name"><a href="../index.html">On Perfect Functional Representations</a></p>
+<p class="project-tagline">A Lean formalization of the ISIT 2026 paper, built on LeanInfoTheory v0.1.0.</p>
+<nav class="nav" aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../blueprint/index.html">Blueprint</a><a href="index.html" aria-current="page">Lean API</a><a href="../discussion.html">Discussion</a><a href="../reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="{REPOSITORY}">GitHub</a><a href="https://doi.org/10.1109/ISIT62367.2026.11653684">Paper</a></nav></div></header>
 <main id="main" class="wrap api-page">{body}</main>
 <footer class="site-footer"><div class="wrap footer-inner"><p>PFR API · LeanInfoTheory v0.1.0 · Lean 4.33.1<br>Generated from Lean; no dependency upgrade.</p><div class="footer-links"><a href="index.html">API index</a><a href="../discussion.html#limitations">Limitations</a><a href="{REPOSITORY}">Repository</a></div></div></footer>
 </body></html>

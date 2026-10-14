@@ -9926,3 +9926,20 @@ from the homepage: development work packages are not the paper's structure.
 The status now describes the formalized definitions and main results of the
 six-page ISIT paper, retaining the dependency attribution and scope/limitations
 link. This is a presentation correction, not a change to mathematical coverage.
+
+The lead also specified the displayed website title **On Perfect Functional
+Representations**, the **ISIT 2026 paper** description, and a Paper button next
+to GitHub with linked editorial paper-title mentions. The DOI
+`https://doi.org/10.1109/ISIT62367.2026.11653684` was verified against the actual
+paper anchor on the author's academic homepage and EPFL's publication record
+(matching title, authors and year). The DOI redirects to IEEE document 11653684;
+the browser search tool could not open the publisher page directly, so no PDF
+identity or full-text equivalence is asserted from this link check. Existing
+local manuscript identities and scope remain unchanged. Attribution/readiness
+records now record the public link instead of continuing to mark it unavailable.
+
+For these final presentation-only API template edits, the already compiler-
+verified inventory was re-rendered after checking that every declaration,
+source hash, exporter and validation function remained unchanged. Only template
+provenance hashes and generated presentation changed. Fresh compiler-backed CI
+equality remains a mandatory deployment gate; no gate was relaxed.

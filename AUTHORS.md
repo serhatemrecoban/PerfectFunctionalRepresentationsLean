@@ -2,7 +2,8 @@
 
 ## Mathematical paper
 
-*On Perfect Functional Representations* is the work of **Serhat Emre Coban,
+[On Perfect Functional Representations](https://doi.org/10.1109/ISIT62367.2026.11653684)
+is the ISIT 2026 paper by **Serhat Emre Coban,
 Yanina Y. Shkel, and Emre Telatar**. Credit for the paper's mathematical results
 belongs to its authors, separately from the implementation below.
 
@@ -23,10 +24,10 @@ baseline or require an upgrade for this case study.
 ## Citation and licensing
 
 [CITATION.cff](CITATION.cff) describes the software. Cite the particular commit
-used for reproducibility, and cite the mathematical paper separately. An approved
-public paper URL, DOI and complete bibliographic record have not yet been supplied;
-none is fabricated here. Local manuscript copies are not distributed by this
-repository.
+used for reproducibility, and cite the mathematical paper separately through its
+DOI above. The lead requested this public paper link on 2026-10-14; it matches
+the link on the author's academic homepage and EPFL's publication record.
+Local manuscript copies are not distributed by this repository.
 
 Project-authored software remains under [Apache-2.0](LICENSE), as confirmed by
 the project lead. This software license does not relicense the paper, its figures,

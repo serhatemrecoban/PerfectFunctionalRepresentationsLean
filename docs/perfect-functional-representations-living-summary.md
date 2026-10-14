@@ -517,15 +517,18 @@ alone are not stable version identity.
 **[Decision] Publication metadata boundary — 2026-10-14.** The lead approved
 public repository availability under the existing Apache-2.0 software license,
 with unverified copyright-holder and bibliographic metadata left unspecified.
-No new source-header, rights-holder, affiliation, DOI or publication-status claim
-is introduced. Adding such metadata remains subject to lead verification; the
-manuscripts and private derived reports remain unpublished by this repository.
+That initial decision introduced no new source-header, rights-holder, affiliation,
+DOI or publication-status claim. The lead subsequently specified **ISIT 2026**
+and requested the public paper link; the verified DOI is recorded in
+[AUTHORS.md](../AUTHORS.md). Further metadata remains subject to lead verification;
+the manuscripts and private derived reports remain unpublished by this repository.
 
 The lead subsequently confirmed separate authorship credits: the paper is by
 Serhat Emre Coban, Yanina Y. Shkel and Emre Telatar; the Lean formalization is
 credited to Serhat Emre Coban. [AUTHORS.md](../AUTHORS.md) and
 [CITATION.cff](../CITATION.cff) record that distinction, without inferring
-third-party permissions or a paper publication record. Public readiness and a
+third-party permissions. The paper DOI is a public link, not a claim that the
+publisher PDF was compared with the recorded local manuscript. Public readiness and a
 future LeanInfoTheory announcement preserve the **v0.1.0** dependency baseline;
 neither requires an upgrade. The [readiness record](public-readiness.md) owns
 the publication checks and live website evidence, not a new theorem plan.

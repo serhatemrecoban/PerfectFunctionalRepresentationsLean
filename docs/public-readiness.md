@@ -46,10 +46,13 @@ licenses.
 
 The lead's authorization to publish this repository is recorded. No separate
 coauthor or institutional permission is asserted on their behalf. Unverified
-copyright-holder wording, affiliation, DOI, publication date and formal paper
-citation remain absent. An approved public paper link and complete bibliographic
-record are still needed before adding a paper-download or official-citation
-button. Paper redistribution is not part of the present publication.
+copyright-holder wording and affiliation remain absent. The lead subsequently
+specified ISIT 2026 and requested the public paper link. The title, authors,
+conference year and [paper DOI](https://doi.org/10.1109/ISIT62367.2026.11653684)
+are corroborated by the [author's academic homepage](https://serhatemrecoban.github.io/)
+and [EPFL's publication record](https://www.epfl.ch/schools/ic/ipg/publications/).
+The website links to that record; it does not host a paper copy or infer further
+rights-holder or permission details. Paper redistribution is not authorized.
 
 ## Reproducibility
 
@@ -323,10 +326,13 @@ The homepage uses plain sections/lists, with the diagram below the introduction.
 Secondary pages and the generated API use the same masthead. Exact mathematical
 contracts, source anchors, API inventory and publication guards are preserved.
 Local validation passes: 23 website tests (22 pass, one Windows symlink-privilege
-skip), fourteen API tests, the 33-page/4,716-reference website guard, source/render
-freshness, the public static gate and default Lean build (2,762 jobs). Fresh
-compiler generation (2,794 jobs, all ten installed pins checked before/after)
-preserves all 992 declaration records and mathematical source hashes exactly.
+skip), fourteen API tests, the 33-page/4,753-reference website guard, source/render
+freshness, the public static gate and default Lean build (2,762 jobs). The initial
+layout revision's fresh compiler generation (2,794 jobs, all ten installed pins
+checked before/after) preserved all 992 declaration records and mathematical
+source hashes exactly. The final title/year/Paper-link refinements re-render the
+same inventory with an unchanged exporter and validation code; a fresh
+compiler-backed equality check remains mandatory before deployment.
 No validation rule, workflow or compiler export logic was weakened.
 
 Browser tests pass 28 explicit academic-layout checks and 32 representative

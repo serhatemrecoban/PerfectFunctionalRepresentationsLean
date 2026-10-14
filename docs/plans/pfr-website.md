@@ -249,3 +249,10 @@ for exact compiler/test results. Hosted delivery is pending.
 The lead also clarified that development chunks are internal work packages,
 not parts of the paper. The homepage status must describe the formalized paper
 content and link its qualifications, not advertise the internal chunk count.
+
+The lead then specified the displayed title **On Perfect Functional
+Representations**, description **ISIT 2026 paper**, a Paper button adjacent to
+GitHub and links on editorial mentions of the paper title. Use the same verified
+DOI as the author's academic homepage and EPFL publication record:
+`https://doi.org/10.1109/ISIT62367.2026.11653684`. Do not rename the repository or
+Lean namespaces, alter verbatim API docstrings, or distribute local manuscripts.

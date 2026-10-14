@@ -134,8 +134,10 @@ The subsequent public-readiness request authorizes content/history review,
 attribution clarification and reproducible public build checks. The lead
 confirmed paper credit to all three authors and formalization credit to Serhat
 Emre Coban; see [AUTHORS.md](../AUTHORS.md). This does not establish an unverified
-rights-holder or third-party permission claim. An approved public paper link and
-full citation remain pending. The [readiness record](public-readiness.md)
+rights-holder or third-party permission claim. The lead subsequently specified
+ISIT 2026 and requested the public paper link; [AUTHORS.md](../AUTHORS.md) now
+links the DOI verified against the author's homepage and EPFL's record. Further
+bibliographic details remain unspecified. The [readiness record](public-readiness.md)
 identifies the exact manuscript versions and the limited comparison of the newer
 extended companion.
 
