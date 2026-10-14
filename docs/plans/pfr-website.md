@@ -1,6 +1,6 @@
 # PFR Research Website Plan
 
-**Status: Academic-layout correction active; prior delivery retained, 2026-10-14.** The lead authorized building the research website
+**Status: Complete and live, including the academic-layout correction, 2026-10-14.** The lead authorized building the research website
 and requested a detailed plan followed by implementation when practical. This
 plan records that bounded website task, not a new mathematical chunk. Baseline:
 `da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence is recorded below and in the project log; the execution
@@ -244,7 +244,7 @@ Local acceptance passes, including independent visual comparison, 28 explicit
 layout checks and 32 browser page/viewport combinations. The contrast finding
 was fixed; generated declarations and source hashes are unchanged. See
 [readiness](../public-readiness.md#academic-layout-correction--2026-10-14)
-for exact compiler/test results. Hosted delivery is pending.
+for exact compiler/test results. Hosted delivery is complete as recorded below.
 
 The lead also clarified that development chunks are internal work packages,
 not parts of the paper. The homepage status must describe the formalized paper
@@ -256,3 +256,9 @@ GitHub and links on editorial mentions of the paper title. Use the same verified
 DOI as the author's academic homepage and EPFL publication record:
 `https://doi.org/10.1109/ISIT62367.2026.11653684`. Do not rename the repository or
 Lean namespaces, alter verbatim API docstrings, or distribute local manuscripts.
+
+Final delivery is `d8ce9779e411f7fdf4687dec6e9f8c9fdf581e9b`. The hosted
+website/compiler and all-module Lean workflows passed. All 42 live files match
+that commit, and the responsive, keyboard, search and no-JavaScript checks pass
+on the deployed site. The readiness record owns exact run links and limitations.
+The final evidence-only documentation checkpoint changes no tested site or code.

@@ -9943,3 +9943,13 @@ verified inventory was re-rendered after checking that every declaration,
 source hash, exporter and validation function remained unchanged. Only template
 provenance hashes and generated presentation changed. Fresh compiler-backed CI
 equality remains a mandatory deployment gate; no gate was relaxed.
+
+**Delivery complete.** Final presentation commit
+`d8ce9779e411f7fdf4687dec6e9f8c9fdf581e9b` was pushed only to public `master`.
+Website run `38617895725` and all-module Lean run `38617895825` passed; Pages
+deployed successfully. All 42 artifact/live files match the commit, with the
+responsive and interaction checks repeated against the live site. Independent
+final local review confirmed the requested title/year and paper links without
+overflow or browser errors. [Readiness](public-readiness.md#academic-layout-correction--2026-10-14)
+records the exact evidence and superseded-run qualification. The final
+documentation-only checkpoint does not alter deployed files or mathematical code.

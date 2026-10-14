@@ -343,8 +343,31 @@ Independent visual review confirms the reference-family resemblance on home,
 secondary and generated API pages. Its one contrast finding was corrected with
 a subtle dark overlay on the original gradient (minimum white-text contrast
 4.85:1); the 832-pixel desktop text column and 52-pixel title match the reference
-geometry. There are no outstanding design findings. Hosted delivery remains
-pending at this local checkpoint; earlier hosted runs are historical evidence.
+geometry. There are no outstanding design findings.
+
+Final title/year/Paper-link delivery is commit
+`d8ce9779e411f7fdf4687dec6e9f8c9fdf581e9b`:
+
+- [Website run 38617895725](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38617895725)
+  passed all 23 website and fourteen API tests on Ubuntu, the 33-page/4,753-link
+  guard, fresh compiler-backed equality for 992 declarations, all ten installed
+  dependency checks and checkout cleanliness, then deployed successfully.
+- [All-module run 38617895825](https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/actions/runs/38617895825)
+  passed the complete public Lean build gate and checkout checks.
+- The deployment archive contains exactly the 42 intended regular site files;
+  their contents and all 42 live responses match the committed bytes. Live
+  browser checks repeat the 32 page/viewport combinations, 28 layout checks
+  and API search, keyboard, no-JavaScript and clipboard controls successfully.
+  Independent final local review confirms the title, year, adjacent GitHub/Paper
+  buttons and all three editorial paper-title links at desktop and mobile widths.
+
+The earlier `31d9c6d` site's Lean run was cancelled by GitHub concurrency when
+superseded, not reported as a pass; both workflows passed at `9a4cc00` and again
+at the final delivery above. The Windows symlink-privilege skip remains a local
+qualification despite Ubuntu's passing test. Targeted public-log checks found
+no private local paths or tested credential patterns; the official deployment
+action's `punycode` deprecation warning did not prevent deployment. Final
+documentation-only closeout leaves the tested website, tooling and pins unchanged.
 
 A later LeanInfoTheory release may celebrate this completed downstream case
 study. That announcement should explicitly say **built against v0.1.0**; neither

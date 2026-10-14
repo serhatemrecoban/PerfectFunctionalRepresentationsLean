@@ -45,8 +45,11 @@ file bytes were verified. See [readiness](public-readiness.md#blueprint-api-and-
 for exact delivery evidence.
 The lead subsequently requested a closer visual match to the reference sites.
 The [academic-layout correction](plans/pfr-website.md#approved-academic-layout-correction--2026-10-14)
-is active: replace the editorial hero/cards with a centered full-width masthead,
-sans-serif headings and a narrow reading column, retaining content and API scope.
+is complete and live: a centered full-width masthead, sans-serif headings and a
+narrow reading column replace the editorial hero/cards, retaining content and API
+scope. The exact title, ISIT 2026 description and verified Paper link are published;
+the homepage no longer presents internal chunk counts. See the
+[latest delivery evidence](public-readiness.md#academic-layout-correction--2026-10-14).
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
@@ -99,7 +102,7 @@ adaptations, and stop after the one authorized step.
 
 | Field | Current value |
 | --- | --- |
-| Reconciled | 2026-10-14, completed website blueprint/API/palette delivery and public-readiness evidence; C01–C16 completion and historical acceptance unchanged |
+| Reconciled | 2026-10-14, completed academic website layout, paper link and delivery evidence; C01–C16 completion and historical acceptance unchanged |
 | Readiness review baseline | Public `master` at `ceef8793673697cce0a4a1862d30ab0d77fb6dd5`; readiness documentation and build checks do not change Lean sources or historical step baselines |
 | Dependency | LeanInfoTheory immutable `v0.1.0`, `0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f` |
 | Toolchain / mathlib | Lean `v4.33.1`; mathlib `0df444a360eaa60ab8c11dca51a86af692955474` |

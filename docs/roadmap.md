@@ -78,10 +78,10 @@ palette. The updated
 [site is live](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
 on GitHub Pages, with verified source links and desktop/mobile validation. The
 [readiness record](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
-owns current delivery evidence, including the completed extension's hosted and
+owns that extension's delivery evidence, including its hosted and
 live validation.
-The lead subsequently requested the closer academic-layout match, the exact
-paper title, ISIT 2026 wording and a public paper link. The verified paper DOI
+The subsequently requested closer academic-layout match, exact paper title,
+ISIT 2026 wording and public paper link are complete and live. The verified paper DOI
 is recorded in [AUTHORS.md](../AUTHORS.md); latest delivery evidence belongs in
 the [academic-layout record](public-readiness.md#academic-layout-correction--2026-10-14).
 The PFR-only API complements LeanInfoTheory's library documentation; it does not
