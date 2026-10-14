@@ -25,9 +25,7 @@ baseline or require an upgrade for this case study.
 
 [CITATION.cff](CITATION.cff) describes the software. Cite the particular commit
 used for reproducibility, and cite the mathematical paper separately through its
-DOI above. The lead requested this public paper link on 2026-10-14; it matches
-the link on the author's academic homepage and EPFL's publication record.
-Local manuscript copies are not distributed by this repository.
+DOI above. Local manuscript copies are not distributed by this repository.
 
 Project-authored software remains under [Apache-2.0](LICENSE), as confirmed by
 the project lead. This software license does not relicense the paper, its figures,
