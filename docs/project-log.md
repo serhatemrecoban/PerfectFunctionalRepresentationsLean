@@ -9920,3 +9920,9 @@ combinations, API search/no-JavaScript/keyboard and copy controls pass, as do th
 existing compiler, website/API, static and default-build checks. Exact local
 counts and qualifications are in [readiness](public-readiness.md#academic-layout-correction--2026-10-14).
 The correction is ready for the existing hosted publication gates.
+
+During delivery, the lead asked to remove the internal sixteen-chunk count
+from the homepage: development work packages are not the paper's structure.
+The status now describes the formalized definitions and main results of the
+six-page ISIT paper, retaining the dependency attribution and scope/limitations
+link. This is a presentation correction, not a change to mathematical coverage.

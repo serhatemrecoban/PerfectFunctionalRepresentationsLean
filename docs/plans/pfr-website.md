@@ -245,3 +245,7 @@ layout checks and 32 browser page/viewport combinations. The contrast finding
 was fixed; generated declarations and source hashes are unchanged. See
 [readiness](../public-readiness.md#academic-layout-correction--2026-10-14)
 for exact compiler/test results. Hosted delivery is pending.
+
+The lead also clarified that development chunks are internal work packages,
+not parts of the paper. The homepage status must describe the formalized paper
+content and link its qualifications, not advertise the internal chunk count.
