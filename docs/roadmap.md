@@ -70,14 +70,17 @@ directions are outside current execution:
 - a DOI and final publication metadata.
 
 The lead subsequently authorized website implementation on 2026-10-14. The
-[website plan](plans/pfr-website.md) owns that bounded delivery: four static pages
-explain the paper, source-linked results, discussion/limitations, normalization
-proof feedback and reproduction/citation. The
+[website plan](plans/pfr-website.md) owns that bounded delivery. The subsequent
+approved extension adds a mathematical blueprint and compiler-generated PFR API
+to the overview, source-linked results, discussion/limitations, normalization
+proof feedback and reproduction/citation, using LeanInfoTheory's blue–green
+palette. The original
 [site is live](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
 on GitHub Pages, with verified source links and desktop/mobile validation. The
 [readiness record](public-readiness.md#website-direction-for-later-implementation)
-owns current delivery evidence. This complements LeanInfoTheory's library
-documentation; it does not duplicate its API portal or change the dependency pin.
+owns current delivery evidence, including the extension's validation status.
+The PFR-only API complements LeanInfoTheory's library documentation; it does not
+republish its dependency API or change the dependency pin.
 
 The completed case study stays pinned to **LeanInfoTheory v0.1.0**, including
 during public presentation and any celebration in the library's next release.

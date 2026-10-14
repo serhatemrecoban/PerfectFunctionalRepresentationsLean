@@ -36,9 +36,12 @@ GitHub repository on 2026-10-14; see the
 [publication checkpoint](project-log.md#public-repository-checkpoint).
 The subsequent [public-readiness review](public-readiness.md) covers content,
 attribution and reproducibility without changing the formalization. The lead
-subsequently authorized the [research website plan](plans/pfr-website.md): four
-static pages are live on [GitHub Pages](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/),
-with verified source links and desktop/mobile checks.
+subsequently authorized the [research website plan](plans/pfr-website.md): the
+initial four-page site is live on [GitHub Pages](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/),
+with verified source links and desktop/mobile checks. Its approved extension is
+active: overview, mathematical blueprint and generated PFR API, using
+LeanInfoTheory's blue–green palette and retaining Discussion and reproduction.
+See [readiness](public-readiness.md) for the extension's actual delivery evidence.
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect

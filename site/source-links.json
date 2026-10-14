@@ -97,6 +97,114 @@
       "line": 2466,
       "needle": "theorem isPerfectlyRepresentable_iff_toAllOnes (S : ActiveFiniteChannel alpha) :",
       "label": "Theorem 1: reduction to the all-ones channel"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/FunctionalRepresentation.lean",
+      "line": 30,
+      "needle": "def IsFunctionalRepresentation",
+      "label": "Functional representation: independence and supported decoding"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/FunctionalRepresentation.lean",
+      "line": 231,
+      "needle": "def IsPerfectFunctionalRepresentation",
+      "label": "Perfectness of a specified finite representation"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Canonical.lean",
+      "line": 21,
+      "needle": "def IsCanonicalCoupling {alpha : Type u} {beta : Type v}",
+      "label": "Canonical coupling: coordinate laws only"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Canonical.lean",
+      "line": 33,
+      "needle": "def IsCanonicalFunctionalRepresentation {alpha : Type u} {beta : Type v}",
+      "label": "Definition 1: canonical functional representation"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Canonical.lean",
+      "line": 402,
+      "needle": "def IsPerfectlyRepresentableChannel {alpha : Type u} {beta : Type v} [Nonempty alpha]",
+      "label": "Definition 2: perfectly representable channel"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Singularity.lean",
+      "line": 18,
+      "needle": "def IsSingularChannel {alpha : Type u} {beta : Type v}",
+      "label": "Definition 3: singular channel"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/SingularColumns.lean",
+      "line": 34,
+      "needle": "noncomputable def columnValue (kappa : alpha → PMF beta)",
+      "label": "Definition 4: active singular-column value"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/SingularColumns.lean",
+      "line": 79,
+      "needle": "noncomputable def columnPattern [Fintype alpha] (kappa : alpha → PMF beta)",
+      "label": "Definition 4: nonempty input-support pattern"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/SingularColumns.lean",
+      "line": 92,
+      "needle": "theorem column_eq_ite [Fintype alpha] (kappa : alpha → PMF beta)",
+      "label": "Column reconstruction from value and pattern"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/Preservation.lean",
+      "line": 209,
+      "needle": "theorem pps_isPerfectlyRepresentable [Finite alpha] [Nonempty alpha]",
+      "label": "Lemma 5: PPS preserves perfectness"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/Preservation.lean",
+      "line": 573,
+      "needle": "theorem ppm_isPerfectlyRepresentable (S : ActiveFiniteChannel alpha)",
+      "label": "Lemma 5: PPM preserves perfectness"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/Preservation.lean",
+      "line": 929,
+      "needle": "theorem vps_isPerfectlyRepresentable [Finite alpha] [Nonempty alpha]",
+      "label": "Lemma 5: VPS preserves perfectness"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/Preservation.lean",
+      "line": 1192,
+      "needle": "theorem pps_not_isPerfectlyRepresentable (S : ActiveFiniteChannel alpha)",
+      "label": "Lemma 6: PPS preserves nonperfectness"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/Preservation.lean",
+      "line": 1211,
+      "needle": "theorem ppm_not_isPerfectlyRepresentable (S : ActiveFiniteChannel alpha)",
+      "label": "Lemma 6: PPM preserves nonperfectness"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Matrix/Preservation.lean",
+      "line": 1229,
+      "needle": "theorem vpm_not_isPerfectlyRepresentable (S : ActiveFiniteChannel alpha)",
+      "label": "Lemma 6: VPM preserves nonperfectness"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Semantics/Binary.lean",
+      "line": 700,
+      "needle": "theorem binary_entropy_eq_mutualInfo_iff_isSingular_of_fullSupport",
+      "label": "Lemma 3: support-qualified equality and singularity"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Optimization/IncidenceConstruction.lean",
+      "line": 329,
+      "needle": "theorem isPerfectlyRepresentableChannel_iff_exists_feasible (D : CompressedPatternData α) :",
+      "label": "Bridge: equality feasibility characterizes perfectness"
+    },
+    {
+      "file": "PerfectFunctionalRepresentations/Optimization/Dual.lean",
+      "line": 63,
+      "needle": "theorem weak_duality {x : AdmissiblePartition D → ℝ} {y : Incidence.OccurringPattern D → ℝ}",
+      "label": "Primal–dual weak-duality bridge"
     }
   ]
 }

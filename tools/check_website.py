@@ -17,6 +17,8 @@ import sys
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 
+from generate_api import check_api_source_links
+
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean"
 EXTENSIONS = {".html", ".css", ".js", ".svg", ".json", ".txt"}
@@ -192,9 +194,12 @@ def check_source_links(site: Path, hrefs: set[str], repo_root: Path) -> None:
         require(url in hrefs, f"Source manifest entry not linked from HTML: {label}")
         require(url not in expected, f"Duplicate source manifest location: {file}:{line}")
         expected.add(url)
+    # Compiler-generated API links have a separate exact inventory. Its source,
+    # configuration and rendered payload are checked before allowing any URL.
+    api_expected = check_api_source_links(site, hrefs, repo_root) if (site / "api").exists() else set()
     for href in hrefs:
         if href.startswith(f"{repository}/blob/") and ".lean" in urlsplit(href).path:
-            require(href in expected, f"Unregistered or mutable Lean source link: {href}")
+            require(href in expected | api_expected, f"Unregistered or mutable Lean source link: {href}")
 
 
 def check_site(site: Path, repo_root: Path = ROOT) -> tuple[int, int]:

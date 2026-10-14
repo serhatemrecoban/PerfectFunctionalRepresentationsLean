@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Compiler-generated PFR API reference with precise types, documentation and commit-pinned source links.">
+<meta name="theme-color" content="#155799"><link rel="canonical" href="https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/api/Matrix.Preservation.html">
+<title>PerfectFunctionalRepresentations.Matrix.Preservation · PFR API</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="api.css"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html"><span class="monogram" aria-hidden="true">PFR</span><span class="brand-name">Perfect Functional<br>Representations</span></a>
+<nav class="nav" aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../blueprint/index.html">Blueprint</a><a href="index.html" aria-current="page">Lean API</a><a href="../discussion.html">Discussion</a><a href="../reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">GitHub</a></nav></div></header>
+<main id="main" class="wrap api-page"><div class="page-intro"><p class="eyebrow">Module reference</p><h1><code>Matrix.Preservation</code></h1>
+<p class="lead">14 public reference entries.</p><pre><code>import PerfectFunctionalRepresentations.Matrix.Preservation</code></pre>
+<p><a href="index.html">All modules &amp; search</a> · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L1">Module source</a></p></div><nav class="api-module-contents" aria-label="Module declarations"><details><summary>Declarations in this module</summary><ul><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes"><code>ActiveFiniteChannel.allOnes</code></a></li><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_outputCard"><code>ActiveFiniteChannel.allOnes_outputCard</code></a></li><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_channel"><code>ActiveFiniteChannel.allOnes_channel</code></a></li><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_apply"><code>ActiveFiniteChannel.allOnes_apply</code></a></li><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_massMatrix"><code>ActiveFiniteChannel.allOnes_massMatrix</code></a></li><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_realMatrix"><code>ActiveFiniteChannel.allOnes_realMatrix</code></a></li><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isSingular"><code>ActiveFiniteChannel.allOnes_isSingular</code></a></li><li><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isPerfectlyRepresentable"><code>ActiveFiniteChannel.allOnes_isPerfectlyRepresentable</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.pps_isPerfectlyRepresentable"><code>MatrixOperations.pps_isPerfectlyRepresentable</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.ppm_isPerfectlyRepresentable"><code>MatrixOperations.ppm_isPerfectlyRepresentable</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.vps_isPerfectlyRepresentable"><code>MatrixOperations.vps_isPerfectlyRepresentable</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.pps_not_isPerfectlyRepresentable"><code>MatrixOperations.pps_not_isPerfectlyRepresentable</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.ppm_not_isPerfectlyRepresentable"><code>MatrixOperations.ppm_not_isPerfectlyRepresentable</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.vpm_not_isPerfectlyRepresentable"><code>MatrixOperations.vpm_not_isPerfectlyRepresentable</code></a></li></ul></details></nav><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L36">Source line 36</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes</code></a></h2><pre class="api-docstring">The one-output channel whose exact and real rectangular coordinates are all one.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>(alpha : Type u) →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] → PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_outputCard"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L47">Source line 47</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_outputCard"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_outputCard</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ (alpha : Type u) [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha],
+  Eq.{1}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes.{u} alpha))
+    1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_channel"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L49">Source line 49</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_channel"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_channel</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ (alpha : Type u) [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha] (x : alpha),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes.{u} alpha) x)
+    (PMF.pure.{0} 0)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_apply"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L52">Source line 52</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_apply"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_apply</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ (alpha : Type u) [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha] (x : alpha) (y : Fin 1),
+  Eq.{1}
+    ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes.{u} alpha) x)
+      y)
+    1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_massMatrix"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L60">Source line 60</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_massMatrix"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_massMatrix</code></a></h2><pre class="api-docstring">The all-ones matrix is rectangular, with input rows and one output column.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ (alpha : Type u) [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha],
+  Eq.{u + 1}
+    (PerfectFunctionalRepresentations.massMatrix.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes.{u} alpha)))
+    fun x x_1 =&gt; 1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_realMatrix"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L64">Source line 64</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_realMatrix"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_realMatrix</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ (alpha : Type u) [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha],
+  Eq.{u + 1}
+    (PerfectFunctionalRepresentations.realMatrix.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes.{u} alpha)))
+    fun x x_1 =&gt; 1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isSingular"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L69">Source line 69</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isSingular"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isSingular</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ (alpha : Type u) [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha],
+  PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes.{u} alpha))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isPerfectlyRepresentable"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L74">Source line 74</a></p><h2><a href="#PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isPerfectlyRepresentable"><code>PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes_isPerfectlyRepresentable</code></a></h2><pre class="api-docstring">Perfectness of the seed uses the existing small-output characterization.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ (alpha : Type u) [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha],
+  PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.allOnes.{u} alpha))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.pps_isPerfectlyRepresentable"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L209">Source line 209</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.pps_isPerfectlyRepresentable"><code>PerfectFunctionalRepresentations.MatrixOperations.pps_isPerfectlyRepresentable</code></a></h2><pre class="api-docstring">Legal PPS preserves intrinsic perfect representability by one shared Bernoulli
+choice for the canonical vector and its corresponding total common posterior.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) (t : NNReal)
+  (ht0 : LT.lt.{0} 0 t) (ht1 : LT.lt.{0} t 1),
+  PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+    PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.pps.{u} S hS l t ht0 ht1))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.ppm_isPerfectlyRepresentable"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L573">Source line 573</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.ppm_isPerfectlyRepresentable"><code>PerfectFunctionalRepresentations.MatrixOperations.ppm_isPerfectlyRepresentable</code></a></h2><pre class="api-docstring">Legal PPM preserves intrinsic perfect representability by collapsing the canonical
+vector and using the fixed admitted-value ratio in the merged output&#x27;s common posterior.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (a b : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) (hab : LT.lt.{0} a b)
+  (hp :
+    ∀ (x : alpha),
+      Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) a) 0 ↔
+        Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) b) 0),
+  PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+    PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.ppm.{u} S hS a b hab hp))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.vps_isPerfectlyRepresentable"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L929">Source line 929</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.vps_isPerfectlyRepresentable"><code>PerfectFunctionalRepresentations.MatrixOperations.vps_isPerfectlyRepresentable</code></a></h2><pre class="api-docstring">Legal VPS preserves intrinsic perfect representability by one deterministic map
+of the canonical vector. Both children share the transported selected-output posterior.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) (mask : alpha → Bool)
+  (hleft :
+    ∃ x,
+      Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) l) 0 ∧
+        Eq.{1} (mask x) Bool.true)
+  (hright :
+    ∃ x,
+      Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) l) 0 ∧
+        Eq.{1} (mask x) Bool.false),
+  PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+    PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.vps.{u} S hS l mask hleft hright))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.pps_not_isPerfectlyRepresentable"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L1192">Source line 1192</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.pps_not_isPerfectlyRepresentable"><code>PerfectFunctionalRepresentations.MatrixOperations.pps_not_isPerfectlyRepresentable</code></a></h2><pre class="api-docstring">Legal PPS preserves nonperfectness: PPM of its two children recovers the source.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) (t : NNReal)
+  (ht0 : LT.lt.{0} 0 t) (ht1 : LT.lt.{0} t 1),
+  ¬PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+    ¬PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.pps.{u} S hS l t ht0 ht1))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.ppm_not_isPerfectlyRepresentable"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L1211">Source line 1211</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.ppm_not_isPerfectlyRepresentable"><code>PerfectFunctionalRepresentations.MatrixOperations.ppm_not_isPerfectlyRepresentable</code></a></h2><pre class="api-docstring">Legal PPM preserves nonperfectness by PPS at its remembered ratio and the
+specified recovered-to-original output equivalence.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (a b : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) (hab : LT.lt.{0} a b)
+  (hp :
+    ∀ (x : alpha),
+      Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) a) 0 ↔
+        Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) b) 0),
+  ¬PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+    ¬PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.ppm.{u} S hS a b hab hp))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.vpm_not_isPerfectlyRepresentable"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/Preservation.lean#L1229">Source line 1229</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.vpm_not_isPerfectlyRepresentable"><code>PerfectFunctionalRepresentations.MatrixOperations.vpm_not_isPerfectlyRepresentable</code></a></h2><pre class="api-docstring">Legal VPM preserves nonperfectness by VPS with its remembered support mask
+and the specified recovered-to-original output equivalence.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (a b : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) (hab : LT.lt.{0} a b)
+  (hv :
+    Eq.{1}
+      (PerfectFunctionalRepresentations.columnValue.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) a))
+      (PerfectFunctionalRepresentations.columnValue.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) b)))
+  (hd :
+    ∀ (x : alpha),
+      Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) a) 0 →
+        Eq.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) b) 0),
+  ¬PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+    ¬PerfectFunctionalRepresentations.IsPerfectlyRepresentableChannel.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.vpm.{u} S hS a b hab hv hd))</code></pre></article></main>
+<footer class="site-footer"><div class="wrap footer-inner"><p>PFR API · LeanInfoTheory v0.1.0 · Lean 4.33.1<br>Generated from Lean; no dependency upgrade.</p><div class="footer-links"><a href="index.html">API index</a><a href="../discussion.html#limitations">Limitations</a><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">Repository</a></div></div></footer>
+</body></html>

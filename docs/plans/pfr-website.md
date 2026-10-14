@@ -1,6 +1,6 @@
 # PFR Research Website Plan
 
-**Status: Complete, 2026-10-14.** The lead authorized building the research website
+**Status: Initial delivery complete; structure/palette extension active, 2026-10-14.** The lead authorized building the research website
 and requested a detailed plan followed by implementation when practical. This
 plan records that bounded website task, not a new mathematical chunk. Baseline:
 `da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence is recorded below and in the project log; the execution
@@ -160,3 +160,53 @@ site, tools, workflows, Lean sources and dependency pins remain the tested versi
 The [project-log entry](../project-log.md#research-website) records delivery.
 Approved paper metadata remains a separate, already recorded follow-up—not an
 unfinished website implementation requirement.
+
+## Approved structure and palette extension — 2026-10-14
+
+The lead requested the overview / mathematical blueprint / generated API
+structure discussed after the initial delivery, using LeanInfoTheory's colors
+rather than the Fermat project's appearance. Baseline: `ec9bc5d`. This extension
+supersedes the four-page navigation and warm-paper palette, not the completed
+W01–W04 evidence. It does not change mathematical scope or dependency pins.
+
+- **W05 Presentation:** retain the existing results, discussion and reproduction
+  material; introduce clear overview, blueprint and API entry points. Use the
+  LeanInfoTheory site's blue–green gradient, blue links and white background,
+  with accessible contrast and the existing readable research typography.
+- **W06 Blueprint:** original expository statements, proof ideas and source links
+  for Definitions 1–4, Lemmas 1–6, Theorems 1–2 and Corollary 1. An accessible
+  dependency guide must distinguish conceptual structure from exact compiler
+  dependencies; in particular, Theorem 1 does not invoke the general Lemma 4
+  normalizer. Preserve nearby assumptions and omission/scope links.
+- **W07 API:** generate searchable PFR declaration pages from the installed Lean
+  environment, including exact elaborated types, available docstrings, module
+  ownership and source links. Exclude private/compiler-generated/test-only
+  declarations and describe that boundary. This is a PFR API browser, not a
+  replacement for LeanInfoTheory/mathlib documentation. Use isolated tooling;
+  preserve the root toolchain, manifest, dependency configuration and Lean files.
+  Prefer a small compiler exporter over the compatible but much larger doc-gen4
+  dependency closure; do not present regex-extracted signatures as compiler data.
+- **W08 Verification/delivery:** test generation and stale-source checks, website
+  safety/link gates, search and keyboard behavior, responsive layouts and
+  no-JavaScript reading. Independently review content and exporter boundaries.
+  Validate the default Lean build and existing public gate, reconcile canonical
+  documentation, publish only intended site content through the existing Pages
+  workflow and verify deployed pages. Record actual results separately from
+  acceptance criteria. No new library dependency or external runtime asset.
+
+Generated API data must be reproducible from the recorded mathematical snapshot.
+Any change to Lean source requires regeneration and refreshed source identities.
+Routine website builds should not install a second Lean toolchain or rebuild a
+new dependency graph merely to change presentation.
+
+W05–W07 and local W08 validation are complete. The site guard verifies 33 HTML
+pages and 4,715 links/assets, including 34 human source anchors and 31 direct
+blueprint-to-API links. Fourteen API tests pass; the 23 website tests have 22
+passes and one Windows symlink-privilege skip. Fresh compiler generation and a
+separate `--check` agree exactly on 992 entries across 27 modules (2,794 build
+jobs), with all ten installed dependency identities/clean tracked trees checked
+before and after export. The existing default build and public static gate pass.
+Browser checks cover eight representative pages at four widths and search,
+keyboard, disclosures, no-JavaScript reading and clipboard success/fallback.
+Independent content/tooling review has no unresolved blocker. Hosted delivery
+and final live verification remain to be recorded below.

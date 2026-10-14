@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 330" role="img" aria-labelledby="title desc">
 <title id="title">An independent auxiliary and an input determine the output</title>
 <desc id="desc">X and Z are independent. Both feed a deterministic decoder f, producing Y. A perfect representation attains I(Y;Z) = H(Y given X).</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10" fill="none" stroke="#1c6557" stroke-width="1.5"/></marker></defs>
-<g fill="none" stroke="#1c6557" stroke-width="1.4"><path d="M103 106H180Q205 106 205 131V155" marker-end="url(#arrow)"/><path d="M337 106H260Q235 106 235 131V155" marker-end="url(#arrow)"/><path d="M220 203V246" marker-end="url(#arrow)"/><path d="M115 65H325" stroke-dasharray="2 6" stroke="#91a79a"/></g>
-<circle cx="80" cy="106" r="28" fill="#fffef9" stroke="#1c6557"/><circle cx="360" cy="106" r="28" fill="#fffef9" stroke="#1c6557"/>
-<rect x="173" y="158" width="94" height="45" rx="2" fill="#18322f"/>
-<circle cx="220" cy="274" r="27" fill="#fffef9" stroke="#1c6557"/>
-<g font-family="Georgia,serif" font-size="28" text-anchor="middle" fill="#18322f"><text x="80" y="115">X</text><text x="360" y="115">Z</text><text x="220" y="283">Y</text><text x="220" y="188" fill="#fffef9" font-style="italic">f</text></g>
-<g font-family="system-ui,sans-serif" font-size="11" text-anchor="middle" fill="#536660"><text x="80" y="157">INPUT</text><text x="360" y="157">AUXILIARY</text><text x="220" y="45">X ⟂ Z · INDEPENDENT</text><text x="310" y="186">deterministic</text><text x="220" y="322">OUTPUT</text></g>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10" fill="none" stroke="#1e6bb8" stroke-width="1.5"/></marker></defs>
+<g fill="none" stroke="#1e6bb8" stroke-width="1.4"><path d="M103 106H180Q205 106 205 131V155" marker-end="url(#arrow)"/><path d="M337 106H260Q235 106 235 131V155" marker-end="url(#arrow)"/><path d="M220 203V246" marker-end="url(#arrow)"/><path d="M115 65H325" stroke-dasharray="2 6" stroke="#159957"/></g>
+<circle cx="80" cy="106" r="28" fill="#fff" stroke="#1e6bb8"/><circle cx="360" cy="106" r="28" fill="#fff" stroke="#159957"/>
+<rect x="173" y="158" width="94" height="45" rx="2" fill="#155799"/>
+<circle cx="220" cy="274" r="27" fill="#fff" stroke="#1e6bb8"/>
+<g font-family="Georgia,serif" font-size="28" text-anchor="middle" fill="#31444d"><text x="80" y="115">X</text><text x="360" y="115">Z</text><text x="220" y="283">Y</text><text x="220" y="188" fill="#fff" font-style="italic">f</text></g>
+<g font-family="system-ui,sans-serif" font-size="11" text-anchor="middle" fill="#606c71"><text x="80" y="157">INPUT</text><text x="360" y="157">AUXILIARY</text><text x="220" y="45">X ⟂ Z · INDEPENDENT</text><text x="310" y="186">deterministic</text><text x="220" y="322">OUTPUT</text></g>
 </svg>

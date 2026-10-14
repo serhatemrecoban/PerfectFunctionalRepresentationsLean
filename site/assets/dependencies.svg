@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 820" role="img" aria-labelledby="title desc">
+  <title id="title">PFR mathematical dependency guide</title>
+  <desc id="desc">An expository guide, not a compiler graph. Representation identities and canonicalization support the binary optimum, whose equality case uses singularity. Column operations support a finite-certificate normal form and preservation; preservation with canonical witnesses supports the constructive characterization. Partition incidence connects perfectness to equality feasibility, then primal and dual criteria.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#547383"/></marker>
+    <style>
+      text { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; fill: #31444d; }
+      .lane { fill: #f5f9fc; stroke: #dce6ea; }
+      .node { fill: #fff; stroke: #7da6c8; stroke-width: 1.5; }
+      .result { fill: #f0faf5; stroke: #159957; stroke-width: 1.5; }
+      .heading { font-size: 18px; font-weight: 650; fill: #155799; }
+      .label { font-size: 18px; font-weight: 600; }
+      .small { font-size: 15px; fill: #53666e; }
+      .edge { fill: none; stroke: #547383; stroke-width: 2; marker-end: url(#arrow); }
+      .extra { stroke-dasharray: 5 5; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1098" height="818" rx="8" fill="#fff" stroke="#dce6ea"/>
+  <text x="30" y="38" class="heading">Three strands of the formalized argument</text>
+  <text x="30" y="66" class="small">Selected mathematical ingredients · not an exact compiler-dependency graph</text>
+  <rect class="lane" x="24" y="90" width="1052" height="208" rx="6"/>
+  <text x="44" y="120" class="heading">1. Representations and binary information</text>
+  <rect class="node" x="44" y="141" width="270" height="74" rx="5"/>
+  <text class="label" x="62" y="170">Definition 1 + identity</text><text class="small" x="62" y="195">Canonical decoder vectors</text>
+  <path class="edge" d="M314 178 H378"/>
+  <rect class="node" x="386" y="141" width="270" height="74" rx="5"/>
+  <text class="label" x="404" y="170">Lemma 1</text><text class="small" x="404" y="195">Information-preserving replacement</text>
+  <path class="edge" d="M656 178 H720"/>
+  <rect class="result" x="728" y="141" width="328" height="74" rx="5"/>
+  <text class="label" x="746" y="170">Lemma 3 · binary optimum</text><text class="small" x="746" y="195">Canonicalization + maximal coupling</text>
+  <text class="small" x="62" y="253">Definitions 2–3 → Lemma 2: singularity</text>
+  <path class="edge extra" d="M430 248 H890 V220"/>
+  <text class="small" x="530" y="273">Equality-case ingredient</text>
+  <rect class="lane" x="24" y="317" width="1052" height="272" rx="6"/>
+  <text x="44" y="347" class="heading">2. Legal operations, finite certificates and preservation</text>
+  <rect class="node" x="44" y="370" width="270" height="74" rx="5"/>
+  <text class="label" x="62" y="399">Definition 4 + operations</text><text class="small" x="62" y="424">Values, patterns, split and merge</text>
+  <path class="edge" d="M314 407 H378"/>
+  <rect class="result" x="386" y="370" width="270" height="74" rx="5"/>
+  <text class="label" x="404" y="399">Lemma 4 · normal form</text><text class="small" x="404" y="424">Finite-certificate construction</text>
+  <path class="edge" d="M179 444 V480"/>
+  <rect class="node" x="44" y="488" width="270" height="74" rx="5"/>
+  <text class="label" x="62" y="517">Lemma 5 · preservation</text><text class="small" x="62" y="542">Transport the perfect witness</text>
+  <path class="edge" d="M314 525 H378"/>
+  <rect class="node" x="386" y="488" width="270" height="74" rx="5"/>
+  <text class="label" x="404" y="517">Lemma 6 · nonperfectness</text><text class="small" x="404" y="542">Preservation + witnessed inverses</text>
+  <path class="edge" d="M656 525 H720"/>
+  <rect class="result" x="728" y="488" width="328" height="74" rx="5"/>
+  <text class="label" x="746" y="517">Theorem 1 · construction</text><text class="small" x="746" y="542">Also uses canonical witnesses</text>
+  <text class="small" x="746" y="393">Theorem 1 builds its own stages;</text>
+  <text class="small" x="746" y="417">no general normalizer is required.</text>
+  <rect class="lane" x="24" y="609" width="1052" height="187" rx="6"/>
+  <text x="44" y="639" class="heading">3. Partition incidence and exact optimization criteria</text>
+  <rect class="node" x="44" y="662" width="270" height="78" rx="5"/>
+  <text class="label" x="62" y="692">Equality feasibility</text><text class="small" x="62" y="717">Compression + partition incidence</text>
+  <path class="edge" d="M314 701 H378"/>
+  <rect class="result" x="386" y="662" width="270" height="78" rx="5"/>
+  <text class="label" x="404" y="692">Theorem 2 · primal</text><text class="small" x="404" y="717">Normalization + slack saturation</text>
+  <path class="edge" d="M656 701 H720"/>
+  <rect class="result" x="728" y="662" width="328" height="78" rx="5"/>
+  <text class="label" x="746" y="692">Corollary 1 · dual</text><text class="small" x="746" y="717">Weak duality + strict separation</text>
+  <text class="small" x="44" y="773">All arrows omit routine bridges and auxiliary results. Exact scope accompanies each statement below.</text>
+</svg>

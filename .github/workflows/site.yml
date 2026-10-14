@@ -3,9 +3,9 @@ name: Research website
 on:
   push:
     branches: [master]
-    paths: ['site/**', 'tools/check_website.py', 'tools/test_website.py', '.github/workflows/site.yml']
+    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/check_public_build.py', 'tools/check_website.py', 'tools/test_website.py', '.github/workflows/site.yml']
   pull_request:
-    paths: ['site/**', 'tools/check_website.py', 'tools/test_website.py', '.github/workflows/site.yml']
+    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/check_public_build.py', 'tools/check_website.py', 'tools/test_website.py', '.github/workflows/site.yml']
   workflow_dispatch:
 
 permissions:
@@ -26,6 +26,10 @@ jobs:
           persist-credentials: false
       - name: Test website guard
         run: python3 -B tools/test_website.py
+      - name: Test API exporter guards and verify generated payload freshness
+        run: |
+          python3 -B tools/test_generate_api.py
+          python3 -B tools/generate_api.py --check-render
       - name: Validate public payload and pinned source links
         run: python3 -B tools/check_website.py
       - name: Upload only the website
@@ -35,9 +39,36 @@ jobs:
           path: site
           retention-days: 1
 
+  verify-api:
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install the existing pinned Lean toolchain
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1
+        with:
+          auto-config: "false"
+          build: "false"
+          test: "false"
+          lint: "false"
+          use-mathlib-cache: "false"
+          use-github-cache: "false"
+      - name: Fetch public mathlib release artifacts
+        run: lake exe cache get --cache-from=master,legacy
+      - name: Re-export from Lean and compare the complete generated API
+        run: python3 -B tools/generate_api.py --check
+      - name: Verify the checkout stayed clean
+        run: |
+          git diff --exit-code
+          test -z "$(git ls-files --others --exclude-standard)"
+
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-    needs: validate
+    needs: [validate, verify-api]
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:

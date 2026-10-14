@@ -147,3 +147,10 @@ verified source/coverage and original explanations, not redistribution of local
 papers or annotations, new mathematics, dependency upgrades or unverified
 publication metadata. Current deployment evidence belongs in the readiness
 record.
+
+The subsequent website refinement authorizes an overview, original mathematical
+blueprint and compiler-generated PFR API, with LeanInfoTheory's blue–green
+palette. The blueprint is explanatory rather than a claim that its diagram is
+an exact compiler proof graph. The API documents this project's public surface,
+not a newly maintained copy of its dependencies. Existing manuscript, scope,
+attribution and immutable-version boundaries remain unchanged.

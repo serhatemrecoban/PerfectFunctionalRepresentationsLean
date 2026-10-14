@@ -169,7 +169,7 @@ Discussion section, and requested a detailed plan with implementation when
 practical. The [website plan](plans/pfr-website.md) records scope, design,
 acceptance and maintenance. This supersedes the earlier suggestions-only phase.
 
-The site has four pages: Overview, Results, Discussion, and Reproduce & cite.
+The initial site had four pages: Overview, Results, Discussion, and Reproduce & cite.
 Discussion covers finite auxiliaries and support, constructive normalization,
 LP indexing, exact manuscript scope and measured library reuse. It is authored
 explanatory content, not a comments service. Paper credits remain separate from
@@ -224,6 +224,68 @@ all 56 modules (2,823 jobs), default target (2,762 jobs), eleven public-build ga
 tests, all ten installed pins and clean checkout. No Lean source, dependency or
 toolchain change was made. The closing evidence-only documentation commit leaves
 all tested site, tools, workflows and mathematical sources unchanged.
+
+### Blueprint, API and palette extension — 2026-10-14
+
+The lead subsequently requested the conventional overview / mathematical
+blueprint / generated API structure, with LeanInfoTheory's blue–green palette.
+The original four pages remain, supplemented by `site/blueprint/index.html` and
+a generated PFR-only reference under `site/api/`. The new blueprint contains
+original explanations of Definitions 1–4, Lemmas 1–6, Theorems 1–2 and Corollary 1.
+Its diagram is explicitly expository, not a compiler-extracted dependency graph.
+Finite auxiliaries, support, active operations and corrected LP coordinates
+remain qualified. No local paper text or files are distributed.
+
+The API currently contains 992 entries over 27 modules. Lean's elaborated
+environment supplies types, docstrings, owner modules and source ranges; the
+compiler's source index independently checks authored-declaration inclusion.
+The boundary includes public production declarations and the deliberate four-name
+counterexample API, with constructors/projections, but excludes private proof
+machinery, tests and private demonstration fixtures. It does not duplicate
+dependency documentation or claim doc-gen4's linked-type/instance navigation.
+All type output is escaped, and search filters an existing local DOM without
+network requests. Source docstrings may contain historical development wording;
+the site identifies them as source text, not new status claims.
+
+`tools/generate_api.py` owns reproducible generation using the existing toolchain;
+`--check` rebuilds the selected modules, verifies the installed dependency Git
+revisions/clean tracked trees before and after export, and compares the complete
+generated payload. `--check-render` checks source/configuration/tool hashes and
+deterministic rendering without a compiler; it is explicitly not a replacement
+for the full check. Both modes require the exact pinned mathematical snapshot.
+The Pages workflow now waits for the compiler-backed check on the same commit
+before deployment. An independent review identified and closed an earlier draft
+gap in which only the faster static check gated deployment.
+
+This avoids introducing doc-gen4 and its large generated dependency closure:
+the pinned LeanInfoTheory documentation establishes a compatible isolated route,
+but a focused PFR reference is sufficient here. The exporter is original tooling;
+no external formalization implementation is copied. The root dependency manifest,
+toolchain and mathematical Lean source remain unchanged.
+
+Local extension checks passed: fourteen API fixture tests, 23 website fixture
+tests (22 pass; one Windows symlink-privilege skip), default Lean build, public
+static gate and eleven public-build tests. Browser checks cover eight representative
+pages at 1440/768/390/320 px, keyboard entry, disclosures, clipboard success/fallback,
+no-JavaScript reading and API search/zero-result/reset/deep-link behavior. Visual
+inspection includes the overview, blueprint/diagram, API index and theorem pages.
+The final source/render guard checks 33 pages and 4,715 links/assets, including
+34 human source anchors and 31 direct blueprint-to-API links. Fresh generation
+and a separate compiler-backed `--check` agree exactly (2,794 build jobs and all
+ten installed pins verified). The final hosted delivery evidence will be recorded
+after publication; local success alone does not establish deployment.
+
+For API maintenance, add these commands to the existing site checks:
+
+```text
+python -B tools/test_generate_api.py
+python -B tools/generate_api.py --check
+```
+
+Run without `--check` only when intentionally regenerating the reference after
+reviewing its source/tooling change. Unexpected output files are refused, not
+silently removed. Changes to the public API source snapshot require an explicit
+re-pin of the exporter and human-source-link manifest with revalidation.
 
 A later LeanInfoTheory release may celebrate this completed downstream case
 study. That announcement should explicitly say **built against v0.1.0**; neither

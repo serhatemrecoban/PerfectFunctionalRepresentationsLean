@@ -208,6 +208,23 @@ class WebsiteTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             gate.git_source(self.commit, self.file, self.root)
 
+    def test_api_links_require_separate_verified_inventory(self):
+        (self.site / "api").mkdir()
+        api_url = self.url.replace("#L2", "#L3")
+        self.write("index.html", self.html.replace('</main>', f'<a href="{api_url}">API source</a></main>'))
+        with patch.object(gate, "check_api_source_links", return_value={api_url}) as verify:
+            self.check()
+            verify.assert_called_once()
+        with patch.object(gate, "check_api_source_links", return_value=set()):
+            with self.assertRaisesRegex(ValueError, "Unregistered"):
+                self.check()
+
+    def test_api_inventory_failure_blocks_site(self):
+        (self.site / "api").mkdir()
+        with patch.object(gate, "check_api_source_links", side_effect=ValueError("API source drift")):
+            with self.assertRaisesRegex(ValueError, "API source drift"):
+                self.check()
+
 
 if __name__ == "__main__":
     unittest.main()

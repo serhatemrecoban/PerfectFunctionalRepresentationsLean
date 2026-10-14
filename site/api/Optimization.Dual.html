@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Compiler-generated PFR API reference with precise types, documentation and commit-pinned source links.">
+<meta name="theme-color" content="#155799"><link rel="canonical" href="https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/api/Optimization.Dual.html">
+<title>PerfectFunctionalRepresentations.Optimization.Dual · PFR API</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="api.css"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html"><span class="monogram" aria-hidden="true">PFR</span><span class="brand-name">Perfect Functional<br>Representations</span></a>
+<nav class="nav" aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../blueprint/index.html">Blueprint</a><a href="index.html" aria-current="page">Lean API</a><a href="../discussion.html">Discussion</a><a href="../reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">GitHub</a></nav></div></header>
+<main id="main" class="wrap api-page"><div class="page-intro"><p class="eyebrow">Module reference</p><h1><code>Optimization.Dual</code></h1>
+<p class="lead">17 public reference entries.</p><pre><code>import PerfectFunctionalRepresentations.Optimization.Dual</code></pre>
+<p><a href="index.html">All modules &amp; search</a> · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L1">Module source</a></p></div><nav class="api-module-contents" aria-label="Module declarations"><details><summary>Declarations in this module</summary><ul><li><a href="#PerfectFunctionalRepresentations.Dual.Feasible"><code>Dual.Feasible</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.objective"><code>Dual.objective</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.feasibleSet"><code>Dual.feasibleSet</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.objectiveValues"><code>Dual.objectiveValues</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.objective_zero"><code>Dual.objective_zero</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.objective_nonneg"><code>Dual.objective_nonneg</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.weak_duality"><code>Dual.weak_duality</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.rowWitness"><code>Dual.rowWitness</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.transpose_mulVec_rowWitness"><code>Dual.transpose_mulVec_rowWitness</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.objective_rowWitness"><code>Dual.objective_rowWitness</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.feasible_rowWitness"><code>Dual.feasible_rowWitness</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.one_mem_objectiveValues"><code>Dual.one_mem_objectiveValues</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.feasible_zero_of_isEmpty"><code>Dual.feasible_zero_of_isEmpty</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.transpose_mulVec_reindex"><code>Dual.transpose_mulVec_reindex</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.feasible_reindex_iff"><code>Dual.feasible_reindex_iff</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.objective_reindex"><code>Dual.objective_reindex</code></a></li><li><a href="#PerfectFunctionalRepresentations.Dual.objectiveValues_reindex"><code>Dual.objectiveValues_reindex</code></a></li></ul></details></nav><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.Feasible"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L40">Source line 40</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.Feasible"><code>PerfectFunctionalRepresentations.Dual.Feasible</code></a></h2><pre class="api-docstring">Nonnegative pattern coordinates whose sum on every admissible partition is at least one.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{α : Type u} →
+  [inst : Fintype.{u} α] →
+    [inst_1 : Nonempty.{u + 1} α] →
+      (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) →
+        (PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ) → Prop</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.objective"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L44">Source line 44</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.objective"><code>PerfectFunctionalRepresentations.Dual.objective</code></a></h2><pre class="api-docstring">The dual objective is the dot product with the occurring-pattern values.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{α : Type u} →
+  [inst : Fintype.{u} α] →
+    [inst_1 : Nonempty.{u + 1} α] →
+      (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) →
+        (PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ) → ℝ</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.feasibleSet"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L47">Source line 47</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.feasibleSet"><code>PerfectFunctionalRepresentations.Dual.feasibleSet</code></a></h2><pre class="api-docstring">All reduced dual-feasible pattern vectors.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{α : Type u} →
+  [inst : Fintype.{u} α] →
+    [inst_1 : Nonempty.{u + 1} α] →
+      (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) →
+        Set.{u} (PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.objectiveValues"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L50">Source line 50</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.objectiveValues"><code>PerfectFunctionalRepresentations.Dual.objectiveValues</code></a></h2><pre class="api-docstring">Values actually attained by the dual objective on feasible vectors.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{α : Type u} →
+  [inst : Fintype.{u} α] →
+    [inst_1 : Nonempty.{u + 1} α] → PerfectFunctionalRepresentations.CompressedPatternData.{u} α → Set.{0} ℝ</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.objective_zero"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L54">Source line 54</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.objective_zero"><code>PerfectFunctionalRepresentations.Dual.objective_zero</code></a></h2><pre class="api-docstring">The zero pattern vector has objective zero for every valid datum.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α),
+  Eq.{1} (PerfectFunctionalRepresentations.Dual.objective.{u} D fun x =&gt; 0) 0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.objective_nonneg"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L58">Source line 58</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.objective_nonneg"><code>PerfectFunctionalRepresentations.Dual.objective_nonneg</code></a></h2><pre class="api-docstring">Every dual-feasible objective is nonnegative.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α)
+  {y : PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ},
+  PerfectFunctionalRepresentations.Dual.Feasible.{u} D y →
+    LE.le.{0} 0 (PerfectFunctionalRepresentations.Dual.objective.{u} D y)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.weak_duality"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L63">Source line 63</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.weak_duality"><code>PerfectFunctionalRepresentations.Dual.weak_duality</code></a></h2><pre class="api-docstring">Every primal-feasible value is bounded above by every dual-feasible value.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α)
+  {x : PerfectFunctionalRepresentations.Incidence.AdmissiblePartition.{u} D → ℝ}
+  {y : PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ},
+  PerfectFunctionalRepresentations.Primal.Feasible.{u} D x →
+    PerfectFunctionalRepresentations.Dual.Feasible.{u} D y →
+      LE.le.{0} (PerfectFunctionalRepresentations.Primal.objective.{u} D x)
+        (PerfectFunctionalRepresentations.Dual.objective.{u} D y)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.rowWitness"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L80">Source line 80</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.rowWitness"><code>PerfectFunctionalRepresentations.Dual.rowWitness</code></a></h2><pre class="api-docstring">The indicator of the occurring patterns containing a supplied input.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{α : Type u} →
+  [inst : Fintype.{u} α] →
+    [inst_1 : Nonempty.{u + 1} α] →
+      (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) →
+        α → PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.transpose_mulVec_rowWitness"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L83">Source line 83</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.transpose_mulVec_rowWitness"><code>PerfectFunctionalRepresentations.Dual.transpose_mulVec_rowWitness</code></a></h2><pre class="api-docstring">Every input-row witness makes all dual incidence constraints equalities.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) (i : α),
+  Eq.{u + 1}
+    (Matrix.mulVec.{0, u, u}
+      (Matrix.transpose.{0, u, u} (PerfectFunctionalRepresentations.Incidence.reducedMatrix.{u} D))
+      (PerfectFunctionalRepresentations.Dual.rowWitness.{u} D i))
+    fun x =&gt; 1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.objective_rowWitness"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L91">Source line 91</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.objective_rowWitness"><code>PerfectFunctionalRepresentations.Dual.objective_rowWitness</code></a></h2><pre class="api-docstring">Every input-row witness has objective one by row-wise value normalization.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) (i : α),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.Dual.objective.{u} D
+      (PerfectFunctionalRepresentations.Dual.rowWitness.{u} D i))
+    1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.feasible_rowWitness"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L96">Source line 96</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.feasible_rowWitness"><code>PerfectFunctionalRepresentations.Dual.feasible_rowWitness</code></a></h2><pre class="api-docstring">Every input supplies a dual-feasible row witness, even with no partition columns.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) (i : α),
+  PerfectFunctionalRepresentations.Dual.Feasible.{u} D
+    (PerfectFunctionalRepresentations.Dual.rowWitness.{u} D i)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.one_mem_objectiveValues"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L101">Source line 101</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.one_mem_objectiveValues"><code>PerfectFunctionalRepresentations.Dual.one_mem_objectiveValues</code></a></h2><pre class="api-docstring">One is an attained dual objective value for every valid compressed datum.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α),
+  Membership.mem.{0, 0} (PerfectFunctionalRepresentations.Dual.objectiveValues.{u} D) 1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.feasible_zero_of_isEmpty"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L106">Source line 106</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.feasible_zero_of_isEmpty"><code>PerfectFunctionalRepresentations.Dual.feasible_zero_of_isEmpty</code></a></h2><pre class="api-docstring">With no admissible partition, the zero vector satisfies all dual constraints vacuously.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α)
+  [IsEmpty.{u + 1} (PerfectFunctionalRepresentations.Incidence.AdmissiblePartition.{u} D)],
+  PerfectFunctionalRepresentations.Dual.Feasible.{u} D fun x =&gt; 0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.transpose_mulVec_reindex"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L112">Source line 112</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.transpose_mulVec_reindex"><code>PerfectFunctionalRepresentations.Dual.transpose_mulVec_reindex</code></a></h2><pre class="api-docstring">Transpose multiplication transports a dual vector through independent finite
+presentations; transposition swaps the row and column equivalences.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α)
+  (y : PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ) {m n : ℕ}
+  (rows : Equiv.{u + 1, 1} (PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D) (Fin m))
+  (cols : Equiv.{u + 1, 1} (PerfectFunctionalRepresentations.Incidence.AdmissiblePartition.{u} D) (Fin n)),
+  Eq.{1}
+    (Matrix.mulVec.{0, 0, 0}
+      (Matrix.transpose.{0, 0, 0}
+        ((Matrix.reindex.{0, 0, u, u, 0} rows cols)
+          (PerfectFunctionalRepresentations.Incidence.reducedMatrix.{u} D)))
+      (Function.comp.{1, u + 1, 1} y ⇑(Equiv.symm.{u + 1, 1} rows)))
+    (Function.comp.{1, u + 1, 1}
+      (Matrix.mulVec.{0, u, u}
+        (Matrix.transpose.{0, u, u} (PerfectFunctionalRepresentations.Incidence.reducedMatrix.{u} D)) y)
+      ⇑(Equiv.symm.{u + 1, 1} cols))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.feasible_reindex_iff"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L121">Source line 121</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.feasible_reindex_iff"><code>PerfectFunctionalRepresentations.Dual.feasible_reindex_iff</code></a></h2><pre class="api-docstring">Independent finite presentations preserve all dual feasibility inequalities,
+with the inverse vector transport covering every finite vector.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α)
+  (y : PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ) {m n : ℕ}
+  (rows : Equiv.{u + 1, 1} (PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D) (Fin m))
+  (cols : Equiv.{u + 1, 1} (PerfectFunctionalRepresentations.Incidence.AdmissiblePartition.{u} D) (Fin n)),
+  PerfectFunctionalRepresentations.Dual.Feasible.{u} D y ↔
+    (∀ (i : Fin m), LE.le.{0} 0 (Function.comp.{1, u + 1, 1} y (⇑(Equiv.symm.{u + 1, 1} rows)) i)) ∧
+      ∀ (j : Fin n),
+        LE.le.{0} 1
+          (Matrix.mulVec.{0, 0, 0}
+            (Matrix.transpose.{0, 0, 0}
+              ((Matrix.reindex.{0, 0, u, u, 0} rows cols)
+                (PerfectFunctionalRepresentations.Incidence.reducedMatrix.{u} D)))
+            (Function.comp.{1, u + 1, 1} y ⇑(Equiv.symm.{u + 1, 1} rows)) j)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.objective_reindex"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L139">Source line 139</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.objective_reindex"><code>PerfectFunctionalRepresentations.Dual.objective_reindex</code></a></h2><pre class="api-docstring">Reindexing pattern values and dual coordinates preserves their dot product.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α)
+  (y : PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D → ℝ) {m : ℕ}
+  (rows : Equiv.{u + 1, 1} (PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D) (Fin m)),
+  Eq.{1}
+    (dotProduct.{0, 0}
+      (Function.comp.{1, u + 1, 1} (PerfectFunctionalRepresentations.CompressedPatternData.value.{u} D)
+        ⇑(Equiv.symm.{u + 1, 1} rows))
+      (Function.comp.{1, u + 1, 1} y ⇑(Equiv.symm.{u + 1, 1} rows)))
+    (PerfectFunctionalRepresentations.Dual.objective.{u} D y)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.Dual.objectiveValues_reindex"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Optimization/Dual.lean#L149">Source line 149</a></p><h2><a href="#PerfectFunctionalRepresentations.Dual.objectiveValues_reindex"><code>PerfectFunctionalRepresentations.Dual.objectiveValues_reindex</code></a></h2><pre class="api-docstring">The entire finite-coordinate attained objective image equals the intrinsic
+image. The inverse vector `z ∘ rows` covers every finite vector, including when
+the partition presentation has no coordinates.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {α : Type u} [inst : Fintype.{u} α] [inst_1 : Nonempty.{u + 1} α]
+  (D : PerfectFunctionalRepresentations.CompressedPatternData.{u} α) {m n : ℕ}
+  (rows : Equiv.{u + 1, 1} (PerfectFunctionalRepresentations.Incidence.OccurringPattern.{u} D) (Fin m))
+  (cols : Equiv.{u + 1, 1} (PerfectFunctionalRepresentations.Incidence.AdmissiblePartition.{u} D) (Fin n)),
+  Eq.{1}
+    (Set.image.{0, 0}
+      (fun z =&gt;
+        dotProduct.{0, 0}
+          (Function.comp.{1, u + 1, 1} (PerfectFunctionalRepresentations.CompressedPatternData.value.{u} D)
+            ⇑(Equiv.symm.{u + 1, 1} rows))
+          z)
+      (Set.ofPred.{0} fun z =&gt;
+        (∀ (i : Fin m), LE.le.{0} 0 (z i)) ∧
+          ∀ (j : Fin n),
+            LE.le.{0} 1
+              (Matrix.mulVec.{0, 0, 0}
+                (Matrix.transpose.{0, 0, 0}
+                  ((Matrix.reindex.{0, 0, u, u, 0} rows cols)
+                    (PerfectFunctionalRepresentations.Incidence.reducedMatrix.{u} D)))
+                z j)))
+    (PerfectFunctionalRepresentations.Dual.objectiveValues.{u} D)</code></pre></article></main>
+<footer class="site-footer"><div class="wrap footer-inner"><p>PFR API · LeanInfoTheory v0.1.0 · Lean 4.33.1<br>Generated from Lean; no dependency upgrade.</p><div class="footer-links"><a href="index.html">API index</a><a href="../discussion.html#limitations">Limitations</a><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">Repository</a></div></div></footer>
+</body></html>

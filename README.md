@@ -88,7 +88,7 @@ validation. Historical chunk acceptance and validation remain available in the
 | Evidence, history and agent workflow | [Implementation notes](docs/pfr-c16-implementation-notes.md), [project log](docs/project-log.md), [AGENTS.md](AGENTS.md) |
 | Measured LeanInfoTheory reuse | [Complete declaration list](output/reuse-audit/leaninfotheory-pfr-reuse-list.txt), [evidence and source locations](output/reuse-audit/leaninfotheory-pfr-reuse-evidence.json) |
 | Public readiness and scope qualifications | [Publication checks and website status](docs/public-readiness.md) |
-| Research website | [Overview, results, discussion and reproduction](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/), [website plan](docs/plans/pfr-website.md) |
+| Research website | [Overview](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/), [mathematical blueprint](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/blueprint/), [generated PFR API](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/api/), [website plan](docs/plans/pfr-website.md) |
 
 The [root](PerfectFunctionalRepresentations.lean) imports Basic, four semantic
 modules and finite coupling. `Probability/FiniteCouplingDecoding.lean`,
@@ -101,9 +101,12 @@ their original plans, notes and project-log entries.
 ## Website and release
 
 Public repository availability is authorized separately from C16 completion.
-The lead authorized the compact research website on 2026-10-14. Its four pages
-cover the problem, precise theorem links, discussion/limitations and reproduction
-with citation. Source lives in `site/`; the [website plan](docs/plans/pfr-website.md)
+The lead authorized the research website on 2026-10-14 and subsequently requested
+three reading layers: an approachable overview, a mathematical blueprint with
+proof ideas and an expository dependency guide, and a searchable, compiler-generated
+PFR API. Results, discussion/limitations and reproduction with citation remain
+available. Its blue–green palette follows LeanInfoTheory's site. Source lives in
+`site/`; the [website plan](docs/plans/pfr-website.md)
 records design, validation and maintenance. The site is published on GitHub Pages,
 with HTTPS and automated publication checks. Tagged releases, unverified
 metadata and publication-facing omission curation remain separate decisions;

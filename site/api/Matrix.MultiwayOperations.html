@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Compiler-generated PFR API reference with precise types, documentation and commit-pinned source links.">
+<meta name="theme-color" content="#155799"><link rel="canonical" href="https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/api/Matrix.MultiwayOperations.html">
+<title>PerfectFunctionalRepresentations.Matrix.MultiwayOperations · PFR API</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="api.css"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html"><span class="monogram" aria-hidden="true">PFR</span><span class="brand-name">Perfect Functional<br>Representations</span></a>
+<nav class="nav" aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../blueprint/index.html">Blueprint</a><a href="index.html" aria-current="page">Lean API</a><a href="../discussion.html">Discussion</a><a href="../reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">GitHub</a></nav></div></header>
+<main id="main" class="wrap api-page"><div class="page-intro"><p class="eyebrow">Module reference</p><h1><code>Matrix.MultiwayOperations</code></h1>
+<p class="lead">52 public reference entries.</p><pre><code>import PerfectFunctionalRepresentations.Matrix.MultiwayOperations</code></pre>
+<p><a href="index.html">All modules &amp; search</a> · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1">Module source</a></p></div><nav class="api-module-contents" aria-label="Module declarations"><details><summary>Declarations in this module</summary><ul><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult"><code>MatrixOperations.LabelledOperationResult</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.mk"><code>MatrixOperations.LabelledOperationResult.mk</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint"><code>MatrixOperations.LabelledOperationResult.endpoint</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path"><code>MatrixOperations.LabelledOperationResult.path</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.homogeneous"><code>MatrixOperations.LabelledOperationResult.homogeneous</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels"><code>MatrixOperations.LabelledOperationResult.labels</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.coordinates"><code>MatrixOperations.LabelledOperationResult.coordinates</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps"><code>MatrixOperations.multiPps</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.isSingular"><code>MatrixOperations.LabelledOperationResult.isSingular</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputCard"><code>MatrixOperations.LabelledOperationResult.outputCard</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputEquiv"><code>MatrixOperations.LabelledOperationResult.outputEquiv</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.cascade"><code>MatrixOperations.LabelledOperationResult.cascade</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamily"><code>MatrixOperations.multiPpsFamily</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_sum"><code>MatrixOperations.positiveWeights_sum</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_nonempty"><code>MatrixOperations.positiveWeights_nonempty</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_zero_off_range"><code>MatrixOperations.positiveWeights_zero_off_range</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_map"><code>MatrixOperations.positiveWeights_map</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfNonnegative"><code>MatrixOperations.multiPpsOfNonnegative</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfNonnegative"><code>MatrixOperations.multiPpsFamilyOfNonnegative</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfENNReal"><code>MatrixOperations.multiPpsOfENNReal</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfENNReal"><code>MatrixOperations.multiPpsFamilyOfENNReal</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_outputCard"><code>MatrixOperations.multiPps_outputCard</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_length"><code>MatrixOperations.multiPps_length</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_length_singleton"><code>MatrixOperations.multiPps_length_singleton</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue"><code>MatrixOperations.multiPps_columnValue</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue_keep"><code>MatrixOperations.multiPps_columnValue_keep</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern"><code>MatrixOperations.multiPps_columnPattern</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern_keep"><code>MatrixOperations.multiPps_columnPattern_keep</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps"><code>MatrixOperations.multiVps</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVpsFamily"><code>MatrixOperations.multiVpsFamily</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_outputCard"><code>MatrixOperations.multiVps_outputCard</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_length"><code>MatrixOperations.multiVps_length</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_length_singleton"><code>MatrixOperations.multiVps_length_singleton</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue"><code>MatrixOperations.multiVps_columnValue</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue_keep"><code>MatrixOperations.multiVps_columnValue_keep</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern"><code>MatrixOperations.multiVps_columnPattern</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern_keep"><code>MatrixOperations.multiVps_columnPattern_keep</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers"><code>MatrixOperations.multiPpmFibers</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm"><code>MatrixOperations.multiPpm</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmOrEmpty"><code>MatrixOperations.multiPpmOrEmpty</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_outputCard"><code>MatrixOperations.multiPpm_outputCard</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length"><code>MatrixOperations.multiPpm_length</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length_singleton"><code>MatrixOperations.multiPpm_length_singleton</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue"><code>MatrixOperations.multiPpm_columnValue</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue_keep"><code>MatrixOperations.multiPpm_columnValue_keep</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern"><code>MatrixOperations.multiPpm_columnPattern</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern_keep"><code>MatrixOperations.multiPpm_columnPattern_keep</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnValue"><code>MatrixOperations.multiPpmFibers_columnValue</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnPattern"><code>MatrixOperations.multiPpmFibers_columnPattern</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange"><code>MatrixOperations.multiPpmRange</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange_map"><code>MatrixOperations.multiPpmRange_map</code></a></li><li><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_length"><code>MatrixOperations.multiPpmFibers_length</code></a></li></ul></details></nav><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult"><p class="label">structure · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L31">Source line 31</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult</code></a></h2><pre class="api-docstring">A homogeneous operation path with a complete labelled endpoint and exact
+coordinates. The path and its specification belong to the same returned data.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      PerfectFunctionalRepresentations.MatrixOperations.OperationKind →
+        PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha →
+          (L : Type v) → (alpha → L → ENNReal) → Type (max u v)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.mk"><p class="label">constructor · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L31">Source line 31</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.mk"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.mk</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind} →
+        {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} →
+          {L : Type v} →
+            {mass : alpha → L → ENNReal} →
+              (endpoint : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+                (path : PerfectFunctionalRepresentations.MatrixOperations.OperationPath.{u} S endpoint) →
+                  PerfectFunctionalRepresentations.MatrixOperations.OperationPath.Homogeneous.{u} k path →
+                    (labels :
+                        Equiv.{v + 1, 1} L
+                          (Fin
+                            (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} endpoint))) →
+                      (∀ (x : alpha) (l : L),
+                          Eq.{1}
+                            ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} endpoint x)
+                              (labels l))
+                            (mass x l)) →
+                        PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L
+                          mass</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint"><p class="label">projection · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L33">Source line 33</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind} →
+        {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} →
+          {L : Type v} →
+            {mass : alpha → L → ENNReal} →
+              PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L mass →
+                PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path"><p class="label">projection · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L34">Source line 34</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind} →
+        {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} →
+          {L : Type v} →
+            {mass : alpha → L → ENNReal} →
+              (self :
+                  PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L
+                    mass) →
+                PerfectFunctionalRepresentations.MatrixOperations.OperationPath.{u} S
+                  (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+                    self)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.homogeneous"><p class="label">projection · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L35">Source line 35</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.homogeneous"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.homogeneous</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind}
+  {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} {L : Type v}
+  {mass : alpha → L → ENNReal}
+  (self : PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L mass),
+  PerfectFunctionalRepresentations.MatrixOperations.OperationPath.Homogeneous.{u} k
+    (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, v} self)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels"><p class="label">projection · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L36">Source line 36</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind} →
+        {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} →
+          {L : Type v} →
+            {mass : alpha → L → ENNReal} →
+              (self :
+                  PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L
+                    mass) →
+                Equiv.{v + 1, 1} L
+                  (Fin
+                    (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u}
+                      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u,
+                          v}
+                        self)))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.coordinates"><p class="label">projection · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L37">Source line 37</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.coordinates"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.coordinates</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind}
+  {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} {L : Type v}
+  {mass : alpha → L → ENNReal}
+  (self : PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L mass)
+  (x : alpha) (l : L),
+  Eq.{1}
+    ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v} self) x)
+      ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v} self) l))
+    (mass x l)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L193">Source line 193</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps</code></a></h2><pre class="api-docstring">Split one admitted column into an arbitrary finite positive normalized
+family by actual binary PPS operations, retaining every unaffected output.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+            {I : Type v} →
+              [inst_2 : Fintype.{v} I] →
+                (weights : I → NNReal) →
+                  (∀ (i : I), LT.lt.{0} 0 (weights i)) →
+                    Eq.{1} (∑ i, weights i) 1 →
+                      PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                        PerfectFunctionalRepresentations.MatrixOperations.OperationKind.pps S
+                        (Sum.{v, 0} I (Subtype.{1} fun j =&gt; Ne.{1} j l)) fun x =&gt;
+                        Sum.elim.{v, 0, 1}
+                          (fun i =&gt;
+                            HMul.hMul.{0, 0, 0} (↑(weights i))
+                              ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) l))
+                          fun j =&gt; (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) ↑j</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.isSingular"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L314">Source line 314</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.isSingular"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.isSingular</code></a></h2><pre class="api-docstring">Singularity follows along the actual returned path.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind}
+  {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} {L : Type v}
+  {mass : alpha → L → ENNReal}
+  (d : PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L mass),
+  PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v} d))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputCard"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L319">Source line 319</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputCard"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputCard</code></a></h2><pre class="api-docstring">The endpoint has exactly the supplied labels.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind}
+  {S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} {L : Type v}
+  {mass : alpha → L → ENNReal} [inst_2 : Fintype.{v} L]
+  (d : PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L mass),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v} d))
+    (Fintype.card.{v} L)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputEquiv"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L324">Source line 324</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputEquiv"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.outputEquiv</code></a></h2><pre class="api-docstring">Compare the returned endpoint with an independently supplied labelled target.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind} →
+        {S T : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} →
+          {L : Type v} →
+            {mass : alpha → L → ENNReal} →
+              (d :
+                  PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L
+                    mass) →
+                (e :
+                    Equiv.{v + 1, 1} L
+                      (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} T))) →
+                  (∀ (x : alpha) (l : L),
+                      Eq.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} T x) (e l))
+                        (mass x l)) →
+                    PerfectFunctionalRepresentations.MatrixOperations.OutputEquiv.{u}
+                      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u,
+                          v}
+                        d)
+                      T</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.cascade"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L333">Source line 333</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.cascade"><code>PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.cascade</code></a></h2><pre class="api-docstring">The same path followed by its explicit endpoint comparison.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      {k : PerfectFunctionalRepresentations.MatrixOperations.OperationKind} →
+        {S T : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha} →
+          {L : Type v} →
+            {mass : alpha → L → ENNReal} →
+              PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v} k S L mass →
+                (e :
+                    Equiv.{v + 1, 1} L
+                      (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} T))) →
+                  (∀ (x : alpha) (l : L),
+                      Eq.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} T x) (e l))
+                        (mass x l)) →
+                    PerfectFunctionalRepresentations.MatrixOperations.Cascade.{u} S T</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamily"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L341">Source line 341</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamily"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamily</code></a></h2><pre class="api-docstring">Split every source column into its supplied positive normalized family.
+The sigma labels identify both the source column and its chosen child.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          {I : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → Type v} →
+            [inst_2 :
+                (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+                  Fintype.{v} (I j)] →
+              (weights :
+                  (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+                    I j → NNReal) →
+                (∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+                    (i : I j), LT.lt.{0} 0 (weights j i)) →
+                  (∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                      Eq.{1} (∑ i, weights j i) 1) →
+                    PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                      PerfectFunctionalRepresentations.MatrixOperations.OperationKind.pps S
+                      ((j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) ×
+                        I j)
+                      fun x p =&gt;
+                      HMul.hMul.{0, 0, 0} (↑(weights (Sigma.fst.{0, v} p) (Sigma.snd.{0, v} p)))
+                        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x)
+                          (Sigma.fst.{0, v} p))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_sum"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L382">Source line 382</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_sum"><code>PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_sum</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {I : Type v} [inst : Fintype.{v} I] (w : I → NNReal), Eq.{1} (∑ i, w i) 1 → Eq.{1} (∑ i, w ↑i) 1</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_nonempty"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L385">Source line 385</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_nonempty"><code>PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_nonempty</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {I : Type v} [inst : Fintype.{v} I] (w : I → NNReal),
+  Eq.{1} (∑ i, w i) 1 → Nonempty.{max 1 (v + 1)} (Subtype.{v + 1} fun i =&gt; LT.lt.{0} 0 (w i))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_zero_off_range"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L403">Source line 403</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_zero_off_range"><code>PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_zero_off_range</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {I : Type v} (w : I → NNReal), ∀ i ∉ Set.range.{v, v + 1} Subtype.val.{v + 1}, Eq.{1} (w i) 0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_map"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L408">Source line 408</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_map"><code>PerfectFunctionalRepresentations.MatrixOperations.positiveWeights_map</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {I : Type v} (w : I → NNReal) (p : PMF.{v} (Subtype.{v + 1} fun i =&gt; LT.lt.{0} 0 (w i))),
+  (∀ (i : Subtype.{v + 1} fun i =&gt; LT.lt.{0} 0 (w i)), Eq.{1} (p i) ↑(w ↑i)) →
+    ∀ (i : I), Eq.{1} ((PMF.map.{v, v} Subtype.val.{v + 1} p) i) ↑(w i)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfNonnegative"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L446">Source line 446</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfNonnegative"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfNonnegative</code></a></h2><pre class="api-docstring">Ignore exactly the zero-weight labels before splitting a selected column.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+            {I : Type v} →
+              [inst_2 : Fintype.{v} I] →
+                (weights : I → NNReal) →
+                  Eq.{1} (∑ i, weights i) 1 →
+                    PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                      PerfectFunctionalRepresentations.MatrixOperations.OperationKind.pps S
+                      (Sum.{v, 0} (Subtype.{v + 1} fun i =&gt; LT.lt.{0} 0 (weights i))
+                        (Subtype.{1} fun j =&gt; Ne.{1} j l))
+                      fun x =&gt;
+                      Sum.elim.{v, 0, 1}
+                        (fun i =&gt;
+                          HMul.hMul.{0, 0, 0} (↑(weights ↑i))
+                            ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) l))
+                        fun j =&gt; (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) ↑j</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfNonnegative"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L457">Source line 457</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfNonnegative"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfNonnegative</code></a></h2><pre class="api-docstring">The family constructor on the positive support of each supplied family.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          {I : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → Type v} →
+            [inst_2 :
+                (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+                  Fintype.{v} (I j)] →
+              (weights :
+                  (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+                    I j → NNReal) →
+                (∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                    Eq.{1} (∑ i, weights j i) 1) →
+                  PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                    PerfectFunctionalRepresentations.MatrixOperations.OperationKind.pps S
+                    ((j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) ×
+                      Subtype.{v + 1} fun i =&gt; LT.lt.{0} 0 (weights j i))
+                    fun x p =&gt;
+                    HMul.hMul.{0, 0, 0} (↑(weights (Sigma.fst.{0, v} p) ↑(Sigma.snd.{0, v} p)))
+                      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x)
+                        (Sigma.fst.{0, v} p))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfENNReal"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L468">Source line 468</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfENNReal"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpsOfENNReal</code></a></h2><pre class="api-docstring">A normalized ENNReal family is finite-valued. Convert it exactly and retain
+the original positive labels; callers need no extra finiteness premise.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+            {I : Type v} →
+              [inst_2 : Fintype.{v} I] →
+                (weights : I → ENNReal) →
+                  Eq.{1} (∑ i, weights i) 1 →
+                    PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                      PerfectFunctionalRepresentations.MatrixOperations.OperationKind.pps S
+                      (Sum.{v, 0} (Subtype.{v + 1} fun i =&gt; LT.lt.{0} 0 (weights i))
+                        (Subtype.{1} fun j =&gt; Ne.{1} j l))
+                      fun x =&gt;
+                      Sum.elim.{v, 0, 1}
+                        (fun i =&gt;
+                          HMul.hMul.{0, 0, 0} (weights ↑i)
+                            ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) l))
+                        fun j =&gt; (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) ↑j</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfENNReal"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L488">Source line 488</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfENNReal"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpsFamilyOfENNReal</code></a></h2><pre class="api-docstring">Exact ENNReal synthesis for a finite family, on its original positive labels.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          {I : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → Type v} →
+            [inst_2 :
+                (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+                  Fintype.{v} (I j)] →
+              (weights :
+                  (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+                    I j → ENNReal) →
+                (∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                    Eq.{1} (∑ i, weights j i) 1) →
+                  PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                    PerfectFunctionalRepresentations.MatrixOperations.OperationKind.pps S
+                    ((j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) ×
+                      Subtype.{v + 1} fun i =&gt; LT.lt.{0} 0 (weights j i))
+                    fun x p =&gt;
+                    HMul.hMul.{0, 0, 0} (weights (Sigma.fst.{0, v} p) ↑(Sigma.snd.{0, v} p))
+                      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x)
+                        (Sigma.fst.{0, v} p))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps_outputCard"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L525">Source line 525</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_outputCard"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps_outputCard</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) {I : Type v}
+  [inst_2 : Fintype.{v} I] (weights : I → NNReal) (hpos : ∀ (i : I), LT.lt.{0} 0 (weights i))
+  (hsum : Eq.{1} (∑ i, weights i) 1),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+    (HAdd.hAdd.{0, 0, 0}
+      (HSub.hSub.{0, 0, 0} (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) 1)
+      (Fintype.card.{v} I))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps_length"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L532">Source line 532</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_length"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps_length</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) {I : Type v}
+  [inst_2 : Fintype.{v} I] (weights : I → NNReal) (hpos : ∀ (i : I), LT.lt.{0} 0 (weights i))
+  (hsum : Eq.{1} (∑ i, weights i) 1),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.length.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, v}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+    (HSub.hSub.{0, 0, 0} (Fintype.card.{v} I) 1)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps_length_singleton"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L540">Source line 540</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_length_singleton"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps_length_singleton</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) {I : Type v}
+  [inst_2 : Fintype.{v} I] (weights : I → NNReal) (hpos : ∀ (i : I), LT.lt.{0} 0 (weights i))
+  (hsum : Eq.{1} (∑ i, weights i) 1) [Subsingleton.{v + 1} I],
+  Eq.{1}
+    (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.length.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, v}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+    0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L546">Source line 546</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) {I : Type v}
+  [inst_2 : Fintype.{v} I] (weights : I → NNReal) (hpos : ∀ (i : I), LT.lt.{0} 0 (weights i))
+  (hsum : Eq.{1} (∑ i, weights i) 1) (i : I),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+      (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.isSingular.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum))
+        hS)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum))
+          (Sum.inl.{v, 0} i))))
+    (HMul.hMul.{0, 0, 0} (↑(weights i))
+      (PerfectFunctionalRepresentations.columnValue.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l)))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue_keep"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L560">Source line 560</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue_keep"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnValue_keep</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) {I : Type v}
+  [inst_2 : Fintype.{v} I] (weights : I → NNReal) (hpos : ∀ (i : I), LT.lt.{0} 0 (weights i))
+  (hsum : Eq.{1} (∑ i, weights i) 1) (j : Subtype.{1} fun j =&gt; Ne.{1} j l),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+      (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.isSingular.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum))
+        hS)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum))
+          (Sum.inr.{v, 0} j))))
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) ↑j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L575">Source line 575</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) {I : Type v}
+  [inst_2 : Fintype.{v} I] (weights : I → NNReal) (hpos : ∀ (i : I), LT.lt.{0} 0 (weights i))
+  (hsum : Eq.{1} (∑ i, weights i) 1) [inst_3 : Fintype.{u} alpha] (i : I),
+  Eq.{u + 1}
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum))
+          (Sum.inl.{v, 0} i))))
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern_keep"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L589">Source line 589</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern_keep"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPps_columnPattern_keep</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) {I : Type v}
+  [inst_2 : Fintype.{v} I] (weights : I → NNReal) (hpos : ∀ (i : I), LT.lt.{0} 0 (weights i))
+  (hsum : Eq.{1} (∑ i, weights i) 1) [inst_3 : Fintype.{u} alpha] (j : Subtype.{1} fun j =&gt; Ne.{1} j l),
+  Eq.{u + 1}
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPps.{u, v} S hS l weights hpos hsum))
+          (Sum.inr.{v, 0} j))))
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) ↑j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L747">Source line 747</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps</code></a></h2><pre class="api-docstring">Split a selected admitted pattern into exactly its supplied partition parts
+by actual binary VPS operations, preserving every unaffected output.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      [inst_2 : Fintype.{u} alpha] →
+        (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+          PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+              (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+            (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+              (P :
+                  Finpartition.{u}
+                    ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+                        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+                        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l))) →
+                PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, u}
+                  PerfectFunctionalRepresentations.MatrixOperations.OperationKind.vps S
+                  (Sum.{u, 0} (↥(Finpartition.parts.{u} P)) (Subtype.{1} fun j =&gt; Ne.{1} j l)) fun x =&gt;
+                  Sum.elim.{u, 0, 1}
+                    (fun b =&gt;
+                      ite.{1} (Membership.mem.{u, u} (↑b) x)
+                        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) l) 0)
+                    fun j =&gt; (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) ↑j</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVpsFamily"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L771">Source line 771</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVpsFamily"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVpsFamily</code></a></h2><pre class="api-docstring">Split every source pattern according to its supplied exact partition.
+The sigma labels retain both the source column and the original part.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      [inst_2 : Fintype.{u} alpha] →
+        (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+          PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+              (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+            (P :
+                (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) →
+                  Finpartition.{u}
+                    ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+                        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+                        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) j))) →
+              PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, u}
+                PerfectFunctionalRepresentations.MatrixOperations.OperationKind.vps S
+                ((j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) ×
+                  ↥(Finpartition.parts.{u} (P j)))
+                fun x p =&gt;
+                ite.{1} (Membership.mem.{u, u} (↑(Sigma.snd.{0, u} p)) x)
+                  ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x)
+                    (Sigma.fst.{0, u} p))
+                  0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps_outputCard"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L844">Source line 844</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_outputCard"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps_outputCard</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+  (P :
+    Finpartition.{u}
+      ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l))),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+    (HAdd.hAdd.{0, 0, 0}
+      (HSub.hSub.{0, 0, 0} (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) 1)
+      (Finset.card.{u} (Finpartition.parts.{u} P)))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps_length"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L850">Source line 850</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_length"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps_length</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+  (P :
+    Finpartition.{u}
+      ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l))),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.length.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, u}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+    (HSub.hSub.{0, 0, 0} (Finset.card.{u} (Finpartition.parts.{u} P)) 1)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps_length_singleton"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L857">Source line 857</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_length_singleton"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps_length_singleton</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+  (P :
+    Finpartition.{u}
+      ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l)))
+  [Subsingleton.{u + 1} ↥(Finpartition.parts.{u} P)],
+  Eq.{1}
+    (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.length.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, u}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+    0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L863">Source line 863</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+  (P :
+    Finpartition.{u}
+      ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l)))
+  (b : ↥(Finpartition.parts.{u} P)),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+      (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.isSingular.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, u}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P))
+        hS)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, u}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P))
+          (Sum.inl.{u, 0} b))))
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue_keep"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L878">Source line 878</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue_keep"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnValue_keep</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+  (P :
+    Finpartition.{u}
+      ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l)))
+  (j : Subtype.{1} fun j =&gt; Ne.{1} j l),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+      (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.isSingular.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, u}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P))
+        hS)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, u}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P))
+          (Sum.inr.{u, 0} j))))
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) ↑j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L890">Source line 890</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+  (P :
+    Finpartition.{u}
+      ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l)))
+  (b : ↥(Finpartition.parts.{u} P)),
+  Eq.{u + 1}
+    ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+            (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+              (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+          ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, u}
+              (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P))
+            (Sum.inl.{u, 0} b))))
+    ↑b</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern_keep"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L908">Source line 908</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern_keep"><code>PerfectFunctionalRepresentations.MatrixOperations.multiVps_columnPattern_keep</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (l : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))
+  (P :
+    Finpartition.{u}
+      ↑(PerfectFunctionalRepresentations.columnPattern.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) l)))
+  (j : Subtype.{1} fun j =&gt; Ne.{1} j l),
+  Eq.{u + 1}
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, u}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, u}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiVps.{u} S hS l P))
+          (Sum.inr.{u, 0} j))))
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) ↑j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1231">Source line 1231</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers</code></a></h2><pre class="api-docstring">Merge each prescribed nonempty fiber, retaining its supplied output label.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          {B : Type v} →
+            [Fintype.{v} B] →
+              (g : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → B) →
+                Function.Surjective.{1, v + 1} g →
+                  (∀ (i j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                      Eq.{v + 1} (g i) (g j) →
+                        ∀ (x : alpha),
+                          Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i)
+                              0 ↔
+                            Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j)
+                              0) →
+                    PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                      PerfectFunctionalRepresentations.MatrixOperations.OperationKind.ppm S B fun x b =&gt;
+                      ∑ j,
+                        ite.{1} (Eq.{v + 1} (g j) b)
+                          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1287">Source line 1287</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm</code></a></h2><pre class="api-docstring">Merge a supplied nonempty equal-support selection, retaining every other label.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))) →
+            Finset.Nonempty.{0} F →
+              (∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                  Membership.mem.{0, 0} F i →
+                    ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                      Membership.mem.{0, 0} F j →
+                        ∀ (x : alpha),
+                          Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i)
+                              0 ↔
+                            Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j)
+                              0) →
+                PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, 0}
+                  PerfectFunctionalRepresentations.MatrixOperations.OperationKind.ppm S
+                  (Sum.{0, 0} Unit (Subtype.{1} fun j =&gt; j ∉ F)) fun x =&gt;
+                  Sum.elim.{0, 0, 1}
+                    (fun x_1 =&gt;
+                      ∑ j ∈ F, (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j)
+                    fun j =&gt; (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) ↑j</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpmOrEmpty"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1303">Source line 1303</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmOrEmpty"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpmOrEmpty</code></a></h2><pre class="api-docstring">Empty selection keeps the original state and labels with a nil path.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S))) →
+            (∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                Membership.mem.{0, 0} F i →
+                  ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                    Membership.mem.{0, 0} F j →
+                      ∀ (x : alpha),
+                        Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                          Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j)
+                            0) →
+              ite.{(max 1 (u + 1)) + 1} (Finset.Nonempty.{0} F)
+                (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, 0}
+                  PerfectFunctionalRepresentations.MatrixOperations.OperationKind.ppm S
+                  (Sum.{0, 0} Unit (Subtype.{1} fun j =&gt; j ∉ F)) fun x =&gt;
+                  Sum.elim.{0, 0, 1}
+                    (fun x_1 =&gt;
+                      ∑ j ∈ F, (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j)
+                    fun j =&gt; (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) ↑j)
+                (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, 0}
+                  PerfectFunctionalRepresentations.MatrixOperations.OperationKind.ppm S
+                  (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)) fun x j =&gt;
+                  (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm_outputCard"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1341">Source line 1341</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_outputCard"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm_outputCard</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)))
+  (hF : Finset.Nonempty.{0} F)
+  (hp :
+    ∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Membership.mem.{0, 0} F i →
+        ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+          Membership.mem.{0, 0} F j →
+            ∀ (x : alpha),
+              Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+    (HAdd.hAdd.{0, 0, 0}
+      (HSub.hSub.{0, 0, 0} (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)
+        (Finset.card.{0} F))
+      1)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1347">Source line 1347</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)))
+  (hF : Finset.Nonempty.{0} F)
+  (hp :
+    ∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Membership.mem.{0, 0} F i →
+        ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+          Membership.mem.{0, 0} F j →
+            ∀ (x : alpha),
+              Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.length.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, 0}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+    (HSub.hSub.{0, 0, 0} (Finset.card.{0} F) 1)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length_singleton"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1357">Source line 1357</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length_singleton"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm_length_singleton</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)))
+  (hF : Finset.Nonempty.{0} F)
+  (hp :
+    ∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Membership.mem.{0, 0} F i →
+        ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+          Membership.mem.{0, 0} F j →
+            ∀ (x : alpha),
+              Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0)
+  [Subsingleton.{1} ↥F],
+  Eq.{1}
+    (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.length.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, 0}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+    0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1374">Source line 1374</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)))
+  (hF : Finset.Nonempty.{0} F)
+  (hp :
+    ∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Membership.mem.{0, 0} F i →
+        ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+          Membership.mem.{0, 0} F j →
+            ∀ (x : alpha),
+              Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+      (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.isSingular.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, 0}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp))
+        hS)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, 0}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp))
+          (Sum.inl.{0, 0} ()))))
+    (∑ j ∈ F,
+      PerfectFunctionalRepresentations.columnValue.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue_keep"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1392">Source line 1392</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue_keep"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnValue_keep</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)))
+  (hF : Finset.Nonempty.{0} F)
+  (hp :
+    ∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Membership.mem.{0, 0} F i →
+        ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+          Membership.mem.{0, 0} F j →
+            ∀ (x : alpha),
+              Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0)
+  (j : Subtype.{1} fun j =&gt; j ∉ F),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+      (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.isSingular.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, 0}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp))
+        hS)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, 0}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp))
+          (Sum.inr.{0, 0} j))))
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) ↑j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1406">Source line 1406</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)))
+  (hF : Finset.Nonempty.{0} F)
+  (hp :
+    ∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Membership.mem.{0, 0} F i →
+        ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+          Membership.mem.{0, 0} F j →
+            ∀ (x : alpha),
+              Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0)
+  [inst_2 : Fintype.{u} alpha]
+  (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+  Membership.mem.{0, 0} F i →
+    Eq.{u + 1}
+      (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+            (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+              (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+          ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, 0}
+              (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp))
+            (Sum.inl.{0, 0} ()))))
+      (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+        ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) i))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern_keep"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1418">Source line 1418</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern_keep"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpm_columnPattern_keep</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  (F : Finset.{0} (Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)))
+  (hF : Finset.Nonempty.{0} F)
+  (hp :
+    ∀ (i : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Membership.mem.{0, 0} F i →
+        ∀ (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+          Membership.mem.{0, 0} F j →
+            ∀ (x : alpha),
+              Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0)
+  [inst_2 : Fintype.{u} alpha] (j : Subtype.{1} fun j =&gt; j ∉ F),
+  Eq.{u + 1}
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, 0}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, 0}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpm.{u} S hS F hF hp))
+          (Sum.inr.{0, 0} j))))
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) ↑j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnValue"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1452">Source line 1452</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnValue"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnValue</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  {B : Type v} [inst_2 : Fintype.{v} B]
+  (g : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → B)
+  (hg : Function.Surjective.{1, v + 1} g)
+  (hp :
+    ∀ (i j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Eq.{v + 1} (g i) (g j) →
+        ∀ (x : alpha),
+          Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+            Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0)
+  (b : B),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.columnValue.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp)))
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.isSingular.{u, v}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp) hS)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp))
+          b)))
+    (∑ j,
+      ite.{1} (Eq.{v + 1} (g j) b)
+        (PerfectFunctionalRepresentations.columnValue.{u, 0}
+          (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) hS
+          ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) j))
+        0)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnPattern"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1477">Source line 1477</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnPattern"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_columnPattern</code></a></h2><p class="small">No declaration docstring is present in the source.</p><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  [inst_2 : Fintype.{u} alpha] (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  {B : Type v} [inst_3 : Fintype.{v} B]
+  (g : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → B)
+  (hg : Function.Surjective.{1, v + 1} g)
+  (hp :
+    ∀ (i j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Eq.{v + 1} (g i) (g j) →
+        ∀ (x : alpha),
+          Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+            Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0)
+  (j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+  Eq.{u + 1}
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+        (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+          (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp)))
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp)))
+        ((PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp))
+          (g j))))
+    (PerfectFunctionalRepresentations.columnPattern.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S)
+      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.activeEquiv.{u} S) j))</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange"><p class="label">def · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1495">Source line 1495</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange</code></a></h2><pre class="api-docstring">Merge the nonempty fibers in the actual range, allowing arbitrary ambient labels.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>{alpha : Type u} →
+  [inst : Finite.{u + 1} alpha] →
+    [inst_1 : Nonempty.{u + 1} alpha] →
+      (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha) →
+        PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+            (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S) →
+          {B : Type v} →
+            (g : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → B) →
+              (∀ (i j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+                  Eq.{v + 1} (g i) (g j) →
+                    ∀ (x : alpha),
+                      Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+                        Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0) →
+                PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.{u, v}
+                  PerfectFunctionalRepresentations.MatrixOperations.OperationKind.ppm S ↑(Set.range.{v, 1} g)
+                  fun x b =&gt;
+                  ∑ j,
+                    ite.{1} (Eq.{v + 1} (g j) ↑b)
+                      ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange_map"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1508">Source line 1508</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange_map"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange_map</code></a></h2><pre class="api-docstring">Include the generated outputs in the ambient label type; unused labels have zero mass.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  {B : Type v} (g : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → B)
+  (hp :
+    ∀ (i j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Eq.{v + 1} (g i) (g j) →
+        ∀ (x : alpha),
+          Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+            Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0)
+  (x : alpha) (b : B),
+  Eq.{1}
+    ((PMF.map.{0, v}
+        (fun j =&gt;
+          ↑((Equiv.symm.{v + 1, 1}
+                (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.labels.{u, v}
+                  (PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange.{u, v} S hS g hp)))
+              j))
+        (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u}
+          (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.endpoint.{u, v}
+            (PerfectFunctionalRepresentations.MatrixOperations.multiPpmRange.{u, v} S hS g hp))
+          x))
+      b)
+    (∑ j,
+      ite.{1} (Eq.{v + 1} (g j) b) ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j)
+        0)</code></pre></article><article class="api-declaration" id="PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_length"><p class="label">theorem · <a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/da44e39a2ec2936d32195dd97df21c1bd19e63bc/PerfectFunctionalRepresentations/Matrix/MultiwayOperations.lean#L1535">Source line 1535</a></p><h2><a href="#PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_length"><code>PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers_length</code></a></h2><pre class="api-docstring">The chosen prescribed-fiber path uses one fewer merge than each fiber size.</pre><pre class="api-type" tabindex="0" aria-label="Elaborated Lean type"><code>∀ {alpha : Type u} [inst : Finite.{u + 1} alpha] [inst_1 : Nonempty.{u + 1} alpha]
+  (S : PerfectFunctionalRepresentations.ActiveFiniteChannel.{u} alpha)
+  (hS :
+    PerfectFunctionalRepresentations.IsSingularChannel.{u, 0}
+      (PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S))
+  {B : Type v} [inst_2 : Fintype.{v} B]
+  (g : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S) → B)
+  (hg : Function.Surjective.{1, v + 1} g)
+  (hp :
+    ∀ (i j : Fin (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)),
+      Eq.{v + 1} (g i) (g j) →
+        ∀ (x : alpha),
+          Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) i) 0 ↔
+            Ne.{1} ((PerfectFunctionalRepresentations.ActiveFiniteChannel.channel.{u} S x) j) 0),
+  Eq.{1}
+    (PerfectFunctionalRepresentations.MatrixOperations.OperationPath.length.{u}
+      (PerfectFunctionalRepresentations.MatrixOperations.LabelledOperationResult.path.{u, v}
+        (PerfectFunctionalRepresentations.MatrixOperations.multiPpmFibers.{u, v} S hS g hg hp)))
+    (HSub.hSub.{0, 0, 0} (PerfectFunctionalRepresentations.ActiveFiniteChannel.outputCard.{u} S)
+      (Fintype.card.{v} B))</code></pre></article></main>
+<footer class="site-footer"><div class="wrap footer-inner"><p>PFR API · LeanInfoTheory v0.1.0 · Lean 4.33.1<br>Generated from Lean; no dependency upgrade.</p><div class="footer-links"><a href="index.html">API index</a><a href="../discussion.html#limitations">Limitations</a><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">Repository</a></div></div></footer>
+</body></html>

@@ -9825,3 +9825,57 @@ leaving the tested site, tools, workflows, Lean source and dependencies unchange
 No tagged release, manuscript upload, private-ref push or mathematical change
 was made. The approved-paper-link/citation follow-up retains its existing
 readiness owner; no duplicate Future Work Note was created.
+
+<a id="website-blueprint-api"></a>
+
+## 191. Website blueprint, generated API and LeanInfoTheory palette — 2026-10-14
+
+The lead requested the overview / mathematical blueprint / generated API
+structure discussed after entry 190, preferring LeanInfoTheory's blue–green
+colors. The [website plan](plans/pfr-website.md) retains W01–W04's completed
+history and records the bounded W05–W08 extension. No mathematical chunk or
+dependency upgrade is started.
+
+The overview now provides three reading routes. Results, Discussion and
+reproduction/citation remain available; the shared visual design uses the actual
+LeanInfoTheory blue/green palette, a white background and a darkened gradient
+for readable white text. The original blueprint explains every numbered in-scope
+definition/result with proof ideas, nearby assumptions and exact source links.
+Its dependency diagram and text alternative are explicitly expository. It does
+not invent a Lemma 4 → Theorem 1 compiler dependency, redistribute manuscript
+proofs or broaden the finite-auxiliary/LP coverage.
+
+The generated API has 992 reference entries across 27 modules. The Lean exporter
+reads elaborated types, documentation and source ranges; a separate `.ilean`
+source-name comparison checks inclusion. Public constructors/projections are
+included, not private proof machinery or test fixtures. The four public C03
+counterexample declarations are deliberately retained. This focused reference
+does not claim the richer cross-link/instance navigation of doc-gen4.
+
+The compatible isolated doc-gen4 pipeline in pinned LeanInfoTheory was inspected,
+but its large dependency-documentation closure and additional Windows native
+compiler setup were unnecessary for this PFR-only browser. Original tooling
+was implemented instead; no external formalization code was reused. Root Lean
+sources, `lakefile.toml`, `lake-manifest.json` and `lean-toolchain` are unchanged.
+
+API source/config/tool hashes and deterministic render checks join the existing
+strict source-link/public-payload guard. The Pages deployment additionally waits
+for a fresh compiler export on its own commit. An independent review caught a
+draft ordering gap between static validation and the separate compiler CI;
+making compiler verification an explicit deployment prerequisite resolves it.
+Actual installed dependency revisions and clean tracked files are checked before
+and after export, not inferred from manifest text alone.
+
+Local checks and independent review found no unresolved blocker. Browser QA
+covered eight representative pages at four widths, plus API search, zero results,
+reset, literal hostile query text, keyboard deep links, no-JavaScript reading
+and clipboard success/fallback. A QA navigation assertion initially raced page
+navigation; waiting for the actual destination fixed the test without a product
+change. Human-source anchors, API links, mobile overflow and diagrams were
+reviewed. Detailed results and eventual hosted delivery belong in
+[public readiness](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14).
+
+Publication remains pending at this implementation checkpoint. The subsequent
+delivery record will distinguish local generation, hosted validation and verified
+live content. No release tag, private-ref push, dependency change or mathematical
+implementation is authorized by this website extension.
