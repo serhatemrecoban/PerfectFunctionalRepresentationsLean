@@ -78,8 +78,24 @@ figcaption {font-size:.85rem;color:var(--muted);margin-top:.75rem}
 .article section h2:first-child {margin-top:0}
 .article h3 {margin-top:1.5rem}
 .article .note {margin-top:1.25rem}
-.dependency-figure {margin:1.5rem 0;padding:1rem;border:1px solid var(--line);background:#f7fbfc}
-.dependency-figure img {display:block;width:100%}
+.argument-foundation {padding:1.25rem;border-left:3px solid var(--teal);background:#f3f7fc;margin:1.5rem 0}
+.argument-foundation h3,.argument-branch h3 {margin:0 0 .75rem}
+.argument-foundation p:last-child,.argument-branch p:last-child {margin-bottom:0}
+.argument-branches,.criteria-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.argument-branch {min-width:0;padding-top:1rem;border-top:2px solid var(--green)}
+.argument-branch p {font-size:1rem}
+.argument-branch .small {font-size:.9rem}
+.equivalence-map {list-style:none;padding:0;margin:1.5rem 0}
+.equivalence-map>li {margin:0;break-inside:avoid}
+.equivalence-node {min-width:0;padding:1rem 1.25rem;border:1px solid #b6cdd4;border-left:3px solid var(--green);background:#f7fbf9}
+.equivalence-node h4 {margin:0 0 .5rem;font-size:1.1rem;font-weight:600;line-height:1.5;color:var(--ink)}
+.equivalence-node p {margin:0;font-size:1rem}
+.equivalence-node .label {margin-bottom:.3rem}
+.equivalence-link {display:flex;justify-content:center;align-items:center;gap:.6rem;padding:.4rem .5rem;color:var(--muted);font-size:.85rem;text-align:center}
+.equivalence-link [aria-hidden] {font-size:1.7rem;line-height:1.1;color:var(--green)}
+.proof-routes {margin:1rem 0}
+.proof-routes dt {font-weight:600;color:var(--ink);margin:1.25rem 0 .4rem}
+.proof-routes dd {margin:0}
 details {margin:1rem 0}
 details>summary {cursor:pointer;color:var(--teal);margin-bottom:.75rem}
 details[open]>summary {font-weight:600}
@@ -145,7 +161,8 @@ dl.metadata dd {margin:0;overflow-wrap:anywhere}
   .flow span {display:inline-block;min-width:60px;margin:0}
   dl.metadata {grid-template-columns:1fr;gap:.25rem}
   dl.metadata dd {margin-bottom:.75rem}
-  .dependency-figure {padding:.5rem}
+  .argument-branches,.criteria-grid {grid-template-columns:1fr;gap:1rem}
+  .argument-foundation,.equivalence-node {padding:1rem}
   .site-footer {margin-top:1rem}
 }
 @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto}}

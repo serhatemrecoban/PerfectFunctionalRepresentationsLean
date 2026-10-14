@@ -262,3 +262,26 @@ website/compiler and all-module Lean workflows passed. All 42 live files match
 that commit, and the responsive, keyboard, search and no-JavaScript checks pass
 on the deployed site. The readiness record owns exact run links and limitations.
 The final evidence-only documentation checkpoint changes no tested site or code.
+
+## Approved argument-map revision — 2026-10-14
+
+The lead requested a fresh manuscript-grounded explanation of how the ideas
+connect. Replace the blueprint's disconnected fixed-width diagram with a
+responsive, linked argument map. Distinguish the binary optimization branch from
+the general structural problem, equivalences from proof dependencies, and the
+paper's Lemma 4 route from Lean's direct canonical-witness constructions.
+Explain both directions of Theorem 1, the partition-weight bridge, primal slack
+saturation and the separate dual separation argument. Keep finite/support and
+reduced-incidence qualifications beside the claims.
+
+This is a presentation change, not a coverage expansion or a new mathematical
+step. Consult the approved ISIT §§I–IV/Appendix and current extended §§I–IV and
+relevant Appendices A/B; retain historical implementation-source identities.
+Acceptance requires source-backed content review, readable desktop/mobile and
+no-JavaScript behavior, valid result links, existing website/API/build checks
+and the unchanged hosted deployment gates. Exact evidence belongs in
+[readiness](../public-readiness.md#argument-map-revision--2026-10-14).
+
+Local acceptance passes, including independent mathematical and visual reviews,
+responsive/no-JavaScript/large-text checks and the existing website/API/default
+Lean build gates. Hosted validation and deployment remain pending.

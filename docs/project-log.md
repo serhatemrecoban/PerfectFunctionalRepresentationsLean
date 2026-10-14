@@ -9953,3 +9953,30 @@ final local review confirmed the requested title/year and paper links without
 overflow or browser errors. [Readiness](public-readiness.md#academic-layout-correction--2026-10-14)
 records the exact evidence and superseded-run qualification. The final
 documentation-only checkpoint does not alter deployed files or mathematical code.
+
+<a id="website-argument-map"></a>
+
+## 193. Manuscript-grounded website argument map — 2026-10-14
+
+The lead requested a better explanation of the ideas and dependencies. Rechecked
+the approved six-page ISIT §§I–IV/Appendix and current extended `(19) (2)`
+§§I–IV and relevant Appendices A/B through Theorem 2 against the actual semantic,
+reachability, incidence and dual sources. Both PDF hashes match the identities
+in living-summary Section 10. This does not rebaseline historical C01–C16 work
+or claim coverage of the entire newer companion.
+
+The old diagram separated three strands without exposing their main bridges.
+Its replacement uses readable, linked HTML: shared decoder language, separate
+binary/general questions, then equivalent perfectness, operation, partition and
+primal/dual criteria. Proof-route notes distinguish the constructive and
+preservation directions, the paper's use of Lemma 4 in Section IV-A, Lean's
+direct ordered construction and decoder-partition extraction, and the separate
+strict-separation ingredient for Corollary 1. The obsolete SVG is replaced, not
+retained as a competing diagram. No Lean source, dependency, coverage or API
+contract changes; no manuscript reproduction.
+
+Independent semantic and operations/LP source reviews found no mathematical
+blocker. The finite X/Y/Z qualification was surfaced in the overview following
+review. The [approved plan](plans/pfr-website.md#approved-argument-map-revision--2026-10-14)
+and [readiness record](public-readiness.md#argument-map-revision--2026-10-14)
+own acceptance and exact validation/delivery status.

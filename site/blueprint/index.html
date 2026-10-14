@@ -25,16 +25,61 @@
 <div class="note"><p>This is an original expository guide, not a reproduction of the manuscript or a compiler-generated proof graph. Numbering follows the six-page ISIT 2026 paper. The source links fix a verified snapshot; the displayed prose does not replace the formal statements.</p></div>
 <section class="section" id="dependency-guide" aria-labelledby="dependency-title">
 <h2 id="dependency-title">How the ideas connect</h2>
-<figure class="dependency-figure"><img src="../assets/dependencies.svg" width="1100" height="820" alt="Three strands: representations and canonicalization lead to the binary optimum; legal column operations lead to normalization and preservation; partition incidence leads to the primal and dual characterizations."><figcaption>Selected expository dependencies. Arrows summarize mathematical ingredients, not exact compiler dependencies. <a href="../assets/dependencies.svg">Open the full-size diagram</a>, or read the text guide below.</figcaption></figure>
-<details><summary>Read the dependency guide as text</summary>
-<ul>
-<li>Functional representations and the information identity lead to canonicalization (Lemma 1). Canonicalization and maximal coupling give the binary optimum (Lemma 3); singularity (Definition 3 and Lemma 2) describes its equality case.</li>
-<li>Column values and patterns (Definition 4) make the legal operations precise. Finite certificates prove normalization (Lemma 4). Separately, witness transport proves preservation (Lemma 5); remembered inverses give nonperfectness preservation (Lemma 6).</li>
-<li>Common-posterior witnesses (Definition 2), finite constructions and preservation give the constructive characterization (Theorem 1).</li>
-<li>Pattern compression and partition incidence connect perfectness to equality feasibility. Slack saturation gives the primal criterion (Theorem 2); weak duality and a strict separation certificate give the dual criterion (Corollary 1).</li>
-</ul>
-<p>Theorem 1 constructs its own ordered stages. The implementation does not use the general Lemma 4 normalizer as a prerequisite for that construction.</p>
-</details>
+<p>The starting question is informational: when can independent randomness represent a channel and attain the information bound? The main argument turns this into a structural question, then into finite linear constraints. The binary optimum is a separate, quantitative branch.</p>
+<div class="argument-foundation">
+<span class="label">Shared language · Sections I–II</span>
+<h3>From auxiliary randomness to a random decoder</h3>
+<p>A decoder vector W records the output chosen for every possible input. For finite-valued X, Y and auxiliary Z, <a href="#lemma-1">Lemma 1</a> preserves information when replacing Z by this vector. Perfectness is the Markov equality case of the information identity; <a href="#definition-2">Definition 2</a> expresses channel perfectness through one vector law and one common posterior for every input row.</p>
+</div>
+<div class="argument-branches">
+<div class="argument-branch">
+<span class="label">Binary question</span>
+<h3>How informative can a representation be?</h3>
+<p><a href="#lemma-3">Lemma 3</a> combines canonicalization, mismatch entropy and maximal coupling to attain H(Y) − rH(X), where r is the total variation distance between the two channel rows. The binary case of Lemma 2 identifies when this reaches the perfect bound.</p>
+<p class="small">This is a special-case result, not a prerequisite for the general characterizations below. Its channel-wide equality converse requires full input support.</p>
+</div>
+<div class="argument-branch">
+<span class="label">General question</span>
+<h3>Which channels admit a perfect representation?</h3>
+<p><a href="#lemma-2">Lemma 2</a> first forces singularity: all positive entries in a column agree. Singularity suffices for binary input or binary output, but the singular, nonperfect 3 × 3 example shows why a stronger criterion is needed in general.</p>
+<p class="small">The example motivates the next question; it is not a proof prerequisite. Column values and support patterns (<a href="#definition-4">Definition 4</a>) supply its finite coordinates.</p>
+</div>
+</div>
+<h3 id="equivalent-views">Four equivalent views of perfectness</h3>
+<p class="contract">For a finite singular channel with nonempty input: discard inactive output symbols for the operation presentation, then merge repeated patterns for the incidence presentation. These steps preserve perfectness. The links below mean <strong>equivalence of criteria</strong>, not that one Lean proof calls the preceding theorem.</p>
+<ol class="equivalence-map" role="list" aria-label="Equivalent characterizations of a finite singular channel">
+<li>
+<div class="equivalence-node"><span class="label">Probabilistic witness</span><h4><a href="#definition-2">A perfect canonical representation</a></h4><p>One random decoder and a common posterior satisfy the channel's decoding and Markov contracts.</p></div>
+</li>
+<li>
+<div class="equivalence-link"><span aria-hidden="true">↕</span><span>equivalent to</span></div>
+<div class="equivalence-node"><span class="label">Constructive criterion · Theorem 1</span><h4><a href="#theorem-1">A legal path from the one-output channel</a></h4><p>Build the channel from 1<sub>k</sub> using PPS, VPS and PPM; equivalently, reduce it to 1<sub>k</sub> using PPM, PPS and VPM.</p></div>
+</li>
+<li>
+<div class="equivalence-link"><span aria-hidden="true">↕</span><span>equivalent to</span></div>
+<div class="equivalence-node"><span class="label">Partition-mixture criterion · Section IV-A</span><h4><a href="#incidence">Nonnegative weights on input partitions</a></h4><p>Hw = v, w ≥ 0. Each admissible partition uses occurring column patterns; its weight contributes to the value of each of its blocks. Row normalization forces ∑<sub>j</sub> w<sub>j</sub> = 1.</p></div>
+</li>
+<li>
+<div class="equivalence-link"><span aria-hidden="true">↕</span><span>equivalent to either value-one criterion</span></div>
+<div class="criteria-grid">
+<div class="equivalence-node"><span class="label">Primal · Theorem 2</span><h4><a href="#theorem-2">The greatest attained value is 1</a></h4><p>Maximize ∑<sub>j</sub> w<sub>j</sub><br>subject to w ≥ 0 and Hw ≤ v.</p></div>
+<div class="equivalence-node"><span class="label">Dual · Corollary 1</span><h4><a href="#corollary-1">The least attained value is 1</a></h4><p>Minimize vᵀy<br>subject to y ≥ 0 and Hᵀy ≥ 1.</p></div>
+</div>
+</li>
+</ol>
+<p class="small">Here H is the reduced incidence matrix: occurring nonempty patterns index its rows, and partitions using only those patterns index its columns. This follows the extended version's clarified <a href="../discussion.html#lp">full/reduced indexing</a>. The two LPs are alternative criteria, not claims about a verified solver or general strong duality.</p>
+<h3>What the proofs depend on</h3>
+<dl class="proof-routes">
+<dt>Canonical witnesses and preservation give Theorem 1.</dt>
+<dd>A perfect witness supplies the finite refinement that constructs a path from the seed. In the other direction, the seed is perfect and <a href="#lemma-5">Lemma 5</a> transports perfectness through PPS, VPS and PPM. Witnessed inverse operations give <a href="#lemma-6">Lemma 6</a> and the reduction-to-seed criterion. The construction, not preservation alone, supplies the difficult direction.</dd>
+<dt>Lemma 4 explains the operation-to-partition connection.</dt>
+<dd>The paper uses <a href="#lemma-4">normal form</a> in Section IV-A: split the seed into weighted copies (PPS), split each copy into a partition (VPS), then merge equal patterns (PPM). Lean proves this general normal-form theorem using finite certificates. Separately, its Theorem 1 constructs ordered stages directly; its LP necessity proof extracts partition weights from decoder fibres. Neither invokes the general normalizer. Conversely, feasible weights are realized by the same three stages. See <a href="../discussion.html#normalization">why the normalization proof needed clarification</a>.</dd>
+<dt>Equality feasibility gives the primal criterion by saturation.</dt>
+<dd>Row normalization bounds every feasible primal value by one. Attaining one forces all nonnegative slack to vanish, recovering Hw = v. Conversely, equality weights already attain one. This is the bridge to <a href="#theorem-2">Theorem 2</a>.</dd>
+<dt>The dual criterion also needs a separation argument.</dt>
+<dd>A primal witness of value one, weak duality and a row-derived dual witness give dual minimum one for a perfect channel. For a nonperfect channel, a separate strict-separation argument gives a feasible dual value below one (with the empty partition family handled directly). Together these prove <a href="#corollary-1">Corollary 1</a>.</dd>
+</dl>
+<p class="small">This is a map of the mathematical argument, not a module-import or compiler dependency graph. The linked sections below give the precise assumptions, proof ideas and Lean declarations.</p>
 </section>
 <div class="article-layout">
 <nav class="contents" aria-label="Blueprint contents"><span class="label">On this page</span><a href="#foundations">Starting definitions</a><a href="#canonical">Canonical form · Definition 1, Lemma 1</a><a href="#channels">Channels · Definitions 2–3, Lemma 2</a><a href="#binary">Binary optimum · Lemma 3</a><a href="#operations">Column operations · Definition 4</a><a href="#normalization">Normal form · Lemma 4</a><a href="#preservation">Preservation · Lemmas 5–6</a><a href="#constructive">Constructive criterion · Theorem 1</a><a href="#incidence">Partition-incidence bridge</a><a href="#primal">Primal criterion · Theorem 2</a><a href="#dual">Dual criterion · Corollary 1</a><a href="#scope">Scope of the blueprint</a></nav>

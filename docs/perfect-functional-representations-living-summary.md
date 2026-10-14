@@ -50,6 +50,10 @@ narrow reading column replace the editorial hero/cards, retaining content and AP
 scope. The exact title, ISIT 2026 description and verified Paper link are published;
 the homepage no longer presents internal chunk counts. See the
 [latest delivery evidence](public-readiness.md#academic-layout-correction--2026-10-14).
+The lead's subsequent [argument-map revision](plans/pfr-website.md#approved-argument-map-revision--2026-10-14)
+reconnects the blueprint's mathematical narrative after rereading the relevant
+ISIT/current extended passages. Content review passes; validation and deployment
+status are tracked in [readiness](public-readiness.md#argument-map-revision--2026-10-14).
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect

@@ -373,3 +373,34 @@ A later LeanInfoTheory release may celebrate this completed downstream case
 study. That announcement should explicitly say **built against v0.1.0**; neither
 publication nor that acknowledgement requires upgrading PFR. Upgrading remains
 a separate, explicitly authorized and validated task.
+
+## Argument-map revision — 2026-10-14
+
+The lead requested a fresh explanation of the paper's connections. The
+[blueprint](../site/blueprint/index.html#dependency-guide) now separates a
+binary optimization branch from the general structural argument and displays
+perfectness, legal operations, partition weights and the primal/dual criteria
+as equivalent views. Separate proof-route notes explain which ingredients
+establish those bridges; no equivalence connector purports to be a Lean
+dependency edge. The old fixed-width SVG is replaced by responsive semantic
+HTML with result anchors and no script dependency.
+
+Read the exact approved ISIT §§I–IV/Appendix and current extended `(19) (2)`
+§§I–IV and relevant Appendices A/B through Theorem 2; checked their recorded
+hashes and compared the relevant local Lean sources. Independent semantic and
+operations/LP content reviews found no mathematical blocker. The newer
+companion is still only selectively checked, not wholly covered. Mathematical
+sources, API records, library pins, build gates and manuscript restrictions
+remain unchanged.
+
+Local validation passes: the 33-page/4,800-reference website guard; all fourteen
+API tests; 23 website tests (22 pass, one Windows symlink-privilege skip);
+source/render freshness for 992 declarations in 27 modules; the static gate for
+56 Lean modules; default `lake build` (2,762 jobs); and a clean placeholder scan.
+Browser checks pass 32 page/viewport combinations at 1440/768/390/320 px,
+disclosures, keyboard/skip links, no-JavaScript navigation and clipboard controls.
+Independent visual review additionally checked the complete argument section at
+1440/390/320 px, all fifteen in-page result links, keyboard navigation to Theorem
+2, 320-pixel no-JavaScript reading and 200% font sizing. No clipping, overflow,
+browser errors or unresolved findings. Hosted validation and delivery remain
+pending at this local checkpoint.
