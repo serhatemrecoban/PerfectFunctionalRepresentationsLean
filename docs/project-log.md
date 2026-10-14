@@ -9891,3 +9891,32 @@ were reviewed. See the [readiness record](public-readiness.md#blueprint-api-and-
 for exact run links, checks and limitations. W05–W08 are complete; this final
 evidence-only documentation checkpoint leaves the deployed site, tools,
 workflows, mathematical sources and dependency pins unchanged.
+
+<a id="website-academic-layout"></a>
+
+## 192. Academic website layout correction — 2026-10-14
+
+The lead found that entry 191's delivered layout did not resemble LeanInfoTheory
+or Fermat's Last Theorem despite the adopted palette and information architecture.
+Actual side-by-side browser inspection confirmed the distinction: both references
+use a full-width centered gradient masthead, sans-serif title, button navigation
+and an approximately 832-pixel desktop text column. PFR retained an inset split
+hero, serif display headings and editorial cards. The [approved correction](plans/pfr-website.md#approved-academic-layout-correction--2026-10-14)
+replaces that visual system rather than treating recoloring as sufficient.
+
+The correction keeps existing content routes, mathematical qualifications,
+compiler-generated API contracts and pinned source links. It uses original local
+HTML/CSS, not copied implementation/assets or an external theme/font dependency.
+No Lean mathematical source, manifest, toolchain or library pin changes. Delivery
+and validation will be recorded after the actual checks, with prior evidence
+preserved under its original revision.
+
+Local validation and independent visual review subsequently pass. The new
+full-width masthead, sans-serif headings and 832-pixel desktop reading column
+match the reference design family. A mobile white-text contrast finding was
+fixed without changing the underlying palette. All 992 generated declaration
+records/source hashes are unchanged; 28 layout checks, 32 browser page/viewport
+combinations, API search/no-JavaScript/keyboard and copy controls pass, as do the
+existing compiler, website/API, static and default-build checks. Exact local
+counts and qualifications are in [readiness](public-readiness.md#academic-layout-correction--2026-10-14).
+The correction is ready for the existing hosted publication gates.

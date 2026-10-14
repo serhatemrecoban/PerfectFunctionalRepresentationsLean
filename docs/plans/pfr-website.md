@@ -1,6 +1,6 @@
 # PFR Research Website Plan
 
-**Status: Complete, including the structure/palette extension, 2026-10-14.** The lead authorized building the research website
+**Status: Academic-layout correction active; prior delivery retained, 2026-10-14.** The lead authorized building the research website
 and requested a detailed plan followed by implementation when practical. This
 plan records that bounded website task, not a new mathematical chunk. Baseline:
 `da44e39a2ec2936d32195dd97df21c1bd19e63bc`. Completion evidence is recorded below and in the project log; the execution
@@ -217,3 +217,31 @@ files match the committed bytes; the browser checks above were repeated against
 the live site successfully. The [readiness record](../public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
 owns exact run links and validation evidence. The closing documentation-only
 checkpoint does not change the tested website, tooling or mathematical sources.
+
+## Approved academic layout correction — 2026-10-14
+
+The lead found that the delivered site matched the colors and information
+routes but not the visual design of LeanInfoTheory and Fermat's Last Theorem.
+This correction replaces the custom editorial layout; it does not reopen the
+mathematical content, API scope or dependency decisions. Baseline: `dd33138`.
+
+Match the references' full-width centered gradient masthead, bold sans-serif
+project title, bordered navigation buttons and narrow single-column reading
+layout. Retain LeanInfoTheory's blue–green palette, use green section headings
+and blue links, and replace promotional cards/oversized split headings with
+plain paragraphs and lists. Keep the explanatory diagram below the introduction.
+Apply the shared layout to the blueprint, discussion, reproduction and generated
+API pages, preserving exact source links, qualifications and useful interactions.
+
+Acceptance requires side-by-side visual comparison to the actual reference
+sites, desktop/mobile and keyboard/no-JavaScript checks, unchanged compiler API
+contracts, existing website/API validation and a verified Pages deployment.
+The reference websites are design references only; no implementation or assets
+are copied and no external font/theme dependency is introduced. Existing
+publication gates, mathematical sources and LeanInfoTheory v0.1.0 remain fixed.
+
+Local acceptance passes, including independent visual comparison, 28 explicit
+layout checks and 32 browser page/viewport combinations. The contrast finding
+was fixed; generated declarations and source hashes are unchanged. See
+[readiness](../public-readiness.md#academic-layout-correction--2026-10-14)
+for exact compiler/test results. Hosted delivery is pending.

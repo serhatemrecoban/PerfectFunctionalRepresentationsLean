@@ -182,7 +182,8 @@ def page_shell(title: str, body: str, scripts: str = "", filename: str = "index.
 <title>{html.escape(title)} · PFR API</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="api.css">{scripts}</head><body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html"><span class="monogram" aria-hidden="true">PFR</span><span class="brand-name">Perfect Functional<br>Representations</span></a>
+<header class="site-header"><div class="wrap header-inner"><p class="project-name"><a href="../index.html">Perfect Functional Representations</a></p>
+<p class="project-tagline">A Lean formalization of the ISIT paper, built on LeanInfoTheory v0.1.0.</p>
 <nav class="nav" aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../blueprint/index.html">Blueprint</a><a href="index.html" aria-current="page">Lean API</a><a href="../discussion.html">Discussion</a><a href="../reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="{REPOSITORY}">GitHub</a></nav></div></header>
 <main id="main" class="wrap api-page">{body}</main>
 <footer class="site-footer"><div class="wrap footer-inner"><p>PFR API · LeanInfoTheory v0.1.0 · Lean 4.33.1<br>Generated from Lean; no dependency upgrade.</p><div class="footer-links"><a href="index.html">API index</a><a href="../discussion.html#limitations">Limitations</a><a href="{REPOSITORY}">Repository</a></div></div></footer>
@@ -213,14 +214,14 @@ def render(data: dict, root: Path) -> dict[str, str]:
     for row in declarations:
         terms = " ".join((row["name"], row["module"], row["kind"], row["type"], row["documentation"]))
         search_rows.append(f'<li data-api-entry data-search="{esc(terms, quote=True)}"><a title="{esc(row["name"], quote=True)}" href="{row["page"]}#{quote(row["name"], safe=".")}"><code>{esc(row["name"].removeprefix(PREFIX))}</code></a> <span class="small">{esc(row["kind"])}</span><div class="small">{esc(row["module"])}</div></li>')
-    body = f'''<div class="page-intro"><p class="eyebrow">Compiler-generated reference</p><h1>Explore the PFR API.</h1>
+    body = f'''<div class="page-intro"><p class="eyebrow">Compiler-generated reference</p><h1>Lean API documentation</h1>
 <p class="lead">{len(declarations)} declarations across {len(modules)} modules, with elaborated types, source docstrings and exact source links.</p></div>
-<section class="api-search" aria-labelledby="search-heading"><h2 id="search-heading">Search declarations.</h2>
+<section class="api-search" aria-labelledby="search-heading"><h2 id="search-heading">Search declarations</h2>
 <label for="api-query">Name, mathematical term, module or type</label><input id="api-query" type="search" autocomplete="off" placeholder="Try singular, coupling, normal form, or IsGreatest" aria-controls="api-results">
 <p id="api-count" role="status" aria-live="polite">{len(declarations)} declarations. Search becomes available when JavaScript is enabled; the complete list and module pages work without it.</p>
 <ul id="api-results" class="api-search-results" tabindex="0" aria-label="Matching declarations">{''.join(search_rows)}</ul></section>
-<section class="section" id="modules"><h2>Browse by module.</h2><ul class="api-module-list">{module_links}</ul></section>
-<section class="section" id="scope"><h2>What this reference includes.</h2><p>{esc(data["boundary"])}</p>
+<section class="section" id="modules"><h2>Modules</h2><ul class="api-module-list">{module_links}</ul></section>
+<section class="section" id="scope"><h2>Reference scope</h2><p>{esc(data["boundary"])}</p>
 <p>Types are pretty-printed from Lean's elaborated environment—not reconstructed from source text. Source docstrings are displayed verbatim as text; historical development wording in them is not a new project-status claim. Structure constructors and projections may have no separate docstring.</p>
 <p>This deliberately focused reference does not duplicate mathlib or LeanInfoTheory documentation, provide tactic search, or promise doc-gen4's linked-type and instance navigation. A source link remains authoritative for notation, declaration bodies and surrounding context.</p>
 <p class="small">Source snapshot: <a href="{REPOSITORY}/tree/{SOURCE_COMMIT}"><code>{SOURCE_COMMIT}</code></a>. <a href="api-data.json">Download the machine-readable inventory</a>. Reproduce with <code>python -B tools/generate_api.py --check</code>.</p></section>'''

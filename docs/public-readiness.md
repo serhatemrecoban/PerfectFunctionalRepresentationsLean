@@ -308,6 +308,38 @@ reviewing its source/tooling change. Unexpected output files are refused, not
 silently removed. Changes to the public API source snapshot require an explicit
 re-pin of the exporter and human-source-link manifest with revalidation.
 
+### Academic layout correction — 2026-10-14
+
+The lead rejected the earlier visual interpretation: navigation and palette
+matched, but the custom editorial composition did not resemble the reference
+sites. The correction uses the full-width centered masthead, bordered navigation
+buttons, sans-serif typography and narrow document flow seen on
+[LeanInfoTheory](https://serhatemrecoban.github.io/LeanInfoTheory/) and
+[Fermat's Last Theorem](https://imperialcollegelondon.github.io/FLT/), keeping
+LeanInfoTheory's blue–green palette. These are visual references, not copied
+source or assets. No external theme, font, package or dependency is introduced.
+
+The homepage uses plain sections/lists, with the diagram below the introduction.
+Secondary pages and the generated API use the same masthead. Exact mathematical
+contracts, source anchors, API inventory and publication guards are preserved.
+Local validation passes: 23 website tests (22 pass, one Windows symlink-privilege
+skip), fourteen API tests, the 33-page/4,716-reference website guard, source/render
+freshness, the public static gate and default Lean build (2,762 jobs). Fresh
+compiler generation (2,794 jobs, all ten installed pins checked before/after)
+preserves all 992 declaration records and mathematical source hashes exactly.
+No validation rule, workflow or compiler export logic was weakened.
+
+Browser tests pass 28 explicit academic-layout checks and 32 representative
+page/viewport combinations at 1440/768/390/320 px, plus API search/reset/no-match,
+literal hostile query, keyboard deep links, disclosures, no-JavaScript reading
+and clipboard success/fallback. The homepage title remains visible when printed.
+Independent visual review confirms the reference-family resemblance on home,
+secondary and generated API pages. Its one contrast finding was corrected with
+a subtle dark overlay on the original gradient (minimum white-text contrast
+4.85:1); the 832-pixel desktop text column and 52-pixel title match the reference
+geometry. There are no outstanding design findings. Hosted delivery remains
+pending at this local checkpoint; earlier hosted runs are historical evidence.
+
 A later LeanInfoTheory release may celebrate this completed downstream case
 study. That announcement should explicitly say **built against v0.1.0**; neither
 publication nor that acknowledgement requires upgrading PFR. Upgrading remains

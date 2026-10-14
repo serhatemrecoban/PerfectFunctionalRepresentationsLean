@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Perfect Functional Representations">
-<title>Overview · Perfect Functional Representations</title>
+<title>Perfect Functional Representations</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
@@ -16,31 +16,58 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap header-inner">
-<a class="brand" href="index.html" aria-label="Perfect Functional Representations home"><span class="monogram" aria-hidden="true">PFR</span><span class="brand-name">Perfect Functional<br>Representations</span></a>
-<nav class="nav" aria-label="Main navigation"><a href="index.html" aria-current="page">Overview</a><a href="blueprint/index.html">Blueprint</a><a href="api/index.html">Lean API</a><a href="discussion.html">Discussion</a><a href="reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">GitHub <span aria-hidden="true">↗</span></a></nav>
+<h1 class="project-name">Perfect Functional Representations</h1>
+<p class="project-tagline">A Lean formalization of the ISIT paper, built on LeanInfoTheory v0.1.0.</p>
+<p class="project-authors">Formalization by Serhat Emre Coban</p>
+<nav class="nav" aria-label="Main navigation"><a href="index.html" aria-current="page">Overview</a><a href="blueprint/index.html">Blueprint</a><a href="api/index.html">Lean API</a><a href="discussion.html">Discussion</a><a href="reproduce.html">Reproduce &amp; cite</a><a class="repo-link" href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">GitHub</a></nav>
 </div></header>
 <main id="main" class="wrap">
-<section class="hero">
-<div><p class="eyebrow">Information theory, formally verified</p><h1>Perfect functional representations,<br><em>verified in Lean.</em></h1>
-<p class="lead">When can independent randomness represent a channel without losing information? A formal study of the answer—from semantic foundations to constructive and linear-programming characterizations.</p>
-<div class="actions"><a class="button" href="blueprint/index.html">Read the blueprint <span aria-hidden="true">→</span></a><a class="text-link" href="api/index.html">Browse the Lean API <span aria-hidden="true">↗</span></a></div></div>
-<figure class="hero-figure"><img src="assets/representation.svg" width="440" height="330" alt="Independent input X and auxiliary Z feed a deterministic function f, producing output Y."><figcaption>A functional representation separates independent randomness from deterministic decoding.</figcaption></figure>
+<div class="project-status"><p><strong>Formalization complete:</strong> all sixteen development chunks are finished. Built with <strong>LeanInfoTheory v0.1.0</strong> and Lean 4.33.1. The scope is the six-page ISIT paper, with explicit <a href="discussion.html#limitations">qualifications and exclusions</a>.</p></div>
+<section aria-labelledby="about">
+<h2 id="about">About the project</h2>
+<p>This project formalizes <em>On Perfect Functional Representations</em> by Serhat Emre Coban, Yanina Y. Shkel and Emre Telatar. It studies when independent auxiliary randomness can represent a channel while attaining the natural information bound.</p>
+<p>The formalization develops the paper's semantic foundations, binary cases, channel operations, constructive characterizations and linear-programming criteria. It is a downstream case study of <a href="https://serhatemrecoban.github.io/LeanInfoTheory/">LeanInfoTheory</a>: the reusable information-theory library supplies the foundations, while the paper-specific mathematics stays in this repository.</p>
+<div class="credits"><p><strong>Paper authors:</strong> Serhat Emre Coban, Yanina Y. Shkel and Emre Telatar.</p><p><strong>Lean formalization:</strong> Serhat Emre Coban.</p></div>
 </section>
-<div class="credits"><div><span class="label">Mathematical paper</span>Serhat Emre Coban · Yanina Y. Shkel · Emre Telatar</div><div><span class="label">Lean formalization</span>Serhat Emre Coban · Built on LeanInfoTheory v0.1.0</div></div>
-<section class="reading-paths" aria-labelledby="reading"><div class="section-heading"><div><span class="section-num">THREE WAYS IN</span><h2 id="reading">From the idea to the exact contract.</h2></div><p>Start with the research story, follow the mathematical argument, or inspect the definitions and theorem signatures directly.</p></div><div class="route-grid"><a class="route-card" href="results.html"><span class="label">01 / Research overview</span><h3>The main results</h3><p>A short guide to what was proved, with the assumptions that matter.</p><span class="text-link">Explore the results →</span></a><a class="route-card" href="blueprint/index.html"><span class="label">02 / Mathematical blueprint</span><h3>Follow the argument</h3><p>Numbered statements, proof ideas and an explanatory dependency guide.</p><span class="text-link">Read the blueprint →</span></a><a class="route-card" href="api/index.html"><span class="label">03 / Generated Lean API</span><h3>Inspect the formalization</h3><p>Search PFR declarations and read compiler-generated types beside source links.</p><span class="text-link">Browse the API →</span></a></div></section>
-<section class="section" aria-labelledby="question"><div class="section-heading"><div><span class="section-num">01 / THE QUESTION</span><h2 id="question">How much information can the auxiliary carry?</h2></div><p>A functional representation reconstructs an output using the input and independent auxiliary randomness. Perfectness asks whether that auxiliary attains the natural information bound.</p></div>
-<div class="definition-grid"><div><span class="label">Functional representation</span><div class="equation">X ⟂ Z, &nbsp; Y = f(X, Z)<small>The decoder equality is required on the support of the law.</small></div><p class="small">The auxiliary Z is independent of X; together they determine Y.</p></div>
-<div><span class="label">Perfect representation</span><div class="equation">I(Y; Z) = H(Y | X)<small>Finite value alphabets; information measured in nats.</small></div><p class="small">Equality in the bound is characterized by the Markov property X → Y → Z.</p></div></div>
-<p class="small">The information results have explicit finite-alphabet and support contracts. <a href="discussion.html#limitations">Read the limitations.</a></p></section>
-<section class="section" aria-labelledby="results"><div class="section-heading"><div><span class="section-num">02 / THE FORMALIZATION</span><h2 id="results">From probability laws<br>to exact criteria.</h2></div><p>Sixteen completed development chunks connect the paper's definitions and results. Every theorem below leads to its precise Lean statement.</p></div>
-<a class="result-row" href="results.html#semantics"><span class="index">01</span><h3>Representations &amp; binary cases</h3><p>Canonicalization, singularity, maximal coupling and the attained binary information optimum.</p><span class="arrow" aria-hidden="true">↗</span></a>
-<a class="result-row" href="results.html#operations"><span class="index">02</span><h3>A constructive normal form</h3><p>Finite channel operations reorganized as proportional splits, support splits, then proportional merges.</p><span class="arrow" aria-hidden="true">↗</span></a>
-<a class="result-row" href="results.html#characterization"><span class="index">03</span><h3>Perfect channels, characterized</h3><p>Finite operation paths to and from a simple seed channel give an exact structural criterion.</p><span class="arrow" aria-hidden="true">↗</span></a>
-<a class="result-row" href="results.html#optimization"><span class="index">04</span><h3>Primal &amp; dual LP criteria</h3><p>For finite singular channels, perfect representability is equivalent to an attained optimum of one.</p><span class="arrow" aria-hidden="true">↗</span></a>
+<section class="section" aria-labelledby="reading">
+<h2 id="reading">Read the formalization</h2>
+<ul>
+<li><a href="results.html">Main results</a> — a short guide to the proved statements and their assumptions.</li>
+<li><a href="blueprint/index.html">Mathematical blueprint</a> — numbered definitions and theorems, proof ideas, a dependency guide and links to Lean.</li>
+<li><a href="api/index.html">Lean API documentation</a> — searchable declarations, compiler-generated types and exact source links.</li>
+<li><a href="discussion.html">Discussion and limitations</a> — scope, normalization proof feedback, LP indexing and library reuse.</li>
+<li><a href="reproduce.html">Reproduce and cite</a> — installation, validation, dependency versions and attribution.</li>
+</ul>
 </section>
-<section class="section" aria-labelledby="proof-feedback"><div class="feature-band"><div><span class="label">What the proof taught us</span><h2 id="proof-feedback">A finite cascade is not yet a termination argument.</h2><a class="text-link" href="discussion.html#normalization">Read the normalization story <span aria-hidden="true">→</span></a></div><p>The normal-form theorem survives, but its justification becomes sharper. Expanding local rewrites need more than an intuitive inversion count. The Lean proof instead constructs a finite certificate by induction on the original path, then realizes its three ordered blocks.</p></div></section>
-<section class="section" aria-labelledby="library"><div class="section-heading"><div><span class="section-num">03 / A DOWNSTREAM CASE STUDY</span><h2 id="library">A library,<br>used as a library.</h2></div><div><p>LeanInfoTheory supplies channels, entropy, mutual information and their foundational identities. Mathlib supplies the underlying probability and mathematical infrastructure. The paper-specific constructions remain here.</p><p class="small">Completed against the immutable <strong>LeanInfoTheory v0.1.0</strong> release. No upgrade is needed to reproduce or present this case study.</p><a class="text-link" href="discussion.html#reuse">Explore the reuse evidence <span aria-hidden="true">→</span></a></div></div></section>
+<section class="section" aria-labelledby="question">
+<h2 id="question">Functional and perfect representations</h2>
+<p>A functional representation reconstructs an output using an input and independent auxiliary randomness:</p>
+<div class="equation">X ⟂ Z, &nbsp; Y = f(X, Z)<small>The decoder equality is required on the support of the law.</small></div>
+<p>A perfect representation attains the information bound:</p>
+<div class="equation">I(Y; Z) = H(Y | X)<small>Finite value alphabets; information measured in nats.</small></div>
+<p>For a functional representation with finite value alphabets, equality is characterized by the Markov property X → Y → Z. The formal contracts retain explicit support and finite-alphabet hypotheses.</p>
+<figure class="representation-figure"><img src="assets/representation.svg" width="440" height="330" alt="Independent input X and auxiliary Z feed a deterministic function f, producing output Y."><figcaption>Independent randomness and deterministic decoding.</figcaption></figure>
+</section>
+<section class="section" aria-labelledby="results">
+<h2 id="results">Main formalized results</h2>
+<ul class="result-list">
+<li><a href="results.html#semantics"><strong>Representations and binary cases.</strong></a> Canonicalization, singularity, maximal coupling and the attained binary information optimum.</li>
+<li><a href="results.html#operations"><strong>A constructive normal form.</strong></a> Finite channel operations reorganized as proportional splits, support splits, then proportional merges.</li>
+<li><a href="results.html#characterization"><strong>Perfect channels, characterized.</strong></a> Finite operation paths to and from a simple seed channel give an exact structural criterion.</li>
+<li><a href="results.html#optimization"><strong>Primal and dual LP criteria.</strong></a> For finite singular channels, perfect representability is equivalent to an attained optimum of one.</li>
+</ul>
+</section>
+<section class="section" aria-labelledby="proof-feedback">
+<h2 id="proof-feedback">What formalization clarified</h2>
+<p>A finite cascade is not by itself a termination argument. Expanding local rewrites require more than an intuitive inversion count. The Lean proof establishes the normal-form theorem by induction on the original finite path, constructing a finite certificate and then realizing its three ordered blocks.</p>
+<p><a href="discussion.html#normalization">Read how formal verification clarified the normalization proof.</a></p>
+</section>
+<section class="section" aria-labelledby="library">
+<h2 id="library">Built on LeanInfoTheory</h2>
+<p>LeanInfoTheory supplies channels, entropy, mutual information and their foundational identities. Mathlib supplies the underlying probability and mathematical infrastructure. The paper-specific constructions remain here.</p>
+<p>The case study is completed against the immutable <strong>LeanInfoTheory v0.1.0</strong> release; no upgrade is required to reproduce it. See the <a href="discussion.html#reuse">measured reuse evidence</a> and <a href="reproduce.html">build instructions</a>.</p>
+</section>
 </main>
-<footer class="site-footer"><div class="wrap footer-inner"><p>Perfect Functional Representations<br>A LeanInfoTheory v0.1.0 case study · Lean 4.33.1</p><div class="footer-links"><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">Source</a><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/master/LICENSE">Apache-2.0 software</a><a href="reproduce.html#citation">Cite this work</a><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/master/AUTHORS.md">Credits</a></div></div></footer>
+<footer class="site-footer"><div class="wrap footer-inner"><p>Perfect Functional Representations · LeanInfoTheory v0.1.0 · Lean 4.33.1</p><div class="footer-links"><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean">Source</a><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/master/LICENSE">Apache-2.0 software</a><a href="reproduce.html#citation">Cite this work</a><a href="https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean/blob/master/AUTHORS.md">Credits</a></div></div></footer>
 </body>
 </html>

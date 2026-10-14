@@ -105,7 +105,9 @@ The lead authorized the research website on 2026-10-14 and subsequently requeste
 three reading layers: an approachable overview, a mathematical blueprint with
 proof ideas and an expository dependency guide, and a searchable, compiler-generated
 PFR API. Results, discussion/limitations and reproduction with citation remain
-available. Its blue–green palette follows LeanInfoTheory's site. Source lives in
+available. Its academic layout follows LeanInfoTheory and Fermat's Last Theorem:
+a centered full-width masthead, navigation buttons and a narrow reading column,
+with LeanInfoTheory's blue–green palette. Source lives in
 `site/`; the [website plan](docs/plans/pfr-website.md)
 records design, validation and maintenance. The site is published on GitHub Pages,
 with HTTPS and automated publication checks. Tagged releases, unverified

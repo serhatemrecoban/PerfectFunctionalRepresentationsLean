@@ -43,6 +43,10 @@ blue–green palette and retaining Discussion and reproduction. Hosted Lean and
 website checks passed; source links, desktop/mobile behavior and all published
 file bytes were verified. See [readiness](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
 for exact delivery evidence.
+The lead subsequently requested a closer visual match to the reference sites.
+The [academic-layout correction](plans/pfr-website.md#approved-academic-layout-correction--2026-10-14)
+is active: replace the editorial hero/cards with a centered full-width masthead,
+sans-serif headings and a narrow reading column, retaining content and API scope.
 New mathematical work requires separate authorization.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
