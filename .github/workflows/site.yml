@@ -3,9 +3,9 @@ name: Research website
 on:
   push:
     branches: [master]
-    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/check_website.py', 'tools/test_website.py', '.github/workflows/site.yml']
+    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/*website*.py', '.github/workflows/site.yml']
   pull_request:
-    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/check_website.py', 'tools/test_website.py', '.github/workflows/site.yml']
+    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/*website*.py', '.github/workflows/site.yml']
   workflow_dispatch:
 
 permissions:
@@ -25,7 +25,10 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Test website guard
-        run: python3 -B tools/test_website.py
+        run: |
+          python3 -B tools/test_website.py
+          python3 -B tools/test_website_links.py
+          python3 -B tools/website_links.py --check
       - name: Test API exporter guards and verify generated payload freshness
         run: |
           python3 -B tools/test_generate_api.py

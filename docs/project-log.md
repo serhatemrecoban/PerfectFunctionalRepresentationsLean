@@ -10079,3 +10079,32 @@ placeholder scan and diff hygiene. Eight desktop/tablet/mobile page cases check
 the edited copy, overflow and keyboard navigation; screenshots were inspected.
 Existing hosted website and all-module Lean gates remain unchanged and record
 publication outcomes against the resulting commit.
+
+<a id="website-resource-link-tabs"></a>
+
+## 197. Resource links without losing the reading tab — 2026-10-15
+
+Resource links and cross-page text references now open a new tab. Internal
+menus, footer navigation, contents, same-document anchors, declaration permalinks
+and graph controls retain same-tab behavior. External header resources are
+included in the new-tab policy. Native HTML targets work without JavaScript;
+safe opener attributes and a shared accessible notice accompany them. Generated
+API pages and cloned graph previews use the same policy.
+
+The shared renderer is `tools/website_links.py`; its policy tests and read-only
+all-page check are included in website CI. API generator fingerprints include
+the helper. Re-exporting all 992 declarations changes only generator provenance
+in the inventory, not declarations, types, documentation or source identities.
+No Lean source, dependency, scope or mathematical coverage changes.
+
+Local validation passes: 19 policy tests, 24 website tests (one existing Windows
+symlink-privilege skip), 14 API tests, 31 blueprint tests, all 35 HTML pages and
+5,702 links/assets, generated-page freshness, static public-build gate, default
+Lean build (2,762 jobs), placeholder scan and diff hygiene. Read-only review found
+no blocking issue. Browser checks pass 56 native link/navigation cases across
+desktop/mobile and JavaScript enabled/disabled, including keyboard activation,
+null popup openers and cloned graph previews. Forty page/viewport combinations,
+disclosures, keyboard navigation and clipboard behavior also pass; representative
+renders were inspected. Publication remains behind the
+existing hosted compiler-backed API and all-module Lean checks; GitHub records
+their outcomes for this checkpoint.

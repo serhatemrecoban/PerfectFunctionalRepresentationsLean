@@ -68,6 +68,9 @@ facts and the author's voice, not assistant narration about approvals. The
 [credits](../AUTHORS.md) own the single development-tool acknowledgment.
 Original plans, reviews and historical authority records retain their meaning;
 this editorial convention changes no mathematical or execution contract.
+Website [link behavior](plans/pfr-website.md#link-behavior--2026-10-15) opens
+resources and cross-page text references in new tabs while preserving internal
+navigation and graph controls in the current tab.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
 actual source and pinned APIs before relying on a summary. Plans and review aid

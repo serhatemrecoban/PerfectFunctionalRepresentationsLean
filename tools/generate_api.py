@@ -18,13 +18,14 @@ import sys
 from urllib.parse import quote
 
 import check_public_build as build_gate
+from website_links import apply_link_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean"
 SOURCE_COMMIT = "da44e39a2ec2936d32195dd97df21c1bd19e63bc"
 CONFIG = ("lakefile.toml", "lake-manifest.json", "lean-toolchain")
 TOOL_FILES = ("tools/generate_api.py", "tools/export_api.lean", "tools/api_search.js", "tools/api_style.css",
-              "tools/check_public_build.py")
+              "tools/check_public_build.py", "tools/website_links.py")
 PREFIX = "PerfectFunctionalRepresentations."
 BOUNDARY = (
     "All public source declarations in the production modules, plus the four public "
@@ -175,7 +176,7 @@ def generate_data(root: Path) -> dict:
 
 
 def page_shell(title: str, body: str, scripts: str = "", filename: str = "index.html") -> str:
-    return f'''<!doctype html>
+    return apply_link_policy(f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Lean API for the ISIT 2026 paper On Perfect Functional Representations, with compiler-generated types, documentation and commit-pinned source links.">
 <meta name="theme-color" content="#155799"><link rel="canonical" href="https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/api/{quote(filename)}">
@@ -188,7 +189,7 @@ def page_shell(title: str, body: str, scripts: str = "", filename: str = "index.
 <main id="main" class="wrap api-page">{body}</main>
 <footer class="site-footer"><div class="wrap footer-inner"><p>PFR API · LeanInfoTheory v0.1.0 · Lean 4.33.1<br>Generated from Lean; no dependency upgrade.</p><div class="footer-links"><a href="index.html">API index</a><a href="../discussion.html#limitations">Limitations</a><a href="{REPOSITORY}">Repository</a></div></div></footer>
 </body></html>
-'''
+''')
 
 
 def declaration_html(row: dict) -> str:
@@ -233,7 +234,7 @@ def render(data: dict, root: Path) -> dict[str, str]:
         contents = ''.join(f'<li><a href="#{quote(row["name"], safe=".")}"><code>{esc(row["name"].removeprefix(PREFIX))}</code></a></li>' for row in rows)
         body = f'''<div class="page-intro"><p class="eyebrow">Module reference</p><h1><code>{esc(name.removeprefix(PREFIX) if name != PREFIX[:-1] else "Root imports")}</code></h1>
 <p class="lead">{len(rows)} public reference entries.</p><pre><code>import {esc(name)}</code></pre>
-<p><a href="index.html">All modules &amp; search</a> · <a href="{REPOSITORY}/blob/{SOURCE_COMMIT}/{source}#L1">Module source</a></p></div>'''
+<p><a class="same-tab" href="index.html">All modules &amp; search</a> · <a href="{REPOSITORY}/blob/{SOURCE_COMMIT}/{source}#L1">Module source</a></p></div>'''
         if rows:
             body += f'<nav class="api-module-contents" aria-label="Module declarations"><details><summary>Declarations in this module</summary><ul>{contents}</ul></details></nav>'
             body += ''.join(declaration_html(row) for row in rows)

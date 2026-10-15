@@ -85,6 +85,15 @@ class WebsiteTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.check()
 
+    def test_new_tab_safety_and_notice(self):
+        for attrs in ['target="_blank"', 'target="_blank" rel="noopener noreferrer"']:
+            self.write("index.html", self.html.replace('<a href=', f'<a {attrs} href=', 1))
+            with self.assertRaisesRegex(ValueError, "new-tab link lacks"):
+                self.check()
+        safe = self.html.replace('<a href=', '<a target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-hint" href=', 1)
+        self.write("index.html", safe.replace('</body>', '<span id="new-tab-hint">Opens in a new tab.</span></body>'))
+        self.check()
+
     def test_inline_script_or_event_refused(self):
         for html in [self.html.replace(' src="assets/site.js"', ''),
                      self.html.replace('</script>', 'alert(1)</script>'),

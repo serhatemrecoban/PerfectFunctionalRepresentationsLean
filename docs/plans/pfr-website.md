@@ -333,3 +333,17 @@ Hosted website/API and all-module Lean workflows pass. All 45 live payload files
 match that commit; the 88 targeted checks and 40 responsive page combinations
 pass again against the public site. The readiness record owns exact run links.
 The final documentation-only closeout leaves the tested payload and code intact.
+
+## Link behavior — 2026-10-15
+
+Resource and cross-page content links open a new tab; internal menus, footer
+navigation, contents, permalinks and graph controls keep the current tab.
+External resources in the header remain resource links. Native HTML targets
+preserve this behavior without JavaScript, with safe opener attributes and an
+accessible new-tab notice. Graph previews inherit the same resource-link policy.
+
+`tools/website_links.py` owns this shared rendering policy. After hand-authored
+HTML edits, run it normally; API and blueprint generators apply it themselves.
+Its `--check` mode checks all published HTML without writing. The policy tests
+and website guard run in CI alongside the existing compiler-backed checks.
+This changes browsing behavior, not mathematical content or dependency pins.

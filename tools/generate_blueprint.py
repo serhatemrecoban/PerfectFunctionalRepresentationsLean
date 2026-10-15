@@ -16,6 +16,7 @@ from pathlib import Path
 import re
 import subprocess
 import textwrap
+from website_links import apply_link_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 SECTIONS = {
@@ -342,7 +343,7 @@ def render(root=ROOT):
         'dep_graph_document.html': ('Dependency graph', graph_page(entries, api)),
         'guide.html': ('How the ideas connect', '<main id="main" class="wrap"><h1>How the ideas connect</h1>' + subnav('guide.html') + guide + '</main>'),
     }
-    return {root / 'site/blueprint' / name: template.replace('{{TITLE}}', title).replace('{{CANONICAL}}', 'https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/blueprint/' + ('' if name == 'index.html' else name)).replace('{{MAIN}}', body) for name, (title, body) in pages.items()}
+    return {root / 'site/blueprint' / name: apply_link_policy(template.replace('{{TITLE}}', title).replace('{{CANONICAL}}', 'https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/blueprint/' + ('' if name == 'index.html' else name)).replace('{{MAIN}}', body)) for name, (title, body) in pages.items()}
 
 
 def main():

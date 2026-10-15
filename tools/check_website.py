@@ -79,6 +79,11 @@ class Page(HTMLParser):
         if tag == "img":
             require("alt" in values and values["alt"] is not None,
                     f"{self.name}: image without alt text")
+        if tag == "a" and values.get("target") == "_blank":
+            require({"noopener", "noreferrer"} <= set((values.get("rel") or "").split()),
+                    f"{self.name}: new-tab link lacks safe rel attributes")
+            require("new-tab-hint" in (values.get("aria-describedby") or "").split(),
+                    f"{self.name}: new-tab link lacks accessible notice")
         if tag in {"script", "title", "style"}:
             self.current = tag
         if tag == "script":
