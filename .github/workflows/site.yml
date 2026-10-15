@@ -3,9 +3,9 @@ name: Research website
 on:
   push:
     branches: [master]
-    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/*website*.py', '.github/workflows/site.yml']
+    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/*website*.py', 'tools/*lemma4*', 'tools/proofs/**', '.gitattributes', '.github/workflows/site.yml']
   pull_request:
-    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/*website*.py', '.github/workflows/site.yml']
+    paths: ['site/**', 'PerfectFunctionalRepresentations/**', 'PerfectFunctionalRepresentations.lean', 'lakefile.toml', 'lake-manifest.json', 'lean-toolchain', 'tools/*api*', 'tools/*blueprint*', 'tools/blueprint/**', 'tools/check_public_build.py', 'tools/*website*.py', 'tools/*lemma4*', 'tools/proofs/**', '.gitattributes', '.github/workflows/site.yml']
   workflow_dispatch:
 
 permissions:
@@ -35,6 +35,10 @@ jobs:
           python3 -B tools/generate_api.py --check-render
       - name: Validate public payload and pinned source links
         run: python3 -B tools/check_website.py
+      - name: Check reviewed LaTeX proof assets
+        run: |
+          python3 -B tools/test_build_lemma4_proof.py
+          python3 -B tools/build_lemma4_proof.py --check
       - name: Test and reproduce the curated blueprint
         run: |
           python3 -B tools/test_generate_blueprint.py

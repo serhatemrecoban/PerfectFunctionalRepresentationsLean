@@ -103,6 +103,10 @@ details[open]>summary {font-weight:600}
 .paper-proof math[display="block"] {margin:1rem 0;padding:.35rem 0;overflow-x:auto;color:var(--ink);font-size:1.15em}
 .proof-equations {display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
 .proof-equations math[display="block"] {margin:.35rem 0}
+.proof-resources {display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:1rem 0;font-size:.9rem}
+.latex-pages {padding:1.25rem;background:#edf0f3;border:1px solid var(--line);border-radius:.3rem}
+.latex-page {display:block;width:100%;height:auto;background:white;box-shadow:0 2px 9px #22334426}
+.latex-page+.latex-page {margin-top:1.25rem}
 .source-link {font-size:.85rem;font-family:var(--mono);overflow-wrap:anywhere}
 .source-list {display:grid;gap:.65rem;margin:1rem 0}
 .source-list a {display:block}
@@ -168,6 +172,7 @@ dl.metadata dd {margin:0;overflow-wrap:anywhere}
   .argument-branches,.criteria-grid {grid-template-columns:1fr;gap:1rem}
   .argument-foundation,.equivalence-node {padding:1rem}
   .site-footer {margin-top:1rem}
+  .latex-pages {padding:.5rem}
 }
 @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto}}
 @media print {
@@ -180,4 +185,6 @@ dl.metadata dd {margin:0;overflow-wrap:anywhere}
   h1,h2,h3,a {color:black}
   .article section,.result-section {break-inside:avoid}
   .note,.callout,.feature-band {background:white;border:1px solid #999}
+  .latex-pages {padding:0;border:0;background:white}
+  .latex-page {box-shadow:none;break-inside:avoid}
 }

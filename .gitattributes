@@ -1,0 +1,2 @@
+# Keep reviewed LaTeX-page fingerprints identical across checkouts.
+site/assets/proofs/* text eol=lf

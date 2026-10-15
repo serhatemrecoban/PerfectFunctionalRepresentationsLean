@@ -74,9 +74,10 @@ navigation and graph controls in the current tab.
 The website calls Lemma 4 the [operation-reordering lemma](plans/pfr-website.md#lemma-4-terminology--2026-10-15);
 Lean's normalization names remain unchanged, with an explanatory code comment.
 The Discussion page also includes an expandable
-[paper-style proof](plans/pfr-website.md#paper-style-proof-of-lemma-4--2026-10-15)
-of that existing construction, preserving its active-column and output-relabeling
-boundaries.
+[LaTeX paper-style proof of the Lean formalization of Lemma 4](plans/pfr-website.md#latex-presentation-of-lemma-4--2026-10-15):
+the paper statement and existing construction appear on white typeset pages,
+with source download and a reflowable text counterpart. Its active-column and
+output-relabeling boundaries remain explicit.
 
 The dependency graph has [mouse-wheel and button zoom](plans/pfr-website.md#dependency-graph-zoom--2026-10-15),
 retaining drag-to-pan, native modified-wheel gestures and the static fallback.

@@ -383,3 +383,27 @@ scrolling and scrolling outside the canvas remain native. Instructions explain
 Shift-wheel scrolling and browser zoom. No external library, graph edge,
 mathematical statement or Lean source changes; the static no-JavaScript graph
 and text alternatives remain available.
+
+## LaTeX presentation of Lemma 4 — 2026-10-15
+
+The proof disclosure is now titled “A paper-style proof of the Lean
+formalization of Lemma 4.” It displays two white LaTeX-typeset pages containing
+the ISIT lemma statement and original exposition of the Lean construction.
+The finite/nonempty-input, active-column and output-relabeling conventions
+remain explicit. The existing formal-construction links remain above it;
+an expandable reflowable text version and LaTeX download remain available
+without JavaScript. No theorem, dependency or coverage contract changes.
+
+`tools/proofs/lemma-4.tex` is the typesetting source. Run
+`python -B tools/build_lemma4_proof.py` with `pdflatex`, `pdfinfo` and
+`pdftocairo` available, then visually inspect every page. The PDF/logs under
+ignored `tmp/pdfs/lemma-4/` are intermediates, not public manuscript files.
+Only self-contained vector pages, a source copy and fingerprints enter
+`site/assets/proofs/`. Update the HTML text counterpart if the proof changes.
+The existing public-payload guard remains unchanged; no PDF embedding or
+third-party rendering dependency is introduced.
+
+`python -B tools/build_lemma4_proof.py --check` checks the reviewed source,
+published source copy, page inventory and exact asset fingerprints. CI runs
+that check and its model-free regression tests; it does not independently
+rerun TeX or assert byte-identical rendering across TeX installations.

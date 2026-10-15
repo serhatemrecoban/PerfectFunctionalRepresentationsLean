@@ -1,0 +1,10 @@
+{
+  "source": "tools/proofs/lemma-4.tex",
+  "source_sha256": "8f978b205bfd158f5b6ca83f0569373dd2f534840b81508269de08a2b3738d47",
+  "page_count": 2,
+  "files": {
+    "lemma-4-1.svg": "033de28ba549ffe0f8ad47ce1059b8cb09b88274a2354ca4243f609ef46e2d3f",
+    "lemma-4-2.svg": "a765768db1218a1c4f640d43f1ed2108032c9ee01cd01523afd6a7ffa173c912",
+    "lemma-4.tex.txt": "8f978b205bfd158f5b6ca83f0569373dd2f534840b81508269de08a2b3738d47"
+  }
+}

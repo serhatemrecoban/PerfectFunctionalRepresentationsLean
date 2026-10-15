@@ -10188,3 +10188,36 @@ and instructions. Generated-page/source-link checks, JavaScript syntax check,
 default Lean build (2,762 jobs), static public-build gate, placeholder scan and
 diff hygiene pass. Deployment remains behind the unchanged hosted checks;
 GitHub records their results for this checkpoint.
+
+## 201. LaTeX pages for the Lean proof of Lemma 4 — 2026-10-15
+
+The Discussion disclosure is renamed “A paper-style proof of the Lean
+formalization of Lemma 4.” It now displays two white typeset pages with the
+paper's Lemma 4 statement followed by the existing finite-certificate proof.
+The original formal-construction links remain above it. Full-size page links,
+a LaTeX source download and a native expandable text counterpart preserve
+readability without JavaScript. No Lean proof, API, dependency pin, graph edge
+or coverage claim changes.
+
+The authored source is `tools/proofs/lemma-4.tex`. Local LaTeX compilation and
+SVG conversion produce self-contained public vector pages; original manuscript
+PDFs and compilation intermediates are not published. A small builder and eight
+regression tests check source-copy agreement, reviewed asset fingerprints,
+inventory and displayed-page references. CI adds those checks without installing
+a new rendering dependency or weakening the public-payload guard. Fingerprint
+verification is not an independent TeX rebuild. The website plan records the
+rebuild command and obligation to review changed pages and their text counterpart.
+
+Separate mathematical and implementation reviews found no defect. The paper
+statement was compared with the retained ISIT p.3 text; the proof preserves
+finite/nonempty inputs, active columns, legal splits, finite realization and
+output permutation. Both rendered pages and desktop/mobile screenshots were
+visually inspected. Eight browser cases cover four widths with JavaScript on
+and off, keyboard disclosure controls, loaded white pages, source downloads,
+safe resource links, text/MathML alternatives and absence of page overflow.
+All 97 website/policy/API/blueprint/proof-asset tests pass apart from the existing
+Windows symlink-privilege skip. Default `lake build` (2,762 jobs), generated
+freshness, 35-page/9,702-reference website validation, static public-build gate,
+placeholder scan and diff hygiene pass. Hosted checks and deployment remain
+behind the existing publication gates; GitHub records their results for this
+checkpoint.

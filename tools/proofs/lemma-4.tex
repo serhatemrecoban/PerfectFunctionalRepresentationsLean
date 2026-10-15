@@ -1,0 +1,116 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\newtheorem{lemma}{Lemma}
+\newcommand{\pat}[1]{\boldsymbol{#1}}
+\begin{document}
+\begin{center}
+{\Large\bfseries A paper-style proof of the\\[3pt]
+Lean formalization of Lemma 4}
+\end{center}
+\smallskip
+
+\setcounter{lemma}{3}
+\begin{lemma}
+For any sequence of PPS, VPS, PPM operations, there exists an equivalent
+cascade that consists of a sequence of PPS operations, followed by a
+sequence of VPS operations, and finally a sequence of PPM operations.
+\end{lemma}
+
+\begin{proof}
+Let $M$ be a singular conditional probability matrix with finite alphabets
+and at least one input symbol, and let $N$ be obtained from $M$ by a finite
+cascade of PPS, VPS and PPM operations. We work with active columns, meaning
+that no column is identically zero, and regard output-column permutations
+as relabelings. Write the columns of $M$ as $c_i\pat{p}_i$, where $c_i>0$
+and $\pat{p}_i$ is a nonzero binary vector. We construct an equivalent
+cascade in the required order by keeping track of how pieces of these
+original columns contribute to each intermediate matrix.
+
+Each allowed operation preserves singularity and activity. Hence the
+columns of every intermediate matrix $Q$ can be written as
+$d_j\pat{q}_j$, with $d_j>0$ and nonzero binary patterns $\pat{q}_j$.
+For every original column $i$, we will maintain a finite family of
+positive weights $w_{ia}$ summing to one. For each weighted copy $a$, we
+will maintain a finite family of nonzero, pairwise disjoint binary
+patterns $\pat{p}_{iab}$ whose sum is $\pat{p}_i$. The index range of $a$
+may depend on $i$, and that of $b$ on $(i,a)$. Thus
+\begin{equation}
+  \sum_a w_{ia}=1, \qquad \sum_b \pat{p}_{iab}=\pat{p}_i.
+  \label{eq:partitions}
+\end{equation}
+Assign each piece $c_iw_{ia}\pat{p}_{iab}$ a destination column
+$\ell(i,a,b)$ of $Q$, with the properties
+\begin{equation}
+  \pat{p}_{iab}=\pat{q}_{\ell(i,a,b)}, \qquad
+  Q[:,j]=\sum_{\ell(i,a,b)=j} c_iw_{ia}\pat{p}_{iab}.
+  \label{eq:destinations}
+\end{equation}
+In other words, every piece has exactly the pattern of its destination,
+and the pieces assigned to a column sum to that column. We also retain
+finite binary trees recording the proportional splits that produce the
+weights and the support splits that produce the pattern partitions.
+
+We establish this description by induction on the length of the original
+cascade. For $Q=M$, take one copy of weight one and one pattern
+$\pat{p}_i$ for each column $i$, with destination $i$. Suppose now that
+the description holds for $Q$, and consider the next operation.
+
+\emph{PPS.} Suppose column $l$ is split in the ratio
+$\alpha:(1-\alpha)$, where $0<\alpha<1$. Replace \emph{every} weighted
+copy of every original column by two copies with weights $\alpha w_{ia}$
+and $(1-\alpha)w_{ia}$, retaining the same pattern partition in each.
+For pieces with destination $l$, send the two copies to the two new
+columns, respectively. For every other piece, send both copies to its
+unchanged destination. Its two contributions add to the original
+contribution, whereas the contributions to column $l$ are split in the
+required ratio. The support identities are unchanged, and all weights
+remain positive and sum to one. The new weight tree consists of a split
+with ratio $\alpha$ followed by a copy of the old tree on each branch.
+
+\newpage
+\emph{VPS.} Suppose column $l$ is split into two nonzero, disjoint
+patterns $\pat{q}_{l,1}$ and $\pat{q}_{l,2}$. Every piece assigned to $l$
+has pattern $\pat{q}_l$. Replace its pattern by these same two patterns
+and assign the resulting pieces to the corresponding new columns,
+leaving its weight unchanged. Both pieces are nonzero because the given
+VPS is legal. All other pieces are unchanged. This refines the relevant
+pattern partitions, preserves the column-sum identities, and adds one
+binary support split at each affected leaf.
+
+\emph{PPM.} Suppose two columns with the same pattern are merged. Leave
+all weights and pattern partitions unchanged, and redirect the pieces
+assigned to either column to the merged column. Their patterns still
+agree with that of their destination, and their total contribution is
+the sum of the two original columns. Hence the required description is
+preserved.
+
+Applying the induction to the whole cascade gives such a description of
+$N$. We now realize it in three stages. First, perform the recorded
+proportional splits on each original column, obtaining the columns
+$c_iw_{ia}\pat{p}_i$. Second, perform the recorded support splits on each
+weighted copy, obtaining the pieces $c_iw_{ia}\pat{p}_{iab}$. Every
+support split is legal: both branches contain nonzero parts of the
+corresponding partition. The first stage therefore uses only PPS
+operations, and the second only VPS operations.
+
+Finally, for each column $j$ of $N$, merge all pieces whose destination
+is $j$. These pieces are positive multiples of the same nonzero pattern,
+so they can be merged successively using PPM operations. Every target
+column receives at least one piece, since it is nonzero and equals the
+sum of its assigned pieces. The column-sum identity
+in~\eqref{eq:destinations} shows that the resulting column is precisely
+$N[:,j]$. Thus the endpoint is $N$ up to a permutation of its output
+columns.
+
+The construction is finite: the description is built by induction on
+the given finite cascade, and each of its recorded binary trees is
+finite. Traversing these trees and merging the finite destination groups
+produces a finite PPS--VPS--PPM cascade; any of the three blocks may be
+empty. This proves the lemma.
+\end{proof}
+\end{document}
