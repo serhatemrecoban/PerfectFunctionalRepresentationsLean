@@ -100,6 +100,9 @@ figcaption {font-size:.85rem;color:var(--muted);margin-top:.75rem}
 details {margin:1rem 0}
 details>summary {cursor:pointer;color:var(--teal);margin-bottom:.75rem}
 details[open]>summary {font-weight:600}
+.paper-proof math[display="block"] {margin:1rem 0;padding:.35rem 0;overflow-x:auto;color:var(--ink);font-size:1.15em}
+.proof-equations {display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.proof-equations math[display="block"] {margin:.35rem 0}
 .source-link {font-size:.85rem;font-family:var(--mono);overflow-wrap:anywhere}
 .source-list {display:grid;gap:.65rem;margin:1rem 0}
 .source-list a {display:block}

@@ -73,6 +73,10 @@ resources and cross-page text references in new tabs while preserving internal
 navigation and graph controls in the current tab.
 The website calls Lemma 4 the [operation-reordering lemma](plans/pfr-website.md#lemma-4-terminology--2026-10-15);
 Lean's normalization names remain unchanged, with an explanatory code comment.
+The Discussion page also includes an expandable
+[paper-style proof](plans/pfr-website.md#paper-style-proof-of-lemma-4--2026-10-15)
+of that existing construction, preserving its active-column and output-relabeling
+boundaries.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
 actual source and pinned APIs before relying on a summary. Plans and review aid

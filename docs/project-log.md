@@ -10137,3 +10137,32 @@ browser cases cover five pages at four widths, including the title, retained
 lemma mentions, graph previews and probability-normalization wording; renders
 were inspected. Hosted checks and publication outcomes attach to the resulting
 website commit in GitHub.
+
+## 199. A paper-style proof of Lemma 4 on the website — 2026-10-15
+
+The Discussion page now includes “A paper-style proof of Lemma 4,” a second
+blue native disclosure immediately after the existing formal-construction links.
+It translates the existing split-forest argument into column-value/pattern
+notation: positive weighted copies, support partitions, exact destination
+coordinates, induction over each original operation, and finite PPS/VPS/PPM
+realization. It explicitly retains active finite alphabets, nonempty input,
+legal splits, nonempty merge groups, possibly empty blocks and final output
+relabeling. No Lean declaration, proof, dependency pin or coverage claim changes.
+
+The source was reread at `OperationFactorization.lean`'s invariant, append
+constructions and realization. Notation and exposition were compared with the
+verified ISIT p.3 and current extended companion p.4 and Appendix B pp.14–15;
+the recorded manuscript digests remain unchanged. This is new exposition of
+the Lean argument, not copied manuscript prose. A separate read-only review
+found no mathematical gap; its finite-alphabet and intermediate-singularity
+clarifications were incorporated.
+
+Validation passes: default `lake build` (2,762 jobs), 88 website/link/API/blueprint
+tests (one existing Windows symlink-privilege skip), generated-page freshness,
+35-page/5,701-link website check, static public-build gate, placeholder scan
+and diff hygiene. Eight browser cases cover four widths with JavaScript enabled
+and disabled, placement below the retained disclosure, keyboard expansion and
+collapse, labeled native MathML and absence of page/equation overflow. Desktop
+and mobile renders were inspected. Hosted checks and deployment remain subject
+to the unchanged publication gates; their results attach to this website
+checkpoint in GitHub.

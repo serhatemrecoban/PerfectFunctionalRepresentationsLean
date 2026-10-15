@@ -361,3 +361,14 @@ are preserved, including `discussion.html#normalization`.
 The API and source-link snapshot is refreshed to `f8c89ee94513b544dc72b10fb4e91a046420c4a6`
 to include that comment. Declaration names, contracts, proofs and source line
 numbers are unchanged; the LeanInfoTheory v0.1.0 dependency pin is unchanged.
+
+## Paper-style proof of Lemma 4 — 2026-10-15
+
+The Discussion page adds a second native blue disclosure immediately below
+“Where to find the formal construction”: “A paper-style proof of Lemma 4.”
+It presents the existing finite-certificate proof in mathematical prose using
+column values and binary patterns, including the invariant, all three induction
+cases, legal three-stage realization and final output permutation. The source
+links remain above it. Native MathML supplies the displayed equations without
+an external rendering dependency. The proof is original exposition of the Lean
+construction, not a reproduction of the local manuscript or a new theorem.
