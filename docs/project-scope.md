@@ -5,16 +5,17 @@
 The project formalizes the six-page ISIT version of *On Perfect Functional
 Representations* in Lean 4. Local manuscript copies used for planning remain
 outside the repository or in ignored reference directories and must not be
-committed. A verified bibliographic record and an appropriate public link may
-be added after the project lead confirms them.
+committed. [AUTHORS.md](../AUTHORS.md) records the verified paper link and
+credits. Additional publication metadata requires verification and my
+confirmation before it is added.
 
 The six-page manuscript fixes the default inclusion boundary. The current
 extended draft is an evolving proof and clarification reference: it may give
 fuller arguments or make compressed ISIT passages more precise, but its
 additional definitions, theorems, algorithms, applications, and claims remain
-outside scope unless explicitly approved. Material reliance on the extended
-draft must identify the consulted version and be revisited when that draft
-changes.
+outside scope unless I explicitly approve an extension. Material reliance on
+the extended draft must identify the consulted version and be revisited when
+that draft changes.
 
 ## Interpretation boundary
 
@@ -35,7 +36,7 @@ a knowingly false or ill-typed literal reading. Any material implicit
 assumption, repaired index, representation change, or mismatch must be
 recorded, with an explicit equivalence bridge when practical. If competing
 interpretations change truth, assumptions, conclusion, theorem strength, or
-scope, the project lead must choose between them.
+scope, the choice must be referred to me rather than resolved silently.
 
 ## Paper boundary
 
@@ -74,7 +75,7 @@ release's supported public imports and declarations.
 
 Rocq developments and other external information-theory formalizations are not
 routine dependency or implementation sources for this downstream case study.
-Consultation or reuse requires an explicit project-lead request and recorded
+Consultation or reuse requires my explicit request and recorded
 provenance or attribution where applicable.
 
 Paper-specific notions, representations, constructions, and main results are
@@ -96,62 +97,58 @@ continue to compile against `v0.1.0`.
 
 ## Current phase
 
-**Current, 2026-10-04:** C01–C16 are durably complete. C16's supported S05
-closure and exact final-source applicability were verified before the
+**Current, 2026-10-04:** all sixteen formalization chunks are complete. C16's
+final validation was checked against the completed source before the
 [private repository checkpoint](project-log.md#post-c16-checkpoint).
-The [approved C16 revision-2 plan](plans/pfr-c16-coverage-api-trust-closure.md)
-authorizes formalization closure within the existing six-page scope. Its
-[readiness matrix](pfr-c16-readiness-audit.md#c16-s05-readiness) separates
-established coverage and decisions from the final durable closure boundary.
+The [C16 revision-2 plan](plans/pfr-c16-coverage-api-trust-closure.md)
+records the completion criteria within the existing six-page scope. Its
+[readiness matrix](pfr-c16-readiness-audit.md#c16-s05-readiness) records the
+coverage, decisions and evidence supporting completion.
 Original plans and pre-finalization records keep their historical meaning;
 [current closure navigation](pfr-c16-readiness-audit.md#c16-s04-navigation)
-points to the preserved records and later verified handoffs.
+points to the preserved records and later validation.
 
 The current API retains support-aware semantic contracts, exact active-output
 and numeric bridges, finite nonempty-input LP interfaces, private fixtures and
 the no-wrapper decision. DG-01–DG-15 are resolved. Original OM-001–071 rationale
 is preserved without publication-facing condensation or archival curation.
 
-C16 does not authorize new theorem families, extended-only results, generic LP
-infrastructure, solver integration, a dependency upgrade, commits/pushes,
-release, publication or a website. Those directions retain their separate
-owners and triggers in the [disposition register](pfr-c16-readiness-audit.md#c16-s04-dispositions)
-and [roadmap](roadmap.md).
+Completing C16 did not extend the mathematical scope or start further work.
+New theorem families, extended-only results, generic LP infrastructure, solver
+integration and dependency upgrades still require separate approval. Commits,
+pushes, releases and publication work are distinct from mathematical completion;
+the later publication and website milestones are recorded below. The
+[disposition register](pfr-c16-readiness-audit.md#c16-s04-dispositions) and
+[roadmap](roadmap.md) retain the relevant owners and reconsideration triggers.
 
-The lead separately authorized committing and pushing accumulated progress
-through C16 on 2026-10-04 while keeping the repository private. That checkpoint
-does not authorize a release, public publication, new mathematics or website work.
-
-On 2026-10-14 the lead separately authorized updating the GitHub repository and
-making it public, retaining the existing Apache-2.0 software license and leaving
-unverified copyright-holder/bibliographic metadata unspecified. This authorizes
-public source availability, not manuscript or private-report distribution, a
-tagged release, new theorem work or a website. The
+The completed development was preserved in the private checkpoint of
+2026-10-04. On 2026-10-14 the repository became public under the existing
+Apache-2.0 software license. Unverified copyright-holder and bibliographic
+metadata were left unspecified. Public availability covers the source, not
+redistribution of local manuscripts or private reports, a tagged release, or
+an extension of the mathematical scope. The
 [publication checkpoint](project-log.md#public-repository-checkpoint) records
 delivery and visibility verification.
 
-The subsequent public-readiness request authorizes content/history review,
-attribution clarification and reproducible public build checks. The lead
-confirmed paper credit to all three authors and formalization credit to Serhat
-Emre Coban; see [AUTHORS.md](../AUTHORS.md). This does not establish an unverified
-rights-holder or third-party permission claim. The lead subsequently specified
-ISIT 2026 and requested the public paper link; [AUTHORS.md](../AUTHORS.md) now
-links the DOI verified against the author's homepage and EPFL's record. Further
-bibliographic details remain unspecified. The [readiness record](public-readiness.md)
-identifies the exact manuscript versions and the limited comparison of the newer
-extended companion.
+The public-readiness review checked content and history, clarified attribution,
+and established reproducible public build checks. The mathematical paper is
+credited to all three authors; the Lean formalization is credited to Serhat
+Emre Coban. [AUTHORS.md](../AUTHORS.md) records these credits and links the ISIT
+2026 DOI, verified against my academic homepage and EPFL's publication record.
+Authorship does not establish unverified rights-holder or third-party permission
+claims. Further bibliographic details remain unspecified. The
+[readiness record](public-readiness.md) identifies the exact manuscript versions
+and the limited comparison of the newer extended companion.
 
-The lead then authorized building the research website on 2026-10-14, including
-an explanatory Discussion section, and requested a detailed plan followed by
-implementation. The [website plan](plans/pfr-website.md) records the bounded
-static-site and GitHub Pages delivery. This authorizes public presentation of
-verified source/coverage and original explanations, not redistribution of local
-papers or annotations, new mathematics, dependency upgrades or unverified
-publication metadata. Current deployment evidence belongs in the readiness
-record.
+Website work began on 2026-10-14. The [website plan](plans/pfr-website.md)
+records the design, implementation and GitHub Pages delivery, including the
+explanatory Discussion section. Its scope is public presentation of verified
+results and original explanations, not redistribution of local papers or
+annotations, new mathematics, dependency upgrades or unverified publication
+metadata. Deployment evidence belongs in the readiness record.
 
-The subsequent website refinement authorizes an overview, original mathematical
-blueprint and compiler-generated PFR API, with LeanInfoTheory's blue–green
+The site includes an overview, original mathematical blueprint and
+compiler-generated PFR API, with LeanInfoTheory's blue–green
 palette. The blueprint is explanatory rather than a claim that its diagram is
 an exact compiler proof graph. The API documents this project's public surface,
 not a newly maintained copy of its dependencies. Existing manuscript, scope,

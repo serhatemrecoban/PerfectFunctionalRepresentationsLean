@@ -25,9 +25,10 @@ fixture, documentation disposition or intentional omission.
 ## Scope and mathematical boundaries
 
 The six-page ISIT manuscript fixes scope. Extended version 16 supplies the
-historical C01–C16 proof/clarification baseline. The lead supplied extended
-`(19) (2)` on 2026-10-13; selected appended proofs were compared, not the entire
-new draft. Extended-only results remain outside current scope.
+proof and clarification baseline for the completed formalization. Selected
+appended proofs in the newer companion `(19) (2)` were subsequently compared
+with the formalization; the entire new draft was not revalidated.
+Extended-only results remain outside current scope.
 Information uses finite value alphabets and nats, with unrestricted source spaces
 where supported. In particular, information-preserving canonicalization and the
 binary information bound cover finite-valued auxiliaries, not the paper's fully
@@ -44,7 +45,7 @@ characterizations, not an executable LP solver. See
 
 Lean is pinned to `v4.33.1`; LeanInfoTheory is pinned to immutable `v0.1.0`
 (`0bef5ef5124d7c33afc1aaed8d4f34a1c3a5ce8f`). Mathlib is resolved through
-`lake-manifest.json`. Upgrades need a dedicated reviewed step.
+`lake-manifest.json`. Reproduction uses these versions without an upgrade.
 
 Install Git, [elan](https://github.com/leanprover/elan) and Python 3.11 or newer
 (use `python3` below if your system does not name it `python`).
@@ -100,9 +101,8 @@ their original plans, notes and project-log entries.
 
 ## Website and release
 
-Public repository availability is authorized separately from C16 completion.
-The lead authorized the research website on 2026-10-14 and subsequently requested
-three reading layers: an approachable overview, a mathematical blueprint with
+The research website offers three reading layers: an approachable overview,
+a mathematical blueprint with
 proof ideas and an expository dependency guide, and a searchable, compiler-generated
 PFR API. Results, discussion/limitations and reproduction with citation remain
 available. Its academic layout follows LeanInfoTheory and Fermat's Last Theorem:
@@ -110,10 +110,9 @@ a centered full-width masthead, navigation buttons and a narrow reading column,
 with LeanInfoTheory's blue–green palette. Source lives in
 `site/`; the [website plan](docs/plans/pfr-website.md)
 records design, validation and maintenance. The site is published on GitHub Pages,
-with HTTPS and automated publication checks. Tagged releases, unverified
-metadata and publication-facing omission curation remain separate decisions;
-see the [roadmap](docs/roadmap.md). Local papers and references remain external
-or ignored and must not be committed.
+with HTTPS and automated publication checks. Possible future work is described
+in the [roadmap](docs/roadmap.md). Local manuscripts and working references are
+not distributed with the repository.
 
 ## Authors and citation
 
@@ -129,9 +128,5 @@ upgrade.
 
 ## License
 
-Project-authored software is licensed under Apache-2.0; see [LICENSE](LICENSE).
+This project is licensed under Apache-2.0; see [LICENSE](LICENSE).
 The paper and cited references retain their own copyrights and licences.
-On 2026-10-14 the project lead confirmed retaining this license for public
-availability and leaving unverified copyright-holder and bibliographic metadata
-unspecified. The subsequently confirmed authorship credits are listed above;
-affiliation, DOI and copyright-holder claims are not inferred from them.

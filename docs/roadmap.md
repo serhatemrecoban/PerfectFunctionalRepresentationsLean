@@ -1,31 +1,29 @@
 # PerfectFunctionalRepresentationsLean Roadmap
 
-This reader-facing roadmap describes where the project may go. It is
-directional, not an execution contract: its ordering and workstreams remain
-subject to the formalization map, and no item here authorizes theorem
-implementation. Current status belongs in the
+This roadmap summarizes completed work and possible future directions. It is
+not an execution contract: inclusion here does not start theorem development.
+Current status belongs in the
 [living summary](perfect-functional-representations-living-summary.md), scope
 belongs in [project scope](project-scope.md), the current dependency-aware
-allocation belongs in the [formalization map](formalization-map.md), and only
-an explicitly approved chunk plan may authorize implementation.
+allocation belongs in the [formalization map](formalization-map.md), and
+implementation requires an explicitly approved chunk plan.
 
 <a id="current-c16-reviewed-final-checkpoint"></a>
 
 ## Current: C01–C16 complete
 
-**Current, 2026-10-04:** C01–C16 are durably complete. C16's supported S05
-closure and exact final-source applicability were verified before the
+**Current, 2026-10-04:** all sixteen formalization chunks are complete. C16's
+final validation was checked against the completed source before the
 [private repository checkpoint](project-log.md#post-c16-checkpoint).
-The [approved plan](plans/pfr-c16-coverage-api-trust-closure.md) is the execution
-contract. The [integrated readiness matrix](pfr-c16-readiness-audit.md#c16-s05-readiness)
-maps every earlier C16 criterion, boundary and completion outcome. S05
-reassessed and closed the complete contract under its own accepted request.
-Original historical checkpoints and later completion evidence are available
+The [C16 plan](plans/pfr-c16-coverage-api-trust-closure.md) records the completion
+criteria, and the [integrated readiness matrix](pfr-c16-readiness-audit.md#c16-s05-readiness)
+maps those criteria, mathematical boundaries and final outcomes. Original
+checkpoints and the later completion evidence remain available
 through the [closure/history routes](pfr-c16-readiness-audit.md#c16-s04-navigation).
 
 ## Completed mathematical workstreams
 
-| Workstream | Complete owners |
+| Workstream | Completed chunks |
 | --- | --- |
 | Functional/canonical representations, singularity and binary cases | C01–C03, C05 |
 | Finite total variation and maximal coupling | C04 |
@@ -34,24 +32,38 @@ through the [closure/history routes](pfr-c16-readiness-audit.md#c16-s04-navigati
 | Active-pattern compression and full/reduced incidence systems | C12–C13 |
 | Attained primal and dual characterizations | C14–C15 |
 
-The map retains the dependency history and source allocation. New theorem scope
-requires a new approved contract; none is allocated by this status summary.
+The map retains the dependency history and source allocation. New theorem work
+requires a separate approved plan; this status summary adds no new scope.
 
 ## Completion and release direction
 
-C16 owns final formalization coverage, maintained-example/API/import, documentation
-and local trust closure. A separately authorized release-readiness phase may then
-address rights, licensing/citation metadata, distribution and remote validation.
-No release, publication-facing omission curation or public publication state is
-implied by C16 completion or this roadmap.
+C16 completed the coverage, example, API, import, documentation and local trust
+audits. Publication required separate checks of content, attribution,
+reproducibility and remote validation; mathematical completion alone did not
+establish those facts.
 
-The lead separately authorized public repository availability on 2026-10-14,
-under the existing Apache-2.0 license and without inventing unverified metadata.
+The repository became public on 2026-10-14 under the existing Apache-2.0 license.
 The [publication checkpoint](project-log.md#public-repository-checkpoint) records
-that bounded delivery. The subsequent [public-readiness work](public-readiness.md)
-adds content/history checks, confirmed author credits and a public all-module
-build gate. A tagged release, unverified metadata and omission curation remain
-separate decisions, not consequences of this visibility change.
+the visibility change. The [public-readiness record](public-readiness.md)
+documents content/history checks, author credits and the public all-module build
+gate. A tagged release, additional verified metadata and publication-facing
+omission curation remain separate decisions.
+
+### Research website
+
+The [website plan](plans/pfr-website.md) records the design and implementation
+begun on 2026-10-14. The [site is live](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
+on GitHub Pages, with an overview, mathematical blueprint, compiler-generated
+PFR API, source-linked results, discussion of limitations and normalization,
+and reproduction/citation guidance. It uses LeanInfoTheory's blue–green palette
+and an academic layout with the paper's exact title, ISIT 2026 description and
+verified public paper link. The DOI is also recorded in [AUTHORS.md](../AUTHORS.md).
+
+The [blueprint/API delivery record](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
+and [academic-layout record](public-readiness.md#academic-layout-correction--2026-10-14)
+preserve the hosted checks, source-link validation and desktop/mobile evidence.
+The PFR-only API complements LeanInfoTheory's library documentation; it does not
+republish its dependency API or change the dependency pin.
 
 ## Later or deferred directions
 
@@ -69,24 +81,6 @@ directions are outside current execution:
   nats-to-bits conversion; and
 - any additional verified publication metadata beyond the now-linked ISIT paper DOI.
 
-The lead subsequently authorized website implementation on 2026-10-14. The
-[website plan](plans/pfr-website.md) owns that bounded delivery. The subsequent
-approved extension adds a mathematical blueprint and compiler-generated PFR API
-to the overview, source-linked results, discussion/limitations, normalization
-proof feedback and reproduction/citation, using LeanInfoTheory's blue–green
-palette. The updated
-[site is live](https://serhatemrecoban.github.io/PerfectFunctionalRepresentationsLean/)
-on GitHub Pages, with verified source links and desktop/mobile validation. The
-[readiness record](public-readiness.md#blueprint-api-and-palette-extension--2026-10-14)
-owns that extension's delivery evidence, including its hosted and
-live validation.
-The subsequently requested closer academic-layout match, exact paper title,
-ISIT 2026 wording and public paper link are complete and live. The verified paper DOI
-is recorded in [AUTHORS.md](../AUTHORS.md); latest delivery evidence belongs in
-the [academic-layout record](public-readiness.md#academic-layout-correction--2026-10-14).
-The PFR-only API complements LeanInfoTheory's library documentation; it does not
-republish its dependency API or change the dependency pin.
-
 The completed case study stays pinned to **LeanInfoTheory v0.1.0**, including
 during public presentation and any celebration in the library's next release.
 An upgrade is a separate possible future task, not a publication prerequisite.
@@ -95,7 +89,7 @@ An upgrade is a separate possible future task, not a publication prerequisite.
 
 Future Work Notes, roadmap items, formalization-map proposals, omission
 records, experiments, and proof-risk investigations do not authorize
-implementation. When the project lead approves a chunk, its contract will be
+implementation. I approve new chunks through explicit plans, which are
 stored under `docs/plans/` with a stable filename and explicit status,
 baseline, scope, steps, and completion criteria. Completing one step or chunk
 never authorizes the next one.

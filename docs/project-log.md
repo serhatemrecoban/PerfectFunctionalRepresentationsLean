@@ -10052,3 +10052,30 @@ combinations plus 10 discussion-section cases, keyboard disclosures, no-JS
 reading and the Lemma 4 link. Desktop/mobile renders were inspected. Publication
 continues through the unchanged hosted website and Lean CI gates; GitHub records
 their outcomes for the resulting commit.
+
+<a id="public-authorial-voice"></a>
+
+## 196. Public authorial voice and concise licensing — 2026-10-15
+
+Reader-facing prose now states project facts directly instead of reporting
+requests and approvals by an external project lead. README licensing is reduced
+to the Apache-2.0 statement, LICENSE link and separate rights of the paper and
+cited references. Credits, roadmap, scope and public-readiness text use neutral
+facts or the formalization author's first person where a personal decision is
+relevant. Completed website work is separated from the roadmap's future options.
+Results and reproduction pages receive corresponding small wording corrections.
+
+The credits retain their single development-tool acknowledgment. Stable writing
+guidance is recorded in AGENTS and the living summary. Original chunk plans,
+review records, mathematical sources and verbatim generated API excerpts are
+unchanged; the editorial pass does not alter authority boundaries, scope,
+omission decisions, historical evidence, attribution, rights or dependency pins.
+
+Source/contract review found no lost mathematical or attribution qualification.
+Local checks pass: website guard (35 pages, 5,702 links/assets), website tests
+(22 passes and the existing Windows symlink-privilege skip), generated API and
+blueprint freshness, static public-build gate, `lake build` (2,762 jobs),
+placeholder scan and diff hygiene. Eight desktop/tablet/mobile page cases check
+the edited copy, overflow and keyboard navigation; screenshots were inspected.
+Existing hosted website and all-module Lean gates remain unchanged and record
+publication outcomes against the resulting commit.

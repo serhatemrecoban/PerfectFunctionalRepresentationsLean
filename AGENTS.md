@@ -258,6 +258,11 @@ Future Work Note to an approved plan.
   and status.
 - Ignored reports under `tmp/codex-handoffs/` transfer context temporarily;
   they are not canonical records.
+- Write public-facing prose in the author's voice: state project facts directly
+  instead of narrating what the project lead requested, allowed or confirmed.
+  Use first person only for verified personal statements, without speaking for
+  coauthors. Keep authority history in operating records; do not retroactively
+  rewrite original reviews or alter verbatim source excerpts for style.
 
 Any project thread must update the owning canonical documents in the same
 coherent change whenever its work materially changes project state, coverage,

@@ -26,7 +26,6 @@ AI tools were used during development, with formal proofs checked by Lean.
 used for reproducibility, and cite the mathematical paper separately through its
 DOI above. Local manuscript copies are not distributed by this repository.
 
-Project-authored software remains under [Apache-2.0](LICENSE), as confirmed by
-the project lead. This software license does not relicense the paper, its figures,
-or other referenced works. Copyright-holder wording and any third-party
-publication permissions are not inferred from author credits or Git history.
+Project-authored software is licensed under [Apache-2.0](LICENSE). This software
+license does not relicense the paper, its figures, or other referenced works,
+which retain their own copyrights and licences.

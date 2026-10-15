@@ -3,8 +3,8 @@
 **Review date: 2026-10-14.** PFR is a public, completed case study of
 **LeanInfoTheory v0.1.0**. Public source availability is not a claim to have
 formalized the whole extended manuscript, redistributed the paper, or issued a
-tagged software release. The readiness work adds reproducible build checks and clear attribution;
-the subsequently authorized research website presents those verified results.
+tagged software release. The readiness work adds reproducible build checks and
+clear attribution; the research website presents those verified results.
 Neither changes the mathematics or dependency baseline.
 
 ## Public content
@@ -31,25 +31,25 @@ explicitly includes Actions history and logs in public visibility.
 
 Secret scanning and push protection were enabled and confirmed on 2026-10-14.
 The initial alert query returned no alerts; this does not certify completion or
-exhaustiveness of GitHub's asynchronous scanning. No paid security feature,
-history rewrite, tag, website deployment or manuscript upload was requested in
-that initial readiness phase. The later website authorization and delivery are
+exhaustiveness of GitHub's asynchronous scanning. That initial readiness phase
+excluded paid security features, history rewrites, tags, website deployment and
+manuscript uploads. My later decision to build the website and its delivery are
 recorded below.
 
 ## Attribution and permission boundaries
 
-[AUTHORS.md](../AUTHORS.md) separates the mathematical paper's three authors
-from the Lean formalization's author, Serhat Emre Coban, as confirmed by the lead.
+[AUTHORS.md](../AUTHORS.md) credits the mathematical paper to its three authors
+and the Lean formalization to me, Serhat Emre Coban.
 [CITATION.cff](../CITATION.cff) supplies software citation metadata. The software
 remains Apache-2.0; the paper and dependencies retain their separate rights and
 licenses.
 
-The lead's authorization to publish this repository is recorded. No separate
-coauthor or institutional permission is asserted on their behalf. Unverified
-copyright-holder wording and affiliation remain absent. The lead subsequently
-specified ISIT 2026 and requested the public paper link. The title, authors,
-conference year and [paper DOI](https://doi.org/10.1109/ISIT62367.2026.11653684)
-are corroborated by the [author's academic homepage](https://serhatemrecoban.github.io/)
+Publication permission covers this software repository; it does not assert
+separate coauthor or institutional permission on their behalf. Unverified
+copyright-holder wording and affiliation remain absent. The paper is an
+ISIT 2026 paper. Its title, authors, conference year and
+[paper DOI](https://doi.org/10.1109/ISIT62367.2026.11653684)
+are corroborated by [my academic homepage](https://serhatemrecoban.github.io/)
 and [EPFL's publication record](https://www.epfl.ch/schools/ic/ipg/publications/).
 The website links to that record; it does not host a paper copy or infer further
 rights-holder or permission details. Paper redistribution is not authorized.
@@ -167,9 +167,8 @@ Important qualifications must remain visible beside headline results:
 
 ## Website implementation and hosting
 
-The lead authorized the website on 2026-10-14, including an explanatory
-Discussion section, and requested a detailed plan with implementation when
-practical. The [website plan](plans/pfr-website.md) records scope, design,
+Website development began on 2026-10-14, including an explanatory Discussion
+section. The [website plan](plans/pfr-website.md) records scope, design,
 acceptance and maintenance. This supersedes the earlier suggestions-only phase.
 
 The initial site had four pages: Overview, Results, Discussion, and Reproduce & cite.
@@ -230,8 +229,8 @@ all tested site, tools, workflows and mathematical sources unchanged.
 
 ### Blueprint, API and palette extension — 2026-10-14
 
-The lead subsequently requested the conventional overview / mathematical
-blueprint / generated API structure, with LeanInfoTheory's blue–green palette.
+I subsequently chose the conventional overview / mathematical blueprint /
+generated API structure, with LeanInfoTheory's blue–green palette.
 The original four pages remain, supplemented by `site/blueprint/index.html` and
 a generated PFR-only reference under `site/api/`. The new blueprint contains
 original explanations of Definitions 1–4, Lemmas 1–6, Theorems 1–2 and Corollary 1.
@@ -313,9 +312,9 @@ re-pin of the exporter and human-source-link manifest with revalidation.
 
 ### Academic layout correction — 2026-10-14
 
-The lead rejected the earlier visual interpretation: navigation and palette
-matched, but the custom editorial composition did not resemble the reference
-sites. The correction uses the full-width centered masthead, bordered navigation
+The earlier layout matched the navigation and palette, but its custom editorial
+composition did not resemble the reference sites. I wanted a closer visual
+match. The correction uses the full-width centered masthead, bordered navigation
 buttons, sans-serif typography and narrow document flow seen on
 [LeanInfoTheory](https://serhatemrecoban.github.io/LeanInfoTheory/) and
 [Fermat's Last Theorem](https://imperialcollegelondon.github.io/FLT/), keeping
@@ -376,7 +375,7 @@ a separate, explicitly authorized and validated task.
 
 ## Argument-map revision — 2026-10-14
 
-The lead requested a fresh explanation of the paper's connections. The
+The paper's connections needed a clearer explanation. The
 [blueprint](../site/blueprint/index.html#dependency-guide) now separates a
 binary optimization branch from the general structural argument and displays
 perfectness, legal operations, partition weights and the primal/dual criteria
@@ -385,13 +384,13 @@ establish those bridges; no equivalence connector purports to be a Lean
 dependency edge. The old fixed-width SVG is replaced by responsive semantic
 HTML with result anchors and no script dependency.
 
-Read the exact approved ISIT §§I–IV/Appendix and current extended `(19) (2)`
-§§I–IV and relevant Appendices A/B through Theorem 2; checked their recorded
-hashes and compared the relevant local Lean sources. Independent semantic and
-operations/LP content reviews found no mathematical blocker. The newer
-companion is still only selectively checked, not wholly covered. Mathematical
-sources, API records, library pins, build gates and manuscript restrictions
-remain unchanged.
+The revision was checked against the exact ISIT §§I–IV/Appendix and
+current extended `(19) (2)` §§I–IV and relevant Appendices A/B through Theorem 2,
+with their recorded hashes verified and relevant local Lean sources compared.
+Independent semantic and operations/LP content reviews found no mathematical
+blocker. The newer companion is still only selectively checked, not wholly
+covered. Mathematical sources, API records, library pins, build gates and
+manuscript restrictions remain unchanged.
 
 Local validation passes: the 33-page/4,800-reference website guard; all fourteen
 API tests; 23 website tests (22 pass, one Windows symlink-privilege skip);
@@ -424,8 +423,8 @@ symlink-privilege skip remains recorded; it is not recast as a local pass.
 
 ## Structured blueprint and dependency graph — 2026-10-14
 
-The lead requested a point-by-point blueprint and a directed graph, using PCP
-and Fermat as presentation references. The rendered reference sites and the
+I chose a point-by-point blueprint and a directed graph, using PCP and Fermat
+as presentation references. The rendered reference sites and the
 [official Lean Blueprint documentation](https://github.com/PatrickMassot/leanblueprint#editing-the-blueprint)
 confirm a common tool-supported convention, not a compulsory visual standard.
 No implementation, assets or mathematical code were copied. PFR retains its

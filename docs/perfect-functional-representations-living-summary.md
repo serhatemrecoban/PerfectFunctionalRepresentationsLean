@@ -63,6 +63,12 @@ checks passed; exact delivery evidence is tracked in
 [readiness](public-readiness.md#structured-blueprint-and-dependency-graph--2026-10-14).
 New mathematical work requires separate authorization.
 
+**Public-writing convention, 2026-10-15:** reader-facing pages use direct project
+facts and the author's voice, not assistant narration about approvals. The
+[credits](../AUTHORS.md) own the single development-tool acknowledgment.
+Original plans, reviews and historical authority records retain their meaning;
+this editorial convention changes no mathematical or execution contract.
+
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
 actual source and pinned APIs before relying on a summary. Plans and review aid
 judgment; preserve mathematical intent and acceptance, document justified
