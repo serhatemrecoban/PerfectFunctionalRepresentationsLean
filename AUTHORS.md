@@ -18,6 +18,8 @@ the dependencies retain their own licenses. PFR does not claim those foundations
 as new results. A later LeanInfoTheory release does not change this dependency
 baseline or require an upgrade for this case study.
 
+AI tools were used during development, with formal proofs checked by Lean.
+
 ## Citation and licensing
 
 [CITATION.cff](CITATION.cff) describes the software. Cite the particular commit
