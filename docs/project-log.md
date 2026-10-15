@@ -10166,3 +10166,25 @@ collapse, labeled native MathML and absence of page/equation overflow. Desktop
 and mobile renders were inspected. Hosted checks and deployment remain subject
 to the unchanged publication gates; their results attach to this website
 checkpoint in GitHub.
+
+## 200. Mouse-wheel and button zoom for the dependency graph — 2026-10-15
+
+The graph now zooms around the mouse pointer when the wheel is used inside its
+canvas. Existing buttons have explicit Zoom in / Zoom out labels and disable
+at the retained 5%–200% limits. Fit width, readable size, reset, node previews,
+topic selection and dragging remain intact. Modified/horizontal wheel events
+and wheel events during a drag bypass graph zoom; outside-page scrolling is
+untouched. Generated instructions explain the controls and static fallback.
+No dependency library, Lean source, graph edge or mathematical content changes.
+
+Read-only code review found no material issue. Validation passes: 120 browser
+assertions across four viewport widths plus the no-JavaScript fallback; these
+cover cursor anchoring, both zoom directions, buttons and limits, wheel delta
+modes, modified gestures, outside scrolling, drag interaction, node selection,
+topic/reset controls and layout. Desktop/mobile renders were inspected. All
+89 website/link/API/blueprint tests pass apart from the existing Windows
+symlink-privilege skip; the new generator regression checks published controls
+and instructions. Generated-page/source-link checks, JavaScript syntax check,
+default Lean build (2,762 jobs), static public-build gate, placeholder scan and
+diff hygiene pass. Deployment remains behind the unchanged hosted checks;
+GitHub records their results for this checkpoint.

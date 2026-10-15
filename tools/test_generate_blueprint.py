@@ -339,6 +339,17 @@ class RepositoryBlueprintTests(unittest.TestCase):
                     self.assertEqual(node["id"], f"{view}-{node['data-entry']}")
                     self.assertEqual(node["href"], f"index.html#{node['data-entry']}")
 
+    def test_graph_zoom_controls_and_mouse_help_are_published(self):
+        source = blueprint.graph_page(self.entries, self.api)
+        self.assertIn('class="graph-controls" hidden', source)
+        self.assertIn('aria-label="Graph zoom controls"', source)
+        self.assertIn('aria-controls="graph-canvas">− Zoom out</button>', source)
+        self.assertIn('aria-controls="graph-canvas">+ Zoom in</button>', source)
+        self.assertIn('aria-label="Graph zoom" aria-live="polite"', source)
+        self.assertIn('mouse wheel over the graph', source)
+        self.assertIn('hold Shift', source)
+        self.assertIn('Without JavaScript, the graph remains scrollable', source)
+
 
 if __name__ == "__main__":
     unittest.main()

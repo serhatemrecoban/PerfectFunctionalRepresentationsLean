@@ -8,6 +8,10 @@
   const entrySelect = document.getElementById('graph-entry');
   const preview = document.getElementById('graph-preview');
   const label = document.getElementById('zoom-label');
+  const zoomIn = document.getElementById('zoom-in');
+  const zoomOut = document.getElementById('zoom-out');
+  const minScale = .05;
+  const maxScale = 2;
   const initialPreview = preview.innerHTML;
   let scale = 1;
   let currentView = 'all';
@@ -16,19 +20,21 @@
   controls.hidden = false;
   const active = () => document.querySelector(`.graph-view[data-view="${currentView}"]`);
   const svg = () => active().querySelector('svg');
-  function zoom(value, center = true) {
+  function zoom(value, anchor = {x:canvas.clientWidth / 2, y:canvas.clientHeight / 2}) {
     const previous = scale;
-    scale = Math.min(2, Math.max(.05, value));
+    scale = Math.min(maxScale, Math.max(minScale, value));
     const bounds = svg().viewBox.baseVal;
-    const x = (canvas.scrollLeft + canvas.clientWidth / 2) / previous;
-    const y = (canvas.scrollTop + canvas.clientHeight / 2) / previous;
+    const x = anchor && (canvas.scrollLeft + anchor.x) / previous;
+    const y = anchor && (canvas.scrollTop + anchor.y) / previous;
     svg().style.width = `${bounds.width * scale}px`;
     svg().style.height = `${bounds.height * scale}px`;
-    if (center) {
-      canvas.scrollLeft = x * scale - canvas.clientWidth / 2;
-      canvas.scrollTop = y * scale - canvas.clientHeight / 2;
+    if (anchor) {
+      canvas.scrollLeft = x * scale - anchor.x;
+      canvas.scrollTop = y * scale - anchor.y;
     }
     label.textContent = `${Math.round(scale * 100)}%`;
+    zoomOut.disabled = scale <= minScale;
+    zoomIn.disabled = scale >= maxScale;
   }
   function fit() { zoom(Math.min(1, (canvas.clientWidth - 24) / svg().viewBox.baseVal.width), false); }
   function readable() {
@@ -80,8 +86,8 @@
   }));
   viewSelect.addEventListener('change', () => { selected = ''; entrySelect.value = ''; preview.innerHTML = initialPreview; changeView(viewSelect.value); history.replaceState(null, '', location.pathname); });
   entrySelect.addEventListener('change', () => { if (entrySelect.value) select(entrySelect.value, true); });
-  document.getElementById('zoom-in').addEventListener('click', () => zoom(scale * 1.25));
-  document.getElementById('zoom-out').addEventListener('click', () => zoom(scale / 1.25));
+  zoomIn.addEventListener('click', () => zoom(scale * 1.25));
+  zoomOut.addEventListener('click', () => zoom(scale / 1.25));
   document.getElementById('zoom-fit').addEventListener('click', fit);
   document.getElementById('zoom-readable').addEventListener('click', readable);
   document.getElementById('graph-reset').addEventListener('click', () => {
@@ -103,7 +109,19 @@
   canvas.addEventListener('pointerup', endDrag);
   canvas.addEventListener('pointercancel', endDrag);
   canvas.addEventListener('lostpointercapture', endDrag);
-  // Browser page zoom and ordinary scrolling stay native; no wheel interception.
+  // Zoom only this viewport. Modified/horizontal wheel gestures remain native.
+  canvas.addEventListener('wheel', event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || drag ||
+        !Number.isFinite(event.deltaY) || event.deltaY === 0 ||
+        Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+    event.preventDefault();
+    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? canvas.clientHeight : 1;
+    const delta = Math.max(-240, Math.min(240, event.deltaY * unit));
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.max(0, Math.min(canvas.clientWidth, event.clientX - rect.left - canvas.clientLeft));
+    const y = Math.max(0, Math.min(canvas.clientHeight, event.clientY - rect.top - canvas.clientTop));
+    zoom(scale * Math.exp(-delta * .002), {x, y});
+  }, {passive:false});
   window.addEventListener('hashchange', () => {
     const id = location.hash.replace(/^#all-/, '');
     if (document.getElementById(`preview-${id}`)) select(id, true, false);

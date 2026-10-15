@@ -372,3 +372,14 @@ cases, legal three-stage realization and final output permutation. The source
 links remain above it. Native MathML supplies the displayed equations without
 an external rendering dependency. The proof is original exposition of the Lean
 construction, not a reproduction of the local manuscript or a new theorem.
+
+## Dependency-graph zoom — 2026-10-15
+
+The graph supports pointer-centered mouse-wheel zoom and explicitly labeled
+Zoom in / Zoom out buttons, with its existing fit, readable-size and reset
+controls. The 5%–200% bounds are retained; buttons indicate their limits.
+Dragging empty canvas space still pans. Modified wheel gestures, horizontal
+scrolling and scrolling outside the canvas remain native. Instructions explain
+Shift-wheel scrolling and browser zoom. No external library, graph edge,
+mathematical statement or Lean source changes; the static no-JavaScript graph
+and text alternatives remain available.

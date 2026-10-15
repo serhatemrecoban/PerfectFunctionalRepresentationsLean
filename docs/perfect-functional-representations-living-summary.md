@@ -78,6 +78,9 @@ The Discussion page also includes an expandable
 of that existing construction, preserving its active-column and output-relabeling
 boundaries.
 
+The dependency graph has [mouse-wheel and button zoom](plans/pfr-website.md#dependency-graph-zoom--2026-10-15),
+retaining drag-to-pan, native modified-wheel gestures and the static fallback.
+
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
 actual source and pinned APIs before relying on a summary. Plans and review aid
 judgment; preserve mathematical intent and acceptance, document justified

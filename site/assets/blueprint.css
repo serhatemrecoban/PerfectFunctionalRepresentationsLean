@@ -51,6 +51,7 @@
 .graph-zoom {display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
 .graph-zoom button {background:#f1f7f5;border:1px solid #9bb8ad;border-radius:4px;padding:.4rem .65rem;color:#254d40;font-size:.85rem;cursor:pointer;min-height:44px;min-width:44px}
 .graph-zoom button:hover {background:#deeee5}
+.graph-zoom button:disabled {opacity:.45;cursor:default;background:#f1f7f5}
 .graph-zoom output {font-size:.75rem;min-width:3rem;padding-left:.4rem}
 .graph-layout {display:grid;grid-template-columns:minmax(0,1fr) 19rem;gap:1.3rem;align-items:start}
 .graph-canvas {height:690px;max-height:80vh;overflow:auto;border:1px solid #b9cdd6;border-radius:6px;background:#fafcfb;overscroll-behavior:contain;scrollbar-width:auto;touch-action:pan-x pan-y}
