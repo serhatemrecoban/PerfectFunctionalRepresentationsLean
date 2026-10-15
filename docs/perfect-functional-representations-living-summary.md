@@ -71,6 +71,8 @@ this editorial convention changes no mathematical or execution contract.
 Website [link behavior](plans/pfr-website.md#link-behavior--2026-10-15) opens
 resources and cross-page text references in new tabs while preserving internal
 navigation and graph controls in the current tab.
+The website calls Lemma 4 the [operation-reordering lemma](plans/pfr-website.md#lemma-4-terminology--2026-10-15);
+Lean's normalization names remain unchanged, with an explanatory code comment.
 
 Read [AGENTS.md](../AGENTS.md) first, then the relevant routes below. Inspect
 actual source and pinned APIs before relying on a summary. Plans and review aid

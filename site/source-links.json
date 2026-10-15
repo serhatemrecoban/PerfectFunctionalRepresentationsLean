@@ -1,5 +1,5 @@
 {
-  "commit": "da44e39a2ec2936d32195dd97df21c1bd19e63bc",
+  "commit": "f8c89ee94513b544dc72b10fb4e91a046420c4a6",
   "repository": "https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean",
   "entries": [
     {
@@ -54,7 +54,7 @@
       "file": "PerfectFunctionalRepresentations/Matrix/OperationFactorization.lean",
       "line": 2058,
       "needle": "theorem normalize {S T : ActiveFiniteChannel alpha} (p : OperationPath S T)",
-      "label": "Lemma 4: ordered operation normal form"
+      "label": "Lemma 4: reordering the operations"
     },
     {
       "file": "PerfectFunctionalRepresentations/Matrix/CanonicalReachability.lean",

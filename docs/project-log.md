@@ -10108,3 +10108,32 @@ disclosures, keyboard navigation and clipboard behavior also pass; representativ
 renders were inspected. Publication remains behind the
 existing hosted compiler-backed API and all-module Lean checks; GitHub records
 their outcomes for this checkpoint.
+
+<a id="lemma-4-reordering-terminology"></a>
+
+## 198. Lemma 4 as the operation-reordering lemma — 2026-10-15
+
+Website exposition now calls Lemma 4 the operation-reordering lemma. Its
+discussion heading is “A finite construction for reordering operations
+(Lemma 4),” retaining the lemma references immediately above and below it.
+Overview, results, blueprint entries, graph previews and the argument guide use
+the same terminology. Stable fragment identifiers and probability/partition-weight
+normalization wording are preserved. Historical reports are not rewritten.
+
+Lean's `NormalForm` and `OperationPath.normalize` names are unchanged. Source
+checkpoint `f8c89ee94513b544dc72b10fb4e91a046420c4a6` replaces one blank line near
+the latter declaration with a comment explaining normalization as reordering into
+PPS/VPS/PPM normal form, not rescaling probabilities. API and website source links
+now point to that checkpoint. A comparison with the previous export confirms
+that all 992 declarations, types, docstrings and line numbers are unchanged;
+only their source URLs and provenance metadata change. Dependency pins, proof
+terms, contracts, coverage and graph dependencies are unchanged.
+
+Validation passes: touched module and important downstream builds, default
+`lake build`, compiler-backed API export, 88 website/policy/API/blueprint tests
+(one existing Windows symlink-privilege skip), source/link/freshness checks,
+static public-build gate, placeholder scan and diff hygiene. Twenty focused
+browser cases cover five pages at four widths, including the title, retained
+lemma mentions, graph previews and probability-normalization wording; renders
+were inspected. Hosted checks and publication outcomes attach to the resulting
+website commit in GitHub.

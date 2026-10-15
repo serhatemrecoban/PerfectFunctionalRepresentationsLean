@@ -347,3 +347,17 @@ HTML edits, run it normally; API and blueprint generators apply it themselves.
 Its `--check` mode checks all published HTML without writing. The policy tests
 and website guard run in CI alongside the existing compiler-backed checks.
 This changes browsing behavior, not mathematical content or dependency pins.
+
+## Lemma 4 terminology — 2026-10-15
+
+Website exposition calls Lemma 4 the operation-reordering lemma. The discussion
+heading includes “(Lemma 4)” as well as retaining the nearby lemma references.
+Lean names such as `NormalForm` and `OperationPath.normalize` remain unchanged;
+a code comment explains that normalization means reordering into PPS/VPS/PPM
+normal form, not rescaling probabilities. Probability and partition-weight
+normalization retain their existing terminology. Stable fragment identifiers
+are preserved, including `discussion.html#normalization`.
+
+The API and source-link snapshot is refreshed to `f8c89ee94513b544dc72b10fb4e91a046420c4a6`
+to include that comment. Declaration names, contracts, proofs and source line
+numbers are unchanged; the LeanInfoTheory v0.1.0 dependency pin is unchanged.

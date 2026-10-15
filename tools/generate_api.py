@@ -22,7 +22,7 @@ from website_links import apply_link_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "https://github.com/serhatemrecoban/PerfectFunctionalRepresentationsLean"
-SOURCE_COMMIT = "da44e39a2ec2936d32195dd97df21c1bd19e63bc"
+SOURCE_COMMIT = "f8c89ee94513b544dc72b10fb4e91a046420c4a6"
 CONFIG = ("lakefile.toml", "lake-manifest.json", "lean-toolchain")
 TOOL_FILES = ("tools/generate_api.py", "tools/export_api.lean", "tools/api_search.js", "tools/api_style.css",
               "tools/check_public_build.py", "tools/website_links.py")

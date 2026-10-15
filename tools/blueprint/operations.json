@@ -67,19 +67,19 @@
       "id": "lemma-4",
       "section": "normalization",
       "label": "Lemma 4",
-      "title": "An ordered normal form",
+      "title": "Reordering the operations",
       "kind": "lemma",
       "status": "formalized",
       "paper": "ISIT Section III-A, Lemma 4; extended Appendix B, Lemma 4 proof",
       "statement_html": "<p>Every finite PPS/VPS/PPM cascade from an active singular channel admits three homogeneous blocks: PPS, then VPS, then PPM. The resulting endpoint matches the original endpoint up to an explicit output bijection.</p>",
       "proof_html": "<p>Induct on the original finite path to construct a certificate recording weighted fragments and their support splits. Structural traversals of the certificate's finite splitting and gathering trees realize the three stages. The proof does not assume that repeatedly applying length-increasing local rewrites terminates.</p>",
-      "qualifier_html": "<p>Input is finite and nonempty; output is active and finite. This proves existence, not uniqueness, confluence or termination of every rewrite strategy. The paper uses normal form to explain the partition interpretation; Lean's Theorem 1 construction and equality-feasibility necessity proof do not invoke this general normalizer.</p>",
+      "qualifier_html": "<p>Input is finite and nonempty; output is active and finite. This proves existence, not uniqueness, confluence or termination of every rewrite strategy. The paper uses this three-stage ordering to explain the partition interpretation; Lean's Theorem 1 construction and equality-feasibility necessity proof do not invoke this general reordering construction.</p>",
       "declarations": [
         "PerfectFunctionalRepresentations.MatrixOperations.NormalForm",
         "PerfectFunctionalRepresentations.MatrixOperations.OperationPath.normalize"
       ],
       "depends": [
-        {"id": "column-operations", "type": "statement", "why": "The allowed paths and three normal-form blocks are built from PPS, VPS and PPM."}
+        {"id": "column-operations", "type": "statement", "why": "The allowed paths and three ordered blocks are built from PPS, VPS and PPM."}
       ]
     },
     {
@@ -134,7 +134,7 @@
       "paper": "ISIT Section III-B, Theorem 1 and Appendix; extended Section III-B, Theorem 1 proof",
       "statement_html": "<p>An active finite channel is perfectly representable exactly when it can be built from the one-output all-ones channel by PPS/VPS/PPM operations. Equivalently, it can be reduced to that seed by PPS/VPM/PPM operations.</p>",
       "proof_html": "<p>A perfect canonical witness gives an auxiliary channel reached both from the original channel and from the seed. Finite splitting constructions produce the two paths; compose one with the witnessed reverse of the other. The converse directions follow from the perfect seed and preservation.</p>",
-      "qualifier_html": "<p>Input is finite and nonempty; output is active and finite. The result is prior-free and retains explicit output bijections. This construction builds its own ordered stages, without calling Lemma 4's general normalizer.</p>",
+      "qualifier_html": "<p>Input is finite and nonempty; output is active and finite. The result is prior-free and retains explicit output bijections. This construction builds its own ordered stages, without invoking Lemma 4's reordering construction.</p>",
       "declarations": [
         "PerfectFunctionalRepresentations.MatrixOperations.isPerfectlyRepresentable_iff_fromAllOnes",
         "PerfectFunctionalRepresentations.MatrixOperations.isPerfectlyRepresentable_iff_toAllOnes"
@@ -221,7 +221,7 @@
       "paper": "ISIT Section IV-A, weight construction and equality criterion; extended Section IV-A, equations (45)–(63)",
       "statement_html": "<p>A finite singular channel with nonempty input is perfectly representable exactly when its reduced incidence system has nonnegative weights w satisfying Hw = v.</p>",
       "proof_html": "<p>For necessity, each supported canonical decoder partitions the input into its nonempty output fibres; aggregate decoder probabilities by the resulting partition. For sufficiency, realize the positive partition weights by PPS from the seed, split their supports by VPS, then merge equal patterns by PPM. Preservation proves the constructed channel perfect.</p>",
-      "qualifier_html": "<p>Zero weights are omitted from the concrete construction. The necessity proof extracts partitions directly; it does not call Theorem 1 or Lemma 4's general normalizer.</p>",
+      "qualifier_html": "<p>Zero weights are omitted from the concrete construction. The necessity proof extracts partitions directly; it does not call Theorem 1 or Lemma 4's reordering construction.</p>",
       "declarations": [
         "PerfectFunctionalRepresentations.Incidence.exists_feasible_of_isPerfectlyRepresentableChannel",
         "PerfectFunctionalRepresentations.Incidence.partitionConstruction",

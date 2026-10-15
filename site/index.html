@@ -34,7 +34,7 @@
 <li><a href="results.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Main results</a> — a short guide to the proved statements and their assumptions.</li>
 <li><a href="blueprint/index.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Mathematical blueprint</a> — individual definitions, results and examples, proof ideas and Lean links. Explore the <a href="blueprint/dep_graph_document.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">interactive dependency graph</a> or read <a href="blueprint/guide.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">how the ideas connect</a>.</li>
 <li><a href="api/index.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Lean API documentation</a> — searchable declarations, compiler-generated types and exact source links.</li>
-<li><a href="discussion.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Discussion and limitations</a> — scope, normalization proof feedback, LP indexing and library reuse.</li>
+<li><a href="discussion.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Discussion and limitations</a> — scope, the operation-reordering proof, LP indexing and library reuse.</li>
 <li><a href="reproduce.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Reproduce and cite</a> — installation, validation, dependency versions and attribution.</li>
 </ul>
 </section>
@@ -51,15 +51,15 @@
 <h2 id="results">Main formalized results</h2>
 <ul class="result-list">
 <li><a href="results.html#semantics" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint"><strong>Representations and binary cases.</strong></a> Canonicalization, singularity, maximal coupling and the attained binary information optimum.</li>
-<li><a href="results.html#operations" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint"><strong>A constructive normal form.</strong></a> Finite channel operations reorganized as proportional splits, support splits, then proportional merges.</li>
+<li><a href="results.html#operations" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint"><strong>Reordering the operations.</strong></a> Finite channel operations reorganized as proportional splits, support splits, then proportional merges.</li>
 <li><a href="results.html#characterization" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint"><strong>Perfect channels, characterized.</strong></a> Finite operation paths to and from a simple seed channel give an exact structural criterion.</li>
 <li><a href="results.html#optimization" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint"><strong>Primal and dual LP criteria.</strong></a> For finite singular channels, perfect representability is equivalent to an attained optimum of one.</li>
 </ul>
 </section>
 <section class="section" aria-labelledby="proof-feedback">
 <h2 id="proof-feedback">What formalization clarified</h2>
-<p>A finite cascade is not by itself a termination argument. Expanding local rewrites require more than an intuitive inversion count. The Lean proof establishes the normal-form theorem by induction on the original finite path, constructing a finite certificate and then realizing its three ordered blocks.</p>
-<p><a href="discussion.html#normalization" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Read how formal verification clarified the normalization proof.</a></p>
+<p>A finite cascade is not by itself a termination argument. Expanding local rewrites require more than an intuitive inversion count. The Lean proof establishes the operation-reordering lemma (Lemma 4) by induction on the original finite path, constructing a finite certificate and then realizing its three ordered blocks.</p>
+<p><a href="discussion.html#normalization" target="_blank" rel="noopener noreferrer" title="Opens in a new tab" aria-describedby="new-tab-hint">Read how formal verification clarified the proof of Lemma 4.</a></p>
 </section>
 <section class="section" aria-labelledby="library">
 <h2 id="library">Built on LeanInfoTheory</h2>

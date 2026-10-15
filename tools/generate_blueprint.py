@@ -25,7 +25,7 @@ SECTIONS = {
     "channels": "3. Perfect channels and singularity",
     "binary": "4. The binary optimum",
     "operations": "5. Column operations",
-    "normalization": "6. Normal form",
+    "normalization": "6. Reordering the operations",
     "preservation": "7. Preservation",
     "constructive": "8. Constructive characterization",
     "incidence": "9. Partition incidence",
@@ -237,7 +237,7 @@ def index_page(entries, api, manifest):
 <div class="bp-document">{''.join(body)}
 <section id="scope" class="bp-section"><h2>Scope and provenance</h2>
 <p>The target is the six-page ISIT 2026 paper. This blueprint covers that paper's numbered definitions, lemmas, theorems, corollary and examples, with the two remarks distinguished from new theorem claims. The extended companion supplied omitted proofs; only selected sections of its newer version have been compared. This is not complete coverage of the extended draft or of cited literature.</p>
-<p>Finite-auxiliary limits, prior support, the corrected full/reduced LP indexing, and the normalization proof are explained in <a href="../discussion.html">Discussion</a>. The <a href="{api['repository']}/blob/{api['source_commit']}/docs/pfr-c16-coverage-audit.md">coverage ledger</a> records the full internal disposition history. Supporting entries here are selected mathematical units, not every implementation helper.</p>
+<p>Finite-auxiliary limits, prior support, the corrected full/reduced LP indexing, and the proof of the reordering lemma are explained in <a href="../discussion.html">Discussion</a>. The <a href="{api['repository']}/blob/{api['source_commit']}/docs/pfr-c16-coverage-audit.md">coverage ledger</a> records the full internal disposition history. Supporting entries here are selected mathematical units, not every implementation helper.</p>
 <p>The structure follows the conventions of <a href="https://github.com/PatrickMassot/leanblueprint">Lean Blueprint</a>, using PFR's own static renderer and visual design. Graph edges are curated mathematical dependencies, not compiler-extracted calls; declaration links are checked against the compiler-backed API inventory.</p>
 <details><summary>Verified source anchor index</summary><ul class="bp-sources">{anchors}</ul></details>
 <p class="provenance">Source snapshot: <code>{api['source_commit']}</code>. LeanInfoTheory remains pinned to v0.1.0. The prose and graph are reviewed exposition, not an additional machine-checked proof.</p></section>
@@ -324,7 +324,7 @@ def graph_page(entries, api):
 <p class="small" id="graph-help">Scroll to explore; follow a node to its statement. With JavaScript, select a node for a preview, use the view selector to focus a topic, or zoom with the buttons. Drag empty canvas space to pan. Keyboard: Tab to nodes, Enter to preview; the canvas supports arrow-key scrolling.</p>
 <div class="graph-layout"><div id="graph-canvas" class="graph-canvas" tabindex="0" role="region" aria-label="Scrollable dependency graph" aria-describedby="graph-help">{graphs}</div><aside id="graph-preview" class="graph-preview" aria-live="polite"><h2>Explore a statement</h2><p>Select a node to read its statement and reveal its immediate prerequisites and uses. Use the full entry for proof ideas and exact Lean links.</p><p class="small">Topic views include prerequisite context. Muted nodes come from earlier sections.</p></aside></div>
 {templates}
-<div class="note graph-note"><p><strong>Why Lemma 4 is not on every path.</strong> The paper uses normal form to explain the partition-mixture picture. Lean proves Lemma 4 separately: Theorem 1 constructs its stages directly, and LP necessity extracts weights from decoder fibres. Accordingly, the graph adds no false Lemma 4 → Theorem 1 or Lemma 4 → LP proof edge. See <a href="guide.html">the argument guide</a>.</p></div>
+<div class="note graph-note"><p><strong>Why Lemma 4 is not on every path.</strong> The paper uses the three-stage ordering to explain the partition-mixture picture. Lean proves Lemma 4 separately: Theorem 1 constructs its stages directly, and LP necessity extracts weights from decoder fibres. Accordingly, the graph adds no false Lemma 4 → Theorem 1 or Lemma 4 → LP proof edge. See <a href="guide.html">the argument guide</a>.</p></div>
 <details class="graph-text"><summary>Text version: all entries and their direct dependencies</summary><p>Every arrow's rationale is recorded below. This list and the linked statement pages also work without JavaScript.</p>{listing}</details>
 <p class="provenance">Curated dependencies against source snapshot <code>{api['source_commit']}</code>; precise API contracts remain authoritative. This graph records the selected Lean proof routes, not every possible mathematical proof.</p></main>'''
 
