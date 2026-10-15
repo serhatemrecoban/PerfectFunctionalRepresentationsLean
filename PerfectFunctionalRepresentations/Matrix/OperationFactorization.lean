@@ -2050,7 +2050,7 @@ private theorem FactorizationCertificate.realize {S T : ActiveFiniteChannel alph
     exact (PM.leaf_coordinates j x).symm)
   exact ⟨⟨PP.endpoint, VP.endpoint, PM.endpoint, PP.path, VP.path, PM.path,
     PP.homogeneous, VP.homogeneous, PM.homogeneous, ho⟩⟩
-
+-- Here normalization means reordering into PPS/VPS/PPM normal form, not rescaling probabilities.
 namespace OperationPath
 
 /-- Lemma 4: every allowed concrete cascade from an active singular source has
